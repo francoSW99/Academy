@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+# Versiones publicadas por scripts/publicar.sh (Caddy sirve publicado/)
+publicado
+versiones/
+next-env.d.ts
+*.tsbuildinfo
+.env*

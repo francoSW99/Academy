@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Tokens provisorios: la dirección visual se define en la Fase 1 (DESIGN.md). */
+:root {
+  --fondo: #ffffff;
+  --tinta: #111111;
+  --tenue: #666666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0b0b0c;
+    --tinta: #ededed;
+    --tenue: #9a9a9a;
+  }
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-tinta: var(--tinta);
+  --color-tenue: var(--tenue);
+}
+
+body {
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: system-ui, sans-serif;
+}

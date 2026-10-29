@@ -1,0 +1,10 @@
+{
+  "sitio": {
+    "nombre": "Academy",
+    "descripcion": "Aprende IA, ML, Deep Learning y Data Science de forma visual e interactiva."
+  },
+  "portada": {
+    "enConstruccion": "En construcción",
+    "subtitulo": "La primera lección será «Cómo funciona un LLM»."
+  }
+}
