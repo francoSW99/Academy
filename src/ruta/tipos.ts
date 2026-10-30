@@ -46,6 +46,11 @@ export type ContenidoParada = {
   indicacion?: string[];
   /** Nombre de la escena interactiva que reemplaza al texto (Fase 3). */
   escena?: string;
+  /**
+   * Video hecho con ManimGX (lab/manim/estacion_NN.py, renderizado con scripts/escenas.sh).
+   * Archivos: public/escenas/NN/<nombre>-{blanca,negra}.{mp4,jpg}.
+   */
+  video?: { nombre: string; descripcion: string };
 };
 
 export type ContenidoEstacion = {
