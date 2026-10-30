@@ -26,7 +26,7 @@
   "estacion": {
     "estacionDe": "Estación {n} de {total} · Zona {zona} · {nombreZona}",
     "paradaDe": "Parada {n} de 7 · {nombre}",
-    "escenaPronto": "La escena interactiva de esta parada llega en la Fase 3.",
+    "escenaPronto": "Lo que se toca (mover la temperatura y tirar los dados tú mismo) llega en la Fase 3.",
     "anterior": "← {n} · {nombre}",
     "siguiente": "Siguiente parada: {n} · {nombre} →",
     "volverMapa": "Volver al mapa →",

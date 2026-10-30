@@ -269,6 +269,9 @@ La barra inferior de la pizarra tiene los capítulos (por ejemplo: 1 La frase ·
 ### Cuadros de probabilidad
 Cada token es una fila de 25 cuadros, y cada cuadro vale 4 %. Los vacíos usan `vacio`, los llenos `dato` y la fila elegida `elegida`. Al costado va el porcentaje exacto y, después de varias tiradas, el conteo (×12).
 
+### Video de escena (ManimGX)
+La parte que se reproduce de una pizarra puede ser un video hecho con ManimGX (`lab/manim/`), al estilo de 3Blue1Brown. Usa los mismos colores del tema: azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, y gris tenue para las leyendas. Cada escena se renderiza dos veces, una por tema, y la página muestra la que corresponde al modo del sistema. La parte que se toca sigue en React.
+
 ### Fórmula
 HTML con serif: variables en cursiva, subíndices y superíndices, y la variable que se manipula en el color del acento. Lleva `role="img"` con una descripción en palabras.
 

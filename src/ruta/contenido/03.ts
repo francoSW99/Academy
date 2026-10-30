@@ -8,11 +8,19 @@ export const estacion03: ContenidoEstacion = {
     1: {
       pregunta: "¿Por qué la misma pregunta da respuestas distintas?",
       texto: "Le preguntas lo mismo dos veces y responde distinto. A veces inventa un dato con total seguridad. Sin saber cómo genera texto, no sabes si eso es una falla o es el diseño.",
+      video: {
+        nombre: "problema",
+        descripcion: "La misma pregunta, «¿Cuál es la capital de Australia?», recibe dos respuestas: Canberra (verdadero) y Sídney (falso).",
+      },
     },
     2: {
       pregunta: "¿Cómo elige un LLM la siguiente palabra?",
       texto: "En cada paso le da una probabilidad a cada token que podría seguir y elige uno con esas probabilidades. La temperatura decide cuánto se arriesga.",
       escena: "muestreo",
+      video: {
+        nombre: "mecanismo",
+        descripcion: "La frase se corta en tokens, el modelo reparte probabilidades entre los que podrían seguir, tira los dados dos veces (sale Canberra y después Sídney) y la temperatura cambia el reparto.",
+      },
     },
     3: {
       pregunta: "Tres ideas para decidir bien",
@@ -34,6 +42,10 @@ export const estacion03: ContenidoEstacion = {
     5: {
       pregunta: "Dilo sin palabras técnicas",
       texto: "«Es un autocompletado gigante: lee todo lo que llevas escrito y apuesta por la palabra que suele venir después.» Si puedes decirlo así, lo entendiste.",
+      video: {
+        nombre: "sin-etiqueta",
+        descripcion: "«El cielo es» se completa palabra por palabra eligiendo la sugerencia más probable: azul, y, el.",
+      },
     },
     6: {
       pregunta: "Cómo pedírselo al agente",
