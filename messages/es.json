@@ -3,8 +3,39 @@
     "nombre": "Academy",
     "descripcion": "Aprende IA, ML, Deep Learning y Data Science de forma visual e interactiva."
   },
+  "cabecera": {
+    "mapa": "Mapa de la línea",
+    "grafo": "Grafo de BrainFran"
+  },
   "portada": {
-    "enConstruccion": "En construcción",
-    "subtitulo": "La primera lección será «Cómo funciona un LLM»."
+    "lineaDe": "Línea {n} · Pilar {n} de 2",
+    "lede": "Una línea de {total} estaciones, de lo básico a dirigir agentes como CEO/CTO. Se recorre en orden, y cada estación tiene 7 paradas en una pizarra.",
+    "avance": "{hechas} de {total} estaciones completadas · {abiertas} abierta(s)",
+    "proxima": "Tu próxima estación",
+    "entrar": "Entrar a la estación",
+    "mapaTitulo": "Sigue la línea de arriba hacia abajo",
+    "abierta": "Abierta · entrar →",
+    "completada": "Completada",
+    "estaciones": "{n} estaciones",
+    "destino": "Destino de la línea",
+    "comoSeRecorre": "Cómo se recorre una estación",
+    "comoSeRecorreTexto": "Siempre las mismas 7 paradas, en este orden:",
+    "enRevision": "Línea 2 · en revisión",
+    "enRevisionTexto": "{zonas} zonas. Se inaugura cuando estén juntas las fuentes."
+  },
+  "estacion": {
+    "estacionDe": "Estación {n} de {total} · Zona {zona} · {nombreZona}",
+    "paradaDe": "Parada {n} de 7 · {nombre}",
+    "escenaPronto": "La escena interactiva de esta parada llega en la Fase 3.",
+    "anterior": "← {n} · {nombre}",
+    "siguiente": "Siguiente parada: {n} · {nombre} →",
+    "volverMapa": "Volver al mapa →",
+    "marcarHecha": "Marcar como hecha",
+    "hecha": "Hecha",
+    "completada": "Estación completada.",
+    "proximaEstacion": "Próxima estación · pronto",
+    "material": "Material",
+    "queRevisar": "Qué revisar:",
+    "indicacion": "Lo que le pides al agente:"
   }
 }

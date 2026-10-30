@@ -1,28 +1,111 @@
 @import "tailwindcss";
 
-/* Tokens provisorios: la dirección visual se define en la Fase 1 (DESIGN.md). */
+/*
+ * Colores de DESIGN.md (UI provisional: para rediseñar, se cambia este bloque).
+ * Pizarra blanca por defecto; pizarra negra si el sistema está en modo oscuro.
+ */
 :root {
   --fondo: #ffffff;
-  --tinta: #111111;
-  --tenue: #666666;
+  --pizarra: #ffffff;
+  --pizarra-rejilla: #eef1f6;
+  --tinta: #15171c;
+  --tinta-2: #3d424b;
+  --tenue: #626875;
+  --borde: #e3e7ee;
+  --borde-fuerte: #c7cdd7;
+  --linea: #2b2f37;
+  --acento: #2457d6;
+  --acento-texto: #1f4fc4;
+  --acento-tinta: #ffffff;
+  --suave: rgba(36, 87, 214, 0.07);
+  --pulso: rgba(36, 87, 214, 0.3);
+  --verdadero: #1e7b45;
+  --falso: #c62828;
+  --l2: #c2410c;
+  --primario: #15171c;
+  --primario-tinta: #ffffff;
+  --codigo-fondo: #15171c;
+  --codigo-tinta: #f1f3f7;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fondo: #0b0b0c;
-    --tinta: #ededed;
-    --tenue: #9a9a9a;
+    --fondo: #0a0d13;
+    --pizarra: #0e121a;
+    --pizarra-rejilla: rgba(255, 255, 255, 0.045);
+    --tinta: #eceff4;
+    --tinta-2: #b9c0cc;
+    --tenue: #8b93a1;
+    --borde: rgba(255, 255, 255, 0.08);
+    --borde-fuerte: rgba(255, 255, 255, 0.18);
+    --linea: #b9c0cc;
+    --acento: #f5c451;
+    --acento-texto: #f5c451;
+    --acento-tinta: #1a1405;
+    --suave: rgba(245, 196, 81, 0.09);
+    --pulso: rgba(245, 196, 81, 0.4);
+    --verdadero: #83c167;
+    --falso: #fc6255;
+    --l2: #7fb2f0;
+    --primario: #eceff4;
+    --primario-tinta: #0a0d13;
+    --codigo-fondo: rgba(255, 255, 255, 0.06);
+    --codigo-tinta: #eceff4;
+    color-scheme: dark;
   }
 }
 
 @theme inline {
   --color-fondo: var(--fondo);
+  --color-pizarra: var(--pizarra);
   --color-tinta: var(--tinta);
+  --color-tinta-2: var(--tinta-2);
   --color-tenue: var(--tenue);
+  --color-borde: var(--borde);
+  --color-borde-fuerte: var(--borde-fuerte);
+  --color-linea: var(--linea);
+  --color-acento: var(--acento);
+  --color-acento-texto: var(--acento-texto);
+  --color-acento-tinta: var(--acento-tinta);
+  --color-suave: var(--suave);
+  --color-verdadero: var(--verdadero);
+  --color-falso: var(--falso);
+  --color-l2: var(--l2);
+  --color-primario: var(--primario);
+  --color-primario-tinta: var(--primario-tinta);
+  --color-codigo-fondo: var(--codigo-fondo);
+  --color-codigo-tinta: var(--codigo-tinta);
+  --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
 }
 
 body {
   background: var(--fondo);
   color: var(--tinta);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.pizarra {
+  background-color: var(--pizarra);
+  background-image:
+    linear-gradient(var(--pizarra-rejilla) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pizarra-rejilla) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes pulso {
+  0% { box-shadow: 0 0 0 0 var(--pulso); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aqui { animation: pulso 2.4s ease-out infinite; }
 }
