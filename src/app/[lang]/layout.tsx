@@ -23,6 +23,14 @@ export default async function LayoutIdioma({ children, params }: Props) {
   if (!esIdioma(lang)) notFound();
   return (
     <html lang={lang}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

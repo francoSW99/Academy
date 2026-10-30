@@ -14,3 +14,8 @@ export function esIdioma(valor: string): valor is Idioma {
 export function textos(idioma: Idioma) {
   return mensajes[idioma];
 }
+
+/** Reemplaza {clave} en un texto: rellenar("Estación {n}", { n: 3 }). */
+export function rellenar(texto: string, valores: Record<string, string | number>) {
+  return texto.replace(/\{(\w+)\}/g, (_, clave: string) => String(valores[clave] ?? `{${clave}}`));
+}
