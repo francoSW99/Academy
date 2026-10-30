@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Academy · Lección · Pizarra en metro (papel)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.f-tema-papel{--fondo:#ffffff;--rejilla:#ffffff;--pizarra:#ffffff;--pizarra-rejilla:#eef1f6;--tinta:#15171c;--tinta-2:#3d424b;--tenue:#626875;--borde:#e3e7ee;--borde-fuerte:#c7cdd7;--linea:#2b2f37;--acento:#2457d6;--acento-texto:#1f4fc4;--acento-tinta:#ffffff;--suave:rgba(36,87,214,.07);--pulso:rgba(36,87,214,.3);--elegida:#2457d6;--dato:#86a9e6;--vacio:#eef1f6;--verdadero:#1e7b45;--falso:#c62828;--l2:#c2410c;--primario:#15171c;--primario-tinta:#ffffff;--codigo-fondo:#15171c;--codigo-tinta:#f1f3f7;color-scheme:light}
+.f-tema-pizarra{--fondo:#0a0d13;--rejilla:rgba(255,255,255,.028);--pizarra:#0e121a;--pizarra-rejilla:rgba(255,255,255,.045);--tinta:#eceff4;--tinta-2:#b9c0cc;--tenue:#8b93a1;--borde:rgba(255,255,255,.08);--borde-fuerte:rgba(255,255,255,.18);--linea:#b9c0cc;--acento:#f5c451;--acento-texto:#f5c451;--acento-tinta:#1a1405;--suave:rgba(245,196,81,.09);--pulso:rgba(245,196,81,.4);--elegida:#f5c451;--dato:#5b9be6;--vacio:rgba(255,255,255,.06);--verdadero:#83c167;--falso:#fc6255;--l2:#7fb2f0;--primario:#eceff4;--primario-tinta:#0a0d13;--codigo-fondo:rgba(255,255,255,.06);--codigo-tinta:#eceff4;color-scheme:dark}
+.f-raiz{background-color:var(--fondo);background-image:linear-gradient(var(--rejilla) 1px,transparent 1px),linear-gradient(90deg,var(--rejilla) 1px,transparent 1px);background-size:32px 32px}
+.f-tablero{background-color:var(--pizarra);background-image:linear-gradient(var(--pizarra-rejilla) 1px,transparent 1px),linear-gradient(90deg,var(--pizarra-rejilla) 1px,transparent 1px);background-size:24px 24px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acento);outline-offset:3px;border-radius:10px}
+.f-fila:hover{background:var(--suave)}
+.f-boton:hover{filter:brightness(1.1)}
+.f-boton-2:hover{background:var(--suave) !important}
+.f-link:hover{color:var(--tinta) !important}
+.f-parada:hover .f-parada-nombre{text-decoration:underline}
+button:disabled{cursor:default !important}
+@keyframes f-entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes f-cuadro{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes f-pulso{0%{box-shadow:0 0 0 0 var(--pulso)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes f-parpadeo{50%{opacity:0}}
+@media (prefers-reduced-motion: no-preference){.f-entra{animation:f-entra .5s cubic-bezier(.2,.7,.2,1) both}.f-cuadro{animation:f-cuadro .45s cubic-bezier(.2,.7,.2,1) both}.f-aqui{animation:f-pulso 2.4s ease-out infinite}.f-cursor{animation:f-parpadeo 1.1s steps(1) infinite}}
+@media (prefers-reduced-motion: reduce){.f-anim{transition:none !important}}
+</style>
+</helmet>
+<div class="f-raiz {{temaClase}}" style="min-height: 100vh; font-family: 'Google Sans Flex', 'Google Sans', Arial, sans-serif; color: var(--tinta)">
+
+  <header style="border-bottom: 1px solid var(--borde)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); min-height: 68px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; min-width: 0">
+        <a href="{{portadaHref}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--tinta); text-decoration: none">
+          <span aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, 7px); gap: 2px">
+            <span style="width: 7px; height: 7px; border-radius: 2px; background: var(--acento)"></span>
+            <span style="width: 7px; height: 7px; border-radius: 2px; background: var(--acento)"></span>
+            <span style="width: 7px; height: 7px; border-radius: 2px; background: var(--acento)"></span>
+            <span style="width: 7px; height: 7px; border-radius: 2px; background: var(--acento)"></span>
+          </span>
+          <span style="font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Academy</span>
+        </a>
+        <nav aria-label="Migas de pan" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; font-size: 14px; color: var(--tenue)">
+          <a class="f-link" href="{{portadaHref}}" style="display: inline-flex; align-items: center; min-height: 44px; color: var(--tenue); text-decoration: none">Línea 1</a>
+          <span aria-hidden="true">/</span>
+          <span>Zona 1 · Fundamentos</span>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page" style="color: var(--tinta)">Estación 3</span>
+        </nav>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+        <div role="group" aria-label="Tema" style="display: flex; padding: 3px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra)">
+          <button type="button" onClick="{{aPapel}}" aria-pressed="{{papel.presionado}}" style="min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: {{papel.fondo}}; color: {{papel.tinta}}; font: inherit; font-size: 14px; cursor: pointer">Blanca</button>
+          <button type="button" onClick="{{aPizarra}}" aria-pressed="{{pizarra.presionado}}" style="min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: {{pizarra.fondo}}; color: {{pizarra.tinta}}; font: inherit; font-size: 14px; cursor: pointer">Negra</button>
+        </div>
+        <div role="group" aria-label="Idioma" style="display: flex; padding: 3px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 13px">
+          <button type="button" aria-pressed="true" style="min-height: 38px; padding: 0 12px; border: 0; border-radius: 999px; background: var(--suave); color: var(--tinta); font: inherit">ES</button>
+          <button type="button" disabled="{{true}}" title="Inglés: pronto" style="min-height: 38px; padding: 0 12px; border: 0; border-radius: 999px; background: transparent; color: var(--tenue); font: inherit">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 40px) 4px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+      <div style="display: flex; align-items: center; gap: clamp(14px, 2vw, 22px); min-width: 0">
+        <span aria-hidden="true" style="flex: none; width: clamp(54px, 5.5vw, 72px); height: clamp(54px, 5.5vw, 72px); box-sizing: border-box; border-radius: 50%; border: 3px solid var(--acento); display: flex; align-items: center; justify-content: center; font-family: 'Newsreader', Georgia, serif; font-size: clamp(26px, 2.8vw, 36px); line-height: 1; color: var(--acento-texto)">3</span>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <span style="font-size: 14px; color: var(--tenue)">Estación 3 de 16 · Zona 1 · Fundamentos</span>
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.04; letter-spacing: -0.015em; font-weight: 400">Cómo funciona un LLM</h1>
+        </div>
+      </div>
+      <a class="f-boton-2" href="{{portadaHref}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--borde-fuerte); color: var(--tinta); font-size: 15px; text-decoration: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8H3M7 4L3 8l4 4"></path></svg>Mapa de la línea</a>
+    </div>
+  </section>
+
+  <nav aria-label="Paradas de esta estación" style="max-width: 1200px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 24px">
+    <div style="overflow-x: auto">
+      <ol style="list-style: none; margin: 0; padding: 4px 2px 6px; min-width: 840px; display: grid; grid-template-columns: repeat(7, minmax(116px, 1fr))">
+        <sc-for list="{{paradas}}" as="p" hint-placeholder-count="7">
+          <li style="position: relative">
+            <span aria-hidden="true" class="f-anim" style="position: absolute; top: 13px; left: 14px; right: 0; height: 3px; background: {{p.riel}}; transition: background-color 400ms ease"></span>
+            <button type="button" class="f-parada" onClick="{{p.ir}}" aria-current="{{p.aria}}" style="position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; min-height: 44px; padding: 0 12px 4px 0; border: 0; background: transparent; color: {{p.color}}; font: inherit; text-align: left; cursor: pointer">
+              <span class="{{p.clase}}" style="width: 29px; height: 29px; box-sizing: border-box; border-radius: 50%; border: 3px solid {{p.borde}}; background: {{p.relleno}}; color: {{p.numTinta}}; display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600; line-height: 1; transition: background-color 300ms ease, border-color 300ms ease"><sc-if value="{{p.hecho}}" hint-placeholder-val="{{false}}"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"></path></svg></sc-if><sc-if value="{{p.noHecho}}" hint-placeholder-val="{{true}}">{{p.n}}</sc-if></span>
+              <span style="display: flex; flex-direction: column; gap: 2px">
+                <span class="f-parada-nombre" style="font-size: 15px; line-height: 1.25; font-weight: {{p.peso}}">{{p.nombre}}</span>
+                <span style="font-size: 12.5px; line-height: 1.3; color: var(--tenue)">{{p.tipo}}</span>
+              </span>
+            </button>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </nav>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px) 40px; display: flex; flex-direction: column; gap: 18px">
+
+    <section class="f-tablero" aria-labelledby="f-pregunta" style="border-radius: 20px; border: 1px solid var(--borde); overflow: hidden; display: flex; flex-direction: column">
+      <div style="padding: clamp(20px, 3vw, 44px); min-height: 500px; box-sizing: border-box; display: flex; flex-direction: column; gap: 26px">
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; font-size: 13px; color: var(--tenue)">
+          <span>Parada {{paradaN}} de 7 · {{paradaNombre}}</span>
+          <span>{{paradaEtiqueta}}</span>
+        </div>
+        <h2 id="f-pregunta" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(26px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -0.01em; font-weight: 400">{{paradaPregunta}}</h2>
+
+        <sc-if value="{{en1}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 22px">
+            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+              <span class="f-entra" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 18px">¿Cuál es la capital de Australia?</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-left: clamp(0px, 4vw, 48px)">
+                <span class="f-entra" style="display: inline-flex; flex-direction: column; gap: 4px; padding: 12px 18px; border-radius: 14px; border: 1px solid var(--borde); background: var(--pizarra); animation-delay: 350ms">
+                  <span style="font-size: 13px; color: var(--tenue)">Intento 1</span>
+                  <span style="font-size: 20px; font-weight: 500">Canberra</span>
+                  <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 14px; color: var(--verdadero)">verdadero</span>
+                </span>
+                <span class="f-entra" style="display: inline-flex; flex-direction: column; gap: 4px; padding: 12px 18px; border-radius: 14px; border: 1px solid var(--borde); background: var(--pizarra); animation-delay: 750ms">
+                  <span style="font-size: 13px; color: var(--tenue)">Intento 2</span>
+                  <span style="font-size: 20px; font-weight: 500">Sídney</span>
+                  <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 14px; color: var(--falso)">falso</span>
+                </span>
+              </div>
+              <span class="f-entra" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: var(--tenue); animation-delay: 1100ms"><span aria-hidden="true" style="width: 32px; border-top: 1.5px dotted currentColor"></span>misma pregunta, mismo modelo, dos respuestas</span>
+            </div>
+            <p style="margin: 0; max-width: 38em; font-size: 18px; line-height: 1.6; color: var(--tinta-2); text-wrap: pretty">A veces inventa un dato con total seguridad. Sin saber cómo genera texto, no sabes si eso es una falla o es el diseño. En la parada 2 lo ves por dentro.</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{en2}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 26px">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+              <sc-for list="{{frase}}" as="tk" hint-placeholder-count="5">
+                <span class="f-anim" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; box-sizing: border-box; border-radius: 8px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 18px; opacity: {{tk.op}}; transform: translateY({{tk.dy}}); transition: opacity 420ms ease {{tk.retraso}}, transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1) {{tk.retraso}}">{{tk.texto}}</span>
+              </sc-for>
+              <span class="f-anim" style="display: inline-flex; align-items: center; justify-content: center; min-width: 56px; min-height: 40px; padding: 0 12px; box-sizing: border-box; border-radius: 8px; border: 1.5px dashed {{hueco.borde}}; background: {{hueco.fondo}}; color: {{hueco.tinta}}; font-size: 18px; font-weight: 500; opacity: {{hueco.op}}; transition: opacity 420ms ease 600ms, background-color 200ms ease, border-color 200ms ease"><sc-if value="{{hay}}" hint-placeholder-val="{{true}}">{{huecoTexto}}</sc-if><sc-if value="{{noHay}}" hint-placeholder-val="{{false}}"><span class="f-cursor">?</span></sc-if></span>
+              <span class="f-anim" style="display: inline-flex; align-items: center; gap: 8px; margin-left: 6px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: var(--tenue); opacity: {{anotaOp}}; transition: opacity 500ms ease 900ms"><span aria-hidden="true" style="width: 32px; border-top: 1.5px dotted currentColor"></span>siguiente token</span>
+            </div>
+            <ul aria-label="Probabilidad de cada token" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+              <sc-for list="{{barras}}" as="b" hint-placeholder-count="5">
+                <li style="display: grid; grid-template-columns: minmax(84px, 120px) minmax(0, 1fr) 58px; align-items: center; gap: 16px">
+                  <span style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+                    <span style="font-size: 16px; font-weight: {{b.peso}}; color: {{b.colorTexto}}">{{b.texto}}</span>
+                    <span class="f-anim" style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 14px; color: {{b.tagColor}}; opacity: {{b.tagOp}}; transition: opacity 400ms ease">{{b.tag}}</span>
+                  </span>
+                  <span aria-hidden="true" style="display: grid; grid-template-columns: repeat(25, minmax(0, 1fr)); gap: clamp(2px, 0.3vw, 4px)">
+                    <sc-for list="{{b.cuadros}}" as="c" hint-placeholder-count="25">
+                      <span class="f-anim" style="aspect-ratio: 1; border-radius: 3px; background: {{c.color}}; transition: background-color 260ms ease {{c.retraso}}"></span>
+                    </sc-for>
+                  </span>
+                  <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; font-variant-numeric: tabular-nums">
+                    <span style="font-size: 15px">{{b.pct}}</span>
+                    <span style="font-size: 12.5px; color: var(--tenue)">{{b.cuenta}}</span>
+                  </span>
+                </li>
+              </sc-for>
+            </ul>
+            <div class="f-anim" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; padding-top: 22px; border-top: 1px solid var(--borde); opacity: {{t4Op}}; transition: opacity 500ms ease">
+              <div role="img" aria-label="p prima sub i es igual a p sub i elevado a 1 sobre T, dividido por la suma de p sub j elevado a 1 sobre T" style="display: inline-flex; align-items: center; gap: 12px; font-family: 'Newsreader', Georgia, serif; font-size: 26px; line-height: 1">
+                <span><i>p</i>′<sub style="font-size: 0.6em"><i>i</i></sub></span>
+                <span>=</span>
+                <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px">
+                  <span><i>p</i><sub style="font-size: 0.6em"><i>i</i></sub><sup style="font-size: 0.6em">1/<i style="color: var(--acento-texto)">T</i></sup></span>
+                  <span style="align-self: stretch; height: 1px; background: currentColor"></span>
+                  <span><span style="font-size: 1.1em">Σ</span><sub style="font-size: 0.6em"><i>j</i></sub> <i>p</i><sub style="font-size: 0.6em"><i>j</i></sub><sup style="font-size: 0.6em">1/<i style="color: var(--acento-texto)">T</i></sup></span>
+                </span>
+              </div>
+              <div style="flex: 1 1 240px; display: flex; align-items: center; gap: 12px">
+                <label for="f-temp" style="font-size: 15px; font-weight: 500; white-space: nowrap">Temperatura <i style="font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: var(--acento-texto)">T</i></label>
+                <input id="f-temp" type="range" min="0" max="20" step="1" value="{{t}}" onChange="{{onTemp}}" disabled="{{inactivo}}" aria-valuetext="{{tTexto}}" style="flex: 1 1 auto; min-width: 0; min-height: 44px; accent-color: var(--acento)">
+                <span style="min-width: 2.4em; text-align: right; font-size: 15px; font-variant-numeric: tabular-nums">{{tTexto}}</span>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                <button type="button" class="f-boton" onClick="{{tirarUna}}" disabled="{{inactivo}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--primario); color: var(--primario-tinta); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Tirar 1 vez</button>
+                <button type="button" class="f-boton-2" onClick="{{tirarVeinte}}" disabled="{{inactivo}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--borde-fuerte); background: transparent; color: var(--tinta); font: inherit; font-size: 15px; cursor: pointer">Tirar 20 veces</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{en3}}" hint-placeholder-val="{{false}}">
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; max-width: 780px">
+            <li class="f-entra" style="display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: baseline; animation-delay: 100ms"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1; color: var(--acento-texto)">1</span><span style="font-size: 20px; line-height: 1.5">Predice lo más probable, no consulta la verdad: el contexto que le das manda.</span></li>
+            <li class="f-entra" style="display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: baseline; animation-delay: 350ms"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1; color: var(--acento-texto)">2</span><span style="font-size: 20px; line-height: 1.5">No es determinista: el mismo prompt puede dar respuestas distintas, así que lo importante se valida.</span></li>
+            <li class="f-entra" style="display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: baseline; animation-delay: 600ms"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1; color: var(--acento-texto)">3</span><span style="font-size: 20px; line-height: 1.5">Entender cómo funciona por dentro te deja optimizar todo lo que construyas encima.</span></li>
+          </ol>
+        </sc-if>
+
+        <sc-if value="{{en4}}" hint-placeholder-val="{{false}}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+            <div class="f-entra" style="border-radius: 16px; border: 1px solid var(--borde); background: var(--pizarra); padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; animation-delay: 100ms">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: var(--falso)">falla 1</span>
+              <span style="font-size: 21px; font-weight: 500">Alucina con seguridad</span>
+              <span style="font-size: 16px; line-height: 1.55; color: var(--tinta-2)">Una respuesta falsa puede ser la más probable si el contexto no la corrige.</span>
+              <span style="font-size: 14.5px; line-height: 1.5; color: var(--tenue)">Se nota cuando da datos exactos sin fuente.</span>
+            </div>
+            <div class="f-entra" style="border-radius: 16px; border: 1px solid var(--borde); background: var(--pizarra); padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; animation-delay: 350ms">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: var(--falso)">falla 2</span>
+              <span style="font-size: 21px; font-weight: 500">Cambia sin aviso</span>
+              <span style="font-size: 16px; line-height: 1.55; color: var(--tinta-2)">El mismo prompt da respuestas distintas.</span>
+              <span style="font-size: 14.5px; line-height: 1.5; color: var(--tenue)">Se nota cuando algo pasa la prueba y falla después.</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{en5}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 16px">
+            <blockquote class="f-entra" style="margin: 0; max-width: 24em; font-family: 'Newsreader', Georgia, serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.3; letter-spacing: -0.01em">«Es un autocompletado gigante: lee todo lo que llevas escrito y apuesta por la palabra que suele venir después.»</blockquote>
+            <p class="f-entra" style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--tenue); animation-delay: 400ms">Si puedes decirlo así, lo entendiste. Si no, vuelve a la parada 2.</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{en6}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 18px; max-width: 780px">
+            <span style="font-size: 15px; color: var(--tenue)">Lo que le pides al agente:</span>
+            <div class="f-entra" style="padding: 18px 20px; border-radius: 14px; background: var(--codigo-fondo); color: var(--codigo-tinta); font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; line-height: 1.7; display: flex; flex-direction: column">
+              <span>Responde solo con la información del contexto.</span>
+              <span>Si no está, di «no lo sé».</span>
+            </div>
+            <p class="f-entra" style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--tinta-2); animation-delay: 300ms">Para tareas que deben repetirse igual: temperatura baja y salida con esquema (JSON). Baja la variación, pero no garantiza la verdad.</p>
+            <div class="f-entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; animation-delay: 550ms">
+              <span style="font-size: 14px; color: var(--tenue); margin-right: 4px">Qué revisar:</span>
+              <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 14.5px">Datos sin fuente</span>
+              <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 14.5px">Cifras demasiado exactas</span>
+              <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 14.5px">Respuestas que cambian</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{en7}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 18px; max-width: 780px">
+            <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 12px; border-radius: 999px; border: 1px solid var(--borde); background: var(--pizarra); font-size: 13.5px; color: var(--tinta-2)"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--verdadero)"></span>Riesgo bajo · solo mira</span>
+            <p class="f-entra" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3">Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--tenue)">Usa la simulación de la parada 2: busca la temperatura en la que empieza a fallar.</p>
+            <button type="button" onClick="{{marcar}}" aria-pressed="{{hechaTexto}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid {{botonBorde}}; background: {{botonFondo}}; color: {{botonTinta}}; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><sc-if value="{{hecha}}" hint-placeholder-val="{{false}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"></path></svg></sc-if>{{botonTexto}}</button>
+            <sc-if value="{{hecha}}" hint-placeholder-val="{{false}}"><p class="f-entra" style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--acento-texto)">Estación completada. La próxima, Arquitectura de una app de IA, llega pronto.</p></sc-if>
+          </div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{en2}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding: 12px clamp(14px, 2vw, 20px); border-top: 1px solid var(--borde); background: var(--pizarra)">
+          <ol aria-label="Momentos de la escena" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px">
+            <sc-for list="{{capitulos}}" as="c" hint-placeholder-count="4">
+              <li>
+                <button type="button" onClick="{{c.ir}}" aria-current="{{c.aria}}" style="display: flex; flex-direction: column; gap: 6px; min-width: 104px; min-height: 44px; padding: 6px 10px; border: 0; border-radius: 10px; background: transparent; color: {{c.color}}; font: inherit; font-size: 13px; text-align: left; cursor: pointer">
+                  <span aria-hidden="true" class="f-anim" style="display: block; height: 3px; border-radius: 2px; background: {{c.barra}}; transition: background-color 300ms ease"></span>
+                  <span>{{c.n}} · {{c.nombre}}</span>
+                </button>
+              </li>
+            </sc-for>
+          </ol>
+          <div style="display: flex; align-items: center; gap: 6px">
+            <button type="button" class="f-boton-2" onClick="{{anterior}}" aria-label="Momento anterior" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--borde); background: transparent; color: var(--tinta); display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5L5.5 8l4.5 4.5"></path></svg></button>
+            <button type="button" class="f-boton" onClick="{{reproducir}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--primario); color: var(--primario-tinta); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer"><sc-if value="{{reproduciendo}}" hint-placeholder-val="{{false}}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="3.5" y="2.8" width="3" height="10.4" rx="1"></rect><rect x="9.5" y="2.8" width="3" height="10.4" rx="1"></rect></svg></sc-if><sc-if value="{{detenido}}" hint-placeholder-val="{{true}}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2.8v10.4L13 8z"></path></svg></sc-if>{{playTexto}}</button>
+            <button type="button" class="f-boton-2" onClick="{{siguiente}}" aria-label="Momento siguiente" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--borde); background: transparent; color: var(--tinta); display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5L10.5 8 6 12.5"></path></svg></button>
+          </div>
+        </div>
+      </sc-if>
+    </section>
+
+    <sc-if value="{{en2}}" hint-placeholder-val="{{true}}"><p aria-live="polite" style="margin: 0; max-width: 46em; font-size: 18px; line-height: 1.55; color: var(--tinta); text-wrap: pretty">{{narracion}}</p></sc-if>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 4px">
+      <span style="display: flex">
+        <sc-if value="{{hayAnterior}}" hint-placeholder-val="{{true}}"><button type="button" class="f-boton-2" onClick="{{anteriorParada}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--borde-fuerte); background: transparent; color: var(--tinta); font: inherit; font-size: 15px; cursor: pointer">{{anteriorTexto}}</button></sc-if>
+      </span>
+      <span style="display: flex">
+        <sc-if value="{{haySiguiente}}" hint-placeholder-val="{{true}}"><button type="button" class="f-boton" onClick="{{siguienteParada}}" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--primario); color: var(--primario-tinta); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">{{siguienteTexto}}</button></sc-if>
+        <sc-if value="{{esUltima}}" hint-placeholder-val="{{false}}"><a class="f-boton" href="{{portadaHref}}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--primario); color: var(--primario-tinta); font-size: 15px; font-weight: 500; text-decoration: none">Volver al mapa →</a></sc-if>
+      </span>
+    </div>
+  </main>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px) 56px">
+    <div style="border-radius: 18px; border: 1.5px dashed var(--borde-fuerte); padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+      <span style="display: flex; align-items: center; gap: 14px">
+        <span aria-hidden="true" style="flex: none; width: 38px; height: 38px; box-sizing: border-box; border-radius: 50%; border: 3px solid var(--borde-fuerte); display: flex; align-items: center; justify-content: center; font-family: 'Newsreader', Georgia, serif; font-size: 18px; line-height: 1; color: var(--tenue)">4</span>
+        <span style="display: flex; flex-direction: column; gap: 2px">
+          <span style="font-size: 13px; color: var(--tenue)">Próxima estación · pronto</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px; line-height: 1.2">Arquitectura de una app de IA</span>
+        </span>
+      </span>
+      <a class="f-boton-2" href="{{portadaHref}}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--borde-fuerte); color: var(--tinta); font-size: 15px; text-decoration: none">Ver el mapa</a>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid var(--borde)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; font-size: 14px; color: var(--tenue)">
+      <span>Academy · academy.woorky.app</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 0 24px">
+        <a class="f-link" href="https://academy.woorky.app/obsidian/" style="display: inline-flex; align-items: center; min-height: 44px; color: var(--tenue); text-decoration: none">Grafo de BrainFran</a>
+        <a class="f-link" href="https://woorky.app/" style="display: inline-flex; align-items: center; min-height: 44px; color: var(--tenue); text-decoration: none">Woorky</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tema":{"editor":"enum","options":["papel","pizarra"],"default":"papel"},"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    this.state = { tema: null, parada: 2, hecha: false, beat: 4, t: 10, tiradas: [1], rodando: false, foco: -1, ola: false, reproduciendo: false };
+  }
+  componentWillUnmount() {
+    this.pararPaso();
+    this.pararRuleta();
+    clearTimeout(this._olaT);
+  }
+  pararPaso() {
+    clearTimeout(this._paso);
+    this._paso = null;
+  }
+  pararRuleta() {
+    clearTimeout(this._ruleta);
+    this._ruleta = null;
+  }
+  probabilidades() {
+    const base = [0.58, 0.27, 0.08, 0.04, 0.03];
+    const T = this.state.t / 10;
+    if (T === 0) return base.map((p, i) => (i === 0 ? 1 : 0));
+    const pesos = base.map((p) => Math.pow(p, 1 / T));
+    const total = pesos.reduce((a, b) => a + b, 0);
+    return pesos.map((w) => w / total);
+  }
+  sortear(ps) {
+    let r = Math.random();
+    for (let i = 0; i < ps.length; i++) {
+      r -= ps[i];
+      if (r < 0) return i;
+    }
+    return ps.length - 1;
+  }
+  tirar() {
+    this.pararRuleta();
+    const ps = this.probabilidades();
+    const destino = this.sortear(ps);
+    const candidatos = ps.map((p, i) => i).filter((i) => ps[i] > 0.004);
+    let k = -1;
+    let paso = 0;
+    const tic = () => {
+      k = (k + 1) % candidatos.length;
+      paso += 1;
+      const foco = candidatos[k];
+      if (paso >= 10 && foco === destino) {
+        this._ruleta = null;
+        this.setState({ rodando: false, foco: -1, tiradas: [destino] });
+        return;
+      }
+      this.setState({ rodando: true, foco });
+      this._ruleta = setTimeout(tic, 55 + paso * 10);
+    };
+    this.setState({ tiradas: [] });
+    tic();
+  }
+  tirarVeinte() {
+    this.pararRuleta();
+    const ps = this.probabilidades();
+    const tiradas = [];
+    for (let k = 0; k < 20; k++) tiradas.push(this.sortear(ps));
+    this.setState({ tiradas, rodando: false, foco: -1 });
+  }
+  irA(n, auto) {
+    this.pararPaso();
+    this.pararRuleta();
+    clearTimeout(this._olaT);
+    const cambios = { beat: n, ola: n === 2, rodando: false, foco: -1 };
+    if (n < 3) cambios.tiradas = [];
+    this.setState(cambios);
+    if (n === 2) this._olaT = setTimeout(() => this.setState({ ola: false }), 1700);
+    if (n === 3) this.tirar();
+    if (auto) this.programarSiguiente(n);
+  }
+  programarSiguiente(b) {
+    if (b >= 4) {
+      this.setState({ reproduciendo: false });
+      return;
+    }
+    const espera = [450, 1500, 1900, 2700][b];
+    this._paso = setTimeout(() => this.irA(b + 1, true), espera);
+  }
+  reproducir() {
+    if (this.state.reproduciendo) {
+      this.pararPaso();
+      this.setState({ reproduciendo: false });
+      return;
+    }
+    const desde = this.state.beat >= 4 ? 0 : this.state.beat;
+    this.setState({ reproduciendo: true });
+    if (desde === 0) this.irA(0, true);
+    else this.programarSiguiente(desde);
+  }
+  manual(n) {
+    this.setState({ reproduciendo: false });
+    this.irA(Math.max(0, Math.min(4, n)), false);
+  }
+  irParada(n) {
+    const m = Math.max(1, Math.min(7, n));
+    if (m !== 2) {
+      this.pararPaso();
+      this.pararRuleta();
+      this.setState({ parada: m, reproduciendo: false, rodando: false, foco: -1 });
+    } else {
+      this.setState({ parada: m });
+    }
+  }
+  renderVals() {
+    const base = this.props.tema ?? 'papel';
+    const tema = this.state.tema ?? base;
+    const sufijo = base === 'pizarra' ? 'Pizarra' : 'Papel';
+    const s = this.state;
+    const beat = s.beat;
+    const ps = this.probabilidades();
+    const T = s.t / 10;
+    const info = [
+      { nombre: 'El problema', tipo: 'Qué falla sin esto', etiqueta: 'Escena', pregunta: '¿Por qué la misma pregunta da respuestas distintas?' },
+      { nombre: 'El mecanismo', tipo: 'Simulación', etiqueta: 'Simulación · probabilidades de ejemplo', pregunta: '¿Cómo elige un LLM la siguiente palabra?' },
+      { nombre: 'El criterio', tipo: 'Cuándo usarlo y cuándo no', etiqueta: 'Escena', pregunta: 'Tres ideas para decidir bien' },
+      { nombre: 'Cómo falla', tipo: 'Errores típicos', etiqueta: 'Escena', pregunta: 'Dos fallas típicas y cómo se notan' },
+      { nombre: 'Sin la etiqueta', tipo: 'Dicho en simple', etiqueta: 'Escena', pregunta: 'Dilo sin palabras técnicas' },
+      { nombre: 'Dirígelo', tipo: 'Cómo pedírselo al agente', etiqueta: 'Escena', pregunta: 'Cómo pedírselo al agente' },
+      { nombre: 'Práctica', tipo: 'Tu ejercicio', etiqueta: 'Ejercicio', pregunta: 'Tu turno' }
+    ];
+    const actualInfo = info[s.parada - 1];
+    const paradas = info.map((p, i) => {
+      const n = i + 1;
+      const actual = n === s.parada;
+      const hecho = !actual && (n < s.parada || s.hecha);
+      return {
+        n: String(n),
+        nombre: p.nombre,
+        tipo: p.tipo,
+        hecho,
+        noHecho: !hecho,
+        aria: actual ? 'step' : 'false',
+        riel: i === info.length - 1 ? 'transparent' : (n + 1 <= s.parada || s.hecha) ? 'var(--linea)' : 'var(--borde-fuerte)',
+        borde: actual ? 'var(--acento)' : hecho ? 'var(--linea)' : 'var(--borde-fuerte)',
+        relleno: actual ? 'var(--acento)' : hecho ? 'var(--linea)' : 'var(--fondo)',
+        numTinta: actual ? 'var(--acento-tinta)' : hecho ? 'var(--pizarra)' : 'var(--tenue)',
+        clase: actual ? 'f-aqui' : '',
+        color: actual ? 'var(--tinta)' : 'var(--tinta-2)',
+        peso: actual ? '600' : '400',
+        ir: () => this.irParada(n)
+      };
+    });
+    const tokens = [
+      { texto: 'Canberra', tag: 'verdadero', ok: true },
+      { texto: 'Sídney', tag: 'falso', ok: false },
+      { texto: 'Melbourne', tag: 'falso', ok: false },
+      { texto: 'una', tag: 'sigue la frase', ok: null },
+      { texto: 'la', tag: 'sigue la frase', ok: null }
+    ];
+    const elegido = beat >= 3 && s.tiradas.length ? s.tiradas[s.tiradas.length - 1] : -1;
+    const cuentas = tokens.map((_, i) => s.tiradas.filter((x) => x === i).length);
+    const muchas = s.tiradas.length > 1;
+    const pct = (p) => (p === 0 ? '0 %' : p < 0.005 ? '<1 %' : Math.round(p * 100) + ' %');
+    const barras = tokens.map((tk, i) => {
+      const llenos = beat >= 2 ? Math.round(ps[i] * 25) : 0;
+      const resaltada = (s.rodando && s.foco === i) || (!s.rodando && elegido === i);
+      const cuadros = [];
+      for (let j = 0; j < 25; j++) {
+        cuadros.push({
+          color: j < llenos ? (resaltada ? 'var(--elegida)' : 'var(--dato)') : 'var(--vacio)',
+          retraso: s.ola ? (i * 90 + j * 22) + 'ms' : '0ms'
+        });
+      }
+      return {
+        texto: tk.texto,
+        tag: tk.tag,
+        tagColor: tk.ok === false ? 'var(--falso)' : tk.ok ? 'var(--verdadero)' : 'var(--tenue)',
+        tagOp: beat >= 3 ? '1' : '0',
+        peso: resaltada ? '600' : '400',
+        colorTexto: resaltada ? 'var(--acento-texto)' : 'var(--tinta)',
+        pct: beat >= 2 ? pct(ps[i]) : '—',
+        cuenta: muchas ? '×' + cuentas[i] : '',
+        cuadros
+      };
+    });
+    const frase = ['La', 'capital', 'de', 'Australia', 'es'].map((texto, i) => ({
+      texto,
+      op: beat >= 1 ? '1' : '0',
+      dy: beat >= 1 ? '0px' : '10px',
+      retraso: beat >= 1 ? (i * 110) + 'ms' : '0ms'
+    }));
+    const huecoTexto = s.rodando && s.foco >= 0 ? tokens[s.foco].texto : elegido >= 0 ? tokens[elegido].texto : '';
+    const elegidoFijo = !s.rodando && elegido >= 0;
+    const hueco = {
+      op: beat >= 1 ? '1' : '0',
+      borde: elegidoFijo || s.rodando ? 'var(--acento)' : 'var(--borde-fuerte)',
+      fondo: elegidoFijo ? 'var(--acento)' : 'transparent',
+      tinta: elegidoFijo ? 'var(--acento-tinta)' : s.rodando ? 'var(--acento-texto)' : 'var(--tenue)'
+    };
+    const resultado = (i) => {
+      const tk = tokens[i];
+      if (tk.ok === false) return 'Salió «' + tk.texto + '»: falso, pero probable. Eso es una alucinación.';
+      if (tk.ok) return 'Salió «' + tk.texto + '». Acertó por probabilidad, no porque sepa geografía.';
+      return 'Salió «' + tk.texto + '»: la frase sigue por otro camino.';
+    };
+    const tMsg = T === 0 ? 'Con T = 0 siempre gana el más probable.'
+      : T < 0.7 ? 'Con T baja casi siempre gana el más probable.'
+      : T <= 1.3 ? 'Con T cerca de 1 respeta las probabilidades del modelo.'
+      : 'Con T alta lo improbable gana terreno.';
+    const falsos = cuentas[1] + cuentas[2];
+    let narracion = 'Pulsa «Reproducir» y la escena se arma paso a paso.';
+    if (beat === 1) narracion = 'Le damos al modelo el comienzo de una frase. Tiene que adivinar el siguiente token.';
+    else if (beat === 2) narracion = 'No busca la respuesta: reparte probabilidades entre los tokens que podrían seguir. Cada cuadro es un 4 %.';
+    else if (beat === 3) narracion = s.rodando || elegido < 0 ? 'Ahora tira los dados con esas probabilidades…' : resultado(elegido) + ' Nadie le dijo cuál era verdad.';
+    else if (beat === 4) {
+      if (s.rodando) narracion = 'Tirando los dados…';
+      else if (muchas) narracion = 'En 20 tiradas dijo algo falso ' + falsos + (falsos === 1 ? ' vez. ' : ' veces. ') + tMsg;
+      else if (elegido >= 0) narracion = resultado(elegido) + ' ' + tMsg;
+      else narracion = 'La temperatura T decide cuánto se arriesga. Muévela y vuelve a tirar.';
+    }
+    const capitulos = [
+      { n: '1', nombre: 'La frase' },
+      { n: '2', nombre: 'Probabilidades' },
+      { n: '3', nombre: 'Elegir' },
+      { n: '4', nombre: 'Temperatura' }
+    ].map((c, i) => ({
+      ...c,
+      barra: beat >= i + 1 ? 'var(--acento)' : 'var(--borde-fuerte)',
+      color: beat === i + 1 ? 'var(--tinta)' : 'var(--tenue)',
+      aria: beat === i + 1 ? 'step' : 'false',
+      ir: () => this.manual(i + 1)
+    }));
+    const boton = (activo) => ({
+      presionado: activo ? 'true' : 'false',
+      fondo: activo ? 'var(--primario)' : 'transparent',
+      tinta: activo ? 'var(--primario-tinta)' : 'var(--tenue)'
+    });
+    const hecha = s.hecha;
+    const previa = info[s.parada - 2];
+    const proxima = info[s.parada];
+    return {
+      temaClase: tema === 'pizarra' ? 'f-tema-pizarra' : 'f-tema-papel',
+      papel: boton(tema !== 'pizarra'),
+      pizarra: boton(tema === 'pizarra'),
+      aPapel: () => this.setState({ tema: 'papel' }),
+      aPizarra: () => this.setState({ tema: 'pizarra' }),
+      portadaHref: 'F-Portada-' + sufijo + '.dc.html',
+      paradas,
+      paradaN: String(s.parada),
+      paradaNombre: actualInfo.nombre,
+      paradaEtiqueta: actualInfo.etiqueta,
+      paradaPregunta: actualInfo.pregunta,
+      en1: s.parada === 1,
+      en2: s.parada === 2,
+      en3: s.parada === 3,
+      en4: s.parada === 4,
+      en5: s.parada === 5,
+      en6: s.parada === 6,
+      en7: s.parada === 7,
+      hayAnterior: s.parada > 1,
+      anteriorTexto: previa ? '← ' + (s.parada - 1) + ' · ' + previa.nombre : '',
+      anteriorParada: () => this.irParada(s.parada - 1),
+      haySiguiente: s.parada < 7,
+      siguienteTexto: proxima ? 'Siguiente parada: ' + (s.parada + 1) + ' · ' + proxima.nombre + ' →' : '',
+      siguienteParada: () => this.irParada(s.parada + 1),
+      esUltima: s.parada === 7,
+      frase,
+      hueco,
+      huecoTexto,
+      hay: huecoTexto !== '',
+      noHay: huecoTexto === '',
+      anotaOp: beat >= 1 ? '1' : '0',
+      barras,
+      t4Op: beat >= 4 ? '1' : '0',
+      inactivo: beat < 4,
+      t: s.t,
+      tTexto: T.toFixed(1).replace('.', ','),
+      onTemp: (e) => {
+        this.pararRuleta();
+        this.setState({ t: Number(e.target.value), tiradas: [], rodando: false, foco: -1 });
+      },
+      tirarUna: () => this.tirar(),
+      tirarVeinte: () => this.tirarVeinte(),
+      capitulos,
+      anterior: () => this.manual(beat - 1),
+      siguiente: () => this.manual(beat + 1),
+      reproducir: () => this.reproducir(),
+      reproduciendo: s.reproduciendo,
+      detenido: !s.reproduciendo,
+      playTexto: s.reproduciendo ? 'Pausa' : beat >= 4 ? 'Repetir escena' : 'Reproducir',
+      narracion,
+      hecha,
+      hechaTexto: hecha ? 'true' : 'false',
+      botonTexto: hecha ? 'Hecha' : 'Marcar como hecha',
+      botonFondo: hecha ? 'var(--primario)' : 'transparent',
+      botonTinta: hecha ? 'var(--primario-tinta)' : 'var(--tinta)',
+      botonBorde: hecha ? 'var(--primario)' : 'var(--borde-fuerte)',
+      marcar: () => this.setState({ hecha: !this.state.hecha })
+    };
+  }
+}
+</script>
+</body>
+</html>

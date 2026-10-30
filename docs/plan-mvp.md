@@ -11,6 +11,8 @@
 2. Acceso: **pública, sin login**; el avance se guarda en el navegador.
 3. Idiomas: **español primero**, con la estructura lista para sumar inglés sin rehacer nada.
 4. Diseño: **Claude propone 2 o 3 mockups** y Fran elige uno antes de construir.
+5. Diseño elegido (2026-10-30): **F · Pizarra en metro**, con la pizarra blanca como tema principal y la negra como opción. El detalle está en `DESIGN.md`.
+6. Repo **público** en GitHub: https://github.com/francoSW99/Academy (2026-10-29).
 
 ## Stack (decisión técnica de Claude)
 | Pieza | Elección | Por qué |
@@ -33,16 +35,16 @@
 2. Crear el proyecto Next.js en la raíz con la estructura de CLAUDE.md: `src/`, `content/`, `lab/`, `docs/`.
 3. Copiar este plan a `docs/plan-mvp.md`.
 4. Script `scripts/publicar.sh`: `npm run build` → copia `out/` a `publicado/` con un cambio atómico (así nunca se sirve una versión a medias).
-- **Pendiente para Fran**: ¿repo en GitHub (privado)? Sin remoto, todo queda solo en la VM.
+- Hecho (2026-10-29): repo público en https://github.com/francoSW99/Academy.
 
-### Fase 1 · Dirección visual (~1 sesión + tu elección)
-1. Hacer 2 o 3 mockups como páginas para ver (Artifact): la portada con el mapa de la ruta y una lección con un interactivo.
-2. Fran elige uno.
-3. Escribir `DESIGN.md` en Academy (colores, tipografía, movimiento), como el de BrainFran.
+### Fase 1 · Dirección visual (hecha el 2026-10-30)
+1. En el lienzo quedaron seis direcciones (A a F), cada una con portada y lección: https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
+2. Fran eligió **F · Pizarra en metro** en blanco: el orden de metro de C con el estilo minimal de pizarra de E.
+3. `DESIGN.md` quedó escrito, y las maquetas aprobadas están en `docs/diseno/`.
 
 ### Fase 2 · El esqueleto (~2 sesiones)
-1. **Portada `/es/`**: el mapa de la ruta del Pilar 1 (5 etapas, 16 bloques). Los bloques sin lección se ven como «próximamente». El Pilar 2 aparece «en revisión», igual que en la nota.
-2. **Plantilla de lección**: las 6 secciones del método + práctica + material (los videos de `04-Biblioteca/Videos/AIagents/` como enlaces).
+1. **Portada `/es/`**: el mapa de metro del Pilar 1 (5 zonas, 16 estaciones) y el cartel «Tu próxima estación», según `DESIGN.md`. Las estaciones sin lección se ven como «próximamente», y el Pilar 2 aparece como la Línea 2 «en revisión».
+2. **Plantilla de lección**: cartel de estación, línea de 7 paradas (las 6 del método más la práctica) y la pizarra con momentos, según `DESIGN.md`. El material (los videos de `04-Biblioteca/Videos/AIagents/`) va al final de la estación.
 3. **Avance**: marcar secciones vistas y la práctica hecha (`localStorage`).
 4. **Datos de la ruta**: `src/ruta/pilar1.ts` copiado a mano de la nota. La nota sigue siendo la fuente de verdad; más adelante un script la puede leer.
 
