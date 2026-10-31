@@ -3,6 +3,8 @@
 Plataforma educativa para aprender conceptos complejos de AI Agents, ML, Deep Learning y Data Science.
 Vive en https://academy.woorky.app/ (el grafo de BrainFran sigue en `/obsidian/`).
 
+**¿Cómo va el proyecto?** Mira [AVANCE.md](AVANCE.md): en qué etapa está, qué está hecho y qué falta.
+
 ## Estructura
 - `src/`: la plataforma (Next.js con export estático).
 - `content/`: las lecciones, por idioma (`content/es/…`).
