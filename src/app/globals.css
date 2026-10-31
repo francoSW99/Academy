@@ -106,6 +106,12 @@ body {
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .aqui { animation: pulso 2.4s ease-out infinite; }
+  /* Aparece con un retraso propio (--retraso): las tiradas caen una tras otra. */
+  .aparece { animation: aparecer 260ms ease-out both; animation-delay: var(--retraso, 0ms); }
 }

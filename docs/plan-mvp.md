@@ -53,7 +53,7 @@ Cuatro interactivos para el MVP:
 1. **Tokenizador**: escribes un texto y se ve cortado en tokens, con su número y el costo. Contraste español vs. inglés (en español salen más tokens).
 2. **Ventana de contexto**: una barra que se llena con cada turno de una conversación hasta que lo viejo se cae o se compacta.
 3. **Prefill y decode**: línea de tiempo animada. Lee todo el prompt de una vez y después escribe token a token. Muestra por qué un prompt largo tarda en empezar.
-4. **Muestreo**: perillas de temperatura, top-k y top-p sobre probabilidades reales. Se ve cómo cambia el token elegido y por qué un modelo puede «alucinar» (elige lo probable, no lo verdadero).
+4. **Muestreo** (hecho el 2026-10-31, parada 2): perillas de temperatura, top-k y top-p sobre probabilidades reales de `deepseek-r1:8b`. Tres frases: el planeta más caliente (lo probable es lo correcto), la capital de Turquía (lo probable es falso: Estambul 48 % contra Ankara 28 %) y «Había una vez un» (no hay respuesta correcta). Las perillas se aplican token por token sobre un árbol de tokens, como en el modelo.
 - **Práctica del bloque** (de la nota): explicar con un ejemplo propio por qué un modelo alucina y qué lo reduce.
 - **Fuera del MVP**, quedan para la siguiente vuelta del bloque 3: embeddings, tool use, salidas estructuradas, modelos con razonamiento, entrenamiento en 3 pasos y modelos abiertos vs. cerrados.
 - **Implementación técnica** (regla de CLAUDE.md): `lab/muestreo/` con el script que saca los logprobs de Ollama. Es el código «de verdad» detrás del interactivo.

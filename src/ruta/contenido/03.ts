@@ -1,6 +1,6 @@
 import type { ContenidoEstacion } from "../tipos";
 
-// Textos cortos sacados de la nota (Pilar 1 · bloque 3). Las escenas interactivas llegan en la Fase 3.
+// Textos cortos sacados de la nota (Pilar 1 · bloque 3). Las escenas interactivas están en src/componentes/escenas/.
 export const estacion03: ContenidoEstacion = {
   n: "03",
   resumen: "Un LLM no consulta la verdad: predice el siguiente token más probable. Alucinar, variar y costar salen de ahí.",
@@ -35,7 +35,7 @@ export const estacion03: ContenidoEstacion = {
       pregunta: "Dos fallas típicas y cómo se notan",
       texto: "Las dos salen del mismo mecanismo: elegir por probabilidad.",
       puntos: [
-        "Alucina con seguridad: una respuesta falsa puede ser la más probable. Se nota cuando da datos exactos sin fuente.",
+        "Alucina con seguridad: una respuesta falsa puede ser la más probable (en la parada 2, Estambul le gana a Ankara). Se nota cuando da datos exactos sin fuente.",
         "Cambia sin aviso: el mismo prompt da respuestas distintas. Se nota cuando algo pasa la prueba y falla después.",
       ],
     },
@@ -55,7 +55,7 @@ export const estacion03: ContenidoEstacion = {
     },
     7: {
       pregunta: "Tu turno",
-      texto: "Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce. Usa la parada 2 para encontrar la temperatura en la que empieza a fallar.",
+      texto: "Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce. Antes, en la parada 2, compara el planeta y Turquía: ¿en cuál bajar la temperatura arregla el error y en cuál no?",
     },
   },
   material: [

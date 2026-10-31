@@ -266,8 +266,8 @@ Superficie con cuadrícula, borde fino y 20 px de esquina. Arriba dice «Parada 
 ### Momentos de la escena (reproductor)
 La barra inferior de la pizarra tiene los capítulos (por ejemplo: 1 La frase · 2 Probabilidades · 3 Elegir · 4 Temperatura), cada uno con su rayita de avance, y los botones anterior, Reproducir o Pausa, y siguiente. La narración va debajo de la pizarra y se lee en voz alta (`aria-live`).
 
-### Cuadros de probabilidad
-Cada token es una fila de 25 cuadros, y cada cuadro vale 4 %. Los vacíos usan `vacio`, los llenos `dato` y la fila elegida `elegida`. Al costado va el porcentaje exacto y, después de varias tiradas, el conteo (×12).
+### Barras de probabilidad y ruleta (escena interactiva)
+Cada palabra que podría seguir es una fila: la palabra en serif, una barra continua, el porcentaje exacto y ✓ o ✗ si la frase tiene respuesta. El color de la barra dice qué es: verde si es verdadera, rojo si es falsa, el acento si la frase sigue y gris para «otras N palabras». Las filas guardan el orden de temperatura 1, así no saltan al mover las perillas. Debajo va la ruleta: la misma distribución en una franja, donde el dado cae en un punto al azar (un pin que rueda desde la izquierda y se frena en 0,7 s). Después de varias tiradas, cada una es una rayita en la ruleta y el conteo (×12) va al costado de cada fila. Con movimiento reducido, el pin aparece directo en su lugar. (Reemplaza a los 25 cuadros del mockup F: con barras se ven también los valores chicos.)
 
 ### Video de escena (ManimGX)
 La parte que se reproduce de una pizarra puede ser un video hecho con ManimGX (`lab/manim/`), al estilo de 3Blue1Brown. Usa los mismos colores del tema: azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, y gris tenue para las leyendas. Cada escena se renderiza dos veces, una por tema, y la página muestra la que corresponde al modo del sistema. La parte que se toca sigue en React.
