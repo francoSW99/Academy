@@ -13,16 +13,15 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓▓▓░` 20 de 23 tareas del MVP (87 %).
-- **Hecho:** Fases 0 a 3. La estación 03, «Cómo funciona un LLM», está completa: 7 paradas, 3 videos y 4 escenas interactivas.
-- **Falta:** la Fase 4, publicar en academy.woorky.app. Son 3 tareas y unos 30 minutos. Hoy el sitio no es público.
+- **Avance:** `▓▓▓▓▓▓▓▓▓▓` 23 de 23 tareas del MVP (100 %). **MVP terminado.**
+- **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», está completa (7 paradas, 3 videos y 4 escenas interactivas) y **es pública** en https://academy.woorky.app/es/ desde el 2026-10-31.
+- **Falta:** nada del MVP. Lo que sigue lo eliges tú en «Después del MVP».
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este mismo resumen. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
 ### Decisiones que te tocan
 
-1. **¿Publicamos ya?** Es la Fase 4: el curso queda abierto en internet. Para hacerlo: «dale Fase 4».
-2. **¿Qué viene después del MVP?** Hay cuatro caminos (ver «Después del MVP»):
+1. **¿Qué viene después del MVP?** Hay cuatro caminos (ver «Después del MVP»):
    - más temas del bloque 3;
    - la siguiente estación;
    - el inglés;
@@ -76,10 +75,10 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
   - 2026-10-31
 - [x] Práctica del bloque (parada 7): explicar por qué alucina un modelo y marcarla como hecha · 2026-10-30
 
-### ⏳ Fase 4 · Publicar · 0 de 3 · espera tu OK
-- [ ] Cambiar el Caddyfile (`BrainFran/tools/academy/Caddyfile`): `/` lleva a `/es/` y `/obsidian/` queda igual
-- [ ] Reiniciar el servicio `brainfran-academy`
-- [ ] Probar que https://academy.woorky.app/es/ y `/obsidian/` respondan
+### ✅ Fase 4 · Publicar · 3 de 3 · 2026-10-31
+- [x] Cambiar el Caddyfile (`BrainFran/tools/academy/Caddyfile`): `/` lleva a `/es/` y `/obsidian/` queda igual · 2026-10-31
+- [x] Armar la versión con `npm run publicar` y reiniciar el servicio `brainfran-academy` · 2026-10-31
+- [x] Probar en internet: `/es/`, las 7 paradas, los videos, las escenas desde el celular y `/obsidian/` · 2026-10-31
 
 ---
 
@@ -99,6 +98,7 @@ Todavía no hay nada elegido. Tú decides el orden.
 - [ ] **Rediseño de la interfaz** a tu gusto: la actual es provisional.
 - [ ] **Enlaces a las notas del grafo** desde cada lección. Necesita un cambio en BrainFran.
 - [ ] **Ícono del sitio** (favicon): hoy no hay y el navegador da un error 404.
+- [ ] **Página «no encontrada» en español:** hoy sale la de Next.js, en inglés.
 
 ---
 
@@ -129,16 +129,16 @@ Todavía no hay nada elegido. Tú decides el orden.
 | 21 | 2026-10-31 | Ver el tablero cada vez que se termina un trabajo y recibir el resumen «Dónde estamos» | El link fijo al tablero y el resumen al final de cada entrega (PR #6) |
 | 22 | 2026-10-31 | Ver el avance aquí, en el chat de Claude Code, en cada respuesta | Cada respuesta termina con «Dónde estamos». Un hook de Claude Code le pasa este tablero a Claude en cada mensaje tuyo |
 | 23 | 2026-10-31 | «Mezcla el PR 6» | PR #6 mezclado: el tablero queda en `main`, con link fijo |
+| 24 | 2026-10-31 | «Dale publica todo» | Sitio público en https://academy.woorky.app/es/ (Fase 4). MVP terminado |
 
 ---
 
 ## Dónde está cada cosa
 
-- **El curso:** todavía no está en internet.
-  - Cuando se publique, va a estar en https://academy.woorky.app/es/
-  - Mientras tanto, se ve en la VM con `npm run dev`, en http://localhost:3000/es/
+- **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
+  - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados.
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados, y el #7 marca la publicación.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.
