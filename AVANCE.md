@@ -126,7 +126,7 @@ Todavía no hay nada elegido. Tú decides el orden.
 | 18 | 2026-10-31 | «Sigue» | Escena «Lee rápido, escribe lento» (PR #5) |
 | 19 | 2026-10-31 | «Mezcla el PR 5» | PR #5 mezclado: Fase 3 completa |
 | 20 | 2026-10-31 | Un archivo para seguir el avance, porque estabas perdido | Este tablero, `AVANCE.md` (PR #6) |
-| 21 | 2026-10-31 | Ver el tablero cada vez que se termina un trabajo y recibir el resumen «Dónde estamos» | El link fijo al tablero y el resumen al final de cada entrega. PR #6 mezclado |
+| 21 | 2026-10-31 | Ver el tablero cada vez que se termina un trabajo y recibir el resumen «Dónde estamos» | El link fijo al tablero y el resumen al final de cada entrega (PR #6) |
 
 ---
 
@@ -136,7 +136,7 @@ Todavía no hay nada elegido. Tú decides el orden.
   - Cuando se publique, va a estar en https://academy.woorky.app/es/
   - Mientras tanto, se ve en la VM con `npm run dev`, en http://localhost:3000/es/
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados.
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #5 ya están mezclados, y el #6 es este tablero.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.
