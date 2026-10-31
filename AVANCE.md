@@ -16,7 +16,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 - **Avance:** `▓▓▓▓▓░░░░░` 23 de 45 tareas del plan (51 %). El MVP está al 100 %.
 - **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
 - **Falta:** las fases 5 a 10: el pulido del sitio y 5 estaciones más, unas 5 semanas.
-- **Lo próximo:** F5 · Pulido del sitio (1 sesión): ícono, página «no encontrada» en español y vista previa al compartir el link.
+- **Lo próximo:** F5 · Pulido del sitio, ahora con UI y UX. El diagnóstico del sitio en vivo está hecho (5 problemas de uso). Falta que elijas A o B en «Decisiones que te tocan».
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -25,7 +25,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ```text
                                       oct S1  S2  S3  S4  S5  S6
 F0–4  MVP: estación 03 pública        ███
-F5    Pulido del sitio                    ▓▓
+F5    Pulido del sitio + UX               ▓▓
 F6    Estación 04 · App de IA               ░░░░
 F7    Estación 05 · RAG                         ░░░░
 F8    Estación 02 · Git                             ░░
@@ -51,6 +51,10 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 ### Decisiones que te tocan
 
 1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+2. **¿Cómo atacamos la UI y la UX?** (pedido 27)
+   - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
+   - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
+   - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -62,7 +66,7 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F5 Pulido del sitio :active, f5, 2026-11-02, 3d
+    F5 Pulido del sitio + UX :active, f5, 2026-11-02, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
@@ -127,10 +131,18 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 5 · Pulido del sitio · 0 de 3 · semana 1
+### ▶ Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
+
+**Diagnóstico de UI y UX · 2026-10-31.** Hecho con capturas del sitio en vivo, en escritorio (1440 px) y en celular (390 px). Se vuelve tareas cuando elijas A o B:
+1. **Una parada es una página muy larga.** La parada 2 mide 3.000 px en escritorio y 4.000 en el celular: un video y 2 escenas dentro de una sola pizarra. `DESIGN.md` pide una idea por pizarra.
+2. **En el celular no se ve en qué parada estás.** La línea de paradas muestra solo de la 1 a la 3. En la parada 6, la tuya queda fuera de la pantalla.
+3. **No retoma donde quedaste.** «Entrar a la estación» siempre lleva a la parada 1, y la portada no muestra cuántas paradas viste.
+4. **El video tapa su propia frase.** Los controles del video cubren la última línea de la escena («Elige por probabilidad, no por verdad»).
+5. **El mapa tiene ruido para quien llega.** Las etiquetas «L2 · 27–28» salen en 8 estaciones sin explicación, y las 15 estaciones cerradas no dicen «pronto».
+- Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
 - [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
@@ -200,6 +212,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 | 24 | 2026-10-31 | «Dale publica todo» | Sitio público en https://academy.woorky.app/es/ (Fase 4). MVP terminado |
 | 25 | 2026-10-31 | Saber qué camino sigue y ver el plan siempre claro, tipo carta Gantt | Plan de acción F5–F10 con carta Gantt en el tablero y al final de cada respuesta |
 | 26 | 2026-10-31 | Ver «Dónde estamos» y la carta Gantt en cualquier proyecto, no solo en Academy | Hook global de Claude Code: en cada repo lee su `AVANCE.md`, y si no hay, pide crearlo |
+| 27 | 2026-10-31 | Trabajar ahora en la UI y la UX: «prepárate» | Diagnóstico del sitio en vivo (escritorio y celular): 5 problemas de uso y la decisión A o B |
 
 ---
 
