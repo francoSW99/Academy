@@ -13,29 +13,29 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓░░░░░░` 23 de 51 tareas del plan (45 %). El MVP está al 100 %. El plan sumó 6 tareas urgentes (Fase 4b).
+- **Avance:** `▓▓▓▓▓░░░░░` 23 de 50 tareas del plan (46 %). El MVP está al 100 %. El plan suma las 5 tareas urgentes de la Fase 4b.
 - **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
-- **Falta:** la Fase 4b, urgente (unas 2 sesiones): cambiar mis videos por canvas interactivos y videos de YouTube. Después, las fases 5 a 10.
-- **Lo próximo:** que apruebes el plan de la Fase 4b. Con tu «dale», saco los 3 videos del sitio público en 15 minutos.
+- **Falta:** la Fase 4b, urgente (2 o 3 sesiones): canvas interactivos con ManimGX en lugar de mis videos, y tarjetas de tu biblioteca de videos. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes el plan corregido de la Fase 4b. Con tu «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
 ## Plan de acción
 
 ```text
-                                      oct S1  S2  S3  S4  S5  S6
+                                      oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
-F4b   Canvas y YouTube (urgente)          ▓▓
-F5    Pulido del sitio + UX                 ░░
-F6    Estación 04 · App de IA                 ░░░░
-F7    Estación 05 · RAG                           ░░░░
-F8    Estación 02 · Git                               ░░
-F9    Estación 01 · Base de software                    ░░░░
-F10   Estación 13 · Evals                                   ░░░░
-Después: 06–08 agentes · inglés · UI                            ···
+F4b   Canvas y videos (urgente)           ▓▓▓
+F5    Pulido del sitio + UX                  ░░
+F6    Estación 04 · App de IA                  ░░░░
+F7    Estación 05 · RAG                            ░░░░
+F8    Estación 02 · Git                                ░░
+F9    Estación 01 · Base de software                     ░░░░
+F10   Estación 13 · Evals                                    ░░░░
+Después: 06–08 agentes · inglés · UI                             ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
-S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic
+S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
 ```
 
 Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana y se ajusta cada semana.
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas el plan de la Fase 4b?** (pedido 28, urgente) Con «dale», saco los 3 videos del sitio en 15 minutos y sigo con el resto. Ese «dale» vale como OK para publicar el primer paso. Lo demás lo publico cuando lo apruebes con las capturas.
+1. **¿Apruebas el plan corregido de la Fase 4b?** (pedidos 28 y 29, urgente) Con «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos. Ese «dale» vale como OK para publicar ese primer paso. Los canvas los publico cuando apruebes las capturas.
 2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
    - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
@@ -68,7 +68,7 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F4b Canvas y YouTube · urgente :active, f4b, 2026-11-02, 2d
+    F4b Canvas y videos · urgente :active, f4b, 2026-11-02, 4d
     F5 Pulido del sitio + UX :f5, after f4b, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
@@ -134,18 +134,18 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Canvas y videos de YouTube · urgente · 0 de 6 · propuesta, espera tu OK
-Pedido 28. Los 3 videos de la estación 03 los hice yo con ManimGX, y eso no va. Las reglas nuevas:
-1. **Claude nunca hace videos.**
-2. **Lo que se explica con movimiento es un canvas interactivo:** se dibuja en vivo en la página con Motion, se pausa y se toca.
-3. **Los videos son originales de YouTube,** de canales educativos conocidos y con crédito al canal. Van solo donde suman, no en todas las paradas.
+### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 0 de 5 · propuesta, espera tu OK
+Pedidos 28 y 29. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
+1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
+2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
+3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
+4. **Los videos salen de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`), con vista previa y enlace directo a YouTube. Sus ideas alimentan los canvas, y van solo donde suman.
 
-- [ ] Sacar del sitio público los 3 videos que hice (paradas 1, 2 y 5) · 15 min
-- [ ] Corregir las reglas en todos lados: la memoria de Claude, `DESIGN.md` y este tablero. Borrar del repo `lab/manim/`, `scripts/escenas.sh` y los videos · 30 min
-- [ ] Componente para videos de YouTube: miniatura, crédito al canal, solo el tramo que importa y subtítulos · 1 h
-- [ ] Videos de YouTube para la estación 03, solo donde suman: paradas 2, 3 y 5 · 1 h
-- [ ] 3 canvas con movimiento en lugar de los videos (paradas 1, 2 y 5) · 1 o 2 sesiones
-- [ ] Revisar en computador y celular, y publicar con tu OK · 30 min
+- [ ] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 45 min
+- [ ] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno queda en el PR, para tu OK antes de construir · media sesión
+- [ ] Construir los 3 canvas: «Pregúntale otra vez» (parada 1), la pizarra por momentos (parada 2) y «Autocompletado» (parada 5) · 1 o 2 sesiones
+- [ ] Tarjetas de videos de tu biblioteca, con vista previa y enlace: BettaTech en la parada 2, Marina Wyss en la 3 y las dos en el material de la 7 · 45 min
+- [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
 
 ### Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
@@ -230,6 +230,7 @@ Pedido 28. Los 3 videos de la estación 03 los hice yo con ManimGX, y eso no va.
 | 26 | 2026-10-31 | Ver «Dónde estamos» y la carta Gantt en cualquier proyecto, no solo en Academy | Hook global de Claude Code: en cada repo lee su `AVANCE.md`, y si no hay, pide crearlo |
 | 27 | 2026-10-31 | Trabajar ahora en la UI y la UX: «prepárate» | Diagnóstico del sitio en vivo (escritorio y celular): 5 problemas de uso y la decisión A o B |
 | 28 | 2026-10-31 | Sacar los videos que hizo Claude: lo animado va como canvas interactivo con motion, y los videos son originales de YouTube de canales educativos, solo donde suman. Un plan antes de corregir | Plan de la Fase 4b (6 pasos, unas 2 sesiones). La regla quedó anotada en la memoria de Claude |
+| 29 | 2026-10-31 | «Noo desinstales ManimGX»: canvas interactivos y entretenidos, como gráficos o dashboards en tiempo real, con ayuda de ManimGX al estilo de 3Blue1Brown, pero sin crearlos en tiempo real para que la app cargue rápido. Los videos: ideas de la biblioteca de BrainFran, con vista previa y enlace directo | Plan de la Fase 4b corregido: ManimGX dibuja antes y la página solo arma y responde; tarjetas de la biblioteca. ManimGX sigue instalado (no se desinstaló) |
 
 ---
 
