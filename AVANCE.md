@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 23 de 45 tareas del plan (51 %). El MVP está al 100 %.
+- **Avance:** `▓▓▓▓░░░░░░` 23 de 51 tareas del plan (45 %). El MVP está al 100 %. El plan sumó 6 tareas urgentes (Fase 4b).
 - **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
-- **Falta:** las fases 5 a 10: el pulido del sitio y 5 estaciones más, unas 5 semanas.
-- **Lo próximo:** F5 · Pulido del sitio, ahora con UI y UX. El diagnóstico del sitio en vivo está hecho (5 problemas de uso). Falta que elijas A o B en «Decisiones que te tocan».
+- **Falta:** la Fase 4b, urgente (unas 2 sesiones): cambiar mis videos por canvas interactivos y videos de YouTube. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes el plan de la Fase 4b. Con tu «dale», saco los 3 videos del sitio público en 15 minutos.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -25,13 +25,14 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ```text
                                       oct S1  S2  S3  S4  S5  S6
 F0–4  MVP: estación 03 pública        ███
-F5    Pulido del sitio + UX               ▓▓
-F6    Estación 04 · App de IA               ░░░░
-F7    Estación 05 · RAG                         ░░░░
-F8    Estación 02 · Git                             ░░
-F9    Estación 01 · Base de software                  ░░░░
-F10   Estación 13 · Evals                                 ░░░░
-Después: 06–08 agentes · inglés · UI                          ···
+F4b   Canvas y YouTube (urgente)          ▓▓
+F5    Pulido del sitio + UX                 ░░
+F6    Estación 04 · App de IA                 ░░░░
+F7    Estación 05 · RAG                           ░░░░
+F8    Estación 02 · Git                               ░░
+F9    Estación 01 · Base de software                    ░░░░
+F10   Estación 13 · Evals                                   ░░░░
+Después: 06–08 agentes · inglés · UI                            ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic
@@ -50,8 +51,9 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
-2. **¿Cómo atacamos la UI y la UX?** (pedido 27)
+1. **¿Apruebas el plan de la Fase 4b?** (pedido 28, urgente) Con «dale», saco los 3 videos del sitio en 15 minutos y sigo con el resto. Ese «dale» vale como OK para publicar el primer paso. Lo demás lo publico cuando lo apruebes con las capturas.
+2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
    - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
    - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
    - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
@@ -66,7 +68,8 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F5 Pulido del sitio + UX :active, f5, 2026-11-02, 3d
+    F4b Canvas y YouTube · urgente :active, f4b, 2026-11-02, 2d
+    F5 Pulido del sitio + UX :f5, after f4b, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
@@ -131,7 +134,20 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
+### ▶ Fase 4b · Canvas y videos de YouTube · urgente · 0 de 6 · propuesta, espera tu OK
+Pedido 28. Los 3 videos de la estación 03 los hice yo con ManimGX, y eso no va. Las reglas nuevas:
+1. **Claude nunca hace videos.**
+2. **Lo que se explica con movimiento es un canvas interactivo:** se dibuja en vivo en la página con Motion, se pausa y se toca.
+3. **Los videos son originales de YouTube,** de canales educativos conocidos y con crédito al canal. Van solo donde suman, no en todas las paradas.
+
+- [ ] Sacar del sitio público los 3 videos que hice (paradas 1, 2 y 5) · 15 min
+- [ ] Corregir las reglas en todos lados: la memoria de Claude, `DESIGN.md` y este tablero. Borrar del repo `lab/manim/`, `scripts/escenas.sh` y los videos · 30 min
+- [ ] Componente para videos de YouTube: miniatura, crédito al canal, solo el tramo que importa y subtítulos · 1 h
+- [ ] Videos de YouTube para la estación 03, solo donde suman: paradas 2, 3 y 5 · 1 h
+- [ ] 3 canvas con movimiento en lugar de los videos (paradas 1, 2 y 5) · 1 o 2 sesiones
+- [ ] Revisar en computador y celular, y publicar con tu OK · 30 min
+
+### Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
@@ -213,6 +229,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 | 25 | 2026-10-31 | Saber qué camino sigue y ver el plan siempre claro, tipo carta Gantt | Plan de acción F5–F10 con carta Gantt en el tablero y al final de cada respuesta |
 | 26 | 2026-10-31 | Ver «Dónde estamos» y la carta Gantt en cualquier proyecto, no solo en Academy | Hook global de Claude Code: en cada repo lee su `AVANCE.md`, y si no hay, pide crearlo |
 | 27 | 2026-10-31 | Trabajar ahora en la UI y la UX: «prepárate» | Diagnóstico del sitio en vivo (escritorio y celular): 5 problemas de uso y la decisión A o B |
+| 28 | 2026-10-31 | Sacar los videos que hizo Claude: lo animado va como canvas interactivo con motion, y los videos son originales de YouTube de canales educativos, solo donde suman. Un plan antes de corregir | Plan de la Fase 4b (6 pasos, unas 2 sesiones). La regla quedó anotada en la memoria de Claude |
 
 ---
 
