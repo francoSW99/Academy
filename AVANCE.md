@@ -13,23 +13,66 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓▓▓▓` 23 de 23 tareas del MVP (100 %). **MVP terminado.**
-- **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», está completa (7 paradas, 3 videos y 4 escenas interactivas) y **es pública** en https://academy.woorky.app/es/ desde el 2026-10-31.
-- **Falta:** nada del MVP. Lo que sigue lo eliges tú en «Después del MVP».
+- **Avance:** `▓▓▓▓▓░░░░░` 23 de 45 tareas del plan (51 %). El MVP está al 100 %.
+- **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
+- **Falta:** las fases 5 a 10: el pulido del sitio y 5 estaciones más, unas 5 semanas.
+- **Lo próximo:** F5 · Pulido del sitio (1 sesión): ícono, página «no encontrada» en español y vista previa al compartir el link.
 
-**Cómo ver el avance:** cada respuesta de Claude en el chat termina con este mismo resumen. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
+**Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
+
+## Plan de acción
+
+```text
+                                      oct S1  S2  S3  S4  S5  S6
+F0–4  MVP: estación 03 pública        ███
+F5    Pulido del sitio                    ▓▓
+F6    Estación 04 · App de IA               ░░░░
+F7    Estación 05 · RAG                         ░░░░
+F8    Estación 02 · Git                             ░░
+F9    Estación 01 · Base de software                  ░░░░
+F10   Estación 13 · Evals                                 ░░░░
+Después: 06–08 agentes · inglés · UI                          ···
+
+█ hecho · ▓ lo próximo · ░ lo que viene
+S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic
+```
+
+Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana y se ajusta cada semana.
+
+### Por qué este orden
+
+1. **Sigue los 5 niveles de la nota.** Las estaciones 03 y 04 cierran el nivel 1, «App con API». La 05 y la 13 cierran el nivel 2, «RAG con evals». La mayoría del trabajo útil en producción es de nivel 2 o 3.
+2. **La 02 (Git) va antes que la 01.** Su material ya está escrito en la guía de estudio, y es lo que usas a diario con los agentes.
+3. **Lo que faltaba del bloque 3 entra donde se usa:**
+   - las salidas estructuradas, en la 04;
+   - los embeddings, en la 05;
+   - el tool use, en la 06.
 
 ### Decisiones que te tocan
 
-1. **¿Qué viene después del MVP?** Hay cuatro caminos (ver «Después del MVP»):
-   - más temas del bloque 3;
-   - la siguiente estación;
-   - el inglés;
-   - el rediseño de la interfaz.
+1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+
+### La carta Gantt con fechas (en GitHub se ve como gráfico)
+
+```mermaid
+gantt
+    title Plan de Academy
+    dateFormat YYYY-MM-DD
+    axisFormat %d/%m
+    section MVP
+    Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
+    section Después del MVP
+    F5 Pulido del sitio :active, f5, 2026-11-02, 3d
+    F6 Estación 04 · App de IA :f6, after f5, 7d
+    F7 Estación 05 · RAG :f7, after f6, 7d
+    F8 Estación 02 · Git :f8, after f7, 4d
+    F9 Estación 01 · Base de software :f9, after f8, 7d
+    F10 Estación 13 · Evals :f10, after f9, 7d
+```
 
 ---
 
-## Plan del MVP
+## Plan del MVP (hecho)
 
 El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
@@ -82,23 +125,48 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ---
 
-## Después del MVP (sin fecha)
+## Fases después del MVP
 
-Todavía no hay nada elegido. Tú decides el orden.
+### ▶ Fase 5 · Pulido del sitio · 0 de 3 · semana 1
+- [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
+- [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
+- [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
 
-- [ ] **Más del bloque 3:**
-  - embeddings;
-  - tool use;
-  - salidas estructuradas;
-  - modelos que razonan;
-  - cómo se entrena (3 pasos);
-  - modelos abiertos vs. cerrados.
-- [ ] **La siguiente estación.** La nota sugiere los bloques 4 y 6.
-- [ ] **Inglés** (`/en/`), con «traducir al tocar».
-- [ ] **Rediseño de la interfaz** a tu gusto: la actual es provisional.
-- [ ] **Enlaces a las notas del grafo** desde cada lección. Necesita un cambio en BrainFran.
-- [ ] **Ícono del sitio** (favicon): hoy no hay y el navegador da un error 404.
-- [ ] **Página «no encontrada» en español:** hoy sale la de Next.js, en inglés.
+### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
+- [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas, una con salidas estructuradas
+- [ ] Publicada en el sitio
+
+### Fase 7 · Estación 05 «RAG y conocimiento» · 0 de 4 · semanas 2 y 3
+- [ ] Las 7 paradas (bloque 5)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas: embeddings (texto → vector) y búsqueda
+- [ ] Publicada en el sitio
+
+### Fase 8 · Estación 02 «Git y GitHub para dirigir al agente» · 0 de 3 · semana 3
+- [ ] Las 7 paradas, desde la guía de estudio de Git (ya escrita)
+- [ ] 1 escena interactiva
+- [ ] Publicada en el sitio
+
+### Fase 9 · Estación 01 «Base de software habilitadora» · 0 de 4 · semana 4
+- [ ] Las 7 paradas (bloque 1)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas
+- [ ] Publicada en el sitio
+
+### Fase 10 · Estación 13 «Evals: saber si funciona» · 0 de 4 · semana 5
+- [ ] Las 7 paradas (bloque 13)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas
+- [ ] Publicada en el sitio
+
+### Más adelante (sin fecha)
+- [ ] Estaciones 06 a 08: agentes y harnesses (nivel 3), con tool use
+- [ ] Inglés (`/en/`), con «traducir al tocar»
+- [ ] Rediseño de la interfaz a tu gusto: la actual es provisional
+- [ ] Enlaces a las notas del grafo desde cada lección (necesita un cambio en BrainFran)
+- [ ] Lo que queda del bloque 3: modelos que razonan, cómo se entrena en 3 pasos y modelos abiertos vs. cerrados
 
 ---
 
@@ -130,6 +198,7 @@ Todavía no hay nada elegido. Tú decides el orden.
 | 22 | 2026-10-31 | Ver el avance aquí, en el chat de Claude Code, en cada respuesta | Cada respuesta termina con «Dónde estamos». Un hook de Claude Code le pasa este tablero a Claude en cada mensaje tuyo |
 | 23 | 2026-10-31 | «Mezcla el PR 6» | PR #6 mezclado: el tablero queda en `main`, con link fijo |
 | 24 | 2026-10-31 | «Dale publica todo» | Sitio público en https://academy.woorky.app/es/ (Fase 4). MVP terminado |
+| 25 | 2026-10-31 | Saber qué camino sigue y ver el plan siempre claro, tipo carta Gantt | Plan de acción F5–F10 con carta Gantt en el tablero y al final de cada respuesta |
 
 ---
 
