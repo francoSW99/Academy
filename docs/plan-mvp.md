@@ -58,7 +58,7 @@ Cuatro interactivos para el MVP:
 - **Fuera del MVP**, quedan para la siguiente vuelta del bloque 3: embeddings, tool use, salidas estructuradas, modelos con razonamiento, entrenamiento en 3 pasos y modelos abiertos vs. cerrados.
 - **Implementación técnica** (regla de CLAUDE.md): `lab/muestreo/` con el script que saca los logprobs de Ollama. Es el código «de verdad» detrás del interactivo.
 
-### Fase 4 · Publicar (~30 min, con tu OK explícito)
+### Fase 4 · Publicar (hecha el 2026-10-31, con el OK de Fran: el sitio es público en https://academy.woorky.app/es/)
 1. Editar `BrainFran/tools/academy/Caddyfile`: cambiar `redir / /obsidian/` por un `handle` que sirva `~/projects/Academy/publicado/`, y redirigir `/` a `/es/`. El bloque de `/obsidian/` se queda igual.
 2. Reiniciar `brainfran-academy` (`systemctl --user restart`; tiene `admin off`, así que no se puede recargar en caliente).
 3. Commit en BrainFran del Caddyfile.
