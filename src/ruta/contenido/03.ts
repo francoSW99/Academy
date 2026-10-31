@@ -32,12 +32,14 @@ export const estacion03: ContenidoEstacion = {
       ],
     },
     4: {
-      pregunta: "Dos fallas típicas y cómo se notan",
-      texto: "Las dos salen del mismo mecanismo: elegir por probabilidad.",
+      pregunta: "Tres fallas típicas y cómo se notan",
+      texto: "Las dos primeras salen de elegir por probabilidad; la tercera, de lo que cabe en la ventana de contexto.",
       puntos: [
         "Alucina con seguridad: una respuesta falsa puede ser la más probable (en la parada 2, Estambul le gana a Ankara). Se nota cuando da datos exactos sin fuente.",
         "Cambia sin aviso: el mismo prompt da respuestas distintas. Se nota cuando algo pasa la prueba y falla después.",
+        "Olvida lo del principio: en una conversación larga, lo viejo se recorta o se resume y el modelo deja de verlo. Se nota cuando ignora algo que dijiste al comienzo.",
       ],
+      escenas: ["contexto"],
     },
     5: {
       pregunta: "Dilo sin palabras técnicas",
@@ -49,9 +51,9 @@ export const estacion03: ContenidoEstacion = {
     },
     6: {
       pregunta: "Cómo pedírselo al agente",
-      texto: "Para tareas que deben repetirse igual: temperatura baja y salida con esquema (JSON). Baja la variación, pero no garantiza la verdad.",
+      texto: "Para tareas que deben repetirse igual: temperatura baja y salida con esquema (JSON). Baja la variación, pero no garantiza la verdad. Lo que no se puede olvidar va en las instrucciones, no en el chat.",
       indicacion: ["Responde solo con la información del contexto.", "Si no está, di «no lo sé»."],
-      puntos: ["Datos sin fuente", "Cifras demasiado exactas", "Respuestas que cambian"],
+      puntos: ["Datos sin fuente", "Cifras demasiado exactas", "Respuestas que cambian", "Olvidos en conversaciones largas"],
     },
     7: {
       pregunta: "Tu turno",

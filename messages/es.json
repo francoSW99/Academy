@@ -107,6 +107,53 @@
       "verTextos": "Ver los textos",
       "nota": "Tokenizador de GPT-4o (o200k_base, con la librería gpt-tokenizer), corrido en tu navegador: lo que escribes no sale de tu equipo. Cada modelo corta distinto, y el de Claude no es público.",
       "codigo": "Ver el código"
+    },
+    "contexto": {
+      "titulo": "Llena la ventana",
+      "lead": "El modelo no recuerda nada entre turnos: en cada turno, la app le vuelve a mandar toda la conversación. Lo que no cabe en la ventana, no lo ve.",
+      "modo": "Cuando la conversación no cabe",
+      "modos": {
+        "grande": "Ventana grande",
+        "recorta": "Chica: recorta",
+        "compacta": "Chica: resume"
+      },
+      "modosTexto": {
+        "grande": "Caben {v} tokens: entra todo.",
+        "recorta": "Caben {v} tokens. Si no entra, deja fuera los mensajes más viejos, como hace Ollama.",
+        "compacta": "Caben {v} tokens. Si no entra, el modelo resume lo viejo y se manda el resumen."
+      },
+      "siguiente": "Siguiente turno",
+      "reiniciar": "Empezar de nuevo",
+      "turnoDe": "Turno {t} de {n}",
+      "empieza": "Toca «Siguiente turno» para empezar la conversación.",
+      "roles": {
+        "system": "Instrucciones",
+        "user": "Tú",
+        "assistant": "Modelo",
+        "resumen": "Resumen"
+      },
+      "tokens": "{n} tokens",
+      "fuera": "fuera de la ventana",
+      "resumido": "resumido",
+      "ocupa": "{usados} de {v} tokens",
+      "ventana": "La ventana",
+      "leyoTotal": "En {t} turnos leyó {n} tokens: cada turno vuelve a leer todo.",
+      "porTurno": "Tokens leídos en cada turno",
+      "quedaronFuera": "Quedaron fuera {m} mensajes ({n} tokens).",
+      "veredictos": {
+        "cuida": "Tuvo en cuenta tu alergia.",
+        "usa": "Puso maní (cacahuate) en la lista.",
+        "no-dice": "No mencionó tu alergia."
+      },
+      "pista": "Prueba los 5 turnos con «Chica: recorta» y fíjate en la alergia al maní.",
+      "nota": "Los primeros turnos están escritos a mano. La última respuesta y el resumen los escribió {modelo}, corrido en local con Ollama el {fecha}, a temperatura 0. Es un modelo chico: también inventa ingredientes. Las ventanas son de juguete: las de los modelos comerciales tienen cientos de miles de tokens, pero se llenan igual con documentos, código y conversaciones largas.",
+      "codigo": "Ver el código",
+      "porque": {
+        "vista": "Tu alergia estaba en la ventana.",
+        "recortada": "Tu alergia estaba en el primer mensaje, y quedó fuera de la ventana. Si no puso maní, fue suerte.",
+        "resumenGuarda": "El resumen guardó tu alergia.",
+        "resumenPierde": "El resumen perdió tu alergia: decidió que no era importante."
+      }
     }
   }
 }
