@@ -8,3 +8,4 @@ La web no llama a modelos: usa lo que se genera aquí.
 - `muestreo/`: las probabilidades reales detrás de la escena «muestreo» de la estación 03 (ver su README).
 - `tokens/`: los ejemplos cortados en tokens y la comparación español vs. inglés de la escena «tokens» (ver su README).
 - `contexto/`: una conversación real con el modelo local cuando no cabe en la ventana, para la escena «contexto» (ver su README).
+- `prefill/`: cuánto tarda el modelo local en leer el prompt y en escribir la respuesta, para la escena «prefill» (ver su README).

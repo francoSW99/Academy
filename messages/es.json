@@ -154,6 +154,48 @@
         "resumenGuarda": "El resumen guardó tu alergia.",
         "resumenPierde": "El resumen perdió tu alergia: decidió que no era importante."
       }
+    },
+    "prefill": {
+      "titulo": "Lee rápido, escribe lento",
+      "lead": "El modelo trabaja en dos fases. Primero lee todo el prompt de una vez (prefill). Después escribe la respuesta token a token (decode), y cada token espera al anterior. Por eso las apps te muestran la respuesta mientras se escribe.",
+      "mandas": "Lo que le mandas",
+      "responde": "Lo que te responde",
+      "prompts": {
+        "pregunta": "Una pregunta",
+        "correo": "Un correo",
+        "documento": "Un documento"
+      },
+      "largos": {
+        "corta": "Corta",
+        "larga": "Larga"
+      },
+      "conTokens": "{nombre} · {n} tokens",
+      "enviar": "Enviar",
+      "otraVez": "Enviar de nuevo",
+      "estados": {
+        "espera": "Toca «Enviar» para ver las dos fases.",
+        "lee": "Leyendo {n} tokens, todos a la vez… {t}",
+        "escribe": "Escribiendo: {k} de {n} tokens… {t}",
+        "listo": "Listo."
+      },
+      "fases": {
+        "leer": "Lee (prefill)",
+        "escribir": "Escribe (decode)"
+      },
+      "segundos": "{n} s",
+      "porSegundo": "{n} tokens/s",
+      "acelerado": "La animación va {k} veces más rápido que la máquina.",
+      "leyendo": "Lo que lee: {n} tokens",
+      "conTexto": "Con el texto pegado arriba del pedido: {n} tokens en total.",
+      "escribiendo": "Lo que escribe: {k} de {n} tokens",
+      "primerToken": "Primer token",
+      "completa": "Respuesta completa",
+      "velocidadLee": "Lee",
+      "velocidadEscribe": "Escribe",
+      "veces": "Por token, escribir fue {x} veces más lento que leer.",
+      "nota": "Medido en esta máquina ({maquina}) con {modelo}, el {fecha}. En una GPU todo va mucho más rápido, y leer le saca todavía más ventaja a escribir: decenas de veces por token. Por eso las APIs suelen cobrar más caro el token que escribe el modelo que el que lee.",
+      "codigo": "Ver el código",
+      "minutos": "{m} min {s} s"
     }
   }
 }

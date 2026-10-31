@@ -275,6 +275,9 @@ El texto cortado en tokens se ve como fichas pegadas, sin espacio entre ellas, q
 ### Ventana de contexto (escena interactiva)
 La conversación va como tarjetas, una por mensaje, con quién habla y cuántos tokens usa. Lo que queda fuera de la ventana se ve tenue, con borde punteado y tachado; el resumen tiene borde naranja (`l2`), y la última respuesta del modelo, borde grueso. Al costado va la ventana: una franja con un tramo por mensaje (gris las instrucciones, el acento para ti, tinta para el modelo, naranja el resumen) y, debajo, una barra por turno con los tokens que leyó el modelo.
 
+### Línea de tiempo de prefill y decode (escena interactiva)
+Una franja de tiempo con dos tramos: el acento para leer (prefill) y tinta para escribir (decode). Todas las opciones usan la misma escala, la del caso más largo, para que se pueda comparar cuánto tarda cada una en empezar. Al enviar, la franja se llena a una velocidad fija (acelerada, con el factor a la vista). Mientras lee, la tarjeta del prompt se marca entera, porque lee todo a la vez; mientras escribe, la respuesta real aparece token a token con un cursor. Con movimiento reducido, salta directo al final.
+
 ### Video de escena (ManimGX)
 La parte que se reproduce de una pizarra puede ser un video hecho con ManimGX (`lab/manim/`), al estilo de 3Blue1Brown. Usa los mismos colores del tema: azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, y gris tenue para las leyendas. Cada escena se renderiza dos veces, una por tema, y la página muestra la que corresponde al modo del sistema. La parte que se toca sigue en React.
 
