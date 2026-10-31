@@ -5,3 +5,6 @@ Experimentos y scripts que generan los datos «reales» detrás de cada interact
 La web no llama a modelos: usa lo que se genera aquí.
 
 - `manim/`: las escenas animadas de cada estación, hechas con ManimGX (ver su README).
+- `muestreo/`: las probabilidades reales detrás de la escena «muestreo» de la estación 03 (ver su README).
+- `tokens/`: los ejemplos cortados en tokens y la comparación español vs. inglés de la escena «tokens» (ver su README).
+- `contexto/`: una conversación real con el modelo local cuando no cabe en la ventana, para la escena «contexto» (ver su README).

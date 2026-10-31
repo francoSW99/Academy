@@ -26,6 +26,12 @@
   --primario-tinta: #ffffff;
   --codigo-fondo: #15171c;
   --codigo-tinta: #f1f3f7;
+  /* Fichas de tokens: se alternan para que se vea dónde corta cada una. */
+  --ficha-1: #dce6ff;
+  --ficha-2: #d6f0df;
+  --ficha-3: #ffe6c7;
+  --ficha-4: #ebdcff;
+  --ficha-5: #ffd8e1;
   color-scheme: light;
 }
 
@@ -52,6 +58,11 @@
     --primario-tinta: #0a0d13;
     --codigo-fondo: rgba(255, 255, 255, 0.06);
     --codigo-tinta: #eceff4;
+    --ficha-1: rgba(110, 155, 255, 0.24);
+    --ficha-2: rgba(90, 200, 130, 0.22);
+    --ficha-3: rgba(245, 170, 80, 0.24);
+    --ficha-4: rgba(175, 135, 255, 0.26);
+    --ficha-5: rgba(255, 120, 160, 0.24);
     color-scheme: dark;
   }
 }
@@ -76,6 +87,11 @@
   --color-primario-tinta: var(--primario-tinta);
   --color-codigo-fondo: var(--codigo-fondo);
   --color-codigo-tinta: var(--codigo-tinta);
+  --color-ficha-1: var(--ficha-1);
+  --color-ficha-2: var(--ficha-2);
+  --color-ficha-3: var(--ficha-3);
+  --color-ficha-4: var(--ficha-4);
+  --color-ficha-5: var(--ficha-5);
   --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
   --font-serif: "Newsreader", Georgia, serif;
 }
@@ -106,6 +122,12 @@ body {
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .aqui { animation: pulso 2.4s ease-out infinite; }
+  /* Aparece con un retraso propio (--retraso): las tiradas caen una tras otra. */
+  .aparece { animation: aparecer 260ms ease-out both; animation-delay: var(--retraso, 0ms); }
 }

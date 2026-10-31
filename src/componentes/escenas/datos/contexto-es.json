@@ -1,0 +1,93 @@
+{
+ "modelo": "deepseek-r1:8b",
+ "fecha": "2026-10-31",
+ "ventanaGrande": 4096,
+ "ventanaChica": 160,
+ "mensajes": [
+  {
+   "rol": "system",
+   "texto": "Eres un asistente de cocina. Responde en español y breve: una lista corta o dos o tres frases.",
+   "tokens": 32
+  },
+  {
+   "rol": "user",
+   "texto": "Hola, me llamo Ana. Soy alérgica al maní.",
+   "tokens": 18
+  },
+  {
+   "rol": "assistant",
+   "texto": "¡Hola, Ana! Lo tengo en cuenta. ¿En qué te ayudo?",
+   "tokens": 18
+  },
+  {
+   "rol": "user",
+   "texto": "Quiero cocinar una cena tailandesa para seis amigos el sábado.",
+   "tokens": 17
+  },
+  {
+   "rol": "assistant",
+   "texto": "¡Qué buen plan! ¿Cuánto tiempo tienes para cocinar?",
+   "tokens": 16
+  },
+  {
+   "rol": "user",
+   "texto": "Tengo toda la tarde libre. ¿Qué plato principal me recomiendas?",
+   "tokens": 19
+  },
+  {
+   "rol": "assistant",
+   "texto": "Un curry verde con pollo: se hace en una hora y alcanza para seis.",
+   "tokens": 19
+  },
+  {
+   "rol": "user",
+   "texto": "¿Y de postre?",
+   "tokens": 8
+  },
+  {
+   "rol": "assistant",
+   "texto": "Arroz con mango: arroz glutinoso, leche de coco y mango maduro. Es fácil y fresco.",
+   "tokens": 27
+  },
+  {
+   "rol": "user",
+   "texto": "Ahora dame los ingredientes para un pad thai.",
+   "tokens": 13
+  }
+ ],
+ "turnos": [
+  {
+   "leidos": 50
+  },
+  {
+   "leidos": 85
+  },
+  {
+   "leidos": 120
+  },
+  {
+   "leidos": 147
+  }
+ ],
+ "final": {
+  "grande": {
+   "respuesta": "¡Claro! Para un Pad Thai de pollo (ya que tienes alergia al maní) necesitarás:\n\n- **Pollo** (150-200g)\n- **Huevo** (2 huevos grandes)\n- **Tofu** (opcional, para vegetarianos)\n- **Puré de garbanzos** (1/4 taza, para añadir gluten)\n- **Aceite de palma o sésamo** (2 cucharadas)\n- **Puré de chile** (opcional, para picante)\n- **Puré de jengibre** (1 cucharadita)\n- **Ajo picado** (1 cucharadita)\n- **Puré de tomate** (1 cucharad de postre)\n- **Puré de soja** (2 cucharadas)\n- **Puré de azúcar** (1 cucharadita)\n- **Sal al gusto**\n- **Verduras:**\n  - **Brotes de bambú** (opcional, pero tradicional)\n  - **Pepino** (opcional)\n  - **Lechuga** (opcional, para decorar)\n\n¡Espero que te vaya bien en la cocina! 🍳",
+   "leidos": 187,
+   "mani": "cuida"
+  },
+  "recorta": {
+   "respuesta": "¡Claro! Para un Pad Thai de pollo o huevo, necesitarás:\n\n- Huevos (o pollo cocido)\n- Tofu o fideos de arroz cocidos\n- Salsa de soja, ojjaos, ajo y chile en polvo\n- Calabaza y vegetales frescos como pimientos morados\n\nEs rápido y requiere poca planificación. ¿Necesitas ayuda con la receta?",
+   "leidos": 151,
+   "mani": "no-dice",
+   "desde": 3
+  },
+  "compacta": {
+   "respuesta": "¡Claro! Aquí tienes los ingredientes básicos para un Pad Thai:\n\n- Huevos\n- Tofu o carne (pollo, cerdo)\n- Salsa de soja\n- Aceite de palma o sésamo\n- Ajos\n- Pimentón rojo\n- Nueces de macadamia o cacahuate\n- Azúcar\n- Calabaza dulce (opcional)\n- Harina de garbanzo (opcional)\n\n¡Espero que te sirva! 😊",
+   "leidos": 105,
+   "mani": "usa",
+   "resumen": "Ana quiere preparar una cena tailandesa para seis personas el sábado, con un plato principal de pollo y curry verde que se puede hacer en una hora, y un postre de arroz con mango que es fácil y fresco.",
+   "resumenTokens": 60,
+   "resumenGuarda": false
+  }
+ }
+}

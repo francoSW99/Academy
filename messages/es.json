@@ -26,7 +26,6 @@
   "estacion": {
     "estacionDe": "Estación {n} de {total} · Zona {zona} · {nombreZona}",
     "paradaDe": "Parada {n} de 7 · {nombre}",
-    "escenaPronto": "Lo que se toca (mover la temperatura y tirar los dados tú mismo) llega en la Fase 3.",
     "anterior": "← {n} · {nombre}",
     "siguiente": "Siguiente parada: {n} · {nombre} →",
     "volverMapa": "Volver al mapa →",
@@ -37,5 +36,124 @@
     "material": "Material",
     "queRevisar": "Qué revisar:",
     "indicacion": "Lo que le pides al agente:"
+  },
+  "escenas": {
+    "muestreo": {
+      "titulo": "Tira los dados",
+      "elige": "Elige una frase",
+      "candidatas": "Lo que podría seguir",
+      "otras": "otras {n} palabras",
+      "temperatura": "Temperatura",
+      "pistas": {
+        "cero": "Siempre elige la más probable: responde igual cada vez.",
+        "baja": "Se arriesga muy poco: casi siempre sale la más probable.",
+        "media": "Se arriesga poco.",
+        "uno": "Las probabilidades del modelo, tal cual.",
+        "alta": "Se arriesga más: lo poco probable gana terreno.",
+        "muyAlta": "Se arriesga mucho: casi cualquier opción puede salir."
+      },
+      "riesgo": "Con estas perillas responde algo falso el {p} de las veces.",
+      "riesgoNunca": "Con estas perillas nunca responde algo falso.",
+      "riesgoSiempre": "Con estas perillas siempre responde algo falso.",
+      "sinRespuesta": "Aquí no hay respuesta correcta: la temperatura cambia cuánta variedad sale.",
+      "masPerillas": "Más perillas: top-k y top-p",
+      "topK": "Top-k",
+      "topKValor": "los {k} tokens más probables",
+      "topP": "Top-p",
+      "topPValor": "los justos para sumar el {p}",
+      "sinLimite": "sin límite",
+      "perillasNota": "Se aplican en cada paso, igual que la temperatura.",
+      "tirar": "Tirar los dados",
+      "tirarVarias": "Tirar {n} veces",
+      "ruleta": "La ruleta: cada palabra ocupa un tramo igual a su probabilidad, y el dado cae en un punto al azar.",
+      "salio": "Salió «{palabra}»",
+      "verdadero": "verdadero",
+      "falso": "falso",
+      "sigue": "la frase sigue",
+      "tokens": "El modelo la escribió en {n} tokens: {tokens}.",
+      "unToken": "El modelo la escribió en 1 token.",
+      "varias": "{n} tiradas con temperatura {t}",
+      "falsas": "{f} de {n} son falsas.",
+      "ningunaFalsa": "Ninguna es falsa.",
+      "distintas": "Salieron {d} palabras distintas.",
+      "nota": "Probabilidades reales de {modelo}, corrido en local con Ollama el {fecha}. Las perillas se aplican token por token, como en el modelo. Quedan fuera los signos y formatos («__», «**»), que en esta frase son el {signos}.",
+      "codigo": "Ver el código"
+    },
+    "ahoraTu": "Ahora tú",
+    "tokens": {
+      "titulo": "Córtalo en tokens",
+      "etiqueta": "Escribe lo que quieras",
+      "ejemplos": "Ejemplos",
+      "nombresEjemplos": {
+        "frase": "Una frase",
+        "rara": "Una palabra rara",
+        "letras": "Contar letras",
+        "numeros": "Una suma",
+        "emoji": "Emoji"
+      },
+      "cuenta": "{n} tokens · {c} caracteres",
+      "pedazos": "Pedazos",
+      "numeros": "Números",
+      "asiLoVe": "Así lo ve el modelo: cada token es un número de su vocabulario.",
+      "pruebaTuya": "Prueba con tu nombre, una palabra en otro idioma o un número largo.",
+      "cargando": "Cargando el tokenizador (unos 2 MB)…",
+      "error": "No se pudo cargar el tokenizador. Revisa tu conexión y vuelve a escribir.",
+      "cortado": "El texto cortado en {n} tokens",
+      "comparacionTitulo": "Cuántos tokens de más usa el español",
+      "comparacionTexto": "Pagas por token, y la ventana de contexto se mide en tokens. Mismos {pares} textos en los dos idiomas: {es} caracteres en español y {en} en inglés.",
+      "local": "el modelo local",
+      "detalle": "{es} tokens en español · {en} en inglés",
+      "conclusion": "Con casi las mismas letras, el español usa un {max} más de tokens en {nombreMax} y un {min} más en {nombreMin}. Si tu producto habla español, el tokenizador del modelo cambia la cuenta.",
+      "verTextos": "Ver los textos",
+      "nota": "Tokenizador de GPT-4o (o200k_base, con la librería gpt-tokenizer), corrido en tu navegador: lo que escribes no sale de tu equipo. Cada modelo corta distinto, y el de Claude no es público.",
+      "codigo": "Ver el código"
+    },
+    "contexto": {
+      "titulo": "Llena la ventana",
+      "lead": "El modelo no recuerda nada entre turnos: en cada turno, la app le vuelve a mandar toda la conversación. Lo que no cabe en la ventana, no lo ve.",
+      "modo": "Cuando la conversación no cabe",
+      "modos": {
+        "grande": "Ventana grande",
+        "recorta": "Chica: recorta",
+        "compacta": "Chica: resume"
+      },
+      "modosTexto": {
+        "grande": "Caben {v} tokens: entra todo.",
+        "recorta": "Caben {v} tokens. Si no entra, deja fuera los mensajes más viejos, como hace Ollama.",
+        "compacta": "Caben {v} tokens. Si no entra, el modelo resume lo viejo y se manda el resumen."
+      },
+      "siguiente": "Siguiente turno",
+      "reiniciar": "Empezar de nuevo",
+      "turnoDe": "Turno {t} de {n}",
+      "empieza": "Toca «Siguiente turno» para empezar la conversación.",
+      "roles": {
+        "system": "Instrucciones",
+        "user": "Tú",
+        "assistant": "Modelo",
+        "resumen": "Resumen"
+      },
+      "tokens": "{n} tokens",
+      "fuera": "fuera de la ventana",
+      "resumido": "resumido",
+      "ocupa": "{usados} de {v} tokens",
+      "ventana": "La ventana",
+      "leyoTotal": "En {t} turnos leyó {n} tokens: cada turno vuelve a leer todo.",
+      "porTurno": "Tokens leídos en cada turno",
+      "quedaronFuera": "Quedaron fuera {m} mensajes ({n} tokens).",
+      "veredictos": {
+        "cuida": "Tuvo en cuenta tu alergia.",
+        "usa": "Puso maní (cacahuate) en la lista.",
+        "no-dice": "No mencionó tu alergia."
+      },
+      "pista": "Prueba los 5 turnos con «Chica: recorta» y fíjate en la alergia al maní.",
+      "nota": "Los primeros turnos están escritos a mano. La última respuesta y el resumen los escribió {modelo}, corrido en local con Ollama el {fecha}, a temperatura 0. Es un modelo chico: también inventa ingredientes. Las ventanas son de juguete: las de los modelos comerciales tienen cientos de miles de tokens, pero se llenan igual con documentos, código y conversaciones largas.",
+      "codigo": "Ver el código",
+      "porque": {
+        "vista": "Tu alergia estaba en la ventana.",
+        "recortada": "Tu alergia estaba en el primer mensaje, y quedó fuera de la ventana. Si no puso maní, fue suerte.",
+        "resumenGuarda": "El resumen guardó tu alergia.",
+        "resumenPierde": "El resumen perdió tu alergia: decidió que no era importante."
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@ import { Cabecera } from "@/componentes/Cabecera";
 import { LineaParadas } from "@/componentes/LineaParadas";
 import { PracticaHecha } from "@/componentes/PracticaHecha";
 import { VideoEscena } from "@/componentes/VideoEscena";
+import { Escena } from "@/componentes/escenas";
 import { esIdioma, idiomas, rellenar, textos } from "@/lib/idiomas";
 import { contenidos } from "@/ruta/contenido";
 import { buscarEstacion, estaciones, paradasMetodo, totalEstaciones } from "@/ruta/lineas";
@@ -100,7 +101,7 @@ export default async function Parada({ params }: Props) {
               </ol>
             ))}
 
-          {c.escena && <p className="text-sm text-tenue italic">{t.escenaPronto}</p>}
+          {c.escenas?.map((e) => <Escena key={e} nombre={e} lang={lang} />)}
           {pn === 7 && <PracticaHecha lang={lang} estacion={n} />}
         </section>
 

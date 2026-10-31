@@ -1,6 +1,6 @@
 import type { ContenidoEstacion } from "../tipos";
 
-// Textos cortos sacados de la nota (Pilar 1 · bloque 3). Las escenas interactivas llegan en la Fase 3.
+// Textos cortos sacados de la nota (Pilar 1 · bloque 3). Las escenas interactivas están en src/componentes/escenas/.
 export const estacion03: ContenidoEstacion = {
   n: "03",
   resumen: "Un LLM no consulta la verdad: predice el siguiente token más probable. Alucinar, variar y costar salen de ahí.",
@@ -15,8 +15,8 @@ export const estacion03: ContenidoEstacion = {
     },
     2: {
       pregunta: "¿Cómo elige un LLM la siguiente palabra?",
-      texto: "En cada paso le da una probabilidad a cada token que podría seguir y elige uno con esas probabilidades. La temperatura decide cuánto se arriesga.",
-      escena: "muestreo",
+      texto: "Corta el texto en tokens, pedazos de palabra. En cada paso le da una probabilidad a cada token que podría seguir y elige uno; la temperatura decide cuánto se arriesga.",
+      escenas: ["tokens", "muestreo"],
       video: {
         nombre: "mecanismo",
         descripcion: "La frase se corta en tokens, el modelo reparte probabilidades entre los que podrían seguir, tira los dados dos veces (sale Canberra y después Sídney) y la temperatura cambia el reparto.",
@@ -32,12 +32,14 @@ export const estacion03: ContenidoEstacion = {
       ],
     },
     4: {
-      pregunta: "Dos fallas típicas y cómo se notan",
-      texto: "Las dos salen del mismo mecanismo: elegir por probabilidad.",
+      pregunta: "Tres fallas típicas y cómo se notan",
+      texto: "Las dos primeras salen de elegir por probabilidad; la tercera, de lo que cabe en la ventana de contexto.",
       puntos: [
-        "Alucina con seguridad: una respuesta falsa puede ser la más probable. Se nota cuando da datos exactos sin fuente.",
+        "Alucina con seguridad: una respuesta falsa puede ser la más probable (en la parada 2, Estambul le gana a Ankara). Se nota cuando da datos exactos sin fuente.",
         "Cambia sin aviso: el mismo prompt da respuestas distintas. Se nota cuando algo pasa la prueba y falla después.",
+        "Olvida lo del principio: en una conversación larga, lo viejo se recorta o se resume y el modelo deja de verlo. Se nota cuando ignora algo que dijiste al comienzo.",
       ],
+      escenas: ["contexto"],
     },
     5: {
       pregunta: "Dilo sin palabras técnicas",
@@ -49,13 +51,13 @@ export const estacion03: ContenidoEstacion = {
     },
     6: {
       pregunta: "Cómo pedírselo al agente",
-      texto: "Para tareas que deben repetirse igual: temperatura baja y salida con esquema (JSON). Baja la variación, pero no garantiza la verdad.",
+      texto: "Para tareas que deben repetirse igual: temperatura baja y salida con esquema (JSON). Baja la variación, pero no garantiza la verdad. Lo que no se puede olvidar va en las instrucciones, no en el chat.",
       indicacion: ["Responde solo con la información del contexto.", "Si no está, di «no lo sé»."],
-      puntos: ["Datos sin fuente", "Cifras demasiado exactas", "Respuestas que cambian"],
+      puntos: ["Datos sin fuente", "Cifras demasiado exactas", "Respuestas que cambian", "Olvidos en conversaciones largas"],
     },
     7: {
       pregunta: "Tu turno",
-      texto: "Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce. Usa la parada 2 para encontrar la temperatura en la que empieza a fallar.",
+      texto: "Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce. Antes, en la parada 2, compara el planeta y Turquía: ¿en cuál bajar la temperatura arregla el error y en cuál no?",
     },
   },
   material: [
