@@ -36,7 +36,7 @@ export type ParadaMetodo = {
 };
 
 /** Escenas interactivas que existen (src/componentes/escenas/). */
-export type NombreEscena = "tokens" | "muestreo" | "contexto";
+export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
 
 export type ContenidoParada = {
   /** La pregunta que abre la pizarra. */

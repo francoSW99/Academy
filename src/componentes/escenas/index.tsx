@@ -10,6 +10,7 @@ const escenas: Record<NombreEscena, React.ComponentType<{ lang: Idioma }>> = {
   tokens: dynamic(() => import("./Tokens").then((m) => m.Tokens)),
   muestreo: dynamic(() => import("./Muestreo").then((m) => m.Muestreo)),
   contexto: dynamic(() => import("./Contexto").then((m) => m.Contexto)),
+  prefill: dynamic(() => import("./Prefill").then((m) => m.Prefill)),
 };
 
 export function Escena({ nombre, lang }: { nombre: NombreEscena; lang: Idioma }) {

@@ -28,8 +28,9 @@ export const estacion03: ContenidoEstacion = {
       puntos: [
         "Predice lo más probable, no consulta la verdad: el contexto que le das manda.",
         "No es determinista: el mismo prompt puede dar respuestas distintas, así que lo importante se valida.",
-        "Entender cómo funciona por dentro te deja optimizar todo lo que construyas encima.",
+        "Leer es rápido y escribir es lento: un prompt largo tarda en empezar y una respuesta larga tarda y cuesta más. Saber cómo funciona por dentro te deja optimizar lo que construyas encima.",
       ],
+      escenas: ["prefill"],
     },
     4: {
       pregunta: "Tres fallas típicas y cómo se notan",

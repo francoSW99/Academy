@@ -7,3 +7,6 @@ versiones/
 next-env.d.ts
 *.tsbuildinfo
 .env*
+
+# Python
+__pycache__/
