@@ -50,7 +50,7 @@
 
 ### Fase 3 · Lección del Bloque 3 (~3 o 4 sesiones)
 Cuatro interactivos para el MVP:
-1. **Tokenizador**: escribes un texto y se ve cortado en tokens, con su número y el costo. Contraste español vs. inglés (en español salen más tokens).
+1. **Tokenizador** (hecho el 2026-10-31, parada 2, antes del muestreo): escribes un texto y se ve cortado en tokens, con sus números. Contraste español vs. inglés medido con 4 tokenizadores sobre los mismos textos: el español usa +69 % de tokens en GPT-3, +20 % en GPT-4, +18 % en `deepseek-r1:8b` y solo +4 % en GPT-4o. El costo va en relativo (pagas por token), sin precios que caduquen.
 2. **Ventana de contexto**: una barra que se llena con cada turno de una conversación hasta que lo viejo se cae o se compacta.
 3. **Prefill y decode**: línea de tiempo animada. Lee todo el prompt de una vez y después escribe token a token. Muestra por qué un prompt largo tarda en empezar.
 4. **Muestreo** (hecho el 2026-10-31, parada 2): perillas de temperatura, top-k y top-p sobre probabilidades reales de `deepseek-r1:8b`. Tres frases: el planeta más caliente (lo probable es lo correcto), la capital de Turquía (lo probable es falso: Estambul 48 % contra Ankara 28 %) y «Había una vez un» (no hay respuesta correcta). Las perillas se aplican token por token sobre un árbol de tokens, como en el modelo.

@@ -127,9 +127,12 @@ export function Muestreo({ lang }: { lang: Idioma }) {
   return (
     <section aria-labelledby="escena-muestreo" className="flex flex-col gap-6 rounded-[18px] sm:border sm:border-borde sm:bg-fondo sm:p-[clamp(16px,2.4vw,28px)]">
       <div className="flex flex-col gap-3">
-        <h3 id="escena-muestreo" className="text-[19px] font-medium">
-          {t.titulo}
-        </h3>
+        <div className="flex flex-col gap-1">
+          <span className="text-sm text-tenue">{textos(lang).escenas.ahoraTu}</span>
+          <h3 id="escena-muestreo" className="text-[19px] font-medium">
+            {t.titulo}
+          </h3>
+        </div>
         <div role="group" aria-label={t.elige} className="flex flex-wrap gap-2">
           {frases.map((f) => (
             <button

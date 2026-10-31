@@ -36,7 +36,7 @@ export type ParadaMetodo = {
 };
 
 /** Escenas interactivas que existen (src/componentes/escenas/). */
-export type NombreEscena = "muestreo";
+export type NombreEscena = "tokens" | "muestreo";
 
 export type ContenidoParada = {
   /** La pregunta que abre la pizarra. */
@@ -47,8 +47,8 @@ export type ContenidoParada = {
   puntos?: string[];
   /** Indicación al agente, en monoespaciada (parada «Dirígelo»). */
   indicacion?: string[];
-  /** Escena interactiva: va después del video, para probar con las manos lo que se vio. */
-  escena?: NombreEscena;
+  /** Escenas interactivas, en orden: van después del video, para probar con las manos lo que se vio. */
+  escenas?: NombreEscena[];
   /**
    * Video hecho con ManimGX (lab/manim/estacion_NN.py, renderizado con scripts/escenas.sh).
    * Archivos: public/escenas/NN/<nombre>-{blanca,negra}.{mp4,jpg}.

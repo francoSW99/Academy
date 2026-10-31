@@ -101,7 +101,7 @@ export default async function Parada({ params }: Props) {
               </ol>
             ))}
 
-          {c.escena && <Escena nombre={c.escena} lang={lang} />}
+          {c.escenas?.map((e) => <Escena key={e} nombre={e} lang={lang} />)}
           {pn === 7 && <PracticaHecha lang={lang} estacion={n} />}
         </section>
 

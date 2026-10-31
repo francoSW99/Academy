@@ -15,8 +15,8 @@ export const estacion03: ContenidoEstacion = {
     },
     2: {
       pregunta: "¿Cómo elige un LLM la siguiente palabra?",
-      texto: "En cada paso le da una probabilidad a cada token que podría seguir y elige uno con esas probabilidades. La temperatura decide cuánto se arriesga.",
-      escena: "muestreo",
+      texto: "Corta el texto en tokens, pedazos de palabra. En cada paso le da una probabilidad a cada token que podría seguir y elige uno; la temperatura decide cuánto se arriesga.",
+      escenas: ["tokens", "muestreo"],
       video: {
         nombre: "mecanismo",
         descripcion: "La frase se corta en tokens, el modelo reparte probabilidades entre los que podrían seguir, tira los dados dos veces (sale Canberra y después Sídney) y la temperatura cambia el reparto.",

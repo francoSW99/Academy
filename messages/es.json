@@ -39,7 +39,7 @@
   },
   "escenas": {
     "muestreo": {
-      "titulo": "Ahora tú: tira los dados",
+      "titulo": "Tira los dados",
       "elige": "Elige una frase",
       "candidatas": "Lo que podría seguir",
       "otras": "otras {n} palabras",
@@ -77,6 +77,35 @@
       "ningunaFalsa": "Ninguna es falsa.",
       "distintas": "Salieron {d} palabras distintas.",
       "nota": "Probabilidades reales de {modelo}, corrido en local con Ollama el {fecha}. Las perillas se aplican token por token, como en el modelo. Quedan fuera los signos y formatos («__», «**»), que en esta frase son el {signos}.",
+      "codigo": "Ver el código"
+    },
+    "ahoraTu": "Ahora tú",
+    "tokens": {
+      "titulo": "Córtalo en tokens",
+      "etiqueta": "Escribe lo que quieras",
+      "ejemplos": "Ejemplos",
+      "nombresEjemplos": {
+        "frase": "Una frase",
+        "rara": "Una palabra rara",
+        "letras": "Contar letras",
+        "numeros": "Una suma",
+        "emoji": "Emoji"
+      },
+      "cuenta": "{n} tokens · {c} caracteres",
+      "pedazos": "Pedazos",
+      "numeros": "Números",
+      "asiLoVe": "Así lo ve el modelo: cada token es un número de su vocabulario.",
+      "pruebaTuya": "Prueba con tu nombre, una palabra en otro idioma o un número largo.",
+      "cargando": "Cargando el tokenizador (unos 2 MB)…",
+      "error": "No se pudo cargar el tokenizador. Revisa tu conexión y vuelve a escribir.",
+      "cortado": "El texto cortado en {n} tokens",
+      "comparacionTitulo": "Cuántos tokens de más usa el español",
+      "comparacionTexto": "Pagas por token, y la ventana de contexto se mide en tokens. Mismos {pares} textos en los dos idiomas: {es} caracteres en español y {en} en inglés.",
+      "local": "el modelo local",
+      "detalle": "{es} tokens en español · {en} en inglés",
+      "conclusion": "Con casi las mismas letras, el español usa un {max} más de tokens en {nombreMax} y un {min} más en {nombreMin}. Si tu producto habla español, el tokenizador del modelo cambia la cuenta.",
+      "verTextos": "Ver los textos",
+      "nota": "Tokenizador de GPT-4o (o200k_base, con la librería gpt-tokenizer), corrido en tu navegador: lo que escribes no sale de tu equipo. Cada modelo corta distinto, y el de Claude no es público.",
       "codigo": "Ver el código"
     }
   }
