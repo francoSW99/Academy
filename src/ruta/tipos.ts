@@ -47,13 +47,8 @@ export type ContenidoParada = {
   puntos?: string[];
   /** Indicación al agente, en monoespaciada (parada «Dirígelo»). */
   indicacion?: string[];
-  /** Escenas interactivas, en orden: van después del video, para probar con las manos lo que se vio. */
+  /** Escenas interactivas, en orden: para probar con las manos lo que dice la parada. */
   escenas?: NombreEscena[];
-  /**
-   * Video hecho con ManimGX (lab/manim/estacion_NN.py, renderizado con scripts/escenas.sh).
-   * Archivos: public/escenas/NN/<nombre>-{blanca,negra}.{mp4,jpg}.
-   */
-  video?: { nombre: string; descripcion: string };
 };
 
 export type ContenidoEstacion = {

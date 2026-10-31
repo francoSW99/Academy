@@ -51,9 +51,8 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas el plan corregido de la Fase 4b?** (pedidos 28, 29 y 30, urgente) Con «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos. Ese «dale» vale como OK para publicar ese primer paso. Los canvas los publico cuando apruebes las capturas.
-2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
-3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
+1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+2. **¿Cómo atacamos la UI y la UX?** (pedido 27)
    - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
    - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
    - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
@@ -106,6 +105,8 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 - [x] Tres videos de la estación 03 (paradas 1, 2 y 5), en pizarra blanca y negra · 2026-10-30
 - [x] Script que los renderiza: `scripts/escenas.sh` · 2026-10-30
 
+> Retirados del sitio el 2026-10-31 (pedido 28): las lecciones no llevan videos para mirar. ManimGX se queda para dibujar las piezas de los canvas (Fase 4b).
+
 ### ✅ Fase 3 · Lección del bloque 3 · 5 de 5 · 2026-10-31 · PR #4 y #5
 - [x] **Córtalo en tokens** (parada 2):
   - cualquier texto cortado en tokens;
@@ -134,14 +135,14 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 0 de 5 · propuesta, espera tu OK
+### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 1 de 5 · aprobada el 2026-10-31
 Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
 3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
 4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
 
-- [ ] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 45 min
+- [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
 - [ ] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno queda en el PR, para tu OK antes de construir · media sesión
 - [ ] Construir los 3 canvas: «Pregúntale otra vez» (parada 1), la pizarra por momentos (parada 2) y «Autocompletado» (parada 5) · 1 o 2 sesiones
 - [ ] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7 · 1 h
@@ -162,31 +163,31 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
 - [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas, una con salidas estructuradas
+- [ ] 1 o 2 canvas interactivos con ManimGX, uno con salidas estructuradas
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 7 · Estación 05 «RAG y conocimiento» · 0 de 4 · semanas 2 y 3
 - [ ] Las 7 paradas (bloque 5)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas: embeddings (texto → vector) y búsqueda
+- [ ] 1 o 2 canvas interactivos con ManimGX: embeddings (texto → vector) y búsqueda
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 8 · Estación 02 «Git y GitHub para dirigir al agente» · 0 de 3 · semana 3
 - [ ] Las 7 paradas, desde la guía de estudio de Git (ya escrita)
-- [ ] 1 escena interactiva
+- [ ] 1 canvas interactivo
 - [ ] Publicada en el sitio
 
 ### Fase 9 · Estación 01 «Base de software habilitadora» · 0 de 4 · semana 4
 - [ ] Las 7 paradas (bloque 1)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas
+- [ ] 1 o 2 canvas interactivos con ManimGX
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 10 · Estación 13 «Evals: saber si funciona» · 0 de 4 · semana 5
 - [ ] Las 7 paradas (bloque 13)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas
+- [ ] 1 o 2 canvas interactivos con ManimGX
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Más adelante (sin fecha)

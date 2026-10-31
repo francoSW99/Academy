@@ -1,7 +1,8 @@
 # lab/manim/
 
-Escenas animadas con [ManimGX](https://github.com/academa-labs/manimgx), al estilo de 3Blue1Brown.
-Un archivo por estación (`estacion_03.py`), una clase `Scene` por parada que lleva video.
+Piezas de los canvas de cada estación, dibujadas antes con [ManimGX](https://github.com/academa-labs/manimgx), al estilo de 3Blue1Brown.
+
+**La regla** (pedidos 28 a 30 de `AVANCE.md`): nada de videos para mirar. ManimGX sirve para diseñar cada canvas (su storyboard) y para dibujar antes sus piezas: fórmulas, diagramas y el dibujo de cada momento. La página junta esas piezas y anima con Motion lo que se toca. Nada se genera al abrir la página.
 
 ## Requisitos
 
@@ -16,7 +17,5 @@ Sin GPU dibuja en la CPU (Mesa lavapipe, viene incluido). El aviso
 
 1. Escribe o cambia la escena en `estacion_NN.py`. Los colores salen de `TEMA` (`blanca` o `negra`, ver `DESIGN.md`).
 2. Revísala: `TEMA=blanca manimgx inspect lab/manim/estacion_03.py Mecanismo`. Mira el storyboard y corrige solapes.
-3. Renderiza las dos versiones y las portadas: `bash scripts/escenas.sh 03` (o `bash scripts/escenas.sh 03 Mecanismo` para una sola).
-4. Enlázala en el contenido: `video: { nombre: "mecanismo", descripcion: "…" }` en `src/ruta/contenido/03.ts`.
 
-Las probabilidades de las escenas son de ejemplo y así lo dice cada video. Las reales salen de un modelo (`lab/muestreo/`, Fase 3).
+`estacion_03.py` tiene las escenas que antes eran videos (paradas 1, 2 y 5). Son el punto de partida de los canvas de la Fase 4b; el paso que exporta sus piezas para la página se suma al construirlos.

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Cabecera } from "@/componentes/Cabecera";
 import { LineaParadas } from "@/componentes/LineaParadas";
 import { PracticaHecha } from "@/componentes/PracticaHecha";
-import { VideoEscena } from "@/componentes/VideoEscena";
 import { Escena } from "@/componentes/escenas";
 import { esIdioma, idiomas, rellenar, textos } from "@/lib/idiomas";
 import { contenidos } from "@/ruta/contenido";
@@ -66,8 +65,6 @@ export default async function Parada({ params }: Props) {
             {c.pregunta}
           </h2>
           <p className="max-w-[38em] text-lg leading-relaxed text-pretty text-tinta-2">{c.texto}</p>
-
-          {c.video && <VideoEscena estacion={n} nombre={c.video.nombre} descripcion={c.video.descripcion} />}
 
           {c.indicacion && (
             <div className="flex max-w-[780px] flex-col gap-2">

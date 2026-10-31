@@ -170,14 +170,14 @@ components:
 
 Academy es una línea de metro. Cada bloque de la ruta es una **estación**, cada etapa es una **zona** y cada estación se recorre en **7 paradas** que siempre son las mismas: el problema, el mecanismo, el criterio, cómo falla, sin la etiqueta, dirígelo y práctica. El orden se ve en todo momento: el mapa dice dónde estás y qué sigue, y la línea de paradas dice en qué paso vas. Nadie se pierde.
 
-Cada parada es una **pizarra**: una superficie blanca con cuadrícula fina donde la escena se arma por momentos, como un video de 3Blue1Brown, y al final se toca (perillas, botones, tiradas). Poco texto, mucho mecanismo.
+Cada parada es una **pizarra**: una superficie blanca con cuadrícula fina donde la escena se arma por momentos, con la calidad de 3Blue1Brown pero sin video: la avanzas tú y la tocas (perillas, botones, tiradas), como un gráfico o un dashboard que responde al instante. Poco texto, mucho mecanismo.
 
 La interfaz es minimal y elegante, en la línea de deepmind.google y woorky.app: fondo blanco liso, mucho aire, la letra de Woorky (Google Sans Flex) para usar la app y una serif (Newsreader) para lo que se piensa: títulos, preguntas, fórmulas y anotaciones.
 
 **Key Characteristics:**
 - Portada con un metro vertical que se lee de arriba hacia abajo: las zonas son cuadrados numerados y las estaciones, círculos.
 - Cada lección tiene un cartel de estación y una línea de 7 paradas que se pueden tocar.
-- La pizarra se arma en momentos (reproducir, pausar, avanzar) y termina siendo interactiva.
+- La pizarra es un canvas: se arma en momentos que avanzas tú y responde al instante a lo que tocas. No hay videos para mirar.
 - Las probabilidades se dibujan con cuadros: 25 por fila y cada uno vale 4 %.
 - Dos temas: pizarra blanca (principal) y pizarra negra (opcional). Sigue el modo del sistema y tiene un interruptor «Blanca | Negra».
 - Un solo acento por tema: plumón azul en la blanca y tiza dorada en la negra.
@@ -278,8 +278,16 @@ La conversación va como tarjetas, una por mensaje, con quién habla y cuántos 
 ### Línea de tiempo de prefill y decode (escena interactiva)
 Una franja de tiempo con dos tramos: el acento para leer (prefill) y tinta para escribir (decode). Todas las opciones usan la misma escala, la del caso más largo, para que se pueda comparar cuánto tarda cada una en empezar. Al enviar, la franja se llena a una velocidad fija (acelerada, con el factor a la vista). Mientras lee, la tarjeta del prompt se marca entera, porque lee todo a la vez; mientras escribe, la respuesta real aparece token a token con un cursor. Con movimiento reducido, salta directo al final.
 
-### Video de escena (ManimGX)
-La parte que se reproduce de una pizarra puede ser un video hecho con ManimGX (`lab/manim/`), al estilo de 3Blue1Brown. Usa los mismos colores del tema: azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, y gris tenue para las leyendas. Cada escena se renderiza dos veces, una por tema, y la página muestra la que corresponde al modo del sistema. La parte que se toca sigue en React.
+### Canvas interactivo (ManimGX + Motion)
+Lo que se explica con movimiento es un **canvas**: una pizarra que avanzas por momentos y que responde al instante a lo que tocas, como un gráfico o un dashboard. **Nunca es un video para mirar.**
+- **Las piezas se dibujan antes, con ManimGX** (`lab/manim/`), al estilo de 3Blue1Brown: fórmulas, diagramas y el dibujo de cada momento. Usan los colores del tema (azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, gris tenue para las leyendas) y se dibujan una vez por tema.
+- **La página solo junta esas piezas** y mueve con Motion lo que tocas: perillas, barras y contadores. Los datos del modelo también van calculados antes (`lab/`). Nada pesado se genera al abrir la página, y ManimGX no corre en el navegador.
+- **Carga:** cada canvas se descarga cuando llegas a él y pesa menos de 300 KB.
+
+### Video de la biblioteca (YouTube)
+Los videos que van en la app salen, cuando se puede, de la biblioteca de BrainFran (`04-Biblioteca/Videos/`). Van solo donde suman y nunca son hechos por nosotros.
+- Es una tarjeta con la miniatura, el título, el canal y qué mirar. Al tocar la miniatura, el video se ve ahí mismo: el reproductor de YouTube carga recién en ese momento.
+- Al lado va el enlace directo a YouTube. Si el canal no deja ver el video fuera de YouTube, la miniatura abre YouTube.
 
 ### Fórmula
 HTML con serif: variables en cursiva, subíndices y superíndices, y la variable que se manipula en el color del acento. Lleva `role="img"` con una descripción en palabras.
@@ -307,6 +315,7 @@ Dos selectores en pastilla en la cabecera: «Blanca | Negra» y «ES | EN». EN 
 - Rotular los datos de ejemplo como «de ejemplo».
 - Objetivos táctiles de 44 px como mínimo y contraste de texto de 4,5:1 como mínimo.
 - Botones y enlaces reales (`<button>`, `<a>`), con `aria-label` en los que solo tienen ícono.
+- Videos de la biblioteca de BrainFran: miniatura que se ve en la app y enlace directo a YouTube.
 
 ### Don't:
 - Degradados de fondo, vidrio esmerilado ni emoji.
@@ -314,6 +323,7 @@ Dos selectores en pastilla en la cabecera: «Blanca | Negra» y «ES | EN». EN 
 - Más de un acento por tema.
 - Párrafos largos dentro de la pizarra.
 - Inventar cifras: lo que no viene de una fuente se marca como ejemplo.
+- Videos para mirar hechos por nosotros (MP4, GIF o parecidos): lo animado es un canvas.
 
 ## Vocabulario
 
