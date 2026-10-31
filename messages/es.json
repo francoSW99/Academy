@@ -33,7 +33,7 @@
     "hecha": "Hecha",
     "completada": "Estación completada.",
     "proximaEstacion": "Próxima estación · pronto",
-    "material": "Material",
+    "material": "Para seguir",
     "queRevisar": "Qué revisar:",
     "indicacion": "Lo que le pides al agente:"
   },
@@ -197,5 +197,12 @@
       "codigo": "Ver el código",
       "minutos": "{m} min {s} s"
     }
+  },
+  "video": {
+    "explicado": "Míralo explicado por {canal}",
+    "verAqui": "Ver «{titulo}» aquí",
+    "enYoutube": "Ver en YouTube",
+    "es": "{minutos} min · en español",
+    "en": "{minutos} min · en inglés, con subtítulos"
   }
 }

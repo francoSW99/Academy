@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Cabecera } from "@/componentes/Cabecera";
 import { LineaParadas } from "@/componentes/LineaParadas";
 import { PracticaHecha } from "@/componentes/PracticaHecha";
+import { VideoBiblioteca } from "@/componentes/VideoBiblioteca";
 import { Escena } from "@/componentes/escenas";
 import { esIdioma, idiomas, rellenar, textos } from "@/lib/idiomas";
 import { contenidos } from "@/ruta/contenido";
@@ -102,6 +103,8 @@ export default async function Parada({ params }: Props) {
           {pn === 7 && <PracticaHecha lang={lang} estacion={n} />}
         </section>
 
+        {c.videos?.map((v) => <VideoBiblioteca key={v.id} video={v} lang={lang} />)}
+
         <div className="flex flex-wrap items-center justify-between gap-3">
           <span>
             {previa && (
@@ -119,16 +122,13 @@ export default async function Parada({ params }: Props) {
         </div>
 
         {pn === 7 && contenido.material && (
-          <section className="flex flex-col gap-3 rounded-[18px] border border-borde p-6">
-            <h2 className="text-[21px] font-medium">{t.material}</h2>
-            <ul className="flex flex-col gap-3">
-              {contenido.material.map((m) => (
-                <li key={m.titulo} className="flex flex-col">
-                  <span className="font-medium">{m.titulo}</span>
-                  <span className="text-sm text-tenue">{m.detalle}</span>
-                </li>
-              ))}
-            </ul>
+          <section aria-labelledby="material" className="flex flex-col gap-3">
+            <h2 id="material" className="text-[21px] font-medium">
+              {t.material}
+            </h2>
+            {contenido.material.map((v) => (
+              <VideoBiblioteca key={v.id} video={v} lang={lang} />
+            ))}
           </section>
         )}
 

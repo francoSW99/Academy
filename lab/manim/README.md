@@ -15,7 +15,9 @@ Sin GPU dibuja en la CPU (Mesa lavapipe, viene incluido). El aviso
 
 ## Flujo
 
-1. Escribe o cambia la escena en `estacion_NN.py`. Los colores salen de `TEMA` (`blanca` o `negra`, ver `DESIGN.md`).
-2. Revísala: `TEMA=blanca manimgx inspect lab/manim/estacion_03.py Mecanismo`. Mira el storyboard y corrige solapes.
+1. **El canvas se diseña como escena.** Cada estación tiene `canvas_NN.py`, con una clase por canvas. Cada sección (`self.momento(...)`) es un momento que avanzas tú en la página, y termina con `self.cierre()`.
+2. **Revísala:** `TEMA=blanca DISENO=1 manimgx inspect lab/manim/canvas_03.py Autocompletado`. Mira el storyboard y corrige solapes. Con `DISENO=1` aparecen las marcas «tocas» y «en vivo».
+3. **Arma el storyboard para revisar el diseño:** `bash scripts/storyboard.sh 03` deja un tablero por canvas en `docs/diseno/canvas/`, con una foto al final de cada momento.
+4. **Construye el canvas** (Fase 4b, paso 3): de la escena salen las piezas que la página junta (la frase, las fórmulas, los diagramas), en los dos temas. Lo que se mueve en vivo (barras, contadores, perillas) va en React con Motion.
 
-`estacion_03.py` tiene las escenas que antes eran videos (paradas 1, 2 y 5). Son el punto de partida de los canvas de la Fase 4b; el paso que exporta sus piezas para la página se suma al construirlos.
+Los datos son reales y se sacan antes: `lab/muestreo/` y `lab/autocompletado/`.

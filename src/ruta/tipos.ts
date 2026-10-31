@@ -38,6 +38,21 @@ export type ParadaMetodo = {
 /** Escenas interactivas que existen (src/componentes/escenas/). */
 export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
 
+/**
+ * Un video de YouTube de la biblioteca de BrainFran (04-Biblioteca/Videos/). Nunca uno hecho por nosotros.
+ * Se ve dentro de la app al tocar la miniatura, y también lleva el enlace directo a YouTube.
+ */
+export type VideoBiblioteca = {
+  /** El id de YouTube: lo que va después de watch?v=. */
+  id: string;
+  titulo: string;
+  canal: string;
+  minutos: number;
+  idioma: "es" | "en";
+  /** Qué mirar, en una línea: el tema o el capítulo que importa aquí. */
+  queMirar: string;
+};
+
 export type ContenidoParada = {
   /** La pregunta que abre la pizarra. */
   pregunta: string;
@@ -49,6 +64,8 @@ export type ContenidoParada = {
   indicacion?: string[];
   /** Escenas interactivas, en orden: para probar con las manos lo que dice la parada. */
   escenas?: NombreEscena[];
+  /** Videos de la biblioteca, solo donde suman. Van debajo de la pizarra. */
+  videos?: VideoBiblioteca[];
 };
 
 export type ContenidoEstacion = {
@@ -56,5 +73,6 @@ export type ContenidoEstacion = {
   /** Una línea que resume la estación. */
   resumen: string;
   paradas: Record<ParadaId, ContenidoParada>;
-  material?: { titulo: string; detalle: string }[];
+  /** Para seguir: los videos de la estación, al final de la práctica. */
+  material?: VideoBiblioteca[];
 };

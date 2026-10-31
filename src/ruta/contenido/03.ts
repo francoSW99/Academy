@@ -1,4 +1,23 @@
-import type { ContenidoEstacion } from "../tipos";
+import type { ContenidoEstacion, VideoBiblioteca } from "../tipos";
+
+// Videos de la biblioteca de BrainFran (04-Biblioteca/Videos/AIagents/), los que la nota pone en el bloque 3.
+const bettatech: VideoBiblioteca = {
+  id: "kIbr5lN-2F8",
+  titulo: "Todo lo que Necesitas Saber sobre la Ingenieria de IA en 26 minutos",
+  canal: "BettaTech",
+  minutos: 26,
+  idioma: "es",
+  queMirar: "El primer tema: tokens, predecir el siguiente token y por qué no responde siempre igual.",
+};
+
+const marinaWyss: VideoBiblioteca = {
+  id: "JV3pL1_mn2M",
+  titulo: "AI Engineering in 76 Minutes (Complete Course/Speedrun!)",
+  canal: "Marina Wyss",
+  minutos: 76,
+  idioma: "en",
+  queMirar: "El capítulo 1: el Transformer por dentro, y el prefill y el decode.",
+};
 
 // Textos cortos sacados de la nota (Pilar 1 · bloque 3). Las escenas interactivas están en src/componentes/escenas/.
 export const estacion03: ContenidoEstacion = {
@@ -13,6 +32,7 @@ export const estacion03: ContenidoEstacion = {
       pregunta: "¿Cómo elige un LLM la siguiente palabra?",
       texto: "Corta el texto en tokens, pedazos de palabra. En cada paso le da una probabilidad a cada token que podría seguir y elige uno; la temperatura decide cuánto se arriesga.",
       escenas: ["tokens", "muestreo"],
+      videos: [bettatech],
     },
     3: {
       pregunta: "Tres ideas para decidir bien",
@@ -23,6 +43,7 @@ export const estacion03: ContenidoEstacion = {
         "Leer es rápido y escribir es lento: un prompt largo tarda en empezar y una respuesta larga tarda y cuesta más. Saber cómo funciona por dentro te deja optimizar lo que construyas encima.",
       ],
       escenas: ["prefill"],
+      videos: [marinaWyss],
     },
     4: {
       pregunta: "Tres fallas típicas y cómo se notan",
@@ -49,8 +70,5 @@ export const estacion03: ContenidoEstacion = {
       texto: "Explica con un ejemplo propio por qué un modelo alucina y qué lo reduce. Antes, en la parada 2, compara el planeta y Turquía: ¿en cuál bajar la temperatura arregla el error y en cuál no?",
     },
   },
-  material: [
-    { titulo: "Marina Wyss · AI Engineering en 76 min", detalle: "cap. 1: Transformer, prefill y decode, muestreo" },
-    { titulo: "BettaTech · Ingeniería de IA en 26 min", detalle: "los fundamentos del LLM" },
-  ],
+  material: [bettatech, marinaWyss],
 };
