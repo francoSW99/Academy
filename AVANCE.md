@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 27 de 52 tareas del plan (52 %). El MVP está al 100 %. La Fase 4b va en 4 de 7.
-- **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b: mis videos ya no están en el sitio, y el temario por módulos te gustó (borrador: https://academy.woorky.app/borrador/es/).
-- **Falta:** de la Fase 4b, rehacer la lección 03 por ideas (1 sesión), los canvas dentro de ella (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** que apruebes la lección por ideas: cada idea con su explicación, su caso real y lo que hace un ingeniero de IA, todo junto. Con tu «dale», la rehago en el borrador.
+- **Avance:** `▓▓▓▓▓░░░░░` 28 de 52 tareas del plan (54 %). El MVP está al 100 %. La Fase 4b va en 5 de 7.
+- **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b: mis videos ya no están en el sitio; el temario por módulos y la lección 03 por ideas se pueden ver en el borrador: https://academy.woorky.app/borrador/es/leccion/03/
+- **Falta:** de la Fase 4b, los canvas dentro de la lección (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
+- **Lo próximo:** que mires la lección por ideas en el borrador y me digas si te gusta. Si te gusta, la publico en el sitio.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas la lección por ideas?** (pedido 35) Los módulos se quedan. Dentro de la lección se van las 3 partes: cada idea lleva junta su explicación, su caso real (si hay uno que sume) y lo que hace un ingeniero de IA con ella. Con «dale», rehago la lección 03 en el borrador.
+1. **¿Te gusta la lección por ideas?** (pedido 36) Mírala en el borrador: https://academy.woorky.app/borrador/es/leccion/03/ (el sitio público no cambió). Si te gusta, la publico en `/es/`. Si no, dime qué idea o qué recuadro cambio.
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
@@ -133,7 +133,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 4 de 7 · PR #8
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 7 · PR #8
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
@@ -145,7 +145,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
 - [x] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno quedó en el PR #8 (`docs/diseno/canvas/`), espera tu OK antes de construir · 2026-10-31
 - [x] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen. En el borrador, espera tu OK · 2026-11-01
-- [ ] La lección 03 por ideas: cada idea con su explicación, su caso real y lo que hace un ingeniero de IA. Reemplaza a las 3 partes, que confundían (pedido 35) · 1 sesión · propuesta, espera tu OK
+- [x] La lección 03 por ideas: cada idea con su explicación, su caso real y lo que hace un ingeniero de IA. Reemplaza a las 3 partes, que confundían (pedido 35). En el borrador, espera tu OK · 2026-11-01
 - [ ] Construir los 3 canvas dentro de la teoría · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
 - [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
@@ -241,6 +241,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 33 | 2026-11-01 | Sin apuesta ni paradas: directo al grano, como DeepLearning.AI o Khan Academy. Primero la teoría, después un ejemplo de la vida real, y cómo usarlo para ser preciso al darle un prompt a un LLM como Claude. «Tal vez módulos» | Propuesta: curso → módulos → lecciones; cada lección en una página con 3 partes. La Fase 4b pasa a 7 tareas |
 | 34 | 2026-11-01 | «Dale, créalo para ver cómo queda en la página» | Borrador en https://academy.woorky.app/borrador/es/: temario por módulos y la lección 03 en 3 partes. El sitio público no cambió |
 | 35 | 2026-11-01 | Los módulos sí; las 3 partes de la lección no: confunden, no se ve dónde empieza el caso real y el prompt de la parte 3 no sirve. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples | Propuesta: la lección por ideas, con su caso real y lo que hace un ingeniero de IA, todo junto |
+| 36 | 2026-11-01 | «Dale, hazlo en borrador para ver tu idea» | La lección 03 por ideas en el borrador: 5 ideas, cada una con su caso real y lo que hace un ingeniero de IA, más el resumen, la práctica, preguntas para tu LLM y los videos |
 
 ---
 

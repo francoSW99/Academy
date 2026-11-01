@@ -42,38 +42,38 @@ export type VideoBiblioteca = {
   queMirar: string;
 };
 
-/** Cómo se suele pedir algo y cómo pedirlo para que el modelo haga justo lo que quieres. */
-export type PromptEjemplo = {
-  /** Dónde va el prompt, si importa («en el chat», «en las instrucciones del proyecto»). */
-  dondeAntes?: string;
-  dondeDespues?: string;
-  antes: string;
-  despues: string;
-  porQue: string[];
+/** Un caso real, medido con un modelo o vivido en un trabajo. Va pegado a la idea que lo explica. */
+export type Caso = {
+  titulo: string;
+  /** Un dato grande: «53 %» y qué significa. */
+  dato?: { cifra: string; que: string };
+  texto: string[];
 };
 
-/** Un tema de la lección: un título, poco texto y, si sirve, algo para tocar o copiar. */
-export type Bloque = {
+/**
+ * Una idea de la lección: un capítulo completo, con todo junto. La explicación (con su escena para tocar),
+ * un caso real solo si suma, y lo que hace un ingeniero de IA gracias a esa idea.
+ */
+export type Idea = {
   titulo: string;
-  /** Párrafos cortos, de una o dos frases. */
+  /** La explicación, en párrafos cortos. */
   texto: string[];
-  puntos?: string[];
   escenas?: NombreEscena[];
-  /** Un dato real y grande, para los casos de la vida real. */
-  dato?: { cifra: string; que: string };
-  prompt?: PromptEjemplo;
+  caso?: Caso;
+  /** Decisiones de un ingeniero de IA: diseño, medición y costo. No plantillas de prompt. */
+  ingeniero?: string[];
 };
 
 export type ContenidoLeccion = {
   n: string;
   /** Una o dos frases debajo del título: qué vas a entender. */
   resumen: string;
-  teoria: Bloque[];
-  vidaReal: Bloque[];
-  enTuPrompt: Bloque[];
-  /** Plantilla de prompt para copiar, al final de «En tu prompt». */
-  plantilla?: string;
+  ideas: Idea[];
+  /** «Lo que sabe un ingeniero de IA»: lo que te llevas, en pocas frases. */
+  loQueSabe: string[];
   practica: string;
+  /** Preguntas para seguir aprendiendo con un LLM. */
+  preguntas?: string[];
   /** Videos de la biblioteca para profundizar, al final de la lección. */
   videos?: VideoBiblioteca[];
 };

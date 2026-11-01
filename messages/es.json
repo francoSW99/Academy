@@ -9,7 +9,7 @@
   },
   "curso": {
     "etiqueta": "Curso · {modulos} módulos · {lecciones} lecciones",
-    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección va directo al grano: la teoría, un caso de la vida real y cómo usarlo en tu prompt.",
+    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección va directo al grano: las ideas clave, con casos reales medidos y lo que hace un ingeniero de IA con cada una.",
     "avance": "{hechas} de {total} lecciones completadas",
     "disponibles": "{n} disponible ahora; las demás, pronto",
     "empezar": "Empezar: lección {n} · {titulo}",
@@ -24,16 +24,16 @@
     "comoEs": "Cómo es cada lección",
     "partes": [
       {
-        "titulo": "La teoría",
-        "texto": "Directo al grano, con escenas que tocas."
+        "titulo": "Ideas, directo al grano",
+        "texto": "Cada idea con su explicación y una escena que tocas."
       },
       {
-        "titulo": "En la vida real",
-        "texto": "Un caso real, con datos de un modelo."
+        "titulo": "Casos reales",
+        "texto": "Medidos con un modelo de verdad, pegados a la idea que explican."
       },
       {
-        "titulo": "En tu prompt",
-        "texto": "Cómo pedírselo a un LLM para que haga justo lo que quieres."
+        "titulo": "Criterio de ingeniero",
+        "texto": "Qué decide un ingeniero de IA gracias a cada idea."
       }
     ],
     "meta": "Al terminar",
@@ -44,16 +44,6 @@
     "leccionDe": "Módulo {modulo} · {nombreModulo} · Lección {n} de {total}",
     "enEstaLeccion": "En esta lección",
     "temarioCurso": "Temario del curso",
-    "partes": {
-      "teoria": "La teoría",
-      "vidaReal": "En la vida real",
-      "enTuPrompt": "En tu prompt",
-      "practica": "Tu práctica"
-    },
-    "antes": "Así se suele pedir",
-    "despues": "Así hace justo lo que quieres",
-    "porQue": "Por qué funciona",
-    "plantilla": "Plantilla para copiar",
     "copiar": "Copiar",
     "copiado": "Copiado",
     "marcarHecha": "Marcar la lección como completada",
@@ -62,7 +52,13 @@
     "anterior": "← Lección {n} · {titulo}",
     "siguiente": "Siguiente: lección {n} · {titulo} →",
     "siguientePronto": "Siguiente: lección {n} · {titulo} (pronto)",
-    "volverTemario": "Volver al temario"
+    "volverTemario": "Volver al temario",
+    "caso": "Caso real",
+    "ingeniero": "Lo que hace un ingeniero de IA",
+    "loQueSabe": "Lo que sabe un ingeniero de IA",
+    "practica": "Tu práctica",
+    "preguntas": "Sigue aprendiendo con tu LLM",
+    "preguntasTexto": "Copia una pregunta y házsela al modelo que uses."
   },
   "escenas": {
     "muestreo": {

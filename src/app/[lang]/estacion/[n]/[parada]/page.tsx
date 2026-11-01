@@ -5,12 +5,12 @@ export const dynamicParams = false;
 
 // Las 7 paradas viejas de cada estación, y a qué parte de la lección nueva corresponde cada una.
 const PARTE_DE_PARADA: Record<string, string> = {
-  "1": "teoria",
-  "2": "teoria",
-  "3": "teoria",
-  "4": "vida-real",
-  "5": "teoria",
-  "6": "en-tu-prompt",
+  "1": "idea-1",
+  "2": "idea-1",
+  "3": "lo-que-sabe",
+  "4": "idea-3",
+  "5": "idea-1",
+  "6": "idea-3",
   "7": "practica",
 };
 
@@ -20,7 +20,7 @@ export function generateStaticParams() {
   );
 }
 
-// Dirección vieja: /es/estacion/03/6/ lleva a /es/leccion/03/#en-tu-prompt.
+// Dirección vieja: /es/estacion/03/7/ lleva a /es/leccion/03/#practica.
 export default async function ParadaVieja({ params }: { params: Promise<{ lang: string; n: string; parada: string }> }) {
   const { n, parada } = await params;
   const destino = `../../../leccion/${n}/#${PARTE_DE_PARADA[parada]}`;

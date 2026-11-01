@@ -12,7 +12,18 @@ type Estado = "completada" | "disponible" | "pronto";
  * El temario del curso: módulos con sus lecciones y el avance de cada una.
  * «portada» es la lista grande de la página de inicio; «lateral», la barra de la lección.
  */
-export function Temario({ lang, variante, actual }: { lang: Idioma; variante: "portada" | "lateral"; actual?: string }) {
+export function Temario({
+  lang,
+  variante,
+  actual,
+  indice,
+}: {
+  lang: Idioma;
+  variante: "portada" | "lateral";
+  actual?: string;
+  /** En la barra lateral: el índice de la lección actual, que va debajo de ella. */
+  indice?: React.ReactNode;
+}) {
   const t = textos(lang).curso;
   const { avance } = useAvance();
   const estado = (l: Leccion): Estado => (avance[l.n]?.hecha ? "completada" : l.disponible ? "disponible" : "pronto");
@@ -45,6 +56,7 @@ export function Temario({ lang, variante, actual }: { lang: Idioma; variante: "p
                         {contenido}
                       </Link>
                     )}
+                    {esActual && indice}
                   </li>
                 );
               })}
