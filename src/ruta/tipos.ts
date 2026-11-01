@@ -28,7 +28,7 @@ export type Curso = {
 export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
 
 /** Diagramas que existen (src/componentes/figuras/): van entre los párrafos, para imaginar lo que dice el texto. */
-export type NombreFigura = "bucle";
+export type NombreFigura = "bucle" | "tokens" | "ventana" | "leerEscribir";
 
 /** Un trozo de la explicación: un párrafo o un diagrama entre párrafos. */
 export type Trozo = string | { figura: NombreFigura };

@@ -249,6 +249,27 @@
       "agrega": "4 · La agrega",
       "repite": "y repite con el texto nuevo, palabra por palabra",
       "pie": "El bucle con el que escribe un LLM: un bot de soporte redacta la respuesta a Carla. Probabilidades reales de deepseek-r1:8b."
+    },
+    "tokens": {
+      "texto": "1 · Tu texto",
+      "tokens": "2 · Lo corta en tokens, y cada token es un número",
+      "numeros": "{tokens} tokens para {caracteres} caracteres. El modelo no lee letras: lee esos números.",
+      "pie": "Un ticket de soporte cortado por el tokenizador de GPT-4o (o200k_base). «Cobraron» y «suscripción» se parten en dos."
+    },
+    "ventana": {
+      "system": "Instrucciones del bot",
+      "user": "Mensajes de Carla",
+      "assistant": "Respuestas del bot",
+      "ventana": "ventana: {tokens} tokens",
+      "turno": "Turno {n} · lee {tokens} tokens",
+      "noCabe": "ya no cabe",
+      "pie": "En cada turno, la app le vuelve a mandar al modelo las instrucciones y toda la conversación. Es la conversación de Carla contada en tokens, con una ventana chica para que se note."
+    },
+    "leerEscribir": {
+      "leer": "Leer (prefill): toda la pregunta de una vez",
+      "escribir": "Escribir (decode): un token tras otro",
+      "dato": "{tokens} tokens en {segundos} s: unos {ritmo} por segundo",
+      "pie": "El bot lee la pregunta de Carla y empieza a responder. Tiempos reales de deepseek-r1:8b en esta máquina, sin GPU."
     }
   }
 }

@@ -92,7 +92,9 @@ export const leccion03: ContenidoLeccion = {
     {
       titulo: "Lee en tokens",
       texto: [
-        "Esas «palabras» en realidad son tokens: pedazos de palabra. Un ticket, un JSON, un trozo de código o el modelo de un producto se cortan distinto. Pruébalo:",
+        "Esas «palabras» en realidad son tokens: pedazos de palabra. Y el modelo tampoco ve los pedazos: cada token es un número de su vocabulario.",
+        { figura: "tokens" },
+        "Un ticket, un JSON, un trozo de código o el modelo de un producto se cortan distinto. Pruébalo:",
       ],
       escenas: ["tokens"],
       despues: [
@@ -115,7 +117,9 @@ export const leccion03: ContenidoLeccion = {
       titulo: "Solo ve lo que cabe en su ventana",
       texto: [
         "La ventana de contexto es todo lo que el modelo lee de una vez: las instrucciones, la conversación y los documentos. Lo que queda fuera no existe para él.",
-        "Además, no tiene memoria entre llamadas: en cada turno vuelve a leer todo desde el principio. Cuando la conversación ya no cabe, lo viejo se recorta o se resume. Mira la conversación de soporte de Carla:",
+        "Además, no tiene memoria entre llamadas: en cada turno vuelve a leer todo desde el principio.",
+        { figura: "ventana" },
+        "Cuando la conversación ya no cabe, lo viejo se recorta o se resume. Mira la conversación de soporte de Carla:",
       ],
       escenas: ["contexto"],
       despues: ["Carla dijo en su primer mensaje que su empresa tiene el plan Empresa, que no paga devoluciones. Con la conversación entera, el bot lo respeta: el retiro le sale gratis. Si se recorta lo viejo, **el bot ya no sabe que Carla es del plan Empresa**: le cita el precio de $4.990 y le pide confirmar algo que ella ya dijo. Esta vez el resumen sí guardó el plan; otras veces no, y por eso un resumen se prueba.", "Usamos una ventana chica para que se note rápido. Con ventanas grandes pasa lo mismo, solo que más tarde."],
@@ -125,6 +129,7 @@ export const leccion03: ContenidoLeccion = {
       titulo: "Lee rápido y escribe lento",
       texto: [
         "Primero lee todo tu prompt de una vez (prefill). Después escribe la respuesta token a token (decode), y cada token espera al anterior.",
+        { figura: "leerEscribir" },
         "Un bot con RAG busca en el manual lo que responde la pregunta y se lo pega al prompt. Mira qué pasa si le pega solo lo que sirve o el manual entero:",
       ],
       escenas: ["prefill"],
