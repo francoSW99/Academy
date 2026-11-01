@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 31 de 57 tareas del plan (54 %). El MVP está al 100 %. La Fase 4b va en 8 de 12.
-- **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b, en el borrador: el temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. https://academy.woorky.app/borrador/es/leccion/03/
-- **Falta:** de la Fase 4b, 3 diagramas (media sesión), los 3 canvas con los casos nuevos (1 o 2 sesiones) y publicar. Pendiente aparte: sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
-- **Lo próximo:** que leas la lección en el borrador y me digas si te gusta. Si te gusta, la publico en el sitio.
+- **Avance:** `▓▓▓▓▓░░░░░` 32 de 58 tareas del plan (55 %). El MVP está al 100 %. La Fase 4b va en 9 de 13.
+- **Hecho:** Fases 0 a 4. **El curso nuevo es público desde el 2026-11-01:** https://academy.woorky.app/es/ tiene el temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes.
+- **Falta:** de la Fase 4b, 3 diagramas (media sesión), los 3 canvas con los casos nuevos (1 o 2 sesiones) y publicarlos. Aparte: sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
+- **Lo próximo:** mezclar los PR #7 y #8, para que `main` (y el link de este tablero) quede igual que el sitio. Después, los 3 diagramas que faltan.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Te gusta la lección con casos reales, videos del tema y fuentes?** (pedidos 40 a 42) Está en el borrador: https://academy.woorky.app/borrador/es/leccion/03/ (el sitio público no cambió). Si te gusta, la publico en `/es/`.
+1. **¿Mezclo los PR #7 y #8?** El sitio ya muestra el curso nuevo, pero el código está en la rama del PR #8, que sale del #7. Con «mezcla el PR 7 y el 8», `main` queda igual que el sitio y el link de este tablero se actualiza.
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
@@ -133,7 +133,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 8 de 12 · PR #8
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 9 de 13 · PR #8
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
@@ -156,7 +156,8 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [ ] Diagramas entre los textos, al menos uno por idea: el bucle (idea 1) ya está en el borrador, con el bot de soporte, y el de la llamada se quitó porque confundía (pedido 39). Faltan de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez y escribir de a uno (idea 5) · media sesión
 - [ ] Construir los 3 canvas dentro de la lección, con los casos nuevos: el bot que redacta (idea 1) y los tickets (idea 3). Hay que redibujar sus storyboards, que usaban los ejemplos viejos · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
-- [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
+- [x] Publicar el curso en módulos y la lección 03 nueva, revisados en computador y celular (pedido 43) · 2026-11-01
+- [ ] Publicar los diagramas y canvas que faltan, con tu OK
 
 ### Fase 5 · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
@@ -256,6 +257,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 40 | 2026-11-01 | Que los ejemplos y casos sean usos reales y cotidianos de un ingeniero de IA, no casos básicos y vagos | Propuesta: 5 casos de ingeniero de IA para la lección 03, medidos con el modelo local, también en las escenas |
 | 41 | 2026-11-01 | Antes de aplicar: los videos de «Para profundizar» son demasiado generales para «Cómo funciona un LLM»; tienen que estar más semantizados | Propuesta: solo el tramo del tema de cada video de tu biblioteca, y 2 videos que tratan solo de cómo funciona un LLM, sumados a tu biblioteca |
 | 42 | 2026-11-01 | «Dale perfecto». Y antes de implementar, citas o bibliografía con fuentes confiables, ojalá de los libros y fuentes de BrainFran | En el borrador: los casos reales medidos, los videos del tema (3Blue1Brown, Karpathy y el tramo de Marina Wyss) y las fuentes en cada idea y al final, con el libro de tu biblioteca |
+| 43 | 2026-11-01 | «Dale, sí me gusta» | Publicado en https://academy.woorky.app/es/: el temario por módulos y la lección 03 nueva. Revisado en internet: la portada, la lección, los links viejos y `/obsidian/` |
 
 ---
 
