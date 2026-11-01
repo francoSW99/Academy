@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 26 de 50 tareas del plan (52 %). El MVP está al 100 %. La Fase 4b va en 3 de 5.
+- **Avance:** `▓▓▓▓▓░░░░░` 26 de 52 tareas del plan (50 %). El MVP está al 100 %. La Fase 4b va en 3 de 7.
 - **Hecho:** Fases 0 a 4: la estación 03 es pública en https://academy.woorky.app/es/ desde el 2026-10-31. Fase 4b: mis 3 videos ya no están en el sitio, y en el PR #8 quedaron los storyboards de los 3 canvas y los videos de tu biblioteca.
-- **Falta:** de la Fase 4b, construir los 3 canvas (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** elegir con qué reemplazar las 7 paradas (recomiendo «3 paradas»: Apuesta → Descubre → Dirige). Conviene decidirlo antes de construir los canvas.
+- **Falta:** de la Fase 4b, la estructura de curso (módulos y lecciones), la lección 03 en 3 partes y los canvas: unas 4 sesiones. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes la estructura nueva: curso → módulos → lecciones, y cada lección en una página con teoría, un ejemplo de la vida real y cómo usarlo en tu prompt. Con tu «dale», empiezo por la estructura (1 sesión).
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -25,14 +25,14 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ```text
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
-F4b   Canvas y videos (urgente)           ▓▓▓
-F5    Pulido del sitio + UX                  ░░
-F6    Estación 04 · App de IA                  ░░░░
-F7    Estación 05 · RAG                            ░░░░
-F8    Estación 02 · Git                                ░░
-F9    Estación 01 · Base de software                     ░░░░
-F10   Estación 13 · Evals                                    ░░░░
-Después: 06–08 agentes · inglés · UI                             ···
+F4b   Curso en módulos + canvas           ▓▓▓▓▓
+F5    Pulido del sitio                         ░░
+F6    Lección 04 · App de IA                     ░░░░
+F7    Lección 05 · RAG                               ░░░░
+F8    Lección 02 · Git                                   ░░
+F9    Lección 01 · Base de software                        ░░░░
+F10   Lección 13 · Evals                                       ░░░░
+Después: 06–08 agentes · inglés · UI                               ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
@@ -51,13 +51,9 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Con qué reemplazamos las 7 paradas?** (pedido 32) Recomiendo **«3 paradas»: Apuesta → Descubre → Dirige**. Las otras opciones son «misiones» (retos cortos tipo juego) y «relato» (una sola página con scroll). Conviene decidirlo antes de construir los canvas: reordenar la estación 03 suma 1 sesión a la Fase 4b.
+1. **¿Apruebas la estructura nueva?** (pedido 33) Sin paradas ni metro: curso → 5 módulos → 16 lecciones, como DeepLearning.AI o Khan Academy. Cada lección es una página con 3 partes: la teoría, directa y con canvas; un ejemplo de la vida real; y cómo usarlo en tu prompt para que un LLM haga justo lo que quieres. Con «dale», empiezo por la estructura (1 sesión).
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
-4. **¿Cómo atacamos la UI y la UX?** (pedido 27)
-   - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
-   - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
-   - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -69,7 +65,7 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F4b Canvas y videos · urgente :active, f4b, 2026-11-02, 4d
+    F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 7d
     F5 Pulido del sitio + UX :f5, after f4b, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
@@ -137,20 +133,23 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 3 de 5 · aprobada el 2026-10-31 · PR #8
-Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 3 de 7 · PR #8
+Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
 3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
 4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
+5. **Sin paradas** (pedido 33): el curso se ordena en módulos y lecciones, como DeepLearning.AI o Khan Academy. Cada lección es una página con 3 partes, en este orden: la teoría, directa y con canvas; un ejemplo de la vida real; y cómo usarlo en tu prompt para que un LLM haga justo lo que quieres.
 
 - [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
 - [x] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno quedó en el PR #8 (`docs/diseno/canvas/`), espera tu OK antes de construir · 2026-10-31
-- [ ] Construir los 3 canvas: «Pregúntale otra vez» (parada 1), la pizarra por momentos (parada 2) y «Autocompletado» (parada 5) · 1 o 2 sesiones
+- [ ] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen · 1 sesión · propuesta, espera tu OK
+- [ ] La lección 03 en 3 partes: la teoría, en la vida real y en tu prompt · 1 sesión
+- [ ] Construir los 3 canvas dentro de la teoría · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
 - [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
 
-### Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
+### Fase 5 · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
@@ -161,6 +160,7 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 3. **No retoma donde quedaste.** «Entrar a la estación» siempre lleva a la parada 1, y la portada no muestra cuántas paradas viste.
 4. **El video tapa su propia frase.** Los controles del video cubren la última línea de la escena («Elige por probabilidad, no por verdad»).
 5. **El mapa tiene ruido para quien llega.** Las etiquetas «L2 · 27–28» salen en 8 estaciones sin explicación, y las 15 estaciones cerradas no dicen «pronto».
+- Con la estructura nueva (Fase 4b) se arreglan el 2, el 3 y el 5; el 4 ya se fue con los videos.
 - Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
@@ -237,6 +237,7 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 | 30 | 2026-10-31 | Los videos no son para sacar ideas para los canvas: solo hay que intentar sacarlos de la biblioteca de BrainFran. Al tocar la miniatura se ve el video en la app, o se va por enlace directo a YouTube | Plan de la Fase 4b corregido: paso 4, videos de la biblioteca que se ven en la app, con enlace a YouTube |
 | 31 | 2026-10-31 | «Dale» al plan corregido de la Fase 4b | Paso 1 publicado: los 3 videos fuera del sitio y las reglas corregidas en `DESIGN.md` y en el tablero. Paso 2: storyboards de los 3 canvas con ManimGX y datos reales. Paso 4: videos de tu biblioteca con miniatura y enlace, sin publicar (PR #8) |
 | 32 | 2026-11-01 | Cambiar el mecanismo de enseñanza de 7 paradas: ¿algún sustituto? | Tres opciones, con la recomendada: «3 paradas» (Apuesta → Descubre → Dirige) |
+| 33 | 2026-11-01 | Sin apuesta ni paradas: directo al grano, como DeepLearning.AI o Khan Academy. Primero la teoría, después un ejemplo de la vida real, y cómo usarlo para ser preciso al darle un prompt a un LLM como Claude. «Tal vez módulos» | Propuesta: curso → módulos → lecciones; cada lección en una página con 3 partes. La Fase 4b pasa a 7 tareas |
 
 ---
 
