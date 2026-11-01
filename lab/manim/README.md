@@ -1,7 +1,8 @@
 # lab/manim/
 
-Escenas animadas con [ManimGX](https://github.com/academa-labs/manimgx), al estilo de 3Blue1Brown.
-Un archivo por estación (`estacion_03.py`), una clase `Scene` por parada que lleva video.
+Piezas de los canvas de cada estación, dibujadas antes con [ManimGX](https://github.com/academa-labs/manimgx), al estilo de 3Blue1Brown.
+
+**La regla** (pedidos 28 a 30 de `AVANCE.md`): nada de videos para mirar. ManimGX sirve para diseñar cada canvas (su storyboard) y para dibujar antes sus piezas: fórmulas, diagramas y el dibujo de cada momento. La página junta esas piezas y anima con Motion lo que se toca. Nada se genera al abrir la página.
 
 ## Requisitos
 
@@ -14,9 +15,9 @@ Sin GPU dibuja en la CPU (Mesa lavapipe, viene incluido). El aviso
 
 ## Flujo
 
-1. Escribe o cambia la escena en `estacion_NN.py`. Los colores salen de `TEMA` (`blanca` o `negra`, ver `DESIGN.md`).
-2. Revísala: `TEMA=blanca manimgx inspect lab/manim/estacion_03.py Mecanismo`. Mira el storyboard y corrige solapes.
-3. Renderiza las dos versiones y las portadas: `bash scripts/escenas.sh 03` (o `bash scripts/escenas.sh 03 Mecanismo` para una sola).
-4. Enlázala en el contenido: `video: { nombre: "mecanismo", descripcion: "…" }` en `src/ruta/contenido/03.ts`.
+1. **El canvas se diseña como escena.** Cada estación tiene `canvas_NN.py`, con una clase por canvas. Cada sección (`self.momento(...)`) es un momento que avanzas tú en la página, y termina con `self.cierre()`.
+2. **Revísala:** `TEMA=blanca DISENO=1 manimgx inspect lab/manim/canvas_03.py Autocompletado`. Mira el storyboard y corrige solapes. Con `DISENO=1` aparecen las marcas «tocas» y «en vivo».
+3. **Arma el storyboard para revisar el diseño:** `bash scripts/storyboard.sh 03` deja un tablero por canvas en `docs/diseno/canvas/`, con una foto al final de cada momento.
+4. **Construye el canvas** (Fase 4b, paso 3): de la escena salen las piezas que la página junta (la frase, las fórmulas, los diagramas), en los dos temas. Lo que se mueve en vivo (barras, contadores, perillas) va en React con Motion.
 
-Las probabilidades de las escenas son de ejemplo y así lo dice cada video. Las reales salen de un modelo (`lab/muestreo/`, Fase 3).
+Los datos son reales y se sacan antes: `lab/muestreo/` y `lab/autocompletado/`.

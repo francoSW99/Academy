@@ -1,5 +1,5 @@
 /**
- * Tokens reales de los ejemplos de la escena «tokens» (estación 03, parada 2).
+ * Tokens reales de los ejemplos de la escena «tokens» (lección 03): textos del día a día de un bot de soporte.
  *
  * - Corta cada ejemplo con o200k_base, el tokenizador público de GPT-4o (librería gpt-tokenizer).
  *   Así la escena muestra los ejemplos al instante; el tokenizador completo (2,4 MB) solo se
@@ -23,26 +23,26 @@ const SALIDA = new URL("../../src/componentes/escenas/datos/tokens-es.json", imp
 
 // «mira»: qué notar en cada ejemplo. Si cambia el tokenizador, hay que revisar que siga siendo cierto.
 const EJEMPLOS = [
-  { id: "frase", texto: "La capital de Turquía es Ankara, no Estambul.", mira: "Las palabras comunes son 1 token. «Turquía» y «Estambul» se cortan en 2." },
-  { id: "rara", texto: "Mi tía es electroencefalografista.", mira: "Una palabra rara se corta en muchos pedazos: «electroencefalografista» son 5 tokens." },
-  { id: "letras", texto: "¿Cuántas erres tiene «ferrocarril»?", mira: "El modelo no ve letras: ve «fer», «roc», «arr» e «il». Por eso le cuesta contar las erres." },
-  { id: "numeros", texto: "3,14159 + 2,71828 = 5,85987", mira: "Los números se cortan de a 3 cifras: el modelo no ve «3,14159» como un solo número." },
-  { id: "emoji", texto: "Me encanta 🚀🔥", mira: "Cada emoji también es un token: también se paga." },
+  { id: "ticket", texto: "Me cobraron dos veces la suscripción de este mes.", mira: "Un ticket corto: las palabras comunes son un token cada una." },
+  { id: "json", texto: '{"categoria": "facturación", "urgente": true}', mira: "Las comillas, las llaves y los dos puntos también son tokens: un JSON cuesta más de lo que parece." },
+  { id: "codigo", texto: "def calcular_iva(monto):\n    return monto * 0.19", mira: "En el código también cuentan la sangría, los símbolos y los números, que se cortan en pedazos." },
+  { id: "sku", texto: "Monitor LG 27UL850-W, código MN-27-4K-2026", mira: "Los modelos y códigos de producto se cortan en muchos pedazos: pesan más que una palabra común." },
+  { id: "emoji", texto: "¡Gracias por la ayuda! 🙌🔥", mira: "Los emojis que mandan los clientes también son tokens: también se pagan." },
 ];
 
 // Los mismos textos en los dos idiomas, con casi los mismos caracteres.
 const PARES = [
   {
-    es: "Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.",
-    en: "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.",
+    es: "Eres el asistente de soporte de una tienda online de tecnología. Responde en no más de tres frases, en tono cercano y sin tecnicismos. Si el caso no está en el manual, dilo y escala a un ejecutivo.",
+    en: "You are the support assistant for an online tech store. Answer in no more than three sentences, in a friendly tone and without jargon. If the case is not in the manual, say so and escalate to an agent.",
   },
   {
-    es: "Un modelo de lenguaje no consulta la verdad: predice el siguiente token más probable a partir de todo lo que lleva escrito. Por eso puede inventar un dato con total seguridad.",
-    en: "A language model does not look up the truth: it predicts the most likely next token based on everything written so far. That is why it can make up a fact with complete confidence.",
+    es: "Hola, me cobraron dos veces la suscripción de este mes y necesito que me devuelvan el segundo cobro lo antes posible.",
+    en: "Hi, I was charged twice for this month's subscription and I need the second charge refunded as soon as possible.",
   },
   {
-    es: "Hola, ¿me puedes ayudar a escribir un correo para mi jefe? Necesito pedirle el viernes libre porque tengo una cita médica.",
-    en: "Hi, can you help me write an email to my boss? I need to ask for Friday off because I have a doctor's appointment.",
+    es: "Hola Carla, lamentamos el cobro duplicado. Ya anulamos el segundo cargo y verás la devolución en tu tarjeta en un plazo de cinco a diez días hábiles.",
+    en: "Hi Carla, we're sorry about the duplicate charge. We have already voided the second charge and you will see the refund on your card within five to ten business days.",
   },
 ];
 

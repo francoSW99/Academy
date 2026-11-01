@@ -7,16 +7,16 @@ El tablero del proyecto. Claude lo actualiza en cada entrega:
 
 Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
-*Última actualización: 2026-10-31*
+*Última actualización: 2026-11-01*
 
 ---
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 23 de 50 tareas del plan (46 %). El MVP está al 100 %. El plan suma las 5 tareas urgentes de la Fase 4b.
-- **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
-- **Falta:** la Fase 4b, urgente (2 o 3 sesiones): canvas interactivos con ManimGX en lugar de mis videos, y videos de tu biblioteca que se ven dentro de la app. Después, las fases 5 a 10.
-- **Lo próximo:** que apruebes el plan corregido de la Fase 4b. Con tu «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos.
+- **Avance:** `▓▓▓▓▓░░░░░` 32 de 58 tareas del plan (55 %). El MVP está al 100 %. La Fase 4b va en 9 de 13.
+- **Hecho:** Fases 0 a 4. **El curso nuevo es público desde el 2026-11-01:** https://academy.woorky.app/es/ tiene el temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. **Su código ya está en `main`** (PR #7 y #8 mezclados el 2026-11-01).
+- **Falta:** de la Fase 4b, 3 diagramas (media sesión), los 3 canvas con los casos nuevos (1 o 2 sesiones) y publicarlos. Aparte: sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
+- **Lo próximo:** los 3 diagramas que faltan (media sesión): de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez frente a escribir de a uno (idea 5). Después, redibujar los storyboards de los 3 canvas con los casos nuevos.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -25,14 +25,14 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ```text
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
-F4b   Canvas y videos (urgente)           ▓▓▓
-F5    Pulido del sitio + UX                  ░░
-F6    Estación 04 · App de IA                  ░░░░
-F7    Estación 05 · RAG                            ░░░░
-F8    Estación 02 · Git                                ░░
-F9    Estación 01 · Base de software                     ░░░░
-F10   Estación 13 · Evals                                    ░░░░
-Después: 06–08 agentes · inglés · UI                             ···
+F4b   Curso en módulos + canvas           ▓▓▓▓▓▓
+F5    Pulido del sitio                          ░░
+F6    Lección 04 · App de IA                      ░░░░
+F7    Lección 05 · RAG                                ░░░░
+F8    Lección 02 · Git                                    ░░
+F9    Lección 01 · Base de software                         ░░░░
+F10   Lección 13 · Evals                                        ░░░░
+Después: 06–08 agentes · inglés · UI                                ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
@@ -51,12 +51,8 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas el plan corregido de la Fase 4b?** (pedidos 28, 29 y 30, urgente) Con «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos. Ese «dale» vale como OK para publicar ese primer paso. Los canvas los publico cuando apruebes las capturas.
+1. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b) Están en `docs/diseno/canvas/`, pero usan los ejemplos viejos (Turquía, el planeta). Primero los redibujo con los casos nuevos (el bot de soporte y los tickets); cuando los veas, con «dale» empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
-3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
-   - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
-   - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
-   - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -68,7 +64,7 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F4b Canvas y videos · urgente :active, f4b, 2026-11-02, 4d
+    F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
     F5 Pulido del sitio + UX :f5, after f4b, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
@@ -106,6 +102,8 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 - [x] Tres videos de la estación 03 (paradas 1, 2 y 5), en pizarra blanca y negra · 2026-10-30
 - [x] Script que los renderiza: `scripts/escenas.sh` · 2026-10-30
 
+> Retirados del sitio el 2026-10-31 (pedido 28): las lecciones no llevan videos para mirar. ManimGX se queda para dibujar las piezas de los canvas (Fase 4b).
+
 ### ✅ Fase 3 · Lección del bloque 3 · 5 de 5 · 2026-10-31 · PR #4 y #5
 - [x] **Córtalo en tokens** (parada 2):
   - cualquier texto cortado en tokens;
@@ -134,20 +132,33 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 0 de 5 · propuesta, espera tu OK
-Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 9 de 13 · PR #7 y #8 mezclados
+Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
 3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
-4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
+4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman. Cada video, o el tramo que se muestra, trata solo del tema de la lección: los videos generales no van en una lección (pedido 41).
+5. **Sin paradas** (pedido 33): el curso se ordena en módulos y lecciones, como DeepLearning.AI o Khan Academy.
+6. **La lección se lee de corrido** (pedidos 35 y 37). Las ideas van en orden, cada una con su explicación, su escena y su ejemplo real en el mismo texto, sin recuadros que corten el hilo. Al final van los consejos de un ingeniero de IA experto, uno por idea. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples.
+7. **Más visual** (pedidos 38 y 39): al menos un diagrama, escena o canvas por idea, entre los párrafos. Cada diagrama usa los ejemplos de la misma lección, no trae códigos ni números que haya que buscar en otra parte y no adelanta temas que todavía no se explicaron. Los diagramas van en HTML (el texto se lee en el celular y cargan al instante). ManimGX queda para las figuras matemáticas y los canvas.
+8. **Ejemplos de ingeniero de IA** (pedido 40): los ejemplos y casos son usos reales y cotidianos de un ingeniero de IA (código, soporte, costos, RAG), medidos con un modelo. Nada de casos básicos o vagos.
+9. **Fuentes** (pedido 42): cada idea y cada consejo dicen en qué se apoyan, y la lista completa va al final, con la fecha de revisión. Primero van los libros y videos de la biblioteca de BrainFran, después los videos de canales reconocidos y las mediciones propias. Solo páginas y capítulos verificados.
 
-- [ ] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 45 min
-- [ ] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno queda en el PR, para tu OK antes de construir · media sesión
-- [ ] Construir los 3 canvas: «Pregúntale otra vez» (parada 1), la pizarra por momentos (parada 2) y «Autocompletado» (parada 5) · 1 o 2 sesiones
-- [ ] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7 · 1 h
-- [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
+- [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
+- [x] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno quedó en `docs/diseno/canvas/`, espera tu OK antes de construir · 2026-10-31
+- [x] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen. Publicado · 2026-11-01
+- [x] La lección 03 de corrido: las ideas en orden, cada una con su ejemplo real dentro del texto, y al final lo que haría un ingeniero de IA experto, uno por idea (pedidos 35 y 37). Publicado · 2026-11-01
+- [x] Casos reales de un ingeniero de IA en la lección 03: un bot de soporte que escribe «Ya hemos cancelado la recurrencia» sin que nadie lo hiciera, el presupuesto en tokens (el español usa un 63 % más en GPT-3), tickets que cambian de categoría o se clasifican mal con seguridad (74 %), el plan del cliente que se pierde al recortar, y el manual entero que tarda 5 min 10 s en empezar. Medidos con el modelo local, también en las escenas (pedido 40). Publicado · 2026-11-01
+- [x] Videos de la lección 03 solo del tema: 3Blue1Brown y Andrej Karpathy, que tratan solo de cómo funciona un LLM, y de Marina Wyss solo el tramo del 2:45 al 8:30. BettaTech salió: solo nombra el tema de pasada (pedido 41). Publicado · 2026-11-01
+- [ ] Sumar a tu biblioteca los 2 videos nuevos (3Blue1Brown y Karpathy): la sesión de NotebookLM del servidor venció, así que hace falta que vuelvas a entrar con tu cuenta
+- [x] Fuentes en cada lección: cada idea y cada consejo dicen en qué se apoyan (libro con página, video con capítulo o medición propia), y la lista completa va al final, con la fecha de revisión. Las principales son el libro «Prompt Engineering for Generative AI», de tu biblioteca, y las mediciones de `lab/` (pedido 42). Publicado · 2026-11-01
+- [ ] Diagramas entre los textos, al menos uno por idea: el bucle (idea 1) ya está en el borrador, con el bot de soporte, y el de la llamada se quitó porque confundía (pedido 39). Faltan de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez y escribir de a uno (idea 5) · media sesión
+- [ ] Construir los 3 canvas dentro de la lección, con los casos nuevos: el bot que redacta (idea 1) y los tickets (idea 3). Hay que redibujar sus storyboards, que usaban los ejemplos viejos · 1 o 2 sesiones
+- [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. Hoy son los 3 videos del tema de la lección 03 (ver más arriba). Publicado · 2026-11-01
+- [x] Publicar el curso en módulos y la lección 03 nueva, revisados en computador y celular (pedido 43) · 2026-11-01
+- [ ] Publicar los diagramas y canvas que faltan, con tu OK
 
-### Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
+### Fase 5 · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
@@ -158,35 +169,36 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 3. **No retoma donde quedaste.** «Entrar a la estación» siempre lleva a la parada 1, y la portada no muestra cuántas paradas viste.
 4. **El video tapa su propia frase.** Los controles del video cubren la última línea de la escena («Elige por probabilidad, no por verdad»).
 5. **El mapa tiene ruido para quien llega.** Las etiquetas «L2 · 27–28» salen en 8 estaciones sin explicación, y las 15 estaciones cerradas no dicen «pronto».
+- Con la estructura nueva (Fase 4b) se arreglan el 2, el 3 y el 5; el 4 ya se fue con los videos.
 - Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
 - [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas, una con salidas estructuradas
+- [ ] 1 o 2 canvas interactivos con ManimGX, uno con salidas estructuradas
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 7 · Estación 05 «RAG y conocimiento» · 0 de 4 · semanas 2 y 3
 - [ ] Las 7 paradas (bloque 5)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas: embeddings (texto → vector) y búsqueda
+- [ ] 1 o 2 canvas interactivos con ManimGX: embeddings (texto → vector) y búsqueda
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 8 · Estación 02 «Git y GitHub para dirigir al agente» · 0 de 3 · semana 3
 - [ ] Las 7 paradas, desde la guía de estudio de Git (ya escrita)
-- [ ] 1 escena interactiva
+- [ ] 1 canvas interactivo
 - [ ] Publicada en el sitio
 
 ### Fase 9 · Estación 01 «Base de software habilitadora» · 0 de 4 · semana 4
 - [ ] Las 7 paradas (bloque 1)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas
+- [ ] 1 o 2 canvas interactivos con ManimGX
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Fase 10 · Estación 13 «Evals: saber si funciona» · 0 de 4 · semana 5
 - [ ] Las 7 paradas (bloque 13)
-- [ ] 1 o 2 videos con ManimGX
-- [ ] 1 o 2 escenas interactivas
+- [ ] 1 o 2 canvas interactivos con ManimGX
+- [ ] Videos de tu biblioteca, solo donde suman
 - [ ] Publicada en el sitio
 
 ### Más adelante (sin fecha)
@@ -232,6 +244,21 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 | 28 | 2026-10-31 | Sacar los videos que hizo Claude: lo animado va como canvas interactivo con motion, y los videos son originales de YouTube de canales educativos, solo donde suman. Un plan antes de corregir | Plan de la Fase 4b (6 pasos, unas 2 sesiones). La regla quedó anotada en la memoria de Claude |
 | 29 | 2026-10-31 | «Noo desinstales ManimGX»: canvas interactivos y entretenidos, como gráficos o dashboards en tiempo real, con ayuda de ManimGX al estilo de 3Blue1Brown, pero sin crearlos en tiempo real para que la app cargue rápido. Los videos: ideas de la biblioteca de BrainFran, con vista previa y enlace directo | Plan de la Fase 4b corregido: ManimGX dibuja antes y la página solo arma y responde; tarjetas de la biblioteca. ManimGX sigue instalado (no se desinstaló) |
 | 30 | 2026-10-31 | Los videos no son para sacar ideas para los canvas: solo hay que intentar sacarlos de la biblioteca de BrainFran. Al tocar la miniatura se ve el video en la app, o se va por enlace directo a YouTube | Plan de la Fase 4b corregido: paso 4, videos de la biblioteca que se ven en la app, con enlace a YouTube |
+| 31 | 2026-10-31 | «Dale» al plan corregido de la Fase 4b | Paso 1 publicado: los 3 videos fuera del sitio y las reglas corregidas en `DESIGN.md` y en el tablero. Paso 2: storyboards de los 3 canvas con ManimGX y datos reales. Paso 4: videos de tu biblioteca con miniatura y enlace, sin publicar (PR #8) |
+| 32 | 2026-11-01 | Cambiar el mecanismo de enseñanza de 7 paradas: ¿algún sustituto? | Tres opciones, con la recomendada: «3 paradas» (Apuesta → Descubre → Dirige) |
+| 33 | 2026-11-01 | Sin apuesta ni paradas: directo al grano, como DeepLearning.AI o Khan Academy. Primero la teoría, después un ejemplo de la vida real, y cómo usarlo para ser preciso al darle un prompt a un LLM como Claude. «Tal vez módulos» | Propuesta: curso → módulos → lecciones; cada lección en una página con 3 partes. La Fase 4b pasa a 7 tareas |
+| 34 | 2026-11-01 | «Dale, créalo para ver cómo queda en la página» | Borrador en https://academy.woorky.app/borrador/es/: temario por módulos y la lección 03 en 3 partes. El sitio público no cambió |
+| 35 | 2026-11-01 | Los módulos sí; las 3 partes de la lección no: confunden, no se ve dónde empieza el caso real y el prompt de la parte 3 no sirve. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples | Propuesta: la lección por ideas, con su caso real y lo que hace un ingeniero de IA, todo junto |
+| 36 | 2026-11-01 | «Dale, hazlo en borrador para ver tu idea» | La lección 03 por ideas en el borrador: 5 ideas, cada una con su caso real y lo que hace un ingeniero de IA, más el resumen, la práctica, preguntas para tu LLM y los videos |
+| 37 | 2026-11-01 | Los recuadros «Caso real» y «Lo que hace un ingeniero de IA» cortan el hilo del estudio; los consejos de experto sí sirven. «Proponme algo» | La lección de corrido en el borrador: el ejemplo real va dentro del texto de cada idea, y los consejos de un ingeniero de IA experto van al final, uno por idea, con un enlace de vuelta a la idea |
+| 38 | 2026-11-01 | Más imágenes, gráficos, canvas o flowcharts entre los textos, para no aburrirse y poder imaginar lo que dice el texto | 2 diagramas de muestra en el borrador (el bucle de un LLM y cómo arma un ingeniero una llamada) y el plan para el resto: al menos un visual por idea |
+| 39 | 2026-11-01 | El flowchart de «lo que haría un ingeniero de IA» confunde: no se entiende el ejemplo del cliente ni los números 1, 4, 5 | Quitado del borrador. Reglas para los diagramas: los ejemplos de la lección, sin códigos que buscar y sin adelantar temas |
+| 40 | 2026-11-01 | Que los ejemplos y casos sean usos reales y cotidianos de un ingeniero de IA, no casos básicos y vagos | Propuesta: 5 casos de ingeniero de IA para la lección 03, medidos con el modelo local, también en las escenas |
+| 41 | 2026-11-01 | Antes de aplicar: los videos de «Para profundizar» son demasiado generales para «Cómo funciona un LLM»; tienen que estar más semantizados | Propuesta: solo el tramo del tema de cada video de tu biblioteca, y 2 videos que tratan solo de cómo funciona un LLM, sumados a tu biblioteca |
+| 42 | 2026-11-01 | «Dale perfecto». Y antes de implementar, citas o bibliografía con fuentes confiables, ojalá de los libros y fuentes de BrainFran | En el borrador: los casos reales medidos, los videos del tema (3Blue1Brown, Karpathy y el tramo de Marina Wyss) y las fuentes en cada idea y al final, con el libro de tu biblioteca |
+| 43 | 2026-11-01 | «Dale, sí me gusta» | Publicado en https://academy.woorky.app/es/: el temario por módulos y la lección 03 nueva. Revisado en internet: la portada, la lección, los links viejos y `/obsidian/` |
+| 44 | 2026-11-01 | ¿Por qué cambió el dashboard? ¿Se genera al abrir la página y gasta tokens? | No: el sitio es estático y no llama a ningún modelo (revisado en lo publicado). Cambió porque hoy se publicaron los casos nuevos. Los datos se midieron una vez con el modelo local, sin costo por visita |
+| 45 | 2026-11-01 | «Mezcla el PR 7 y el 8» | PR #7 y #8 mezclados: `main` queda igual que el sitio publicado, y el link de este tablero muestra el estado de hoy |
 
 ---
 
@@ -240,7 +267,7 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 - **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
   - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados, y el #7 marca la publicación.
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #8 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.

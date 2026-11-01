@@ -4,44 +4,76 @@
     "descripcion": "Aprende IA, ML, Deep Learning y Data Science de forma visual e interactiva."
   },
   "cabecera": {
-    "mapa": "Mapa de la línea",
+    "temario": "Temario",
     "grafo": "Grafo de BrainFran"
   },
-  "portada": {
-    "lineaDe": "Línea {n} · Pilar {n} de 2",
-    "lede": "Una línea de {total} estaciones, de lo básico a dirigir agentes como CEO/CTO. Se recorre en orden, y cada estación tiene 7 paradas en una pizarra.",
-    "avance": "{hechas} de {total} estaciones completadas · {abiertas} abierta(s)",
-    "proxima": "Tu próxima estación",
-    "entrar": "Entrar a la estación",
-    "mapaTitulo": "Sigue la línea de arriba hacia abajo",
-    "abierta": "Abierta · entrar →",
+  "curso": {
+    "etiqueta": "Curso · {modulos} módulos · {lecciones} lecciones",
+    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección explica las ideas clave en orden, con ejemplos reales, y cierra con lo que haría un ingeniero de IA experto.",
+    "avance": "{hechas} de {total} lecciones completadas",
+    "disponibles": "{n} disponible ahora; las demás, pronto",
+    "empezar": "Empezar: lección {n} · {titulo}",
+    "continuar": "Continuar: lección {n} · {titulo}",
+    "repasar": "Repasar: lección {n} · {titulo}",
+    "temario": "Temario",
+    "modulo": "Módulo {n} · {nombre}",
+    "leccionesDe": "{disponibles} de {total} disponibles",
+    "disponible": "Disponible",
+    "pronto": "Pronto",
     "completada": "Completada",
-    "estaciones": "{n} estaciones",
-    "destino": "Destino de la línea",
-    "comoSeRecorre": "Cómo se recorre una estación",
-    "comoSeRecorreTexto": "Siempre las mismas 7 paradas, en este orden:",
-    "enRevision": "Línea 2 · en revisión",
-    "enRevisionTexto": "{zonas} zonas. Se inaugura cuando estén juntas las fuentes."
+    "comoEs": "Cómo es cada lección",
+    "partes": [
+      {
+        "titulo": "Las ideas, en orden",
+        "texto": "Cada una con su explicación, un ejemplo real y una escena que tocas."
+      },
+      {
+        "titulo": "Lo que haría un experto",
+        "texto": "Al final, los consejos de un ingeniero de IA, idea por idea."
+      },
+      {
+        "titulo": "Tu práctica",
+        "texto": "Una decisión de ingeniería sobre un caso tuyo."
+      }
+    ],
+    "meta": "Al terminar",
+    "otroCurso": "Otro curso, en preparación",
+    "otroCursoTexto": "{modulos} módulos. Se abre cuando estén juntas las fuentes."
   },
-  "estacion": {
-    "estacionDe": "Estación {n} de {total} · Zona {zona} · {nombreZona}",
-    "paradaDe": "Parada {n} de 7 · {nombre}",
-    "anterior": "← {n} · {nombre}",
-    "siguiente": "Siguiente parada: {n} · {nombre} →",
-    "volverMapa": "Volver al mapa →",
-    "marcarHecha": "Marcar como hecha",
-    "hecha": "Hecha",
-    "completada": "Estación completada.",
-    "proximaEstacion": "Próxima estación · pronto",
-    "material": "Material",
-    "queRevisar": "Qué revisar:",
-    "indicacion": "Lo que le pides al agente:"
+  "leccion": {
+    "leccionDe": "Módulo {modulo} · {nombreModulo} · Lección {n} de {total}",
+    "enEstaLeccion": "En esta lección",
+    "temarioCurso": "Temario del curso",
+    "copiar": "Copiar",
+    "copiado": "Copiado",
+    "marcarHecha": "Marcar la lección como completada",
+    "hecha": "Lección completada",
+    "profundizar": "Para profundizar",
+    "anterior": "← Lección {n} · {titulo}",
+    "siguiente": "Siguiente: lección {n} · {titulo} →",
+    "siguientePronto": "Siguiente: lección {n} · {titulo} (pronto)",
+    "volverTemario": "Volver al temario",
+    "practica": "Tu práctica",
+    "preguntas": "Sigue aprendiendo con tu LLM",
+    "preguntasTexto": "Copia una pregunta y házsela al modelo que uses.",
+    "consejos": "Lo que haría un ingeniero de IA experto",
+    "consejosTexto": "Ahora que sabes cómo funciona, esto es lo que un ingeniero de IA hace con cada idea.",
+    "volverIdea": "Idea {n} · {titulo}",
+    "fuentesDe": "Fuentes:",
+    "fuentes": "Fuentes",
+    "fuentesTexto": "Los libros y videos que respaldan esta lección, y las mediciones que hicimos con un modelo real.",
+    "tiposFuente": {
+      "libro": "Libro",
+      "video": "Video",
+      "medicion": "Medición propia"
+    },
+    "revisada": "Revisada el {fecha} · Con fuentes al final"
   },
   "escenas": {
     "muestreo": {
       "titulo": "Tira los dados",
-      "elige": "Elige una frase",
-      "candidatas": "Lo que podría seguir",
+      "elige": "Elige un ticket",
+      "candidatas": "Lo que podría responder",
       "otras": "otras {n} palabras",
       "temperatura": "Temperatura",
       "pistas": {
@@ -52,9 +84,9 @@
         "alta": "Se arriesga más: lo poco probable gana terreno.",
         "muyAlta": "Se arriesga mucho: casi cualquier opción puede salir."
       },
-      "riesgo": "Con estas perillas responde algo falso el {p} de las veces.",
-      "riesgoNunca": "Con estas perillas nunca responde algo falso.",
-      "riesgoSiempre": "Con estas perillas siempre responde algo falso.",
+      "riesgo": "Con estas perillas clasifica mal el {p} de las veces.",
+      "riesgoNunca": "Con estas perillas nunca clasifica mal.",
+      "riesgoSiempre": "Con estas perillas siempre clasifica mal.",
       "sinRespuesta": "Aquí no hay respuesta correcta: la temperatura cambia cuánta variedad sale.",
       "masPerillas": "Más perillas: top-k y top-p",
       "topK": "Top-k",
@@ -67,35 +99,36 @@
       "tirarVarias": "Tirar {n} veces",
       "ruleta": "La ruleta: cada palabra ocupa un tramo igual a su probabilidad, y el dado cae en un punto al azar.",
       "salio": "Salió «{palabra}»",
-      "verdadero": "verdadero",
-      "falso": "falso",
-      "sigue": "la frase sigue",
+      "verdadero": "correcta",
+      "falso": "incorrecta",
+      "sigue": "todavía no es una categoría",
       "tokens": "El modelo la escribió en {n} tokens: {tokens}.",
       "unToken": "El modelo la escribió en 1 token.",
       "varias": "{n} tiradas con temperatura {t}",
-      "falsas": "{f} de {n} son falsas.",
-      "ningunaFalsa": "Ninguna es falsa.",
+      "falsas": "{f} de {n} son incorrectas.",
+      "ningunaFalsa": "Ninguna es incorrecta.",
       "distintas": "Salieron {d} palabras distintas.",
-      "nota": "Probabilidades reales de {modelo}, corrido en local con Ollama el {fecha}. Las perillas se aplican token por token, como en el modelo. Quedan fuera los signos y formatos («__», «**»), que en esta frase son el {signos}.",
-      "codigo": "Ver el código"
+      "nota": "Probabilidades reales de {modelo}, corrido en local con Ollama el {fecha}. Las perillas se aplican token por token, como en el modelo. Quedan fuera los signos y formatos («__», «**»), que en este ticket son el {signos}.",
+      "codigo": "Ver el código",
+      "categoria": "categoría"
     },
-    "ahoraTu": "Ahora tú",
+    "ahoraTu": "Pruébalo",
     "tokens": {
       "titulo": "Córtalo en tokens",
       "etiqueta": "Escribe lo que quieras",
       "ejemplos": "Ejemplos",
       "nombresEjemplos": {
-        "frase": "Una frase",
-        "rara": "Una palabra rara",
-        "letras": "Contar letras",
-        "numeros": "Una suma",
-        "emoji": "Emoji"
+        "ticket": "Un ticket",
+        "json": "Un JSON",
+        "codigo": "Código",
+        "sku": "Un código de producto",
+        "emoji": "Emojis"
       },
       "cuenta": "{n} tokens · {c} caracteres",
       "pedazos": "Pedazos",
       "numeros": "Números",
       "asiLoVe": "Así lo ve el modelo: cada token es un número de su vocabulario.",
-      "pruebaTuya": "Prueba con tu nombre, una palabra en otro idioma o un número largo.",
+      "pruebaTuya": "Prueba con un ticket de tu trabajo, un JSON o un nombre de producto.",
       "cargando": "Cargando el tokenizador (unos 2 MB)…",
       "error": "No se pudo cargar el tokenizador. Revisa tu conexión y vuelve a escribir.",
       "cortado": "El texto cortado en {n} tokens",
@@ -141,18 +174,19 @@
       "porTurno": "Tokens leídos en cada turno",
       "quedaronFuera": "Quedaron fuera {m} mensajes ({n} tokens).",
       "veredictos": {
-        "cuida": "Tuvo en cuenta tu alergia.",
-        "usa": "Puso maní (cacahuate) en la lista.",
-        "no-dice": "No mencionó tu alergia."
+        "cumple": "Respetó su plan: la devolución es gratis.",
+        "cobra": "Le cobró el retiro de $4.990, aunque su plan no paga.",
+        "no-dice": "No dijo cuánto cuesta.",
+        "pregunta": "Ya no sabía su plan: le citó los $4.990 y le pidió confirmarlo."
       },
-      "pista": "Prueba los 5 turnos con «Chica: recorta» y fíjate en la alergia al maní.",
+      "pista": "Prueba los 5 turnos con «Chica: recorta» y fíjate en el plan de Carla.",
       "nota": "Los primeros turnos están escritos a mano. La última respuesta y el resumen los escribió {modelo}, corrido en local con Ollama el {fecha}, a temperatura 0. Es un modelo chico: también inventa ingredientes. Las ventanas son de juguete: las de los modelos comerciales tienen cientos de miles de tokens, pero se llenan igual con documentos, código y conversaciones largas.",
       "codigo": "Ver el código",
       "porque": {
-        "vista": "Tu alergia estaba en la ventana.",
-        "recortada": "Tu alergia estaba en el primer mensaje, y quedó fuera de la ventana. Si no puso maní, fue suerte.",
-        "resumenGuarda": "El resumen guardó tu alergia.",
-        "resumenPierde": "El resumen perdió tu alergia: decidió que no era importante."
+        "vista": "El plan Empresa estaba en la ventana.",
+        "recortada": "El plan Empresa estaba en el primer mensaje y quedó fuera de la ventana.",
+        "resumenGuarda": "El resumen guardó el plan Empresa.",
+        "resumenPierde": "El resumen perdió el plan Empresa: decidió que no era importante."
       }
     },
     "prefill": {
@@ -161,9 +195,9 @@
       "mandas": "Lo que le mandas",
       "responde": "Lo que te responde",
       "prompts": {
-        "pregunta": "Una pregunta",
-        "correo": "Un correo",
-        "documento": "Un documento"
+        "pregunta": "Solo la pregunta",
+        "trozos": "Con 2 trozos del manual",
+        "manual": "Con el manual entero"
       },
       "largos": {
         "corta": "Corta",
@@ -196,6 +230,25 @@
       "nota": "Medido en esta máquina ({maquina}) con {modelo}, el {fecha}. En una GPU todo va mucho más rápido, y leer le saca todavía más ventaja a escribir: decenas de veces por token. Por eso las APIs suelen cobrar más caro el token que escribe el modelo que el que lee.",
       "codigo": "Ver el código",
       "minutos": "{m} min {s} s"
+    }
+  },
+  "video": {
+    "explicado": "Míralo explicado por {canal}",
+    "verAqui": "Ver «{titulo}» aquí",
+    "enYoutube": "Ver en YouTube",
+    "es": "{minutos} min · en español",
+    "en": "{minutos} min · en inglés, con subtítulos",
+    "tramo": "Del {desde} al {hasta}",
+    "desde": "Desde el {desde}"
+  },
+  "figuras": {
+    "bucle": {
+      "lee": "1 · Lee tu texto",
+      "calcula": "2 · Calcula probabilidades",
+      "elige": "3 · Elige una",
+      "agrega": "4 · La agrega",
+      "repite": "y repite con el texto nuevo, palabra por palabra",
+      "pie": "El bucle con el que escribe un LLM: un bot de soporte redacta la respuesta a Carla. Probabilidades reales de deepseek-r1:8b."
     }
   }
 }

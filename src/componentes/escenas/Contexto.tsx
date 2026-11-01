@@ -5,7 +5,7 @@ import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import datos from "./datos/contexto-es.json";
 
 /**
- * Escena «contexto» (estación 03, parada 4): una conversación real que se llena turno a turno.
+ * Escena «contexto» (lección 03): una conversación real que se llena turno a turno.
  * En el último turno no cabe en la ventana chica: se recorta lo viejo (la regla de Ollama) o se
  * resume. Los datos salen de lab/contexto/llenar_ventana.py.
  */
@@ -16,7 +16,7 @@ type Modo = "grande" | "recorta" | "compacta";
 type Final = {
   respuesta: string;
   leidos: number;
-  mani: "cuida" | "usa" | "no-dice";
+  trato: "cumple" | "cobra" | "pregunta" | "no-dice";
   desde?: number;
   resumen?: string;
   resumenTokens?: number;
@@ -65,7 +65,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
 
   const visibles = turno === 0 ? 1 : Math.min(2 * turno + 1, mensajes.length);
   const tokensFuera = [...fuera].reduce((a, i) => a + mensajes[i].tokens, 0);
-  // Por qué respondió así: la alergia está en el primer mensaje (el 1).
+  // Por qué respondió así: el plan Empresa está en el primer mensaje (el 1).
   const porque = !final ? "" : modo === "grande" ? t.porque.vista : modo === "recorta" ? t.porque.recortada : final.resumenGuarda ? t.porque.resumenGuarda : t.porque.resumenPierde;
 
   const tarjeta = (m: Mensaje, i: number) => (
@@ -172,7 +172,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
               <li className="aparece flex flex-col gap-1 rounded-[12px] border-2 border-tinta px-4 py-3">
                 <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
                   <span className="font-medium text-tinta-2">{t.roles.assistant}</span>
-                  <span className={final.mani === "usa" ? "text-falso" : final.mani === "cuida" ? "text-verdadero" : ""}>· {t.veredictos[final.mani]}</span>
+                  <span className={final.trato === "cobra" ? "text-falso" : final.trato === "cumple" ? "text-verdadero" : ""}>· {t.veredictos[final.trato]}</span>
                 </span>
                 <span className="text-[15.5px] leading-relaxed whitespace-pre-line">{final.respuesta}</span>
                 <span className="mt-1 text-[14px] text-tinta-2">{porque}</span>

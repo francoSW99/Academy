@@ -1,4 +1,4 @@
-// Matemática de la escena «muestreo», sin React: así se puede probar y reusar (por ejemplo, en un video).
+// Matemática de la escena «muestreo», sin React: así se puede probar y reusar (por ejemplo, en un canvas).
 // Los datos salen de lab/muestreo/sacar_probabilidades.py.
 
 export type Veredicto = "verdadero" | "falso";
@@ -8,7 +8,10 @@ export type Opcion = { t: string; p: number; a?: number; fin?: string };
 
 export type Frase = {
   id: string;
+  /** El prompt tal como se le pasó al modelo. */
   texto: string;
+  /** Lo que se muestra en la escena, si el prompt es largo (por ejemplo, solo el ticket). */
+  muestra?: string;
   /** El árbol de tokens: cada nodo es una palabra a medias. El 0 es el comienzo. */
   nodos: Opcion[][];
   veredictos: Record<string, Veredicto>;
@@ -21,7 +24,7 @@ export type Perillas = { t: number; k: number; topP: number };
 export type Candidata = { palabra: string; p: number; tokens: string[]; veredicto?: Veredicto };
 
 /**
- * La temperatura: p^(1/T), normalizado (la fórmula del video de la parada 2).
+ * La temperatura: p^(1/T), normalizado (la fórmula de la parada 2).
  * Se calcula con logaritmos para que una T chica no dé ceros. T = 0 es «siempre la más probable».
  */
 export function conTemperatura(p: number[], t: number): number[] {

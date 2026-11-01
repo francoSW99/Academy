@@ -1,8 +1,9 @@
 import { idiomaPorDefecto } from "@/lib/idiomas";
 
-// Respaldo para la vista local (next dev o out/ servido sin Caddy).
+// Respaldo para la vista local (next dev o out/ servido sin Caddy) y para el borrador (/borrador/).
+// Va relativa: desde /borrador/ lleva a /borrador/es/.
 export default function Raiz() {
-  const destino = `/${idiomaPorDefecto}/`;
+  const destino = `${idiomaPorDefecto}/`;
   return (
     <>
       <meta httpEquiv="refresh" content={`0; url=${destino}`} />
