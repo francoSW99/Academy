@@ -114,8 +114,6 @@ export const leccion03: ContenidoLeccion = {
     },
   ],
 
-  figuraConsejos: "llamada",
-
   practica:
     "Elige una tarea de tu trabajo que le darías a un LLM, por ejemplo responder correos de clientes. Decide y anota: qué temperatura usarías, qué contexto le das en cada llamada, qué dato no puede perderse y dónde lo guardas, y cómo medirías cuántas veces se equivoca.",
 

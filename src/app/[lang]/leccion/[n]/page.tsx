@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Cabecera } from "@/componentes/Cabecera";
 import { Temario } from "@/componentes/Temario";
 import { VideoBiblioteca } from "@/componentes/VideoBiblioteca";
-import { Figura } from "@/componentes/figuras";
 import { CompletarLeccion, MarcarVista } from "@/componentes/leccion/AvanceLeccion";
 import { BotonCopiar } from "@/componentes/leccion/BotonCopiar";
 import { IdeaLeccion } from "@/componentes/leccion/IdeaLeccion";
@@ -83,7 +82,6 @@ export default async function PaginaLeccion({ params }: Props) {
               </h2>
               <p className="max-w-[68ch] text-[17.5px] leading-relaxed text-tinta-2">{t.consejosTexto}</p>
             </div>
-            {c.figuraConsejos && <Figura nombre={c.figuraConsejos} lang={lang} />}
             <ol className="flex max-w-[72ch] flex-col gap-7">
               {c.consejos.map((consejo, k) => (
                 <li key={consejo.titulo} className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-2">

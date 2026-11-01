@@ -28,7 +28,7 @@ export type Curso = {
 export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
 
 /** Diagramas que existen (src/componentes/figuras/): van entre los párrafos, para imaginar lo que dice el texto. */
-export type NombreFigura = "bucle" | "llamada";
+export type NombreFigura = "bucle";
 
 /** Un trozo de la explicación: un párrafo o un diagrama entre párrafos. */
 export type Trozo = string | { figura: NombreFigura };
@@ -74,8 +74,6 @@ export type ContenidoLeccion = {
   ideas: Idea[];
   /** Al final de la lección: lo que haría un experto, uno por idea y en el mismo orden. */
   consejos: Consejo[];
-  /** Un diagrama que junta los consejos, antes de la lista. */
-  figuraConsejos?: NombreFigura;
   practica: string;
   /** Preguntas para seguir aprendiendo con un LLM. */
   preguntas?: string[];

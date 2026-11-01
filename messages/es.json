@@ -57,7 +57,7 @@
     "preguntas": "Sigue aprendiendo con tu LLM",
     "preguntasTexto": "Copia una pregunta y házsela al modelo que uses.",
     "consejos": "Lo que haría un ingeniero de IA experto",
-    "consejosTexto": "Ahora que sabes cómo funciona, esto es lo que un ingeniero de IA hace con cada idea. Así se ve todo junto en una llamada a un LLM:",
+    "consejosTexto": "Ahora que sabes cómo funciona, esto es lo que un ingeniero de IA hace con cada idea.",
     "volverIdea": "Idea {n} · {titulo}"
   },
   "escenas": {
@@ -236,39 +236,6 @@
       "agrega": "4 · La agrega",
       "repite": "y repite con el texto nuevo, palabra por palabra",
       "pie": "El bucle con el que escribe un LLM. Probabilidades reales de deepseek-r1:8b."
-    },
-    "llamada": {
-      "pasos": {
-        "pregunta": {
-          "titulo": "Llega una pregunta",
-          "texto": "Por ejemplo, un cliente pregunta cómo devolver un producto."
-        },
-        "fuente": {
-          "titulo": "Busca la fuente",
-          "texto": "Si necesita hechos exactos, los trae (RAG) en vez de pedirlos de memoria."
-        },
-        "contexto": {
-          "titulo": "Arma el contexto",
-          "texto": "Instrucciones fijas, los datos que guarda tu app y solo los trozos que sirven."
-        },
-        "modelo": {
-          "titulo": "Llama al modelo",
-          "texto": "Con la temperatura según la tarea y los tokens contados."
-        },
-        "valida": {
-          "titulo": "Valida la salida",
-          "texto": "Revisa en tu código que tenga la forma pedida, por ejemplo JSON."
-        },
-        "respuesta": {
-          "titulo": "Responde",
-          "texto": "Mientras se escribe (streaming) y con el largo justo."
-        }
-      },
-      "evals": {
-        "titulo": "Y siempre, evals",
-        "texto": "Mide con casos reales cuántas veces se equivoca, antes y después de cada cambio."
-      },
-      "pie": "Cómo arma un ingeniero de IA una llamada a un LLM. Los números son los consejos de esta lista."
     }
   }
 }
