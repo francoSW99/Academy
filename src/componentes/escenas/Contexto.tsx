@@ -5,7 +5,7 @@ import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import datos from "./datos/contexto-es.json";
 
 /**
- * Escena «contexto» (estación 03, parada 4): una conversación real que se llena turno a turno.
+ * Escena «contexto» (lección 03): una conversación real que se llena turno a turno.
  * En el último turno no cabe en la ventana chica: se recorta lo viejo (la regla de Ollama) o se
  * resume. Los datos salen de lab/contexto/llenar_ventana.py.
  */

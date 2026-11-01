@@ -5,7 +5,7 @@ import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import datos from "./datos/prefill-es.json";
 
 /**
- * Escena «prefill» (estación 03, parada 3): mandar un prompt y ver las dos fases con los tiempos
+ * Escena «prefill» (lección 03): mandar un prompt y ver las dos fases con los tiempos
  * medidos en esta máquina. Prefill: lee todo el prompt de una vez. Decode: escribe token a token.
  * Los datos salen de lab/prefill/medir_velocidad.py.
  */

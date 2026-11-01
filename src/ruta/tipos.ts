@@ -1,38 +1,27 @@
-// Estructura del curso. Vocabulario (ver DESIGN.md): Línea = Pilar, Zona = Etapa,
-// Estación = Bloque, Parada = paso del método.
+// Estructura del curso, como DeepLearning.AI o Khan Academy: curso → módulos → lecciones.
+// Cada lección es una página con 3 partes, en este orden: la teoría, en la vida real y en tu prompt.
 
-export type Estacion = {
-  /** Número de bloque con dos dígitos: "03". También es su ruta: /es/estacion/03/. */
+export type Leccion = {
+  /** Número de bloque con dos dígitos: "03". También es su dirección: /es/leccion/03/. */
   n: string;
   titulo: string;
-  /** Tiene contenido publicado. Las demás se ven como «próximamente». */
-  abierta: boolean;
-  /** Bloques de la Línea 2 con los que se cruza (de la nota: «Fusiones con el Pilar 1»). */
-  combinaL2?: string;
+  /** Tiene contenido publicado. Las demás se ven como «pronto». */
+  disponible: boolean;
 };
 
-export type Zona = {
+export type Modulo = {
   n: number;
   nombre: string;
-  estaciones: Estacion[];
+  lecciones: Leccion[];
 };
 
-export type Linea = {
-  n: number;
+export type Curso = {
   nombre: string;
-  /** En revisión: se muestra, pero sin estaciones navegables. */
-  enRevision: boolean;
-  destino?: { titulo: string; texto: string };
-  zonas: Zona[];
-};
-
-export type ParadaId = 1 | 2 | 3 | 4 | 5 | 6 | 7;
-
-export type ParadaMetodo = {
-  n: ParadaId;
-  nombre: string;
-  /** Qué se hace en esta parada, en una línea. */
-  que: string;
+  /** En preparación: se muestra en la portada, pero todavía sin lecciones. */
+  enPreparacion: boolean;
+  /** Lo que sabes hacer al terminar el curso. */
+  meta?: string;
+  modulos: Modulo[];
 };
 
 /** Escenas interactivas que existen (src/componentes/escenas/). */
@@ -53,26 +42,38 @@ export type VideoBiblioteca = {
   queMirar: string;
 };
 
-export type ContenidoParada = {
-  /** La pregunta que abre la pizarra. */
-  pregunta: string;
-  /** Una o dos líneas, como máximo. */
-  texto: string;
-  /** Puntos cortos opcionales (criterio, fallas, qué revisar…). */
-  puntos?: string[];
-  /** Indicación al agente, en monoespaciada (parada «Dirígelo»). */
-  indicacion?: string[];
-  /** Escenas interactivas, en orden: para probar con las manos lo que dice la parada. */
-  escenas?: NombreEscena[];
-  /** Videos de la biblioteca, solo donde suman. Van debajo de la pizarra. */
-  videos?: VideoBiblioteca[];
+/** Cómo se suele pedir algo y cómo pedirlo para que el modelo haga justo lo que quieres. */
+export type PromptEjemplo = {
+  /** Dónde va el prompt, si importa («en el chat», «en las instrucciones del proyecto»). */
+  dondeAntes?: string;
+  dondeDespues?: string;
+  antes: string;
+  despues: string;
+  porQue: string[];
 };
 
-export type ContenidoEstacion = {
+/** Un tema de la lección: un título, poco texto y, si sirve, algo para tocar o copiar. */
+export type Bloque = {
+  titulo: string;
+  /** Párrafos cortos, de una o dos frases. */
+  texto: string[];
+  puntos?: string[];
+  escenas?: NombreEscena[];
+  /** Un dato real y grande, para los casos de la vida real. */
+  dato?: { cifra: string; que: string };
+  prompt?: PromptEjemplo;
+};
+
+export type ContenidoLeccion = {
   n: string;
-  /** Una línea que resume la estación. */
+  /** Una o dos frases debajo del título: qué vas a entender. */
   resumen: string;
-  paradas: Record<ParadaId, ContenidoParada>;
-  /** Para seguir: los videos de la estación, al final de la práctica. */
-  material?: VideoBiblioteca[];
+  teoria: Bloque[];
+  vidaReal: Bloque[];
+  enTuPrompt: Bloque[];
+  /** Plantilla de prompt para copiar, al final de «En tu prompt». */
+  plantilla?: string;
+  practica: string;
+  /** Videos de la biblioteca para profundizar, al final de la lección. */
+  videos?: VideoBiblioteca[];
 };

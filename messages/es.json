@@ -4,38 +4,65 @@
     "descripcion": "Aprende IA, ML, Deep Learning y Data Science de forma visual e interactiva."
   },
   "cabecera": {
-    "mapa": "Mapa de la línea",
+    "temario": "Temario",
     "grafo": "Grafo de BrainFran"
   },
-  "portada": {
-    "lineaDe": "Línea {n} · Pilar {n} de 2",
-    "lede": "Una línea de {total} estaciones, de lo básico a dirigir agentes como CEO/CTO. Se recorre en orden, y cada estación tiene 7 paradas en una pizarra.",
-    "avance": "{hechas} de {total} estaciones completadas · {abiertas} abierta(s)",
-    "proxima": "Tu próxima estación",
-    "entrar": "Entrar a la estación",
-    "mapaTitulo": "Sigue la línea de arriba hacia abajo",
-    "abierta": "Abierta · entrar →",
+  "curso": {
+    "etiqueta": "Curso · {modulos} módulos · {lecciones} lecciones",
+    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección va directo al grano: la teoría, un caso de la vida real y cómo usarlo en tu prompt.",
+    "avance": "{hechas} de {total} lecciones completadas",
+    "disponibles": "{n} disponible ahora; las demás, pronto",
+    "empezar": "Empezar: lección {n} · {titulo}",
+    "continuar": "Continuar: lección {n} · {titulo}",
+    "repasar": "Repasar: lección {n} · {titulo}",
+    "temario": "Temario",
+    "modulo": "Módulo {n} · {nombre}",
+    "leccionesDe": "{disponibles} de {total} disponibles",
+    "disponible": "Disponible",
+    "pronto": "Pronto",
     "completada": "Completada",
-    "estaciones": "{n} estaciones",
-    "destino": "Destino de la línea",
-    "comoSeRecorre": "Cómo se recorre una estación",
-    "comoSeRecorreTexto": "Siempre las mismas 7 paradas, en este orden:",
-    "enRevision": "Línea 2 · en revisión",
-    "enRevisionTexto": "{zonas} zonas. Se inaugura cuando estén juntas las fuentes."
+    "comoEs": "Cómo es cada lección",
+    "partes": [
+      {
+        "titulo": "La teoría",
+        "texto": "Directo al grano, con escenas que tocas."
+      },
+      {
+        "titulo": "En la vida real",
+        "texto": "Un caso real, con datos de un modelo."
+      },
+      {
+        "titulo": "En tu prompt",
+        "texto": "Cómo pedírselo a un LLM para que haga justo lo que quieres."
+      }
+    ],
+    "meta": "Al terminar",
+    "otroCurso": "Otro curso, en preparación",
+    "otroCursoTexto": "{modulos} módulos. Se abre cuando estén juntas las fuentes."
   },
-  "estacion": {
-    "estacionDe": "Estación {n} de {total} · Zona {zona} · {nombreZona}",
-    "paradaDe": "Parada {n} de 7 · {nombre}",
-    "anterior": "← {n} · {nombre}",
-    "siguiente": "Siguiente parada: {n} · {nombre} →",
-    "volverMapa": "Volver al mapa →",
-    "marcarHecha": "Marcar como hecha",
-    "hecha": "Hecha",
-    "completada": "Estación completada.",
-    "proximaEstacion": "Próxima estación · pronto",
-    "material": "Para seguir",
-    "queRevisar": "Qué revisar:",
-    "indicacion": "Lo que le pides al agente:"
+  "leccion": {
+    "leccionDe": "Módulo {modulo} · {nombreModulo} · Lección {n} de {total}",
+    "enEstaLeccion": "En esta lección",
+    "temarioCurso": "Temario del curso",
+    "partes": {
+      "teoria": "La teoría",
+      "vidaReal": "En la vida real",
+      "enTuPrompt": "En tu prompt",
+      "practica": "Tu práctica"
+    },
+    "antes": "Así se suele pedir",
+    "despues": "Así hace justo lo que quieres",
+    "porQue": "Por qué funciona",
+    "plantilla": "Plantilla para copiar",
+    "copiar": "Copiar",
+    "copiado": "Copiado",
+    "marcarHecha": "Marcar la lección como completada",
+    "hecha": "Lección completada",
+    "profundizar": "Para profundizar",
+    "anterior": "← Lección {n} · {titulo}",
+    "siguiente": "Siguiente: lección {n} · {titulo} →",
+    "siguientePronto": "Siguiente: lección {n} · {titulo} (pronto)",
+    "volverTemario": "Volver al temario"
   },
   "escenas": {
     "muestreo": {
@@ -79,7 +106,7 @@
       "nota": "Probabilidades reales de {modelo}, corrido en local con Ollama el {fecha}. Las perillas se aplican token por token, como en el modelo. Quedan fuera los signos y formatos («__», «**»), que en esta frase son el {signos}.",
       "codigo": "Ver el código"
     },
-    "ahoraTu": "Ahora tú",
+    "ahoraTu": "Pruébalo",
     "tokens": {
       "titulo": "Córtalo en tokens",
       "etiqueta": "Escribe lo que quieras",

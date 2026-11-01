@@ -6,7 +6,7 @@ import datos from "./datos/tokens-es.json";
 import { contar, enPiezas, type Ejemplo } from "./tokens";
 
 /**
- * Escena «tokens» (estación 03, parada 2): escribir un texto y verlo cortado en tokens, y comparar
+ * Escena «tokens» (lección 03): escribir un texto y verlo cortado en tokens, y comparar
  * cuántos tokens usa el español con distintos tokenizadores. Los ejemplos vienen ya cortados
  * (lab/tokens/contar_tokens.ts); el tokenizador completo solo se descarga si el alumno escribe.
  */

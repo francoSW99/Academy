@@ -6,7 +6,7 @@ import datos from "./datos/muestreo-es.json";
 import { distribucion, elegir, type Candidata, type Frase, type Veredicto } from "./muestreo";
 
 /**
- * Escena «muestreo» (estación 03, parada 2): elegir la frase, mover la temperatura y tirar los dados
+ * Escena «muestreo» (lección 03): elegir la frase, mover la temperatura y tirar los dados
  * sobre las probabilidades reales de un modelo. La matemática está en muestreo.ts.
  */
 
