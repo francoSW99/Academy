@@ -35,15 +35,18 @@ SALIDA = Path(__file__).resolve().parents[2] / "src/componentes/escenas/datos/co
 VENTANA_GRANDE = 4096
 OPCIONES = {"temperature": 0, "seed": 7, "num_ctx": VENTANA_GRANDE}
 
-SISTEMA = "Eres un asistente de cocina. Responde en español y breve: una lista corta o dos o tres frases."
+SISTEMA = (
+    "Eres el asistente de soporte de Tiendalink, una tienda online de tecnología. Devoluciones: el retiro cuesta "
+    "$4.990, salvo para los clientes del plan Empresa, que no pagan. Responde en español y breve: dos o tres frases."
+)
 HISTORIA = [
-    ("Hola, me llamo Ana. Soy alérgica al maní.", "¡Hola, Ana! Lo tengo en cuenta. ¿En qué te ayudo?"),
-    ("Quiero cocinar una cena tailandesa para seis amigos el sábado.", "¡Qué buen plan! ¿Cuánto tiempo tienes para cocinar?"),
-    ("Tengo toda la tarde libre. ¿Qué plato principal me recomiendas?", "Un curry verde con pollo: se hace en una hora y alcanza para seis."),
-    ("¿Y de postre?", "Arroz con mango: arroz glutinoso, leche de coco y mango maduro. Es fácil y fresco."),
+    ("Hola, soy Carla, de Nortex. Somos clientes del plan Empresa.", "¡Hola, Carla! Gracias por escribir. ¿En qué te ayudo?"),
+    ("Necesito cambiar la dirección de entrega del pedido 4512.", "Claro. Escríbeme la dirección nueva y la actualizo en el pedido 4512."),
+    ("Avenida Los Leones 1200, oficina 54, Providencia.", "Listo: el pedido 4512 llegará a Avenida Los Leones 1200, oficina 54."),
+    ("¿Y cuándo llega, más o menos?", "Entre dos y tres días hábiles. Te avisaremos por correo cuando salga."),
 ]
-PREGUNTA_FINAL = "Ahora dame los ingredientes para un pad thai."
-RESUMIR = "Resume esta conversación en una o dos frases. Guarda los datos importantes del usuario."
+PREGUNTA_FINAL = "Llegó, pero uno de los monitores tiene la pantalla rota. ¿Cuánto me cuesta devolverlo?"
+RESUMIR = "Resume esta conversación en una o dos frases. Guarda los datos importantes del cliente."
 
 
 def prompt_de(mensajes: list[dict]) -> str:
@@ -84,18 +87,21 @@ def recortar(mensajes: list[dict], ventana: int) -> int:
     return len(mensajes) - 1
 
 
-def menciona_mani(texto: str) -> str:
+def trato(texto: str) -> str:
+    """¿Respetó el plan de Carla (devolución gratis), le cobró, o ya no sabía su plan y se lo preguntó?"""
     t = texto.lower()
-    if re.search(r"alerg|sin man[ií]|sin cacahuete|sin cacahuate|evita", t):
-        return "cuida"
-    if re.search(r"man[ií]|cacahuete|cacahuate", t):
-        return "usa"
+    if re.search(r"confirma tu plan|si eres cliente", t):
+        return "pregunta"
+    if re.search(r"gratis|gratuit|sin costo|sin cargo|no (tienes|tendrás|tendras) que pagar|no pagas", t):
+        return "cumple"
+    if re.search(r"4[.,]?990|cuesta|tiene un costo|cobr", t):
+        return "cobra"
     return "no-dice"
 
 
-def guarda_alergia(resumen: str) -> bool:
-    """¿El resumen todavía dice que Ana es alérgica?"""
-    return bool(re.search(r"alerg|man[ií]|cacahuete|cacahuate", resumen.lower()))
+def guarda_plan(resumen: str) -> bool:
+    """¿El resumen todavía dice que Carla es del plan Empresa?"""
+    return bool(re.search(r"empresa", resumen.lower()))
 
 
 def main():
@@ -114,14 +120,14 @@ def main():
     tokens = [acumulado[0]] + [acumulado[k] - acumulado[k - 1] for k in range(1, len(acumulado))]
 
     # Ventana chica: todos los turnos caben menos el último, y al recortar se van los dos primeros
-    # mensajes (la alergia y la respuesta que la repite).
+    # mensajes (el plan Empresa y la respuesta que lo saluda).
     antes_del_ultimo = acumulado[-3]  # instrucciones + todo hasta la última respuesta
     sin_los_dos_primeros = leidos([mensajes[0]] + mensajes[3:])
     sin_el_primero = leidos([mensajes[0]] + mensajes[2:])
     ventana = max(antes_del_ultimo, sin_los_dos_primeros)
     ventana = -(-ventana // 10) * 10  # Redondea hacia arriba a 10.
     if not (ventana < sin_el_primero and ventana < acumulado[-1]):
-        raise SystemExit(f"No hay una ventana que recorte justo la alergia: {ventana=} {sin_el_primero=} total={acumulado[-1]}")
+        raise SystemExit(f"No hay una ventana que recorte justo el plan: {ventana=} {sin_el_primero=} total={acumulado[-1]}")
 
     grande = chat(mensajes)
     desde = recortar(mensajes, ventana)
@@ -135,11 +141,11 @@ def main():
     for nombre, r, extra in [
         ("grande", grande, {}),
         ("recorta", recortado, {"desde": desde}),
-        ("compacta", compactado, {"resumen": resumen, "resumenTokens": leidos(compacto[:2]) - acumulado[0], "resumenGuarda": guarda_alergia(resumen)}),
+        ("compacta", compactado, {"resumen": resumen, "resumenTokens": leidos(compacto[:2]) - acumulado[0], "resumenGuarda": guarda_plan(resumen)}),
     ]:
         respuesta = r["texto"]
-        finales[nombre] = {"respuesta": respuesta, "leidos": r["leidos"], "mani": menciona_mani(respuesta), **extra}
-        print(f"\n[{nombre}] leyó {r['leidos']} · maní: {finales[nombre]['mani']}\n{respuesta}")
+        finales[nombre] = {"respuesta": respuesta, "leidos": r["leidos"], "trato": trato(respuesta), **extra}
+        print(f"\n[{nombre}] leyó {r['leidos']} · trato: {finales[nombre]['trato']}\n{respuesta}")
     print(f"\nresumen: {resumen}")
 
     salida = {

@@ -12,12 +12,15 @@ import type { VideoBiblioteca as Video } from "@/ruta/tipos";
 export function VideoBiblioteca({ video, lang }: { video: Video; lang: Idioma }) {
   const t = textos(lang).video;
   const [abierto, setAbierto] = useState(false);
-  const enlace = `https://www.youtube.com/watch?v=${video.id}`;
+  const enlace = `https://www.youtube.com/watch?v=${video.id}${video.desde ? `&t=${video.desde}s` : ""}`;
   // Si el video está en otro idioma, se piden los subtítulos en el de la página.
   const parametros = new URLSearchParams({
     autoplay: "1",
     rel: "0",
     hl: lang,
+    // Solo el tramo que trata el tema de la lección.
+    ...(video.desde ? { start: String(video.desde) } : {}),
+    ...(video.hasta ? { end: String(video.hasta) } : {}),
     ...(video.idioma !== lang ? { cc_load_policy: "1", cc_lang_pref: lang } : {}),
   });
 
@@ -65,6 +68,11 @@ export function VideoBiblioteca({ video, lang }: { video: Video; lang: Idioma })
         <span className="text-[13px] text-tenue">{rellenar(t.explicado, { canal: video.canal })}</span>
         <span className="font-serif text-[21px] leading-snug text-pretty">{video.titulo}</span>
         <span className="text-[15px] text-pretty text-tinta-2">{video.queMirar}</span>
+        {video.desde !== undefined && (
+          <span className="text-[14px] font-medium text-tinta">
+            {video.hasta ? rellenar(t.tramo, { desde: reloj(video.desde), hasta: reloj(video.hasta) }) : rellenar(t.desde, { desde: reloj(video.desde) })}
+          </span>
+        )}
         <span className="flex flex-wrap items-center gap-x-4 text-[13.5px]">
           <span className="text-tenue">{rellenar(t[video.idioma], { minutos: video.minutos })}</span>
           <a
@@ -79,4 +87,9 @@ export function VideoBiblioteca({ video, lang }: { video: Video; lang: Idioma })
       </figcaption>
     </figure>
   );
+}
+
+/** 165 → «2:45». */
+function reloj(segundos: number) {
+  return `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, "0")}`;
 }

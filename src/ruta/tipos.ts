@@ -46,7 +46,24 @@ export type VideoBiblioteca = {
   idioma: "es" | "en";
   /** Qué mirar, en una línea: el tema o el capítulo que importa aquí. */
   queMirar: string;
+  /** El tramo que trata el tema de la lección, en segundos. Sin él, se mira desde el comienzo. */
+  desde?: number;
+  hasta?: number;
 };
+
+/** Una fuente que respalda la lección: un libro, un video o una medición hecha para Academy. */
+export type Fuente = {
+  id: string;
+  /** Cómo se nombra en el texto: «Phoenix y Taylor (2024)». */
+  corta: string;
+  /** La referencia completa, en formato APA. */
+  cita: string;
+  url?: string;
+  tipo: "libro" | "video" | "medicion";
+};
+
+/** En qué se apoya una idea o un consejo: la fuente y, si sirve, la página, el capítulo o el minuto. */
+export type Respaldo = { fuente: string; donde?: string };
 
 /**
  * Una idea de la lección. Se lee de corrido, sin recuadros que corten el hilo: la explicación,
@@ -59,12 +76,14 @@ export type Idea = {
   escenas?: NombreEscena[];
   /** Lo que se cuenta después de tocar la escena: el ejemplo real, medido, y la conclusión. */
   despues?: Trozo[];
+  fuentes?: Respaldo[];
 };
 
 /** Lo que haría un ingeniero de IA experto con una idea: un principio y cómo se aplica. */
 export type Consejo = {
   titulo: string;
   texto: string;
+  fuentes?: Respaldo[];
 };
 
 export type ContenidoLeccion = {
@@ -79,4 +98,8 @@ export type ContenidoLeccion = {
   preguntas?: string[];
   /** Videos de la biblioteca para profundizar, al final de la lección. */
   videos?: VideoBiblioteca[];
+  /** Las fuentes de la lección, al final. Las ideas y los consejos las nombran. */
+  fuentes: Fuente[];
+  /** Cuándo se revisó por última vez (AAAA-MM-DD). */
+  revisada: string;
 };

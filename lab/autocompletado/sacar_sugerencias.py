@@ -23,7 +23,7 @@ RAIZ = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RAIZ / "lab/muestreo"))
 import sacar_probabilidades as muestreo  # noqa: E402
 
-FRASE = "El cielo es"
+FRASE = "Hola Carla, lamentamos el cobro duplicado de tu suscripción. Ya"
 SALIDA = RAIZ / "src/componentes/escenas/datos/autocompletado-es.json"
 # Para sugerir una palabra basta una exploración corta del árbol de tokens.
 muestreo.MAX_LLAMADAS = 30

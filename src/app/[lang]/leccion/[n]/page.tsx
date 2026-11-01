@@ -5,6 +5,7 @@ import { Temario } from "@/componentes/Temario";
 import { VideoBiblioteca } from "@/componentes/VideoBiblioteca";
 import { CompletarLeccion, MarcarVista } from "@/componentes/leccion/AvanceLeccion";
 import { BotonCopiar } from "@/componentes/leccion/BotonCopiar";
+import { ListaFuentes, Respaldos } from "@/componentes/leccion/Fuentes";
 import { IdeaLeccion } from "@/componentes/leccion/IdeaLeccion";
 import { IndiceLateral, IndiceMovil, type EntradaIndice } from "@/componentes/leccion/IndiceLeccion";
 import { esIdioma, idiomas, rellenar, textos } from "@/lib/idiomas";
@@ -64,6 +65,9 @@ export default async function PaginaLeccion({ params }: Props) {
               </p>
               <h1 className="font-serif text-[clamp(36px,4.6vw,56px)] leading-[1.04] font-normal tracking-[-0.015em] text-balance">{leccion.titulo}</h1>
               <p className="text-[19px] leading-relaxed text-pretty text-tinta-2">{c.resumen}</p>
+              <a href="#fuentes" className="self-start text-[13.5px] text-tenue hover:text-tinta">
+                {rellenar(t.revisada, { fecha: fechaLarga(c.revisada) })}
+              </a>
             </header>
           </div>
 
@@ -71,7 +75,7 @@ export default async function PaginaLeccion({ params }: Props) {
 
           <div className="flex flex-col gap-12">
             {c.ideas.map((idea, k) => (
-              <IdeaLeccion key={idea.titulo} idea={idea} numero={k + 1} id={`idea-${k + 1}`} lang={lang} />
+              <IdeaLeccion key={idea.titulo} idea={idea} numero={k + 1} id={`idea-${k + 1}`} fuentes={c.fuentes} lang={lang} />
             ))}
           </div>
 
@@ -89,6 +93,7 @@ export default async function PaginaLeccion({ params }: Props) {
                   <div className="flex flex-col gap-1.5">
                     <h3 className="font-serif text-[clamp(21px,2.2vw,24px)] leading-snug font-normal">{consejo.titulo}</h3>
                     <p className="text-[16.5px] leading-relaxed text-pretty text-tinta-2">{consejo.texto}</p>
+                    <Respaldos respaldos={consejo.fuentes} fuentes={c.fuentes} lang={lang} />
                     {c.ideas[k] && (
                       <a href={`#idea-${k + 1}`} className="inline-flex min-h-9 items-center self-start text-[13.5px] text-tenue hover:text-tinta">
                         ↑ {rellenar(t.volverIdea, { n: k + 1, titulo: c.ideas[k].titulo })}
@@ -138,6 +143,8 @@ export default async function PaginaLeccion({ params }: Props) {
             </section>
           )}
 
+          <ListaFuentes fuentes={c.fuentes} lang={lang} />
+
           <nav aria-label="Lecciones" className="flex flex-wrap items-center justify-between gap-3 border-t border-borde pt-6">
             <span>
               {previa && (
@@ -163,4 +170,12 @@ export default async function PaginaLeccion({ params }: Props) {
       </div>
     </>
   );
+}
+
+const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+/** "2026-11-01" → «1 de noviembre de 2026». */
+function fechaLarga(iso: string) {
+  const [a, m, d] = iso.split("-").map(Number);
+  return `${d} de ${MESES[m - 1]} de ${a}`;
 }

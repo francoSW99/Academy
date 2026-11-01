@@ -144,14 +144,20 @@ export function Muestreo({ lang }: { lang: Idioma }) {
                 f.id === fraseId ? "border-primario bg-primario text-primario-tinta" : "border-borde-fuerte hover:bg-suave"
               }`}
             >
-              {f.texto}…
+              {f.muestra ? `«${f.muestra.length > 34 ? `${f.muestra.slice(0, 32)}…` : f.muestra}»` : `${f.texto}…`}
             </button>
           ))}
         </div>
       </div>
 
       <p className="font-serif text-[clamp(24px,2.6vw,34px)] leading-snug text-pretty">
-        {frase.texto}{" "}
+        {frase.muestra ? (
+          <>
+            «{frase.muestra}» <span className="text-tenue">→ {t.categoria}:</span>
+          </>
+        ) : (
+          frase.texto
+        )}{" "}
         <span
           className={`inline-flex min-w-[3.2em] justify-center rounded-[10px] border-2 px-2 ${
             elegida ? `border-current ${tinta[tono(elegida)]}` : "border-dashed border-borde-fuerte text-tenue"

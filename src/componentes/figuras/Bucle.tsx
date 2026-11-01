@@ -1,12 +1,12 @@
+import datos from "@/componentes/escenas/datos/autocompletado-es.json";
 import { textos, type Idioma } from "@/lib/idiomas";
 import { Revelar } from "./Revelar";
 
-// Las 3 palabras más probables después de «El cielo es»: lab/autocompletado (deepseek-r1:8b, 2026-10-31).
-const PROBABLES = [
-  { palabra: "azul", p: 0.39 },
-  { palabra: "el", p: 0.34 },
-  { palabra: "un", p: 0.07 },
-];
+// El bot de soporte redacta la respuesta a Carla: las 3 palabras más probables después del comienzo, medidas en
+// lab/autocompletado (deepseek-r1:8b). Del comienzo se muestran solo las últimas palabras.
+const PROBABLES = datos.opciones.slice(0, 3).map((o) => ({ palabra: o.palabra, p: o.p }));
+const COLA = `…${datos.frase.split(" ").slice(-4).join(" ")}`;
+const ELEGIDA = PROBABLES[0].palabra;
 
 /** El bucle con el que escribe un LLM: lee, calcula probabilidades, elige una palabra, la agrega y repite. */
 export function Bucle({ lang }: { lang: Idioma }) {
@@ -16,13 +16,13 @@ export function Bucle({ lang }: { lang: Idioma }) {
       <Revelar className="flex flex-col gap-2">
         <div className="grid items-stretch gap-1 md:grid-cols-[minmax(0,1fr)_22px_minmax(0,1fr)_22px_minmax(0,1fr)_22px_minmax(0,1fr)] md:gap-2">
           <Paso i={0} titulo={t.lee}>
-            <span className="font-serif text-[21px] leading-snug">«El cielo es»</span>
+            <span className="font-serif text-[21px] leading-snug">«{COLA}»</span>
           </Paso>
           <Flecha i={1} />
           <Paso i={1} titulo={t.calcula}>
             <ul className="flex flex-col gap-1.5">
               {PROBABLES.map(({ palabra, p }, k) => (
-                <li key={palabra} className="grid grid-cols-[40px_minmax(0,1fr)_36px] items-center gap-2">
+                <li key={palabra} className="grid grid-cols-[minmax(40px,auto)_minmax(0,1fr)_36px] items-center gap-2">
                   <span className={`font-serif text-[17px] ${k === 0 ? "text-acento-texto" : ""}`}>{palabra}</span>
                   <span className="h-1.5 overflow-hidden rounded-full bg-borde">
                     <span className={`block h-full rounded-full ${k === 0 ? "bg-acento" : "bg-borde-fuerte"}`} style={{ width: `${p * 100}%` }} />
@@ -34,12 +34,12 @@ export function Bucle({ lang }: { lang: Idioma }) {
           </Paso>
           <Flecha i={2} />
           <Paso i={2} titulo={t.elige}>
-            <span className="font-serif text-[21px] leading-snug text-acento-texto">«azul»</span>
+            <span className="font-serif text-[21px] leading-snug text-acento-texto">«{ELEGIDA}»</span>
           </Paso>
           <Flecha i={3} />
           <Paso i={3} titulo={t.agrega}>
             <span className="font-serif text-[21px] leading-snug">
-              «El cielo es <span className="text-acento-texto">azul</span>»
+              «{COLA} <span className="text-acento-texto">{ELEGIDA}</span>»
             </span>
           </Paso>
         </div>

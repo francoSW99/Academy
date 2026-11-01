@@ -32,13 +32,20 @@ MINIMO_PASO = 0.001
 # Tope de llamadas al modelo por frase.
 MAX_LLAMADAS = 200
 
-# En las frases con «respuesta», una palabra con mayúscula es la respuesta: verdadera si está
-# en la lista y falsa si no (otra ciudad, otro planeta o una palabra inventada). Las demás
-# («una», «la») no responden todavía: la frase sigue.
+# Tickets de soporte para clasificar: el modelo completa «Categoría:». La palabra es verdadera si es la categoría
+# correcta y falsa si es otra de la lista; las demás («la», «un») todavía no responden.
+CATEGORIAS = ["facturación", "acceso", "envíos", "técnico"]
+
+
+def ticket(texto: str) -> str:
+    return f"Ticket de soporte: «{texto}»\nCategorías posibles: {', '.join(CATEGORIAS)}.\nCategoría:"
+
+
 FRASES = [
-    {"id": "planeta", "texto": "El planeta más caliente del sistema solar es", "respuesta": ["Venus"]},
-    {"id": "turquia", "texto": "La capital de Turquía es", "respuesta": ["Ankara"]},
-    {"id": "cuento", "texto": "Había una vez un"},
+    {"id": "cobro", "muestra": "Me cobraron dos veces la suscripción de este mes.", "texto": ticket("Me cobraron dos veces la suscripción de este mes."), "respuesta": ["facturación"]},
+    {"id": "caja", "muestra": "El pedido llegó con la caja abierta y le falta el cargador.", "texto": ticket("El pedido llegó con la caja abierta y le falta el cargador."), "respuesta": ["envíos"]},
+    # Engañoso: habla de pagar, pero es una falla de la app.
+    {"id": "app", "muestra": "La app se cierra cada vez que intento pagar con mi tarjeta.", "texto": ticket("La app se cierra cada vez que intento pagar con mi tarjeta."), "respuesta": ["técnico"]},
 ]
 
 
@@ -56,7 +63,11 @@ def siguiente(texto: str) -> list[tuple[bytes, float]]:
     }
     pedido = urllib.request.Request(OLLAMA, json.dumps(cuerpo).encode(), {"Content-Type": "application/json"})
     respuesta = json.load(urllib.request.urlopen(pedido, timeout=600))
-    return [(bytes(t["bytes"]), math.exp(t["logprob"])) for t in respuesta["logprobs"][0]["top_logprobs"]]
+    # A veces Ollama no manda los bytes de un token: entonces se usa su texto.
+    return [
+        (bytes(t["bytes"]) if "bytes" in t else t["token"].encode(), math.exp(t["logprob"]))
+        for t in respuesta["logprobs"][0]["top_logprobs"]
+    ]
 
 
 def letras_iniciales(s: str) -> int:
@@ -154,11 +165,8 @@ def veredictos_de(frase: dict, encontradas: dict[str, float]) -> dict[str, str]:
     if "respuesta" not in frase:
         return {}
     correctas = {w.lower() for w in frase["respuesta"]}
-    return {
-        w: "verdadero" if w.lower() in correctas else "falso"
-        for w in encontradas
-        if w.lower() in correctas or (w[0].isupper() and len(w) > 1)
-    }
+    categorias = {c.lower() for c in CATEGORIAS}
+    return {w: "verdadero" if w.lower() in correctas else "falso" for w in encontradas if w.lower() in categorias}
 
 
 def main():
@@ -167,7 +175,7 @@ def main():
         inicio = time.time()
         r = arbol(f["texto"])
         veredictos = veredictos_de(f, palabras(r["nodos"]))
-        salida["frases"].append({"id": f["id"], "texto": f["texto"], "nodos": r["nodos"], "veredictos": veredictos, "signos": r["signos"]})
+        salida["frases"].append({"id": f["id"], "texto": f["texto"], "muestra": f["muestra"], "nodos": r["nodos"], "veredictos": veredictos, "signos": r["signos"]})
         print(f"{f['texto']!r}: {len(r['nodos'])} nodos, signos {r['signos']:.0%}, {r['llamadas']} llamadas, {time.time() - inicio:.0f} s")
         for w, p in list(palabras(r["nodos"]).items())[:14]:
             print(f"    {w:<16} {p:>7.2%}  {veredictos.get(w, '')}")
