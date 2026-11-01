@@ -92,9 +92,7 @@ export const leccion03: ContenidoLeccion = {
     {
       titulo: "Lee en tokens",
       texto: [
-        "Esas «palabras» en realidad son tokens: pedazos de palabra. Y el modelo tampoco ve los pedazos: cada token es un número de su vocabulario.",
-        { figura: "tokens" },
-        "Un ticket, un JSON, un trozo de código o el modelo de un producto se cortan distinto. Pruébalo:",
+        "Esas «palabras» en realidad son tokens: pedazos de palabra. Un ticket, un JSON, un trozo de código o el modelo de un producto se cortan distinto. Pruébalo:",
       ],
       escenas: ["tokens"],
       despues: [

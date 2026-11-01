@@ -1,6 +1,5 @@
 import type { Idioma } from "@/lib/idiomas";
 import type { NombreFigura } from "@/ruta/tipos";
-import { ATokens } from "./ATokens";
 import { Bucle } from "./Bucle";
 import { LeerEscribir } from "./LeerEscribir";
 import { Ventana } from "./Ventana";
@@ -9,7 +8,6 @@ import { Ventana } from "./Ventana";
 // Son HTML, no imágenes: el texto se lee en el celular, se reacomoda y carga al instante.
 const figuras: Record<NombreFigura, React.ComponentType<{ lang: Idioma }>> = {
   bucle: Bucle,
-  tokens: ATokens,
   ventana: Ventana,
   leerEscribir: LeerEscribir,
 };

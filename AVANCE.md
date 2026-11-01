@@ -14,7 +14,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ## Dónde estamos
 
 - **Avance:** `▓▓▓▓▓░░░░░` 33 de 58 tareas del plan (57 %). El MVP está al 100 %. La Fase 4b va en 10 de 13.
-- **Hecho:** Fases 0 a 4. **El curso nuevo es público desde el 2026-11-01:** https://academy.woorky.app/es/ tiene el temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. **Su código ya está en `main`** (PR #7 y #8 mezclados el 2026-11-01). **Los 4 diagramas de la lección 03 están en el borrador** (PR #9).
+- **Hecho:** Fases 0 a 4. **El curso nuevo es público desde el 2026-11-01:** https://academy.woorky.app/es/ tiene el temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. **Su código ya está en `main`** (PR #7 y #8 mezclados el 2026-11-01). **2 diagramas nuevos de la lección 03 en el borrador** (PR #9): ventana y leer/escribir.
 - **Falta:** de la Fase 4b, tu OK a los diagramas, los 3 canvas con los casos nuevos (1 o 2 sesiones) y publicarlos. Aparte: sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
 - **Lo próximo:** que revises los diagramas en https://academy.woorky.app/borrador/es/leccion/03/. Después, redibujar los storyboards de los 3 canvas con los casos nuevos (media sesión).
 
@@ -152,7 +152,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [x] Videos de la lección 03 solo del tema: 3Blue1Brown y Andrej Karpathy, que tratan solo de cómo funciona un LLM, y de Marina Wyss solo el tramo del 2:45 al 8:30. BettaTech salió: solo nombra el tema de pasada (pedido 41). Publicado · 2026-11-01
 - [ ] Sumar a tu biblioteca los 2 videos nuevos (3Blue1Brown y Karpathy): la sesión de NotebookLM del servidor venció, así que hace falta que vuelvas a entrar con tu cuenta
 - [x] Fuentes en cada lección: cada idea y cada consejo dicen en qué se apoyan (libro con página, video con capítulo o medición propia), y la lista completa va al final, con la fecha de revisión. Las principales son el libro «Prompt Engineering for Generative AI», de tu biblioteca, y las mediciones de `lab/` (pedido 42). Publicado · 2026-11-01
-- [x] Diagramas entre los textos, uno por idea salvo la 3, que ya tiene su escena de dados: el bucle (idea 1, publicado), el ticket cortado en tokens y en números (idea 2), lo que lee el modelo en cada turno de la conversación de Carla hasta que ya no cabe (idea 4) y leer la pregunta de una vez frente a escribir de a un token, con tiempos reales (idea 5). Con los datos ya medidos en `lab/`. En el borrador, espera tu OK (PR #9) · 2026-11-01
+- [x] Visuales solo donde hacen falta, no un flowchart por idea (pedido 47): la escena de tokens de la idea 2 queda sola, como en el sitio. Diagramas: el bucle (idea 1, publicado), lo que lee el modelo en cada turno de la conversación de Carla hasta que ya no cabe (idea 4) y leer la pregunta de una vez frente a escribir de a un token, con tiempos reales (idea 5). Con los datos ya medidos en `lab/`. En el borrador, espera tu OK (PR #9) · 2026-11-01
 - [ ] Construir los 3 canvas dentro de la lección, con los casos nuevos: el bot que redacta (idea 1) y los tickets (idea 3). Hay que redibujar sus storyboards, que usaban los ejemplos viejos · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. Hoy son los 3 videos del tema de la lección 03 (ver más arriba). Publicado · 2026-11-01
 - [x] Publicar el curso en módulos y la lección 03 nueva, revisados en computador y celular (pedido 43) · 2026-11-01
@@ -260,6 +260,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 44 | 2026-11-01 | ¿Por qué cambió el dashboard? ¿Se genera al abrir la página y gasta tokens? | No: el sitio es estático y no llama a ningún modelo (revisado en lo publicado). Cambió porque hoy se publicaron los casos nuevos. Los datos se midieron una vez con el modelo local, sin costo por visita |
 | 45 | 2026-11-01 | «Mezcla el PR 7 y el 8» | PR #7 y #8 mezclados: `main` queda igual que el sitio publicado, y el link de este tablero muestra el estado de hoy |
 | 46 | 2026-11-01 | «Sigue» | Los 3 diagramas que faltaban en la lección 03 (tokens, ventana, leer y escribir), en el borrador (PR #9) |
+| 47 | 2026-11-01 | La escena de tokens ya le gustaba como está en el sitio: no todo tiene que ser flowchart, solo lo necesario | Quitado el diagrama de tokens: la idea 2 queda igual que en el sitio. Regla anotada: un visual solo donde la idea no tiene uno |
 
 ---
 
