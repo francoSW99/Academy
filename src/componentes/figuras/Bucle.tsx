@@ -1,6 +1,5 @@
 import datos from "@/componentes/escenas/datos/autocompletado-es.json";
 import { textos, type Idioma } from "@/lib/idiomas";
-import { Flecha, Paso } from "./Piezas";
 import { Revelar } from "./Revelar";
 
 // El bot de soporte redacta la respuesta a Carla: las 3 palabras más probables después del comienzo, medidas en
@@ -60,5 +59,23 @@ export function Bucle({ lang }: { lang: Idioma }) {
       </Revelar>
       <figcaption className="text-[13.5px] text-tenue">{t.pie}</figcaption>
     </figure>
+  );
+}
+
+function Paso({ i, titulo, children }: { i: number; titulo: string; children: React.ReactNode }) {
+  return (
+    <div className="paso flex flex-col gap-2.5 rounded-[14px] bg-[var(--pizarra-rejilla)] px-4 py-3.5" style={{ "--i": i } as React.CSSProperties}>
+      <span className="text-[12.5px] font-medium text-tenue">{titulo}</span>
+      <div className="flex flex-1 flex-col justify-center">{children}</div>
+    </div>
+  );
+}
+
+function Flecha({ i }: { i: number }) {
+  return (
+    <div aria-hidden className="paso flex items-center justify-center text-[18px] text-tenue" style={{ "--i": i } as React.CSSProperties}>
+      <span className="md:hidden">↓</span>
+      <span className="hidden md:inline">→</span>
+    </div>
   );
 }
