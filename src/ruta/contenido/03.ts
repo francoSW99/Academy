@@ -33,6 +33,7 @@ export const leccion03: ContenidoLeccion = {
       titulo: "Predice la siguiente palabra",
       texto: [
         "Un modelo de lenguaje (LLM) no busca la respuesta en una base de datos. Lee tu texto, calcula qué tan probable es cada palabra que podría venir después, elige una, la agrega y repite. Así escribe todo, palabra por palabra.",
+        { figura: "bucle" },
         "Por ejemplo, le dimos «El cielo es» a un modelo real (deepseek-r1:8b) y elegimos siempre su palabra más probable: «azul» (39 %), «porque» (35 %), «la» (42 %) y «luz» (86 %). Esas probabilidades se multiplican, así que la frase entera tiene apenas un **4,9 %**: cada palabra es una apuesta.",
         "Aprendió esas probabilidades leyendo enormes cantidades de texto. Por eso escribe bien, pero **no sabe si lo que escribe es verdad: sabe qué suele venir después.**",
       ],
@@ -112,6 +113,8 @@ export const leccion03: ContenidoLeccion = {
         "Pásale solo los trozos que sirven, no el documento entero. Limita lo que escribe y muéstralo mientras se escribe (streaming). Si repites un contexto largo, usa la caché de prompts del proveedor. Y mide dos números: cuánto tarda en empezar y cuántos tokens escribe por segundo.",
     },
   ],
+
+  figuraConsejos: "llamada",
 
   practica:
     "Elige una tarea de tu trabajo que le darías a un LLM, por ejemplo responder correos de clientes. Decide y anota: qué temperatura usarías, qué contexto le das en cada llamada, qué dato no puede perderse y dónde lo guardas, y cómo medirías cuántas veces se equivoca.",

@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 28 de 52 tareas del plan (54 %). El MVP está al 100 %. La Fase 4b va en 5 de 7.
+- **Avance:** `▓▓▓▓▓░░░░░` 28 de 53 tareas del plan (53 %). El MVP está al 100 %. La Fase 4b va en 5 de 8.
 - **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b: mis videos ya no están en el sitio; el temario por módulos y la lección 03 de corrido se pueden ver en el borrador: https://academy.woorky.app/borrador/es/leccion/03/
-- **Falta:** de la Fase 4b, los canvas dentro de la lección (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** que leas la lección de corrido en el borrador y me digas si te gusta. Si te gusta, la publico en el sitio.
+- **Falta:** de la Fase 4b, 3 diagramas más (media sesión), los 3 canvas (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
+- **Lo próximo:** que mires los 2 diagramas de muestra en el borrador. Con tu «dale», hago los 3 diagramas que faltan y los 3 canvas.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Te gusta la lección de corrido?** (pedido 37) Mírala en el borrador: https://academy.woorky.app/borrador/es/leccion/03/ (el sitio público no cambió). Si te gusta, la publico en `/es/`. Si no, dime qué parte cambio.
+1. **¿Te gustan los diagramas entre los textos?** (pedido 38) Hay 2 de muestra en el borrador: el bucle de un LLM (idea 1) y cómo arma un ingeniero una llamada (consejos). https://academy.woorky.app/borrador/es/leccion/03/ Con «dale», hago los 3 que faltan y los 3 canvas. La lección de corrido ya te gustó.
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
@@ -133,7 +133,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 7 · PR #8
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 8 · PR #8
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
@@ -141,12 +141,14 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
 5. **Sin paradas** (pedido 33): el curso se ordena en módulos y lecciones, como DeepLearning.AI o Khan Academy.
 6. **La lección se lee de corrido** (pedidos 35 y 37). Las ideas van en orden, cada una con su explicación, su escena y su ejemplo real en el mismo texto, sin recuadros que corten el hilo. Al final van los consejos de un ingeniero de IA experto, uno por idea. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples.
+7. **Más visual** (pedido 38): al menos un diagrama, escena o canvas por idea, entre los párrafos, y un diagrama que junte los consejos al final. Los diagramas van en HTML (el texto se lee en el celular y cargan al instante). ManimGX queda para las figuras matemáticas y los canvas.
 
 - [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
 - [x] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno quedó en el PR #8 (`docs/diseno/canvas/`), espera tu OK antes de construir · 2026-10-31
 - [x] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen. En el borrador, espera tu OK · 2026-11-01
 - [x] La lección 03 de corrido: las ideas en orden, cada una con su ejemplo real dentro del texto, y al final lo que haría un ingeniero de IA experto, uno por idea (pedidos 35 y 37). En el borrador, espera tu OK · 2026-11-01
-- [ ] Construir los 3 canvas dentro de la teoría · 1 o 2 sesiones
+- [ ] Diagramas entre los textos, al menos uno por idea: el bucle (idea 1) y la llamada (consejos) ya están en el borrador; faltan de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez y escribir de a uno (idea 5) · media sesión
+- [ ] Construir los 3 canvas dentro de la lección: «Autocompletado» en la idea 1, y «Pregúntale otra vez» y la pizarra de la temperatura en la idea 3 · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
 - [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
 
@@ -243,6 +245,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 35 | 2026-11-01 | Los módulos sí; las 3 partes de la lección no: confunden, no se ve dónde empieza el caso real y el prompt de la parte 3 no sirve. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples | Propuesta: la lección por ideas, con su caso real y lo que hace un ingeniero de IA, todo junto |
 | 36 | 2026-11-01 | «Dale, hazlo en borrador para ver tu idea» | La lección 03 por ideas en el borrador: 5 ideas, cada una con su caso real y lo que hace un ingeniero de IA, más el resumen, la práctica, preguntas para tu LLM y los videos |
 | 37 | 2026-11-01 | Los recuadros «Caso real» y «Lo que hace un ingeniero de IA» cortan el hilo del estudio; los consejos de experto sí sirven. «Proponme algo» | La lección de corrido en el borrador: el ejemplo real va dentro del texto de cada idea, y los consejos de un ingeniero de IA experto van al final, uno por idea, con un enlace de vuelta a la idea |
+| 38 | 2026-11-01 | Más imágenes, gráficos, canvas o flowcharts entre los textos, para no aburrirse y poder imaginar lo que dice el texto | 2 diagramas de muestra en el borrador (el bucle de un LLM y cómo arma un ingeniero una llamada) y el plan para el resto: al menos un visual por idea |
 
 ---
 

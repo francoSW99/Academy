@@ -1,6 +1,7 @@
 import { Escena } from "@/componentes/escenas";
+import { Figura } from "@/componentes/figuras";
 import type { Idioma } from "@/lib/idiomas";
-import type { Idea } from "@/ruta/tipos";
+import type { Idea, Trozo } from "@/ruta/tipos";
 
 /**
  * Una idea de la lección, que se lee de corrido: la explicación, la escena para tocar y, después,
@@ -13,22 +14,29 @@ export function IdeaLeccion({ idea, numero, id, lang }: { idea: Idea; numero: nu
         <span className="text-acento-texto tabular-nums">{numero}</span>
         {idea.titulo}
       </h2>
-      <Parrafos texto={idea.texto} />
+      <Parrafos texto={idea.texto} lang={lang} />
       {idea.escenas?.map((e) => <Escena key={e} nombre={e} lang={lang} />)}
-      {idea.despues && <Parrafos texto={idea.despues} />}
+      {idea.despues && <Parrafos texto={idea.despues} lang={lang} />}
     </section>
   );
 }
 
-export function Parrafos({ texto }: { texto: string[] }) {
+/** Los párrafos de una idea, con los diagramas que van entre ellos. */
+export function Parrafos({ texto, lang }: { texto: Trozo[]; lang: Idioma }) {
   if (texto.length === 0) return null;
   return (
-    <div className="flex max-w-[68ch] flex-col gap-4">
-      {texto.map((p) => (
-        <p key={p} className="text-[17.5px] leading-relaxed text-pretty text-tinta-2">
-          <ConEnfasis texto={p} />
-        </p>
-      ))}
+    <div className="flex flex-col gap-4">
+      {texto.map((trozo, k) =>
+        typeof trozo === "string" ? (
+          <p key={k} className="max-w-[68ch] text-[17.5px] leading-relaxed text-pretty text-tinta-2">
+            <ConEnfasis texto={trozo} />
+          </p>
+        ) : (
+          <div key={k} className="py-2">
+            <Figura nombre={trozo.figura} lang={lang} />
+          </div>
+        ),
+      )}
     </div>
   );
 }

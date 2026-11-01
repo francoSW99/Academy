@@ -27,6 +27,12 @@ export type Curso = {
 /** Escenas interactivas que existen (src/componentes/escenas/). */
 export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
 
+/** Diagramas que existen (src/componentes/figuras/): van entre los párrafos, para imaginar lo que dice el texto. */
+export type NombreFigura = "bucle" | "llamada";
+
+/** Un trozo de la explicación: un párrafo o un diagrama entre párrafos. */
+export type Trozo = string | { figura: NombreFigura };
+
 /**
  * Un video de YouTube de la biblioteca de BrainFran (04-Biblioteca/Videos/). Nunca uno hecho por nosotros.
  * Se ve dentro de la app al tocar la miniatura, y también lleva el enlace directo a YouTube.
@@ -48,11 +54,11 @@ export type VideoBiblioteca = {
  */
 export type Idea = {
   titulo: string;
-  /** La explicación, en párrafos cortos. **Así** se marca lo importante. */
-  texto: string[];
+  /** La explicación, en párrafos cortos y con diagramas entre ellos. **Así** se marca lo importante. */
+  texto: Trozo[];
   escenas?: NombreEscena[];
   /** Lo que se cuenta después de tocar la escena: el ejemplo real, medido, y la conclusión. */
-  despues?: string[];
+  despues?: Trozo[];
 };
 
 /** Lo que haría un ingeniero de IA experto con una idea: un principio y cómo se aplica. */
@@ -68,6 +74,8 @@ export type ContenidoLeccion = {
   ideas: Idea[];
   /** Al final de la lección: lo que haría un experto, uno por idea y en el mismo orden. */
   consejos: Consejo[];
+  /** Un diagrama que junta los consejos, antes de la lista. */
+  figuraConsejos?: NombreFigura;
   practica: string;
   /** Preguntas para seguir aprendiendo con un LLM. */
   preguntas?: string[];
