@@ -13,24 +13,73 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓▓▓░` 20 de 23 tareas del MVP (87 %).
-- **Hecho:** Fases 0 a 3. La estación 03, «Cómo funciona un LLM», está completa: 7 paradas, 3 videos y 4 escenas interactivas.
-- **Falta:** la Fase 4, publicar en academy.woorky.app. Son 3 tareas y unos 30 minutos. Hoy el sitio no es público.
+- **Avance:** `▓▓▓▓▓░░░░░` 23 de 50 tareas del plan (46 %). El MVP está al 100 %. El plan suma las 5 tareas urgentes de la Fase 4b.
+- **Hecho:** Fases 0 a 4. La estación 03, «Cómo funciona un LLM», es pública en https://academy.woorky.app/es/ desde el 2026-10-31.
+- **Falta:** la Fase 4b, urgente (2 o 3 sesiones): canvas interactivos con ManimGX en lugar de mis videos, y videos de tu biblioteca que se ven dentro de la app. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes el plan corregido de la Fase 4b. Con tu «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos.
 
-**Cómo ver el avance:** cada respuesta de Claude en el chat termina con este mismo resumen. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
+**Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
+
+## Plan de acción
+
+```text
+                                      oct S1  S2  S3  S4  S5  S6  S7
+F0–4  MVP: estación 03 pública        ███
+F4b   Canvas y videos (urgente)           ▓▓▓
+F5    Pulido del sitio + UX                  ░░
+F6    Estación 04 · App de IA                  ░░░░
+F7    Estación 05 · RAG                            ░░░░
+F8    Estación 02 · Git                                ░░
+F9    Estación 01 · Base de software                     ░░░░
+F10   Estación 13 · Evals                                    ░░░░
+Después: 06–08 agentes · inglés · UI                             ···
+
+█ hecho · ▓ lo próximo · ░ lo que viene
+S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
+```
+
+Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana y se ajusta cada semana.
+
+### Por qué este orden
+
+1. **Sigue los 5 niveles de la nota.** Las estaciones 03 y 04 cierran el nivel 1, «App con API». La 05 y la 13 cierran el nivel 2, «RAG con evals». La mayoría del trabajo útil en producción es de nivel 2 o 3.
+2. **La 02 (Git) va antes que la 01.** Su material ya está escrito en la guía de estudio, y es lo que usas a diario con los agentes.
+3. **Lo que faltaba del bloque 3 entra donde se usa:**
+   - las salidas estructuradas, en la 04;
+   - los embeddings, en la 05;
+   - el tool use, en la 06.
 
 ### Decisiones que te tocan
 
-1. **¿Publicamos ya?** Es la Fase 4: el curso queda abierto en internet. Para hacerlo: «dale Fase 4».
-2. **¿Qué viene después del MVP?** Hay cuatro caminos (ver «Después del MVP»):
-   - más temas del bloque 3;
-   - la siguiente estación;
-   - el inglés;
-   - el rediseño de la interfaz.
+1. **¿Apruebas el plan corregido de la Fase 4b?** (pedidos 28, 29 y 30, urgente) Con «dale», saco los 3 videos del sitio y corrijo las reglas en 45 minutos. Ese «dale» vale como OK para publicar ese primer paso. Los canvas los publico cuando apruebes las capturas.
+2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
+   - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
+   - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
+   - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
+
+### La carta Gantt con fechas (en GitHub se ve como gráfico)
+
+```mermaid
+gantt
+    title Plan de Academy
+    dateFormat YYYY-MM-DD
+    axisFormat %d/%m
+    section MVP
+    Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
+    section Después del MVP
+    F4b Canvas y videos · urgente :active, f4b, 2026-11-02, 4d
+    F5 Pulido del sitio + UX :f5, after f4b, 3d
+    F6 Estación 04 · App de IA :f6, after f5, 7d
+    F7 Estación 05 · RAG :f7, after f6, 7d
+    F8 Estación 02 · Git :f8, after f7, 4d
+    F9 Estación 01 · Base de software :f9, after f8, 7d
+    F10 Estación 13 · Evals :f10, after f9, 7d
+```
 
 ---
 
-## Plan del MVP
+## Plan del MVP (hecho)
 
 El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
@@ -76,29 +125,76 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
   - 2026-10-31
 - [x] Práctica del bloque (parada 7): explicar por qué alucina un modelo y marcarla como hecha · 2026-10-30
 
-### ⏳ Fase 4 · Publicar · 0 de 3 · espera tu OK
-- [ ] Cambiar el Caddyfile (`BrainFran/tools/academy/Caddyfile`): `/` lleva a `/es/` y `/obsidian/` queda igual
-- [ ] Reiniciar el servicio `brainfran-academy`
-- [ ] Probar que https://academy.woorky.app/es/ y `/obsidian/` respondan
+### ✅ Fase 4 · Publicar · 3 de 3 · 2026-10-31
+- [x] Cambiar el Caddyfile (`BrainFran/tools/academy/Caddyfile`): `/` lleva a `/es/` y `/obsidian/` queda igual · 2026-10-31
+- [x] Armar la versión con `npm run publicar` y reiniciar el servicio `brainfran-academy` · 2026-10-31
+- [x] Probar en internet: `/es/`, las 7 paradas, los videos, las escenas desde el celular y `/obsidian/` · 2026-10-31
 
 ---
 
-## Después del MVP (sin fecha)
+## Fases después del MVP
 
-Todavía no hay nada elegido. Tú decides el orden.
+### ▶ Fase 4b · Canvas interactivos y videos de tu biblioteca · urgente · 0 de 5 · propuesta, espera tu OK
+Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
+1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
+2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
+3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
+4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
 
-- [ ] **Más del bloque 3:**
-  - embeddings;
-  - tool use;
-  - salidas estructuradas;
-  - modelos que razonan;
-  - cómo se entrena (3 pasos);
-  - modelos abiertos vs. cerrados.
-- [ ] **La siguiente estación.** La nota sugiere los bloques 4 y 6.
-- [ ] **Inglés** (`/en/`), con «traducir al tocar».
-- [ ] **Rediseño de la interfaz** a tu gusto: la actual es provisional.
-- [ ] **Enlaces a las notas del grafo** desde cada lección. Necesita un cambio en BrainFran.
-- [ ] **Ícono del sitio** (favicon): hoy no hay y el navegador da un error 404.
+- [ ] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 45 min
+- [ ] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno queda en el PR, para tu OK antes de construir · media sesión
+- [ ] Construir los 3 canvas: «Pregúntale otra vez» (parada 1), la pizarra por momentos (parada 2) y «Autocompletado» (parada 5) · 1 o 2 sesiones
+- [ ] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7 · 1 h
+- [ ] Revisar en computador y celular, medir el peso y la carga, y publicar con tu OK · 30 min
+
+### Fase 5 · Pulido del sitio y UX · 0 de 3 · semana 1
+- [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
+- [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
+- [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
+
+**Diagnóstico de UI y UX · 2026-10-31.** Hecho con capturas del sitio en vivo, en escritorio (1440 px) y en celular (390 px). Se vuelve tareas cuando elijas A o B:
+1. **Una parada es una página muy larga.** La parada 2 mide 3.000 px en escritorio y 4.000 en el celular: un video y 2 escenas dentro de una sola pizarra. `DESIGN.md` pide una idea por pizarra.
+2. **En el celular no se ve en qué parada estás.** La línea de paradas muestra solo de la 1 a la 3. En la parada 6, la tuya queda fuera de la pantalla.
+3. **No retoma donde quedaste.** «Entrar a la estación» siempre lleva a la parada 1, y la portada no muestra cuántas paradas viste.
+4. **El video tapa su propia frase.** Los controles del video cubren la última línea de la escena («Elige por probabilidad, no por verdad»).
+5. **El mapa tiene ruido para quien llega.** Las etiquetas «L2 · 27–28» salen en 8 estaciones sin explicación, y las 15 estaciones cerradas no dicen «pronto».
+- Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
+
+### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
+- [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas, una con salidas estructuradas
+- [ ] Publicada en el sitio
+
+### Fase 7 · Estación 05 «RAG y conocimiento» · 0 de 4 · semanas 2 y 3
+- [ ] Las 7 paradas (bloque 5)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas: embeddings (texto → vector) y búsqueda
+- [ ] Publicada en el sitio
+
+### Fase 8 · Estación 02 «Git y GitHub para dirigir al agente» · 0 de 3 · semana 3
+- [ ] Las 7 paradas, desde la guía de estudio de Git (ya escrita)
+- [ ] 1 escena interactiva
+- [ ] Publicada en el sitio
+
+### Fase 9 · Estación 01 «Base de software habilitadora» · 0 de 4 · semana 4
+- [ ] Las 7 paradas (bloque 1)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas
+- [ ] Publicada en el sitio
+
+### Fase 10 · Estación 13 «Evals: saber si funciona» · 0 de 4 · semana 5
+- [ ] Las 7 paradas (bloque 13)
+- [ ] 1 o 2 videos con ManimGX
+- [ ] 1 o 2 escenas interactivas
+- [ ] Publicada en el sitio
+
+### Más adelante (sin fecha)
+- [ ] Estaciones 06 a 08: agentes y harnesses (nivel 3), con tool use
+- [ ] Inglés (`/en/`), con «traducir al tocar»
+- [ ] Rediseño de la interfaz a tu gusto: la actual es provisional
+- [ ] Enlaces a las notas del grafo desde cada lección (necesita un cambio en BrainFran)
+- [ ] Lo que queda del bloque 3: modelos que razonan, cómo se entrena en 3 pasos y modelos abiertos vs. cerrados
 
 ---
 
@@ -129,16 +225,22 @@ Todavía no hay nada elegido. Tú decides el orden.
 | 21 | 2026-10-31 | Ver el tablero cada vez que se termina un trabajo y recibir el resumen «Dónde estamos» | El link fijo al tablero y el resumen al final de cada entrega (PR #6) |
 | 22 | 2026-10-31 | Ver el avance aquí, en el chat de Claude Code, en cada respuesta | Cada respuesta termina con «Dónde estamos». Un hook de Claude Code le pasa este tablero a Claude en cada mensaje tuyo |
 | 23 | 2026-10-31 | «Mezcla el PR 6» | PR #6 mezclado: el tablero queda en `main`, con link fijo |
+| 24 | 2026-10-31 | «Dale publica todo» | Sitio público en https://academy.woorky.app/es/ (Fase 4). MVP terminado |
+| 25 | 2026-10-31 | Saber qué camino sigue y ver el plan siempre claro, tipo carta Gantt | Plan de acción F5–F10 con carta Gantt en el tablero y al final de cada respuesta |
+| 26 | 2026-10-31 | Ver «Dónde estamos» y la carta Gantt en cualquier proyecto, no solo en Academy | Hook global de Claude Code: en cada repo lee su `AVANCE.md`, y si no hay, pide crearlo |
+| 27 | 2026-10-31 | Trabajar ahora en la UI y la UX: «prepárate» | Diagnóstico del sitio en vivo (escritorio y celular): 5 problemas de uso y la decisión A o B |
+| 28 | 2026-10-31 | Sacar los videos que hizo Claude: lo animado va como canvas interactivo con motion, y los videos son originales de YouTube de canales educativos, solo donde suman. Un plan antes de corregir | Plan de la Fase 4b (6 pasos, unas 2 sesiones). La regla quedó anotada en la memoria de Claude |
+| 29 | 2026-10-31 | «Noo desinstales ManimGX»: canvas interactivos y entretenidos, como gráficos o dashboards en tiempo real, con ayuda de ManimGX al estilo de 3Blue1Brown, pero sin crearlos en tiempo real para que la app cargue rápido. Los videos: ideas de la biblioteca de BrainFran, con vista previa y enlace directo | Plan de la Fase 4b corregido: ManimGX dibuja antes y la página solo arma y responde; tarjetas de la biblioteca. ManimGX sigue instalado (no se desinstaló) |
+| 30 | 2026-10-31 | Los videos no son para sacar ideas para los canvas: solo hay que intentar sacarlos de la biblioteca de BrainFran. Al tocar la miniatura se ve el video en la app, o se va por enlace directo a YouTube | Plan de la Fase 4b corregido: paso 4, videos de la biblioteca que se ven en la app, con enlace a YouTube |
 
 ---
 
 ## Dónde está cada cosa
 
-- **El curso:** todavía no está en internet.
-  - Cuando se publique, va a estar en https://academy.woorky.app/es/
-  - Mientras tanto, se ve en la VM con `npm run dev`, en http://localhost:3000/es/
+- **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
+  - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados.
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #6 ya están mezclados, y el #7 marca la publicación.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.
