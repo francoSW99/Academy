@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 28 de 54 tareas del plan (52 %). El MVP está al 100 %. La Fase 4b va en 5 de 9.
+- **Avance:** `▓▓▓▓▓░░░░░` 28 de 55 tareas del plan (51 %). El MVP está al 100 %. La Fase 4b va en 5 de 10.
 - **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b: mis videos ya no están en el sitio; el temario por módulos y la lección 03 de corrido se pueden ver en el borrador: https://academy.woorky.app/borrador/es/leccion/03/
-- **Falta:** de la Fase 4b, cambiar los ejemplos por casos reales de un ingeniero de IA (1,5 sesiones), 3 diagramas, los 3 canvas y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** que apruebes los 5 casos de ingeniero de IA para la lección 03. Con tu «dale», los mido con el modelo y reescribo los ejemplos.
+- **Falta:** de la Fase 4b, los casos reales de un ingeniero de IA (1,5 sesiones), los videos solo del tema (media sesión), 3 diagramas, los 3 canvas y publicar. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes, en un solo «dale», los 5 casos de ingeniero de IA y los videos solo del tema. Después los aplico juntos en el borrador.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas los 5 casos de ingeniero de IA?** (pedido 40) Autocompletar código, presupuestar un bot en tokens, clasificar tickets, el bot que olvida el plan del cliente, y RAG con el manual entero o solo los trozos que sirven. Todos medidos con el modelo local. Con «dale», los mido y reescribo la lección 03 (1,5 sesiones).
+1. **¿Apruebas los 5 casos de ingeniero de IA y los videos solo del tema?** (pedidos 40 y 41) Casos: autocompletar código, presupuestar un bot en tokens, clasificar tickets, el bot que olvida el plan del cliente y RAG con el manual entero o solo lo que sirve, todos medidos con el modelo local. Videos: de tu biblioteca, solo el tramo de cada video que habla de cómo funciona un LLM, más 2 videos que tratan solo de eso (3Blue1Brown y Andrej Karpathy), que se suman a tu biblioteca. Con «dale», aplico todo junto en el borrador.
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
@@ -133,12 +133,12 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 9 · PR #8
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 10 · PR #8
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
 3. **Nada se crea al abrir la página**, para que cargue rápido. ManimGX dibuja antes, en la VM, las fórmulas, los diagramas y los momentos. La página solo junta esas piezas y mueve con Motion lo que tocas. Meta: menos de 300 KB por canvas (el video de la parada 2 pesa 815 KB).
-4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman.
+4. **Los videos que van en la app salen, cuando se pueda, de tu biblioteca de BrainFran** (`04-Biblioteca/Videos/`). Tocas la miniatura y el video se ve dentro de la app, o abres el enlace directo a YouTube. Van solo donde suman. Cada video, o el tramo que se muestra, trata solo del tema de la lección: los videos generales no van en una lección (pedido 41).
 5. **Sin paradas** (pedido 33): el curso se ordena en módulos y lecciones, como DeepLearning.AI o Khan Academy.
 6. **La lección se lee de corrido** (pedidos 35 y 37). Las ideas van en orden, cada una con su explicación, su escena y su ejemplo real en el mismo texto, sin recuadros que corten el hilo. Al final van los consejos de un ingeniero de IA experto, uno por idea. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples.
 7. **Más visual** (pedidos 38 y 39): al menos un diagrama, escena o canvas por idea, entre los párrafos. Cada diagrama usa los ejemplos de la misma lección, no trae códigos ni números que haya que buscar en otra parte y no adelanta temas que todavía no se explicaron. Los diagramas van en HTML (el texto se lee en el celular y cargan al instante). ManimGX queda para las figuras matemáticas y los canvas.
@@ -149,6 +149,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [x] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen. En el borrador, espera tu OK · 2026-11-01
 - [x] La lección 03 de corrido: las ideas en orden, cada una con su ejemplo real dentro del texto, y al final lo que haría un ingeniero de IA experto, uno por idea (pedidos 35 y 37). En el borrador, espera tu OK · 2026-11-01
 - [ ] Casos reales de un ingeniero de IA en la lección 03, en vez de los básicos (el cielo, Turquía, la cena de Ana): autocompletar código, presupuestar un bot en tokens, clasificar tickets, el bot que olvida el plan del cliente y RAG con el manual entero o solo lo que sirve. Medidos con el modelo local, también en las escenas (pedido 40) · 1,5 sesiones · propuesta, espera tu OK
+- [ ] Videos de la lección 03 solo del tema: de tu biblioteca, solo el tramo que habla de cómo funciona un LLM (con minuto de inicio y de fin), más 2 videos que tratan solo de eso, sumados a tu biblioteca: 3Blue1Brown, «Large Language Models explained briefly», y Andrej Karpathy, «[1hr Talk] Intro to Large Language Models» (pedido 41) · media sesión · propuesta, espera tu OK
 - [ ] Diagramas entre los textos, al menos uno por idea: el bucle (idea 1) ya está en el borrador, y el de la llamada se quitó porque confundía (pedido 39). Faltan de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez y escribir de a uno (idea 5) · media sesión
 - [ ] Construir los 3 canvas dentro de la lección: «Autocompletado» en la idea 1, y «Pregúntale otra vez» y la pizarra de la temperatura en la idea 3 · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
@@ -250,6 +251,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 38 | 2026-11-01 | Más imágenes, gráficos, canvas o flowcharts entre los textos, para no aburrirse y poder imaginar lo que dice el texto | 2 diagramas de muestra en el borrador (el bucle de un LLM y cómo arma un ingeniero una llamada) y el plan para el resto: al menos un visual por idea |
 | 39 | 2026-11-01 | El flowchart de «lo que haría un ingeniero de IA» confunde: no se entiende el ejemplo del cliente ni los números 1, 4, 5 | Quitado del borrador. Reglas para los diagramas: los ejemplos de la lección, sin códigos que buscar y sin adelantar temas |
 | 40 | 2026-11-01 | Que los ejemplos y casos sean usos reales y cotidianos de un ingeniero de IA, no casos básicos y vagos | Propuesta: 5 casos de ingeniero de IA para la lección 03, medidos con el modelo local, también en las escenas |
+| 41 | 2026-11-01 | Antes de aplicar: los videos de «Para profundizar» son demasiado generales para «Cómo funciona un LLM»; tienen que estar más semantizados | Propuesta: solo el tramo del tema de cada video de tu biblioteca, y 2 videos que tratan solo de cómo funciona un LLM, sumados a tu biblioteca |
 
 ---
 
