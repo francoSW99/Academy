@@ -230,6 +230,18 @@
       "nota": "Medido en esta máquina ({maquina}) con {modelo}, el {fecha}. En una GPU todo va mucho más rápido, y leer le saca todavía más ventaja a escribir: decenas de veces por token. Por eso las APIs suelen cobrar más caro el token que escribe el modelo que el que lee.",
       "codigo": "Ver el código",
       "minutos": "{m} min {s} s"
+    },
+    "autocompletado": {
+      "titulo": "Escribe como el bot",
+      "lead": "Ahora el modelo eres tú. Elige cada palabra entre las 3 que el modelo ve más probables, como en el teclado del celular. Probabilidades reales de deepseek-r1:8b.",
+      "sugiere": "Lo que suele venir después",
+      "probabilidad": "Probabilidad de la frase",
+      "vacia": "Elige una palabra para empezar.",
+      "nota": "Cada palabra multiplica la probabilidad: la frase entera es poco probable, y aun así el modelo la escribe sin dudar.",
+      "borrar": "Borrar la última",
+      "reiniciar": "Empezar de nuevo",
+      "finPrimera": "Eligiendo siempre la más probable salió «Ya hemos cancelado la recurrencia». Suena bien, pero nadie canceló nada.",
+      "finOtra": "Hasta aquí medimos este camino. Prueba eligiendo siempre la primera y mira qué escribe el bot."
     }
   },
   "video": {
