@@ -42,26 +42,23 @@ export type VideoBiblioteca = {
   queMirar: string;
 };
 
-/** Un caso real, medido con un modelo o vivido en un trabajo. Va pegado a la idea que lo explica. */
-export type Caso = {
-  titulo: string;
-  /** Un dato grande: «53 %» y qué significa. */
-  dato?: { cifra: string; que: string };
-  texto: string[];
-};
-
 /**
- * Una idea de la lección: un capítulo completo, con todo junto. La explicación (con su escena para tocar),
- * un caso real solo si suma, y lo que hace un ingeniero de IA gracias a esa idea.
+ * Una idea de la lección. Se lee de corrido, sin recuadros que corten el hilo: la explicación,
+ * la escena para tocar y, después de la escena, el ejemplo real y la conclusión.
  */
 export type Idea = {
   titulo: string;
-  /** La explicación, en párrafos cortos. */
+  /** La explicación, en párrafos cortos. **Así** se marca lo importante. */
   texto: string[];
   escenas?: NombreEscena[];
-  caso?: Caso;
-  /** Decisiones de un ingeniero de IA: diseño, medición y costo. No plantillas de prompt. */
-  ingeniero?: string[];
+  /** Lo que se cuenta después de tocar la escena: el ejemplo real, medido, y la conclusión. */
+  despues?: string[];
+};
+
+/** Lo que haría un ingeniero de IA experto con una idea: un principio y cómo se aplica. */
+export type Consejo = {
+  titulo: string;
+  texto: string;
 };
 
 export type ContenidoLeccion = {
@@ -69,8 +66,8 @@ export type ContenidoLeccion = {
   /** Una o dos frases debajo del título: qué vas a entender. */
   resumen: string;
   ideas: Idea[];
-  /** «Lo que sabe un ingeniero de IA»: lo que te llevas, en pocas frases. */
-  loQueSabe: string[];
+  /** Al final de la lección: lo que haría un experto, uno por idea y en el mismo orden. */
+  consejos: Consejo[];
   practica: string;
   /** Preguntas para seguir aprendiendo con un LLM. */
   preguntas?: string[];

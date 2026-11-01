@@ -7,10 +7,10 @@ export const dynamicParams = false;
 const PARTE_DE_PARADA: Record<string, string> = {
   "1": "idea-1",
   "2": "idea-1",
-  "3": "lo-que-sabe",
+  "3": "consejos",
   "4": "idea-3",
   "5": "idea-1",
-  "6": "idea-3",
+  "6": "consejos",
   "7": "practica",
 };
 

@@ -34,7 +34,7 @@ export default async function PaginaLeccion({ params }: Props) {
   // El índice de la lección: sus ideas, en orden, y el cierre.
   const indice: EntradaIndice[] = [
     ...c.ideas.map((idea, k) => ({ id: `idea-${k + 1}`, numero: k + 1, titulo: idea.titulo })),
-    { id: "lo-que-sabe", titulo: t.loQueSabe },
+    { id: "consejos", titulo: t.consejos },
     { id: "practica", titulo: t.practica },
   ];
 
@@ -75,15 +75,26 @@ export default async function PaginaLeccion({ params }: Props) {
             ))}
           </div>
 
-          <section id="lo-que-sabe" aria-labelledby="lo-que-sabe-titulo" className="flex scroll-mt-20 flex-col gap-5 border-t border-borde pt-12">
-            <h2 id="lo-que-sabe-titulo" className="font-serif text-[clamp(28px,3.2vw,38px)] leading-tight font-normal">
-              {t.loQueSabe}
-            </h2>
-            <ol className="flex max-w-[68ch] flex-col gap-3">
-              {c.loQueSabe.map((p, k) => (
-                <li key={p} className="grid grid-cols-[32px_minmax(0,1fr)] items-baseline gap-2">
-                  <span className="font-serif text-[24px] leading-none text-acento-texto">{k + 1}</span>
-                  <span className="text-[17.5px] leading-relaxed">{p}</span>
+          <section id="consejos" aria-labelledby="consejos-titulo" className="flex scroll-mt-20 flex-col gap-6 border-t border-borde pt-12">
+            <div className="flex flex-col gap-2">
+              <h2 id="consejos-titulo" className="font-serif text-[clamp(28px,3.2vw,38px)] leading-tight font-normal">
+                {t.consejos}
+              </h2>
+              <p className="max-w-[68ch] text-[17.5px] leading-relaxed text-tinta-2">{t.consejosTexto}</p>
+            </div>
+            <ol className="flex max-w-[72ch] flex-col gap-7">
+              {c.consejos.map((consejo, k) => (
+                <li key={consejo.titulo} className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-2">
+                  <span className="font-serif text-[26px] leading-[1.15] text-acento-texto tabular-nums">{k + 1}</span>
+                  <div className="flex flex-col gap-1.5">
+                    <h3 className="font-serif text-[clamp(21px,2.2vw,24px)] leading-snug font-normal">{consejo.titulo}</h3>
+                    <p className="text-[16.5px] leading-relaxed text-pretty text-tinta-2">{consejo.texto}</p>
+                    {c.ideas[k] && (
+                      <a href={`#idea-${k + 1}`} className="inline-flex min-h-9 items-center self-start text-[13.5px] text-tenue hover:text-tinta">
+                        ↑ {rellenar(t.volverIdea, { n: k + 1, titulo: c.ideas[k].titulo })}
+                      </a>
+                    )}
+                  </div>
                 </li>
               ))}
             </ol>

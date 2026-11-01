@@ -9,7 +9,7 @@
   },
   "curso": {
     "etiqueta": "Curso · {modulos} módulos · {lecciones} lecciones",
-    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección va directo al grano: las ideas clave, con casos reales medidos y lo que hace un ingeniero de IA con cada una.",
+    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección explica las ideas clave en orden, con ejemplos reales, y cierra con lo que haría un ingeniero de IA experto.",
     "avance": "{hechas} de {total} lecciones completadas",
     "disponibles": "{n} disponible ahora; las demás, pronto",
     "empezar": "Empezar: lección {n} · {titulo}",
@@ -24,16 +24,16 @@
     "comoEs": "Cómo es cada lección",
     "partes": [
       {
-        "titulo": "Ideas, directo al grano",
-        "texto": "Cada idea con su explicación y una escena que tocas."
+        "titulo": "Las ideas, en orden",
+        "texto": "Cada una con su explicación, un ejemplo real y una escena que tocas."
       },
       {
-        "titulo": "Casos reales",
-        "texto": "Medidos con un modelo de verdad, pegados a la idea que explican."
+        "titulo": "Lo que haría un experto",
+        "texto": "Al final, los consejos de un ingeniero de IA, idea por idea."
       },
       {
-        "titulo": "Criterio de ingeniero",
-        "texto": "Qué decide un ingeniero de IA gracias a cada idea."
+        "titulo": "Tu práctica",
+        "texto": "Una decisión de ingeniería sobre un caso tuyo."
       }
     ],
     "meta": "Al terminar",
@@ -53,12 +53,12 @@
     "siguiente": "Siguiente: lección {n} · {titulo} →",
     "siguientePronto": "Siguiente: lección {n} · {titulo} (pronto)",
     "volverTemario": "Volver al temario",
-    "caso": "Caso real",
-    "ingeniero": "Lo que hace un ingeniero de IA",
-    "loQueSabe": "Lo que sabe un ingeniero de IA",
     "practica": "Tu práctica",
     "preguntas": "Sigue aprendiendo con tu LLM",
-    "preguntasTexto": "Copia una pregunta y házsela al modelo que uses."
+    "preguntasTexto": "Copia una pregunta y házsela al modelo que uses.",
+    "consejos": "Lo que haría un ingeniero de IA experto",
+    "consejosTexto": "Ahora que sabes cómo funciona, esto es lo que un ingeniero de IA hace con cada idea.",
+    "volverIdea": "Idea {n} · {titulo}"
   },
   "escenas": {
     "muestreo": {
