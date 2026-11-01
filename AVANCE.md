@@ -258,6 +258,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 41 | 2026-11-01 | Antes de aplicar: los videos de «Para profundizar» son demasiado generales para «Cómo funciona un LLM»; tienen que estar más semantizados | Propuesta: solo el tramo del tema de cada video de tu biblioteca, y 2 videos que tratan solo de cómo funciona un LLM, sumados a tu biblioteca |
 | 42 | 2026-11-01 | «Dale perfecto». Y antes de implementar, citas o bibliografía con fuentes confiables, ojalá de los libros y fuentes de BrainFran | En el borrador: los casos reales medidos, los videos del tema (3Blue1Brown, Karpathy y el tramo de Marina Wyss) y las fuentes en cada idea y al final, con el libro de tu biblioteca |
 | 43 | 2026-11-01 | «Dale, sí me gusta» | Publicado en https://academy.woorky.app/es/: el temario por módulos y la lección 03 nueva. Revisado en internet: la portada, la lección, los links viejos y `/obsidian/` |
+| 44 | 2026-11-01 | ¿Por qué cambió el dashboard? ¿Se genera al abrir la página y gasta tokens? | No: el sitio es estático y no llama a ningún modelo (revisado en lo publicado). Cambió porque hoy se publicaron los casos nuevos. Los datos se midieron una vez con el modelo local, sin costo por visita |
 
 ---
 
