@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓░░░░░` 28 de 53 tareas del plan (53 %). El MVP está al 100 %. La Fase 4b va en 5 de 8.
+- **Avance:** `▓▓▓▓▓░░░░░` 28 de 54 tareas del plan (52 %). El MVP está al 100 %. La Fase 4b va en 5 de 9.
 - **Hecho:** Fases 0 a 4: la estación 03 es pública desde el 2026-10-31. Fase 4b: mis videos ya no están en el sitio; el temario por módulos y la lección 03 de corrido se pueden ver en el borrador: https://academy.woorky.app/borrador/es/leccion/03/
-- **Falta:** de la Fase 4b, 3 diagramas más (media sesión), los 3 canvas (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** que me digas si el diagrama del bucle (idea 1) se entiende. Con tu «dale», hago los 3 diagramas que faltan y los 3 canvas, con las reglas nuevas.
+- **Falta:** de la Fase 4b, cambiar los ejemplos por casos reales de un ingeniero de IA (1,5 sesiones), 3 diagramas, los 3 canvas y publicar. Después, las fases 5 a 10.
+- **Lo próximo:** que apruebes los 5 casos de ingeniero de IA para la lección 03. Con tu «dale», los mido con el modelo y reescribo los ejemplos.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -25,14 +25,14 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ```text
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
-F4b   Curso en módulos + canvas           ▓▓▓▓▓
-F5    Pulido del sitio                         ░░
-F6    Lección 04 · App de IA                     ░░░░
-F7    Lección 05 · RAG                               ░░░░
-F8    Lección 02 · Git                                   ░░
-F9    Lección 01 · Base de software                        ░░░░
-F10   Lección 13 · Evals                                       ░░░░
-Después: 06–08 agentes · inglés · UI                               ···
+F4b   Curso en módulos + canvas           ▓▓▓▓▓▓
+F5    Pulido del sitio                          ░░
+F6    Lección 04 · App de IA                      ░░░░
+F7    Lección 05 · RAG                                ░░░░
+F8    Lección 02 · Git                                    ░░
+F9    Lección 01 · Base de software                         ░░░░
+F10   Lección 13 · Evals                                        ░░░░
+Después: 06–08 agentes · inglés · UI                                ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
@@ -51,7 +51,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Se entiende el diagrama del bucle?** (pedidos 38 y 39) Está en la idea 1 del borrador: https://academy.woorky.app/borrador/es/leccion/03/ El de «lo que haría un ingeniero de IA» se quitó porque confundía. Con «dale», hago los 3 diagramas que faltan y los 3 canvas.
+1. **¿Apruebas los 5 casos de ingeniero de IA?** (pedido 40) Autocompletar código, presupuestar un bot en tokens, clasificar tickets, el bot que olvida el plan del cliente, y RAG con el manual entero o solo los trozos que sirven. Todos medidos con el modelo local. Con «dale», los mido y reescribo la lección 03 (1,5 sesiones).
 2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
 3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
@@ -65,7 +65,7 @@ gantt
     section MVP
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
-    F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 7d
+    F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
     F5 Pulido del sitio + UX :f5, after f4b, 3d
     F6 Estación 04 · App de IA :f6, after f5, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
@@ -133,7 +133,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 8 · PR #8
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 5 de 9 · PR #8
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
@@ -142,11 +142,13 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 5. **Sin paradas** (pedido 33): el curso se ordena en módulos y lecciones, como DeepLearning.AI o Khan Academy.
 6. **La lección se lee de corrido** (pedidos 35 y 37). Las ideas van en orden, cada una con su explicación, su escena y su ejemplo real en el mismo texto, sin recuadros que corten el hilo. Al final van los consejos de un ingeniero de IA experto, uno por idea. Es para aprender el criterio de un ingeniero de IA, no para redactar prompts simples.
 7. **Más visual** (pedidos 38 y 39): al menos un diagrama, escena o canvas por idea, entre los párrafos. Cada diagrama usa los ejemplos de la misma lección, no trae códigos ni números que haya que buscar en otra parte y no adelanta temas que todavía no se explicaron. Los diagramas van en HTML (el texto se lee en el celular y cargan al instante). ManimGX queda para las figuras matemáticas y los canvas.
+8. **Ejemplos de ingeniero de IA** (pedido 40): los ejemplos y casos son usos reales y cotidianos de un ingeniero de IA (código, soporte, costos, RAG), medidos con un modelo. Nada de casos básicos o vagos.
 
 - [x] Sacar del sitio los 3 videos (paradas 1, 2 y 5) y corregir las reglas: `DESIGN.md` y este tablero, de inicio a fin · 2026-10-31
 - [x] Diseñar los 3 canvas con ManimGX: el storyboard de cada uno quedó en el PR #8 (`docs/diseno/canvas/`), espera tu OK antes de construir · 2026-10-31
 - [x] Estructura nueva: la portada con el temario (módulos, lecciones, avance y «Continuar»), la lección en una página con barra lateral y las direcciones viejas que redirigen. En el borrador, espera tu OK · 2026-11-01
 - [x] La lección 03 de corrido: las ideas en orden, cada una con su ejemplo real dentro del texto, y al final lo que haría un ingeniero de IA experto, uno por idea (pedidos 35 y 37). En el borrador, espera tu OK · 2026-11-01
+- [ ] Casos reales de un ingeniero de IA en la lección 03, en vez de los básicos (el cielo, Turquía, la cena de Ana): autocompletar código, presupuestar un bot en tokens, clasificar tickets, el bot que olvida el plan del cliente y RAG con el manual entero o solo lo que sirve. Medidos con el modelo local, también en las escenas (pedido 40) · 1,5 sesiones · propuesta, espera tu OK
 - [ ] Diagramas entre los textos, al menos uno por idea: el bucle (idea 1) ya está en el borrador, y el de la llamada se quitó porque confundía (pedido 39). Faltan de texto a tokens (idea 2), qué entra en la ventana (idea 4) y leer de una vez y escribir de a uno (idea 5) · media sesión
 - [ ] Construir los 3 canvas dentro de la lección: «Autocompletado» en la idea 1, y «Pregúntale otra vez» y la pizarra de la temperatura en la idea 3 · 1 o 2 sesiones
 - [x] Videos de tu biblioteca: tocas la miniatura y se ve en la app, o vas directo a YouTube. BettaTech en la parada 2, Marina Wyss en la 3 y los dos en el material de la 7. Hecho en el PR #8; se publica con tu OK · 2026-10-31
@@ -247,6 +249,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 37 | 2026-11-01 | Los recuadros «Caso real» y «Lo que hace un ingeniero de IA» cortan el hilo del estudio; los consejos de experto sí sirven. «Proponme algo» | La lección de corrido en el borrador: el ejemplo real va dentro del texto de cada idea, y los consejos de un ingeniero de IA experto van al final, uno por idea, con un enlace de vuelta a la idea |
 | 38 | 2026-11-01 | Más imágenes, gráficos, canvas o flowcharts entre los textos, para no aburrirse y poder imaginar lo que dice el texto | 2 diagramas de muestra en el borrador (el bucle de un LLM y cómo arma un ingeniero una llamada) y el plan para el resto: al menos un visual por idea |
 | 39 | 2026-11-01 | El flowchart de «lo que haría un ingeniero de IA» confunde: no se entiende el ejemplo del cliente ni los números 1, 4, 5 | Quitado del borrador. Reglas para los diagramas: los ejemplos de la lección, sin códigos que buscar y sin adelantar temas |
+| 40 | 2026-11-01 | Que los ejemplos y casos sean usos reales y cotidianos de un ingeniero de IA, no casos básicos y vagos | Propuesta: 5 casos de ingeniero de IA para la lección 03, medidos con el modelo local, también en las escenas |
 
 ---
 
