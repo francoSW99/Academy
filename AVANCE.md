@@ -7,7 +7,7 @@ El tablero del proyecto. Claude lo actualiza en cada entrega:
 
 Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
-*Última actualización: 2026-10-31*
+*Última actualización: 2026-11-01*
 
 ---
 
@@ -16,7 +16,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 - **Avance:** `▓▓▓▓▓░░░░░` 26 de 50 tareas del plan (52 %). El MVP está al 100 %. La Fase 4b va en 3 de 5.
 - **Hecho:** Fases 0 a 4: la estación 03 es pública en https://academy.woorky.app/es/ desde el 2026-10-31. Fase 4b: mis 3 videos ya no están en el sitio, y en el PR #8 quedaron los storyboards de los 3 canvas y los videos de tu biblioteca.
 - **Falta:** de la Fase 4b, construir los 3 canvas (1 o 2 sesiones) y publicar. Después, las fases 5 a 10.
-- **Lo próximo:** que revises los 3 storyboards del PR #8. Con tu «dale», publico los videos de tu biblioteca y empiezo a construir los canvas.
+- **Lo próximo:** elegir con qué reemplazar las 7 paradas (recomiendo «3 paradas»: Apuesta → Descubre → Dirige). Conviene decidirlo antes de construir los canvas.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -51,9 +51,10 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
-2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
-3. **¿Cómo atacamos la UI y la UX?** (pedido 27)
+1. **¿Con qué reemplazamos las 7 paradas?** (pedido 32) Recomiendo **«3 paradas»: Apuesta → Descubre → Dirige**. Las otras opciones son «misiones» (retos cortos tipo juego) y «relato» (una sola página con scroll). Conviene decidirlo antes de construir los canvas: reordenar la estación 03 suma 1 sesión a la Fase 4b.
+2. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b, paso 2) Están en el PR #8, en `docs/diseno/canvas/`. Con «dale», publico los videos de tu biblioteca y empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
+3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+4. **¿Cómo atacamos la UI y la UX?** (pedido 27)
    - **A · Arreglar la UX con el diseño actual** (recomendado): 2 sesiones. Resuelve los 5 problemas del diagnóstico de la Fase 5. Las estaciones se corren unos 4 días.
    - **B · Rediseñar el aspecto ahora:** 4 sesiones (2 o 3 propuestas para elegir, y construir la elegida). Las estaciones se corren 1 semana y media.
    - Por qué A primero: los 5 problemas son de orden y navegación, y un rediseño los heredaría. El rediseño visual rinde más con 2 o 3 estaciones hechas, porque hay más contenido real para diseñar.
@@ -235,6 +236,7 @@ Pedidos 28, 29 y 30. Los 3 videos de la estación 03 los hice yo con ManimGX par
 | 29 | 2026-10-31 | «Noo desinstales ManimGX»: canvas interactivos y entretenidos, como gráficos o dashboards en tiempo real, con ayuda de ManimGX al estilo de 3Blue1Brown, pero sin crearlos en tiempo real para que la app cargue rápido. Los videos: ideas de la biblioteca de BrainFran, con vista previa y enlace directo | Plan de la Fase 4b corregido: ManimGX dibuja antes y la página solo arma y responde; tarjetas de la biblioteca. ManimGX sigue instalado (no se desinstaló) |
 | 30 | 2026-10-31 | Los videos no son para sacar ideas para los canvas: solo hay que intentar sacarlos de la biblioteca de BrainFran. Al tocar la miniatura se ve el video en la app, o se va por enlace directo a YouTube | Plan de la Fase 4b corregido: paso 4, videos de la biblioteca que se ven en la app, con enlace a YouTube |
 | 31 | 2026-10-31 | «Dale» al plan corregido de la Fase 4b | Paso 1 publicado: los 3 videos fuera del sitio y las reglas corregidas en `DESIGN.md` y en el tablero. Paso 2: storyboards de los 3 canvas con ManimGX y datos reales. Paso 4: videos de tu biblioteca con miniatura y enlace, sin publicar (PR #8) |
+| 32 | 2026-11-01 | Cambiar el mecanismo de enseñanza de 7 paradas: ¿algún sustituto? | Tres opciones, con la recomendada: «3 paradas» (Apuesta → Descubre → Dirige) |
 
 ---
 
