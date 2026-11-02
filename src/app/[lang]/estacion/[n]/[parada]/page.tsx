@@ -1,6 +1,9 @@
 import { idiomas } from "@/lib/idiomas";
 import { contenidos } from "@/ruta/contenido";
 
+// Las estaciones eran las lecciones de AI Engineering: "ai/03" → "03".
+const estacionesViejas = Object.keys(contenidos).filter((ref) => ref.startsWith("ai/")).map((ref) => ref.slice(3));
+
 export const dynamicParams = false;
 
 // Las 7 paradas viejas de cada estación, y a qué parte de la lección nueva corresponde cada una.
@@ -16,14 +19,14 @@ const PARTE_DE_PARADA: Record<string, string> = {
 
 export function generateStaticParams() {
   return idiomas.flatMap((lang) =>
-    Object.keys(contenidos).flatMap((n) => Object.keys(PARTE_DE_PARADA).map((parada) => ({ lang, n, parada }))),
+    estacionesViejas.flatMap((n) => Object.keys(PARTE_DE_PARADA).map((parada) => ({ lang, n, parada }))),
   );
 }
 
-// Dirección vieja: /es/estacion/03/7/ lleva a /es/leccion/03/#practica.
+// Dirección vieja: /es/estacion/03/7/ lleva a /es/ai-engineering/leccion/03/#practica.
 export default async function ParadaVieja({ params }: { params: Promise<{ lang: string; n: string; parada: string }> }) {
   const { n, parada } = await params;
-  const destino = `../../../leccion/${n}/#${PARTE_DE_PARADA[parada]}`;
+  const destino = `../../../ai-engineering/leccion/${n}/#${PARTE_DE_PARADA[parada]}`;
   return (
     <>
       <meta httpEquiv="refresh" content={`0; url=${destino}`} />

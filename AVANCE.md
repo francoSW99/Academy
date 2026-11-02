@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓░░░░` 35 de 58 tareas del plan (60 %). El MVP está al 100 %. La Fase 4b va en 12 de 13.
-- **Hecho:** Fases 0 a 4 y casi toda la 4b. **El curso nuevo es público** en https://academy.woorky.app/es/: temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. **Desde el 2026-11-01 la idea 1 trae el canvas «Escribe como el bot»**: escribes la respuesta a Carla palabra por palabra y ves cómo cae la probabilidad de la frase.
-- **Falta:** sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
-- **Lo próximo:** la Fase 5, pulido del sitio (1 sesión), en una conversación nueva: ícono, página «no encontrada» en español y vista previa al compartir el link. `main` ya es igual al sitio (PR #10 mezclado).
+- **Avance:** `▓▓▓▓▓▓░░░░` 39 de 64 tareas del plan (61 %). El MVP está al 100 %. La Fase 5, «Inicio + 3 especialidades», va en 4 de 6.
+- **Hecho:** Fases 0 a 4 y casi toda la 4b. El curso es público en https://academy.woorky.app/es/. **Desde el 2026-11-02, el borrador tiene la plataforma en 4 secciones**: Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. Míralo en https://academy.woorky.app/borrador/es/
+- **Falta:** tu OK al reparto de temas entre ML y Deep Learning y Data Science, y a publicar las 4 secciones. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el pulido (5b) y las fases 6 a 10.
+- **Lo próximo:** revisa el borrador. Si te gusta, «dale publica»; si no, dime qué sección cambio.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -26,13 +26,14 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
-F5    Pulido del sitio                          ▓▓
+F5    Inicio + 3 especialidades           ██▓
+F5b   Pulido del sitio                        ░░
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
 F9    Lección 01 · Base de software                         ░░░░
 F10   Lección 13 · Evals                                        ░░░░
-Después: 06–08 agentes · inglés · UI                                ···
+Después: 06–08 agentes · temas de ML y DS · inglés · UI             ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
@@ -51,8 +52,13 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas los storyboards de los 3 canvas?** (Fase 4b) Están en `docs/diseno/canvas/`, pero usan los ejemplos viejos (Turquía, el planeta). Primero los redibujo con los casos nuevos (el bot de soporte y los tickets); cuando los veas, con «dale» empiezo a construir los canvas. Si algo no te gusta, dime qué canvas y qué momento cambio.
-2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+1. **¿Publicas las 4 secciones?** Están en el borrador. Con «dale publica» pasan a `/es/`, y los links viejos siguen funcionando.
+2. **¿Apruebas el reparto del Pilar 2?** Tu nota tenía ML, Deep Learning y Data Science juntos y en revisión. Los separé así:
+   - **ML y Deep Learning** (18 lecciones): cómo aprende un modelo, los modelos típicos, deep learning, visión y lenguaje, LLMs por dentro, MLOps e investigación.
+   - **Data Science** (13 lecciones): el mapa, los datos, estadística, series de tiempo y grupos, energía solar y neurociencia.
+   - El bloque 26, «Mejorar sin re-entrenar», no se repite: ya está en AI Engineering (RAG, prompting y evals) y se conecta con un puente.
+   - Si un tema te calza mejor en la otra especialidad, dime cuál y lo muevo.
+3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -65,8 +71,9 @@ gantt
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
     F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
-    F5 Pulido del sitio + UX :f5, after f4b, 3d
-    F6 Estación 04 · App de IA :f6, after f5, 7d
+    F5 Inicio y 3 especialidades :active, f5, 2026-11-02, 3d
+    F5b Pulido del sitio :f5b, after f5, 2d
+    F6 Estación 04 · App de IA :f6, after f5b, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
     F9 Estación 01 · Base de software :f9, after f8, 7d
@@ -158,7 +165,20 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [x] Publicar el curso en módulos y la lección 03 nueva, revisados en computador y celular (pedido 43) · 2026-11-01
 - [x] Publicado en https://academy.woorky.app/es/leccion/03/ y revisado en computador y celular (pedido 49) · 2026-11-01
 
-### Fase 5 · Pulido del sitio · 0 de 3 · semana 2
+### ▶ Fase 5 · Inicio y 3 especialidades · 4 de 6 · semana 1 · en el borrador
+Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni marear al estudiante:
+1. **Inicio:** qué es Academy, cuál especialidad elegir y cómo se conectan.
+2. **AI Engineering**, **ML y Deep Learning** y **Data Science:** cada una con su sección, su temario y su avance. Cambias de una a otra cuando quieras, desde la barra de arriba.
+3. **Conectadas por dentro:** cada tema vive en una sola especialidad. Los temas compartidos son puentes entre lecciones (`src/ruta/conexiones.ts`). Al final de la lección se muestran con el color y el nombre de la otra especialidad.
+
+- [x] Los datos: las 3 especialidades con su temario (`src/ruta/especialidades.ts`) y 18 puentes entre lecciones (`src/ruta/conexiones.ts`). Un puente roto no deja armar el sitio · 2026-11-02
+- [x] El Inicio: qué es Academy, una tarjeta por especialidad («Elígela si…») y cómo se conectan · 2026-11-02
+- [x] La sección de cada especialidad, con su temario y su avance, y la barra de arriba con las 4 secciones (cabe en el celular) · 2026-11-02
+- [x] La lección 03 dentro de AI Engineering (`/es/ai-engineering/leccion/03/`), con «Conecta con otras especialidades» al final. Los links viejos redirigen y el avance que ya tenías se conserva · 2026-11-02
+- [ ] Tu OK al reparto del Pilar 2 entre ML y Deep Learning y Data Science (ver «Decisiones que te tocan»)
+- [ ] Publicar en `/es/`
+
+### Fase 5b · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
@@ -264,12 +284,14 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 48 | 2026-11-01 | «Sí, sácalos»: la lección como está publicada | Quitados los diagramas de ventana y de leer/escribir. El código de la lección es igual al del sitio |
 | 49 | 2026-11-01 | «Mezcla el PR 9, redibuja lo que falta de los 3 canvas con los casos nuevos y sube todo a prod» | PR #9 mezclado. Canvas «Escribe como el bot» en la idea 1; los otros 2 ya estaban en la escena de los dados. Publicado (PR #10) |
 | 50 | 2026-11-02 | «Mezcla el PR 10»; la Fase 5, en otra conversación | PR #10 mezclado: `main` es igual al sitio. La Fase 5 sigue en una conversación nueva |
+| 51 | 2026-11-02 | Reestructurar la página entera: una sección para cada especialidad (AI Engineering, ML/Deep Learning y Data Science) más un Inicio que presente la plataforma. Separadas en la interfaz y conectadas por dentro, para no confundir qué tema es de cuál | Las 4 secciones en el borrador (https://academy.woorky.app/borrador/es/), con los puentes entre lecciones. El Pilar 2 quedó repartido entre ML y DL y Data Science, a la espera de tu OK. El pulido pasa a la Fase 5b |
 
 ---
 
 ## Dónde está cada cosa
 
 - **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
+  - Las especialidades y sus temarios están en `src/ruta/especialidades.ts`, y los puentes entre ellas, en `src/ruta/conexiones.ts`.
   - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
 - **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #10 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero y también está mezclado. El #10 trae el canvas «Escribe como el bot».

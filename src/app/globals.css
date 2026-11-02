@@ -32,6 +32,10 @@
   --ficha-3: #ffe6c7;
   --ficha-4: #ebdcff;
   --ficha-5: #ffd8e1;
+  /* Un color por especialidad: dice a cuál pertenece cada cosa (barra de arriba, tarjetas, puentes). */
+  --esp-ai: #2457d6;
+  --esp-ml: #7044d4;
+  --esp-ds: #0b7f78;
   color-scheme: light;
 }
 
@@ -63,6 +67,9 @@
     --ficha-3: rgba(245, 170, 80, 0.24);
     --ficha-4: rgba(175, 135, 255, 0.26);
     --ficha-5: rgba(255, 120, 160, 0.24);
+    --esp-ai: #7fa6ff;
+    --esp-ml: #b79cff;
+    --esp-ds: #4fd1c5;
     color-scheme: dark;
   }
 }
@@ -92,6 +99,9 @@
   --color-ficha-3: var(--ficha-3);
   --color-ficha-4: var(--ficha-4);
   --color-ficha-5: var(--ficha-5);
+  --color-esp-ai: var(--esp-ai);
+  --color-esp-ml: var(--esp-ml);
+  --color-esp-ds: var(--esp-ds);
   --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
   --font-serif: "Newsreader", Georgia, serif;
 }

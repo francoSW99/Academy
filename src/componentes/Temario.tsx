@@ -3,35 +3,38 @@
 import Link from "next/link";
 import { useAvance } from "@/lib/avance";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
-import { curso } from "@/ruta/curso";
-import type { Leccion } from "@/ruta/tipos";
+import type { Especialidad, Leccion } from "@/ruta/tipos";
 
 type Estado = "completada" | "disponible" | "pronto";
 
 /**
- * El temario del curso: módulos con sus lecciones y el avance de cada una.
- * «portada» es la lista grande de la página de inicio; «lateral», la barra de la lección.
+ * El temario de una especialidad: módulos con sus lecciones y el avance de cada una.
+ * «portada» es la lista grande de la página de la especialidad; «lateral», la barra de la lección.
  */
 export function Temario({
   lang,
+  especialidad,
   variante,
   actual,
   indice,
 }: {
   lang: Idioma;
+  especialidad: Especialidad;
   variante: "portada" | "lateral";
+  /** El número de la lección que estás leyendo: "03". */
   actual?: string;
   /** En la barra lateral: el índice de la lección actual, que va debajo de ella. */
   indice?: React.ReactNode;
 }) {
   const t = textos(lang).curso;
   const { avance } = useAvance();
-  const estado = (l: Leccion): Estado => (avance[l.n]?.hecha ? "completada" : l.disponible ? "disponible" : "pronto");
+  const estado = (l: Leccion): Estado => (avance[`${especialidad.id}/${l.n}`]?.hecha ? "completada" : l.disponible ? "disponible" : "pronto");
+  const ruta = (l: Leccion) => `/${lang}/${especialidad.slug}/leccion/${l.n}/`;
 
   if (variante === "lateral") {
     return (
       <nav aria-label={t.temario} className="flex flex-col gap-5">
-        {curso.modulos.map((m) => (
+        {especialidad.modulos.map((m) => (
           <section key={m.n} className="flex flex-col gap-1">
             <h2 className="px-2 text-[13px] font-medium text-tenue">{rellenar(t.modulo, { n: m.n, nombre: m.nombre })}</h2>
             <ol className="flex flex-col">
@@ -52,7 +55,7 @@ export function Temario({
                     {e === "pronto" ? (
                       <div className={clases}>{contenido}</div>
                     ) : (
-                      <Link href={`/${lang}/leccion/${l.n}/`} aria-current={esActual ? "page" : undefined} className={`${clases} hover:bg-suave`}>
+                      <Link href={ruta(l)} aria-current={esActual ? "page" : undefined} className={`${clases} hover:bg-suave`}>
                         {contenido}
                       </Link>
                     )}
@@ -69,7 +72,7 @@ export function Temario({
 
   return (
     <div className="flex flex-col gap-4">
-      {curso.modulos.map((m) => {
+      {especialidad.modulos.map((m) => {
         const disponibles = m.lecciones.filter((l) => l.disponible).length;
         return (
           <section key={m.n} aria-labelledby={`modulo-${m.n}`} className="flex flex-col gap-2 rounded-[18px] border border-borde p-[clamp(16px,2.4vw,24px)]">
@@ -97,7 +100,7 @@ export function Temario({
                     {e === "pronto" ? (
                       <div className={clases}>{contenido}</div>
                     ) : (
-                      <Link href={`/${lang}/leccion/${l.n}/`} className={`${clases} hover:bg-suave`}>
+                      <Link href={ruta(l)} className={`${clases} hover:bg-suave`}>
                         {contenido}
                       </Link>
                     )}

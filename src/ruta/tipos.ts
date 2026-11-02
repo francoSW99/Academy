@@ -1,8 +1,14 @@
-// Estructura del curso, como DeepLearning.AI o Khan Academy: curso → módulos → lecciones.
-// Cada lección es una página con 3 partes, en este orden: la teoría, en la vida real y en tu prompt.
+// Estructura de la plataforma: Inicio + 3 especialidades, cada una en su sección.
+// Cada especialidad se ordena como DeepLearning.AI o Khan Academy: módulos → lecciones.
+// Las especialidades se conectan por datos (src/ruta/conexiones.ts), no en la interfaz.
+
+export type IdEspecialidad = "ai" | "ml" | "ds";
+
+/** Cómo se nombra una lección en toda la plataforma: «especialidad/número», como "ai/03". */
+export type RefLeccion = `${IdEspecialidad}/${string}`;
 
 export type Leccion = {
-  /** Número de bloque con dos dígitos: "03". También es su dirección: /es/leccion/03/. */
+  /** Número con dos dígitos dentro de su especialidad: "03". Su dirección: /es/ai-engineering/leccion/03/. */
   n: string;
   titulo: string;
   /** Tiene contenido publicado. Las demás se ven como «pronto». */
@@ -15,13 +21,37 @@ export type Modulo = {
   lecciones: Leccion[];
 };
 
-export type Curso = {
+export type Especialidad = {
+  id: IdEspecialidad;
+  /** Su dirección: /es/ai-engineering/. */
+  slug: string;
   nombre: string;
-  /** En preparación: se muestra en la portada, pero todavía sin lecciones. */
+  /** El nombre en la barra de arriba, que tiene que caber en el celular. */
+  corto: string;
+  /** El puesto al que apunta: «AI Engineer». */
+  rol: string;
+  /** Qué haces en esta especialidad, en una frase. */
+  queHaces: string;
+  /** Cuándo conviene elegirla: ayuda a decidir en el Inicio. */
+  eligela: string;
+  /** Lo que sabes hacer al terminar. */
+  meta: string;
+  /** Temario propuesto, todavía sin aprobar: se muestra, pero sin lecciones abiertas. */
   enPreparacion: boolean;
-  /** Lo que sabes hacer al terminar el curso. */
-  meta?: string;
   modulos: Modulo[];
+};
+
+/**
+ * Un puente entre dos lecciones de especialidades distintas. Se escribe una vez y se muestra en las dos.
+ * - «profundiza»: `hacia` explica más a fondo el tema de `desde`.
+ * - «requiere»: conviene ver `hacia` antes que `desde`.
+ */
+export type Conexion = {
+  desde: RefLeccion;
+  hacia: RefLeccion;
+  tipo: "profundiza" | "requiere";
+  /** Qué tema comparten, en una frase que sirva leída desde las dos lecciones. */
+  tema: string;
 };
 
 /** Escenas interactivas que existen (src/componentes/escenas/). */
