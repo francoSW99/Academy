@@ -57,8 +57,8 @@ export function Bucle({ lang }: { lang: Idioma }) {
             </span>
           </div>
         </div>
-        <p className="paso flex items-center justify-center gap-1.5 text-center text-[14.5px] text-tenue @min-[720px]:hidden" style={{ "--i": 4 } as React.CSSProperties}>
-          <IconoRepetir className="size-4 shrink-0" />
+        <p className="paso text-center text-[14.5px] text-pretty text-tenue @min-[720px]:hidden" style={{ "--i": 4 } as React.CSSProperties}>
+          <IconoRepetir className="mr-1.5 inline size-4 align-[-3px]" />
           {t.repite}
         </p>
       </Revelar>
