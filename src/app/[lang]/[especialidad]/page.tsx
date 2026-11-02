@@ -34,7 +34,7 @@ export default async function PaginaEspecialidad({ params }: Props) {
 
   return (
     <>
-      <Cabecera lang={lang} actual={e.id} />
+      <Cabecera lang={lang} />
       <main className="mx-auto max-w-[1120px] px-[clamp(16px,4vw,40px)]">
         <section className="flex max-w-[760px] flex-col gap-5 pt-[clamp(40px,6vw,80px)] pb-14">
           <p className={`flex items-center gap-2 text-sm font-medium ${COLOR[e.id].texto}`}>
@@ -54,7 +54,7 @@ export default async function PaginaEspecialidad({ params }: Props) {
         </section>
 
         <div className="grid items-start gap-x-12 gap-y-10 pb-24 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <section id="temario" aria-labelledby="titulo-temario" className="flex scroll-mt-6 flex-col gap-5">
+          <section id="temario" aria-labelledby="titulo-temario" className="flex scroll-mt-20 flex-col gap-5">
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h2 id="titulo-temario" className="font-serif text-[clamp(28px,3vw,38px)] leading-tight font-normal">
                 {t.curso.temario}
@@ -64,7 +64,7 @@ export default async function PaginaEspecialidad({ params }: Props) {
             <Temario lang={lang} especialidad={e} variante="portada" />
           </section>
 
-          <aside className="flex flex-col gap-4 lg:sticky lg:top-6 lg:mt-[72px]">
+          <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:mt-[72px]">
             <section className="flex flex-col gap-1.5 rounded-[18px] border border-borde p-6">
               <span className="text-[13px] text-tenue">{te.meta}</span>
               <p className="font-serif text-[20px] leading-snug">{e.meta}</p>

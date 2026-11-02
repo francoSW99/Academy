@@ -56,11 +56,11 @@ export default async function PaginaLeccion({ params }: Props) {
 
   return (
     <>
-      <Cabecera lang={lang} actual={e.id} />
+      <Cabecera lang={lang} />
       <MarcarVista refLeccion={ref} />
       <div className="mx-auto grid max-w-[1200px] gap-x-12 px-[clamp(16px,4vw,40px)] lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
-          <div className="sticky top-0 max-h-screen overflow-y-auto py-8 pr-1">
+          <div className="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-1">
             <Temario lang={lang} especialidad={e} variante="lateral" actual={n} indice={<IndiceLateral entradas={indice} />} />
           </div>
         </aside>

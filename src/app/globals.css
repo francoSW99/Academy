@@ -36,6 +36,15 @@
   --esp-ai: #2457d6;
   --esp-ml: #7044d4;
   --esp-ds: #0b7f78;
+  /* El vidrio del selector de secciones: pista gris translúcida y burbuja blanca para la elegida. */
+  --vidrio-pista: rgba(236, 239, 244, 0.58);
+  --vidrio-pista-opaca: rgba(236, 239, 244, 0.97);
+  --vidrio-borde: rgba(255, 255, 255, 0.75);
+  --vidrio-filo: rgba(15, 23, 42, 0.07);
+  --vidrio-sombra: 0 16px 36px -16px rgba(15, 23, 42, 0.34), 0 2px 8px -3px rgba(15, 23, 42, 0.1);
+  --vidrio-brillo: rgba(255, 255, 255, 0.9);
+  --vidrio-burbuja: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.84) 100%);
+  --vidrio-burbuja-sombra: 0 0 0 1px rgba(15, 23, 42, 0.05), 0 6px 16px -6px rgba(15, 23, 42, 0.3), inset 0 1px 0 #ffffff;
   color-scheme: light;
 }
 
@@ -70,6 +79,14 @@
     --esp-ai: #7fa6ff;
     --esp-ml: #b79cff;
     --esp-ds: #4fd1c5;
+    --vidrio-pista: rgba(30, 34, 44, 0.62);
+    --vidrio-pista-opaca: rgba(30, 34, 44, 0.97);
+    --vidrio-borde: rgba(255, 255, 255, 0.1);
+    --vidrio-filo: rgba(0, 0, 0, 0.45);
+    --vidrio-sombra: 0 16px 36px -14px rgba(0, 0, 0, 0.75), 0 2px 8px -3px rgba(0, 0, 0, 0.4);
+    --vidrio-brillo: rgba(255, 255, 255, 0.09);
+    --vidrio-burbuja: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.11) 100%);
+    --vidrio-burbuja-sombra: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 6px 16px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.22);
     color-scheme: dark;
   }
 }
@@ -170,5 +187,171 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .cursor-parpadeo {
     animation: none;
+  }
+}
+
+/*
+ * El selector de las 4 secciones (Secciones.tsx): una barra de vidrio que flota sobre la página.
+ * El vidrio tiene un trabajo: al hacer scroll, el contenido pasa por debajo y la barra se sigue leyendo.
+ * En el celular y la tablet va abajo, como una barra de pestañas; desde 1024 px, arriba al centro.
+ */
+@layer components {
+  .secciones {
+    position: fixed;
+    z-index: 40;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .secciones-pista {
+    position: relative;
+    display: flex;
+    padding: 5px;
+    border-radius: 999px;
+    border: 1px solid var(--vidrio-borde);
+    background: var(--vidrio-pista-opaca);
+    box-shadow:
+      0 0 0 1px var(--vidrio-filo),
+      var(--vidrio-sombra),
+      inset 0 1px 0 var(--vidrio-brillo);
+  }
+
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .secciones-pista {
+      background: var(--vidrio-pista);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      backdrop-filter: blur(16px) saturate(180%);
+    }
+  }
+
+  .secciones-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 56px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 4px;
+    border-radius: 999px;
+    color: var(--tinta-2);
+    font-size: clamp(11px, 3.1vw, 12.5px);
+    font-weight: 500;
+    line-height: 1.15;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      color 200ms ease,
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .secciones-item:active {
+    transform: scale(0.95);
+  }
+
+  .secciones-item[data-elegida="true"] {
+    color: var(--tinta);
+  }
+
+  .secciones-item:focus-visible {
+    outline-offset: 1px;
+    border-radius: 999px;
+  }
+
+  .secciones-icono {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    transition: color 200ms ease;
+  }
+
+  /* Sin JavaScript, o antes de medir, la burbuja la dibuja el propio botón. */
+  .secciones:not([data-lista]) .secciones-item[data-elegida="true"] {
+    background: var(--vidrio-burbuja);
+    box-shadow: var(--vidrio-burbuja-sombra);
+  }
+
+  .secciones-burbuja {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 999px;
+    background: var(--vidrio-burbuja);
+    box-shadow: var(--vidrio-burbuja-sombra);
+    pointer-events: none;
+  }
+
+  /* Un reflejo del color de la sección elegida, apenas, desde arriba. */
+  .secciones-burbuja::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(70% 100% at 50% 0%, color-mix(in srgb, var(--tinte, transparent) 11%, transparent), transparent 75%);
+  }
+
+  .secciones[data-animar] .secciones-burbuja {
+    transition:
+      transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      height 460ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .secciones-item:not([data-elegida="true"]):hover {
+      color: var(--tinta);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .secciones {
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      top: 6px;
+      max-width: none;
+      transform: translateX(-50%);
+    }
+
+    .secciones-pista {
+      padding: 4px;
+    }
+
+    .secciones-item {
+      flex: 0 0 auto;
+      min-height: 44px;
+      flex-direction: row;
+      gap: 8px;
+      padding: 0 18px;
+      font-size: 14.5px;
+    }
+
+    .secciones-icono {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .secciones[data-animar] .secciones-burbuja,
+    .secciones-item,
+    .secciones-icono {
+      transition: none;
+    }
+  }
+
+  /* En el celular y la tablet, la barra tapa el final de la página: se deja su espacio. */
+  @media (max-width: 1023px) {
+    body {
+      padding-bottom: calc(88px + env(safe-area-inset-bottom));
+    }
   }
 }

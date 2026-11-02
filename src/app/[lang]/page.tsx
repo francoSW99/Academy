@@ -20,7 +20,7 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
 
   return (
     <>
-      <Cabecera lang={lang} actual="inicio" />
+      <Cabecera lang={lang} />
       <main className="mx-auto max-w-[1120px] px-[clamp(16px,4vw,40px)]">
         <section className="flex max-w-[780px] flex-col gap-5 pt-[clamp(48px,7vw,88px)] pb-14">
           <p className="text-sm text-tenue">{rellenar(ti.etiqueta, { n: especialidades.length })}</p>

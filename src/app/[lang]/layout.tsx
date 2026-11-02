@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Secciones } from "@/componentes/Secciones";
 import { esIdioma, idiomas, textos } from "@/lib/idiomas";
 import "../globals.css";
 
@@ -31,7 +32,10 @@ export default async function LayoutIdioma({ children, params }: Props) {
           href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Secciones lang={lang} />
+      </body>
     </html>
   );
 }
