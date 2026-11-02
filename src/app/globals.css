@@ -45,6 +45,13 @@
   --vidrio-brillo: rgba(255, 255, 255, 0.9);
   --vidrio-burbuja: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.84) 100%);
   --vidrio-burbuja-sombra: 0 0 0 1px rgba(15, 23, 42, 0.05), 0 6px 16px -6px rgba(15, 23, 42, 0.3), inset 0 1px 0 #ffffff;
+  /* La pizarra de vidrio (propuesta 5b): el mismo vidrio, en grande, directo sobre el fondo de la app. */
+  --tablero-fondo: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 248, 251, 0.9) 42%, rgba(238, 241, 246, 0.94) 100%);
+  --tablero-borde: rgba(255, 255, 255, 0.95);
+  --tablero-filo: rgba(15, 23, 42, 0.08);
+  --tablero-sombra: 0 28px 56px -30px rgba(15, 23, 42, 0.3), 0 6px 16px -8px rgba(15, 23, 42, 0.1);
+  --tablero-brillo: #ffffff;
+  --tablero-grosor: inset 0 -18px 32px -24px rgba(15, 23, 42, 0.12);
   color-scheme: light;
 }
 
@@ -87,6 +94,12 @@
     --vidrio-brillo: rgba(255, 255, 255, 0.09);
     --vidrio-burbuja: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.11) 100%);
     --vidrio-burbuja-sombra: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 6px 16px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    --tablero-fondo: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.05) 42%, rgba(255, 255, 255, 0.035) 100%);
+    --tablero-borde: rgba(255, 255, 255, 0.12);
+    --tablero-filo: rgba(0, 0, 0, 0.5);
+    --tablero-sombra: 0 28px 56px -30px rgba(0, 0, 0, 0.85), 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+    --tablero-brillo: rgba(255, 255, 255, 0.16);
+    --tablero-grosor: inset 0 -18px 32px -24px rgba(0, 0, 0, 0.5);
     color-scheme: dark;
   }
 }
@@ -467,4 +480,144 @@ body {
       transition: opacity 120ms ease;
     }
   }
+}
+
+/*
+ * Propuesta de la Fase 5b: la pizarra de vidrio (pedidos 55 y 56). Solo existe en el borrador:
+ * el build con NEXT_PUBLIC_PROPUESTA_VIDRIO=1 pone data-vidrio en <html> y un selector Vidrio | Hoy.
+ * Sin data-vidrio, nada de esto aplica y las pizarras se ven como siempre.
+ *
+ * La pizarra va directo sobre el fondo de la app (blanco, o la pizarra negra en modo oscuro), sin un fondo
+ * propio: es el mismo vidrio del selector de secciones. Va sin capa a propósito, así le gana a los
+ * utilitarios de Tailwind que cada escena trae para su caja (borde, fondo y relleno).
+ */
+html[data-vidrio] .tablero {
+  /* Las pistas de las barras, un poco más marcadas para que se vean sobre el vidrio. */
+  --pizarra-rejilla: rgba(15, 23, 42, 0.07);
+  margin-inline: -8px;
+}
+
+/* La pizarra de vidrio: la caja de cada escena y de cada diagrama. Borde blanco, filo fino por fuera,
+   brillo arriba y una sombra abajo por dentro que le da grosor. */
+html[data-vidrio] .tablero > :is(section, figure) {
+  border: 1px solid var(--tablero-borde);
+  border-radius: 26px;
+  padding: clamp(16px, 2.6vw, 30px);
+  background: var(--tablero-fondo);
+  box-shadow:
+    0 0 0 1px var(--tablero-filo),
+    var(--tablero-sombra),
+    inset 0 1px 0 var(--tablero-brillo),
+    var(--tablero-grosor);
+}
+
+/* Lo que va adentro (el texto que escribes, los mensajes, los pasos del bucle) es una burbuja de vidrio
+   más clara, como la sección elegida en el selector. */
+html[data-vidrio] .tablero :is(.bg-pizarra, .paso[class*="pizarra-rejilla"]) {
+  border-color: transparent;
+  background: var(--vidrio-burbuja);
+  box-shadow: var(--vidrio-burbuja-sombra);
+}
+
+/* El título a la izquierda y «Pruébalo» como píldora a la derecha, con un punto «en vivo». */
+html[data-vidrio] .tablero div:has(> .ahora-tu) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+}
+
+html[data-vidrio] .tablero div:has(> .ahora-tu) > h3 {
+  grid-row: 1;
+  grid-column: 1;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 450;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+
+html[data-vidrio] .tablero div:has(> .ahora-tu) > p {
+  grid-column: 1 / -1;
+}
+
+html[data-vidrio] .tablero .ahora-tu {
+  grid-row: 1;
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px 6px 11px;
+  border-radius: 999px;
+  background: var(--vidrio-burbuja);
+  box-shadow: var(--vidrio-burbuja-sombra);
+  color: var(--tinta-2);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+html[data-vidrio] .tablero .ahora-tu::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22b26a;
+  box-shadow: 0 0 0 3px rgba(34, 178, 106, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-vidrio] .tablero {
+    --pizarra-rejilla: rgba(255, 255, 255, 0.08);
+  }
+
+  html[data-vidrio] .tablero .ahora-tu::before {
+    background: #5fe39a;
+    box-shadow: 0 0 0 3px rgba(95, 227, 154, 0.2);
+  }
+}
+
+@media (min-width: 640px) {
+  html[data-vidrio] .tablero {
+    margin-inline: 0;
+  }
+}
+
+/* El selector de la propuesta (solo en el borrador). */
+.propuesta-vidrio {
+  position: fixed;
+  z-index: 45;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--vidrio-borde);
+  border-radius: 999px;
+  background: var(--vidrio-pista-opaca);
+  box-shadow:
+    0 0 0 1px var(--vidrio-filo),
+    var(--vidrio-sombra),
+    inset 0 1px 0 var(--vidrio-brillo);
+  font-size: 13px;
+}
+
+.propuesta-vidrio span {
+  padding: 0 6px 0 8px;
+  color: var(--tenue);
+}
+
+.propuesta-vidrio button {
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--tinta-2);
+  font-weight: 500;
+}
+
+.propuesta-vidrio button[aria-pressed="true"] {
+  background: var(--vidrio-burbuja);
+  box-shadow: var(--vidrio-burbuja-sombra);
+  color: var(--tinta);
 }

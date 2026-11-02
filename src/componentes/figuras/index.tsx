@@ -10,5 +10,9 @@ const figuras: Record<NombreFigura, React.ComponentType<{ lang: Idioma }>> = {
 
 export function Figura({ nombre, lang }: { nombre: NombreFigura; lang: Idioma }) {
   const Componente = figuras[nombre];
-  return <Componente lang={lang} />;
+  return (
+    <div className="tablero">
+      <Componente lang={lang} />
+    </div>
+  );
 }

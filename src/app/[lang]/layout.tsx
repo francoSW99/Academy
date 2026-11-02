@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PropuestaVidrio } from "@/componentes/PropuestaVidrio";
 import { Secciones } from "@/componentes/Secciones";
 import { esIdioma, idiomas, textos } from "@/lib/idiomas";
 import "../globals.css";
@@ -23,7 +24,8 @@ export default async function LayoutIdioma({ children, params }: Props) {
   const { lang } = await params;
   if (!esIdioma(lang)) notFound();
   return (
-    <html lang={lang}>
+    // En el borrador de la propuesta 5b, las pizarras arrancan en vidrio.
+    <html lang={lang} data-vidrio={process.env.NEXT_PUBLIC_PROPUESTA_VIDRIO === "1" ? "" : undefined}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -35,6 +37,7 @@ export default async function LayoutIdioma({ children, params }: Props) {
       <body>
         {children}
         <Secciones lang={lang} />
+        <PropuestaVidrio />
       </body>
     </html>
   );

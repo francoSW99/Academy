@@ -16,5 +16,9 @@ const escenas: Record<NombreEscena, React.ComponentType<{ lang: Idioma }>> = {
 
 export function Escena({ nombre, lang }: { nombre: NombreEscena; lang: Idioma }) {
   const Componente = escenas[nombre];
-  return <Componente lang={lang} />;
+  return (
+    <div className="tablero">
+      <Componente lang={lang} />
+    </div>
+  );
 }

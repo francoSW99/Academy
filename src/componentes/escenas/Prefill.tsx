@@ -80,7 +80,7 @@ export function Prefill({ lang }: { lang: Idioma }) {
   return (
     <section aria-labelledby="escena-prefill" className="flex flex-col gap-6 rounded-[18px] sm:border sm:border-borde sm:bg-fondo sm:p-[clamp(16px,2.4vw,28px)]">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-tenue">{textosEscenas.ahoraTu}</span>
+        <span className="ahora-tu text-sm text-tenue">{textosEscenas.ahoraTu}</span>
         <h3 id="escena-prefill" className="text-[19px] font-medium">
           {t.titulo}
         </h3>
