@@ -32,6 +32,19 @@
   --ficha-3: #ffe6c7;
   --ficha-4: #ebdcff;
   --ficha-5: #ffd8e1;
+  /* Un color por especialidad: dice a cuál pertenece cada cosa (barra de arriba, tarjetas, puentes). */
+  --esp-ai: #2457d6;
+  --esp-ml: #7044d4;
+  --esp-ds: #0b7f78;
+  /* El vidrio del selector de secciones: pista gris translúcida y burbuja blanca para la elegida. */
+  --vidrio-pista: rgba(236, 239, 244, 0.58);
+  --vidrio-pista-opaca: rgba(236, 239, 244, 0.97);
+  --vidrio-borde: rgba(255, 255, 255, 0.75);
+  --vidrio-filo: rgba(15, 23, 42, 0.07);
+  --vidrio-sombra: 0 16px 36px -16px rgba(15, 23, 42, 0.34), 0 2px 8px -3px rgba(15, 23, 42, 0.1);
+  --vidrio-brillo: rgba(255, 255, 255, 0.9);
+  --vidrio-burbuja: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.84) 100%);
+  --vidrio-burbuja-sombra: 0 0 0 1px rgba(15, 23, 42, 0.05), 0 6px 16px -6px rgba(15, 23, 42, 0.3), inset 0 1px 0 #ffffff;
   color-scheme: light;
 }
 
@@ -63,6 +76,17 @@
     --ficha-3: rgba(245, 170, 80, 0.24);
     --ficha-4: rgba(175, 135, 255, 0.26);
     --ficha-5: rgba(255, 120, 160, 0.24);
+    --esp-ai: #7fa6ff;
+    --esp-ml: #b79cff;
+    --esp-ds: #4fd1c5;
+    --vidrio-pista: rgba(30, 34, 44, 0.62);
+    --vidrio-pista-opaca: rgba(30, 34, 44, 0.97);
+    --vidrio-borde: rgba(255, 255, 255, 0.1);
+    --vidrio-filo: rgba(0, 0, 0, 0.45);
+    --vidrio-sombra: 0 16px 36px -14px rgba(0, 0, 0, 0.75), 0 2px 8px -3px rgba(0, 0, 0, 0.4);
+    --vidrio-brillo: rgba(255, 255, 255, 0.09);
+    --vidrio-burbuja: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.11) 100%);
+    --vidrio-burbuja-sombra: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 6px 16px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.22);
     color-scheme: dark;
   }
 }
@@ -92,6 +116,9 @@
   --color-ficha-3: var(--ficha-3);
   --color-ficha-4: var(--ficha-4);
   --color-ficha-5: var(--ficha-5);
+  --color-esp-ai: var(--esp-ai);
+  --color-esp-ml: var(--esp-ml);
+  --color-esp-ds: var(--esp-ds);
   --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
   --font-serif: "Newsreader", Georgia, serif;
 }
@@ -160,5 +187,284 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .cursor-parpadeo {
     animation: none;
+  }
+}
+
+/*
+ * El selector de las 4 secciones (Secciones.tsx), en vidrio. El vidrio tiene un trabajo: flota sobre
+ * la página y, al hacer scroll, el contenido pasa por debajo sin que la barra deje de leerse.
+ * - Desde 1024 px: una píldora arriba al centro.
+ * - En el celular y la tablet: una manija chica en el borde izquierdo que abre un dock vertical,
+ *   para no tapar el estudio ni lo que va abajo (pedidos 53 y 54).
+ */
+@layer components {
+  .secciones-pista {
+    position: relative;
+    display: flex;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid var(--vidrio-borde);
+    background: var(--vidrio-pista-opaca);
+    box-shadow:
+      0 0 0 1px var(--vidrio-filo),
+      var(--vidrio-sombra),
+      inset 0 1px 0 var(--vidrio-brillo);
+  }
+
+  .secciones-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    flex: 0 0 auto;
+    align-items: center;
+    border-radius: 999px;
+    color: var(--tinta-2);
+    font-weight: 500;
+    line-height: 1.15;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      color 200ms ease,
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .secciones-item:active {
+    transform: scale(0.96);
+  }
+
+  .secciones-item[data-elegida="true"] {
+    color: var(--tinta);
+  }
+
+  .secciones-item:focus-visible {
+    outline-offset: 1px;
+    border-radius: 999px;
+  }
+
+  .secciones-icono {
+    flex-shrink: 0;
+    transition: color 200ms ease;
+  }
+
+  /* Sin JavaScript, o antes de medir, la burbuja la dibuja el propio botón. */
+  .secciones-pista:not([data-lista]) .secciones-item[data-elegida="true"] {
+    background: var(--vidrio-burbuja);
+    box-shadow: var(--vidrio-burbuja-sombra);
+  }
+
+  .secciones-burbuja {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 999px;
+    background: var(--vidrio-burbuja);
+    box-shadow: var(--vidrio-burbuja-sombra);
+    pointer-events: none;
+  }
+
+  /* Un reflejo del color de la sección elegida, apenas, desde arriba. */
+  .secciones-burbuja::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(70% 100% at 50% 0%, color-mix(in srgb, var(--tinte, transparent) 11%, transparent), transparent 75%);
+  }
+
+  .secciones-pista[data-animar] .secciones-burbuja {
+    transition:
+      transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      height 460ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .secciones-item:not([data-elegida="true"]):hover {
+      color: var(--tinta);
+    }
+  }
+
+  /* El computador: la píldora arriba al centro. */
+  .secciones-arriba {
+    display: none;
+  }
+
+  /* El celular y la tablet: la manija en el borde y el dock que abre. */
+  .secciones-manija {
+    position: fixed;
+    z-index: 41;
+    top: 50%;
+    left: 0;
+    display: flex;
+    width: 30px;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    padding-right: 3px;
+    border: 1px solid var(--vidrio-borde);
+    border-left: 0;
+    border-radius: 0 27px 27px 0;
+    background: var(--vidrio-pista-opaca);
+    box-shadow:
+      0 0 0 1px var(--vidrio-filo),
+      var(--vidrio-sombra),
+      inset 0 1px 0 var(--vidrio-brillo);
+    transform: translateY(-50%);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition:
+      transform 320ms cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 200ms ease;
+  }
+
+  /* El área que se toca es más grande que lo que se ve: 44 × 74 px. */
+  .secciones-manija::before {
+    content: "";
+    position: absolute;
+    inset: -10px -14px -10px 0;
+  }
+
+  .secciones-manija:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+
+  .secciones-manija:focus-visible {
+    outline-offset: -4px;
+    border-radius: 0 27px 27px 0;
+  }
+
+  .secciones-manija .secciones-icono {
+    width: 18px;
+    height: 18px;
+  }
+
+  .secciones-lado[data-abierto] .secciones-manija {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-100%, -50%);
+  }
+
+  .secciones-fondo {
+    position: fixed;
+    z-index: 40;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 240ms ease;
+  }
+
+  .secciones-lado[data-abierto] .secciones-fondo {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .secciones-dock {
+    position: fixed;
+    z-index: 41;
+    top: 50%;
+    left: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(calc(-100% - 16px), -50%);
+    transition:
+      transform 320ms cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 200ms ease,
+      visibility 0s linear 320ms;
+  }
+
+  .secciones-lado[data-abierto] .secciones-dock {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+    transition:
+      transform 360ms cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 200ms ease,
+      visibility 0s;
+  }
+
+  .secciones-dock .secciones-pista {
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 30px;
+  }
+
+  .secciones-dock .secciones-burbuja {
+    border-radius: 999px;
+  }
+
+  .secciones-dock .secciones-item {
+    min-height: 50px;
+    gap: 12px;
+    padding: 0 22px 0 14px;
+    font-size: 15.5px;
+  }
+
+  .secciones-dock .secciones-icono {
+    width: 22px;
+    height: 22px;
+  }
+
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .secciones-pista,
+    .secciones-manija {
+      background: var(--vidrio-pista);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      backdrop-filter: blur(16px) saturate(180%);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .secciones-arriba {
+      display: block;
+      position: fixed;
+      z-index: 40;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .secciones-arriba .secciones-item {
+      min-height: 44px;
+      gap: 8px;
+      padding: 0 18px;
+      font-size: 14.5px;
+    }
+
+    .secciones-arriba .secciones-icono {
+      width: 18px;
+      height: 18px;
+    }
+
+    .secciones-lado {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .secciones-pista[data-animar] .secciones-burbuja,
+    .secciones-item,
+    .secciones-icono,
+    .secciones-manija,
+    .secciones-fondo {
+      transition: none;
+    }
+
+    .secciones-dock,
+    .secciones-lado[data-abierto] .secciones-dock {
+      transform: translate(0, -50%);
+      transition:
+        opacity 120ms ease,
+        visibility 0s linear 120ms;
+    }
+
+    .secciones-lado[data-abierto] .secciones-dock {
+      transition: opacity 120ms ease;
+    }
   }
 }

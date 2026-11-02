@@ -3,23 +3,31 @@
 import { useCallback, useEffect, useState } from "react";
 
 // El avance vive solo en este navegador (sin login, decisión del plan).
-// Forma: { "03": { vista: true, hecha: false } }: una entrada por lección.
+// Forma: { "ai/03": { vista: true, hecha: false } }: una entrada por lección, con su especialidad.
 type AvanceLeccion = { vista: boolean; hecha: boolean };
 type Avance = Record<string, AvanceLeccion>;
 
-const CLAVE = "academy:avance:v2";
-// La versión con paradas: { "03": { vistas: [1, 2], hecha: false } }. Se convierte una vez.
+const CLAVE = "academy:avance:v3";
+// Antes de las especialidades: { "03": { vista, hecha } }. Todas eran de AI Engineering. Se convierte una vez.
+const CLAVE_V2 = "academy:avance:v2";
+// La versión con paradas: { "03": { vistas: [1, 2], hecha: false } }.
 const CLAVE_V1 = "academy:avance:v1";
 const EVENTO = "academy:avance";
+
+function deAiEngineering(avance: Avance): Avance {
+  return Object.fromEntries(Object.entries(avance).map(([n, e]) => [`ai/${n}`, e]));
+}
 
 function leer(): Avance {
   try {
     const crudo = localStorage.getItem(CLAVE);
     if (crudo) return JSON.parse(crudo) as Avance;
-    const viejo = localStorage.getItem(CLAVE_V1);
-    if (!viejo) return {};
-    const v1 = JSON.parse(viejo) as Record<string, { vistas: number[]; hecha: boolean }>;
-    return Object.fromEntries(Object.entries(v1).map(([n, e]) => [n, { vista: e.vistas.length > 0, hecha: e.hecha }]));
+    const v2 = localStorage.getItem(CLAVE_V2);
+    if (v2) return deAiEngineering(JSON.parse(v2) as Avance);
+    const v1 = localStorage.getItem(CLAVE_V1);
+    if (!v1) return {};
+    const viejo = JSON.parse(v1) as Record<string, { vistas: number[]; hecha: boolean }>;
+    return deAiEngineering(Object.fromEntries(Object.entries(viejo).map(([n, e]) => [n, { vista: e.vistas.length > 0, hecha: e.hecha }])));
   } catch {
     return {};
   }
@@ -48,17 +56,17 @@ export function useAvance() {
     };
   }, []);
 
-  const marcarVista = useCallback((n: string) => {
+  const marcarVista = useCallback((ref: string) => {
     const actual = leer();
-    const e = actual[n] ?? { vista: false, hecha: false };
+    const e = actual[ref] ?? { vista: false, hecha: false };
     if (e.vista) return;
-    escribir({ ...actual, [n]: { ...e, vista: true } });
+    escribir({ ...actual, [ref]: { ...e, vista: true } });
   }, []);
 
-  const alternarHecha = useCallback((n: string) => {
+  const alternarHecha = useCallback((ref: string) => {
     const actual = leer();
-    const e = actual[n] ?? { vista: true, hecha: false };
-    escribir({ ...actual, [n]: { ...e, vista: true, hecha: !e.hecha } });
+    const e = actual[ref] ?? { vista: true, hecha: false };
+    escribir({ ...actual, [ref]: { ...e, vista: true, hecha: !e.hecha } });
   }, []);
 
   return { avance, marcarVista, alternarHecha };

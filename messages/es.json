@@ -4,14 +4,43 @@
     "descripcion": "Aprende IA, ML, Deep Learning y Data Science de forma visual e interactiva."
   },
   "cabecera": {
-    "temario": "Temario",
+    "inicio": "Inicio",
+    "secciones": "Secciones",
+    "cambiar": "Cambiar de sección · ahora en {seccion}",
     "grafo": "Grafo de BrainFran"
   },
+  "inicio": {
+    "etiqueta": "Academy · {n} especialidades de IA",
+    "titulo": "Aprende IA de forma visual, una especialidad a la vez.",
+    "lede": "Academy separa el mundo de la IA en tres especialidades: AI Engineering, ML y Deep Learning, y Data Science. Cada una tiene su sección, su temario y su avance. Estudias una a la vez y cambias cuando quieras.",
+    "seguir": "Sigue donde quedaste: {especialidad} · lección {n} · {titulo}",
+    "elige": "Elige tu especialidad",
+    "eligeTexto": "Las tres te enseñan a trabajar con un agente de IA como CEO/CTO: tú pones el criterio y el agente escribe el código.",
+    "paraSer": "Para ser {rol}",
+    "eligela": "Elígela {eligela}",
+    "cifras": "{modulos} módulos · {lecciones} lecciones",
+    "disponibles": "{n} disponible ahora",
+    "enPreparacion": "Temario en preparación",
+    "entrar": "Entrar a {nombre}",
+    "cambiar": "Puedes cambiar de especialidad cuando quieras: el avance de cada una se guarda por separado, en este navegador.",
+    "conectan": "Separadas para estudiar, conectadas para aprender",
+    "conectanTexto": "Cada tema vive en una sola especialidad, así sabes siempre qué estudias y dónde. Cuando un tema cruza a otra, la lección te lo dice al final y te lleva. Por ejemplo, «Cómo funciona un LLM» (AI Engineering) sigue en el Transformer (ML y Deep Learning).",
+    "puentes": "{n} temas compartidos",
+    "comoEs": "Cómo es cada lección"
+  },
+  "especialidad": {
+    "etiqueta": "Especialidad · para ser {rol}",
+    "cifras": "{modulos} módulos · {lecciones} lecciones",
+    "preparacion": "Temario en preparación",
+    "preparacionTexto": "Este es el temario propuesto, armado con lo que piden las ofertas de trabajo reales. Las lecciones se abren cuando estén juntas las fuentes.",
+    "meta": "Al terminar",
+    "conectada": "Se conecta con",
+    "conectadaTexto": "Cuando una lección toca un tema de otra especialidad, al final te lleva a ella.",
+    "puentes": "{n} temas compartidos",
+    "ver": "Ver {nombre}"
+  },
   "curso": {
-    "etiqueta": "Curso · {modulos} módulos · {lecciones} lecciones",
-    "lede": "De lo básico a dirigir agentes de IA como CEO/CTO. Cada lección explica las ideas clave en orden, con ejemplos reales, y cierra con lo que haría un ingeniero de IA experto.",
     "avance": "{hechas} de {total} lecciones completadas",
-    "disponibles": "{n} disponible ahora; las demás, pronto",
     "empezar": "Empezar: lección {n} · {titulo}",
     "continuar": "Continuar: lección {n} · {titulo}",
     "repasar": "Repasar: lección {n} · {titulo}",
@@ -29,21 +58,19 @@
       },
       {
         "titulo": "Lo que haría un experto",
-        "texto": "Al final, los consejos de un ingeniero de IA, idea por idea."
+        "texto": "Al final, los consejos de un experto de la especialidad, idea por idea."
       },
       {
         "titulo": "Tu práctica",
-        "texto": "Una decisión de ingeniería sobre un caso tuyo."
+        "texto": "Una decisión real sobre un caso tuyo."
       }
     ],
-    "meta": "Al terminar",
-    "otroCurso": "Otro curso, en preparación",
-    "otroCursoTexto": "{modulos} módulos. Se abre cuando estén juntas las fuentes."
+    "meta": "Al terminar"
   },
   "leccion": {
     "leccionDe": "Módulo {modulo} · {nombreModulo} · Lección {n} de {total}",
     "enEstaLeccion": "En esta lección",
-    "temarioCurso": "Temario del curso",
+    "temarioDe": "Temario de {especialidad}",
     "copiar": "Copiar",
     "copiado": "Copiado",
     "marcarHecha": "Marcar la lección como completada",
@@ -68,6 +95,23 @@
       "medicion": "Medición propia"
     },
     "revisada": "Revisada el {fecha} · Con fuentes al final"
+  },
+  "puentes": {
+    "titulo": "Conecta con otras especialidades",
+    "texto": "Lo que aprendiste aquí sigue en otra especialidad. Cada una tiene su sección: ve cuando quieras y vuelve.",
+    "relaciones": {
+      "antes": "Conviene antes",
+      "aFondo": "Más a fondo",
+      "seUsa": "Dónde se usa"
+    },
+    "relacionesTexto": {
+      "antes": "te da la base para esta lección",
+      "aFondo": "el mismo tema, explicado más a fondo",
+      "seUsa": "usa lo que aprendes aquí"
+    },
+    "leccion": "Lección {n} · {titulo}",
+    "ir": "Ir a la lección",
+    "pronto": "Pronto"
   },
   "escenas": {
     "muestreo": {
