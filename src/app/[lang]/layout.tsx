@@ -1,10 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import { Lienzo } from "@/componentes/Lienzo";
 import { Secciones } from "@/componentes/Secciones";
 import { esIdioma, idiomas, textos } from "@/lib/idiomas";
 import "../globals.css";
 
 export const dynamicParams = false;
+
+// La barra del navegador del celular toma el color del lienzo.
+export const viewport: Viewport = { themeColor: "#06080d" };
 
 export function generateStaticParams() {
   return idiomas.map((lang) => ({ lang }));
@@ -27,12 +31,10 @@ export default async function LayoutIdioma({ children, params }: Props) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap"
-        />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&family=Google+Sans+Code:wght@400;500&display=swap" />
       </head>
       <body>
+        <Lienzo />
         {children}
         <Secciones lang={lang} />
       </body>

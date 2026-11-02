@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
+import { CabeceraEscena } from "./CabeceraEscena";
 import datos from "./datos/prefill-es.json";
 
 /**
@@ -31,8 +32,7 @@ const TOTAL_MAXIMO = Math.max(
 const ACELERA = TOTAL_MAXIMO / DURACION;
 
 export function Prefill({ lang }: { lang: Idioma }) {
-  const textosEscenas = textos(lang).escenas;
-  const t = textosEscenas.prefill;
+  const t = textos(lang).escenas.prefill;
   const [id, setId] = useState(mediciones[1].id);
   const [largo, setLargo] = useState<Largo>("corta");
   /** Segundos reales desde que se mandó el prompt; null si todavía no se manda. */
@@ -74,18 +74,9 @@ export function Prefill({ lang }: { lang: Idioma }) {
   /** La franja mide el tiempo total de esta opción; el tiempo de espera se siente en la animación. */
   const parte = (x: number) => `${(x / total) * 100}%`;
 
-  const chip = (activo: boolean) =>
-    `min-h-10 rounded-full border px-3.5 text-[14.5px] ${activo ? "border-primario bg-primario text-primario-tinta" : "border-borde-fuerte hover:bg-suave"}`;
-
   return (
-    <section aria-labelledby="escena-prefill" className="flex flex-col gap-6 rounded-[18px] sm:border sm:border-borde sm:bg-fondo sm:p-[clamp(16px,2.4vw,28px)]">
-      <div className="flex flex-col gap-1">
-        <span className="text-sm text-tenue">{textosEscenas.ahoraTu}</span>
-        <h3 id="escena-prefill" className="text-[19px] font-medium">
-          {t.titulo}
-        </h3>
-        <p className="max-w-[46em] text-[15px] text-tinta-2 text-pretty">{t.lead}</p>
-      </div>
+    <section aria-labelledby="escena-prefill" className="escena glass-card flex flex-col gap-6">
+      <CabeceraEscena id="escena-prefill" titulo={t.titulo} lead={t.lead} lang={lang} />
 
       <div className="flex flex-col gap-4">
         <div role="group" aria-label={t.mandas} className="flex flex-col gap-2">
@@ -100,7 +91,7 @@ export function Prefill({ lang }: { lang: Idioma }) {
                   setId(x.id);
                   parar();
                 }}
-                className={chip(x.id === id)}
+                className="glass-pill min-h-10 px-3.5 text-[14.5px]"
               >
                 {rellenar(t.conTokens, { nombre: t.prompts[x.id as keyof typeof t.prompts], n: numero(x.leer.tokens) })}
               </button>
@@ -119,7 +110,7 @@ export function Prefill({ lang }: { lang: Idioma }) {
                   setLargo(l);
                   parar();
                 }}
-                className={chip(l === largo)}
+                className="glass-pill min-h-10 px-3.5 text-[14.5px]"
               >
                 {rellenar(t.conTokens, { nombre: t.largos[l], n: tokensDeRespuesta(m, l) })}
               </button>
@@ -130,7 +121,7 @@ export function Prefill({ lang }: { lang: Idioma }) {
 
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center gap-3">
-          <button type="button" onClick={enviar} className="inline-flex min-h-11 items-center rounded-full bg-primario px-6 text-[15px] font-medium text-primario-tinta">
+          <button type="button" onClick={enviar} className="boton-luz px-6">
             {fase === "listo" ? t.otraVez : t.enviar}
           </button>
           <span aria-live="polite" className="text-[15px] text-tinta-2">
@@ -172,12 +163,12 @@ export function Prefill({ lang }: { lang: Idioma }) {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <div className={`flex flex-col gap-2 rounded-[12px] border px-4 py-3 transition-colors duration-300 ${fase === "lee" ? "border-acento bg-suave" : "border-borde bg-pizarra"}`}>
+        <div className={`flex flex-col gap-2 rounded-[14px] border px-4 py-3 transition-colors duration-300 ${fase === "lee" ? "border-acento bg-suave" : "border-borde bg-pizarra"}`}>
           <span className="text-[13px] text-tenue">{rellenar(t.leyendo, { n: numero(m.leer.tokens) })}</span>
           <span className="text-[15.5px] leading-relaxed">{m.pedido}</span>
           {m.leer.tokens > 100 && <span className="text-[13px] text-tenue">{rellenar(t.conTexto, { n: numero(m.leer.tokens) })}</span>}
         </div>
-        <div className={`flex min-h-[8rem] flex-col gap-2 rounded-[12px] border px-4 py-3 ${fase === "escribe" ? "border-tinta" : "border-borde"} bg-pizarra`}>
+        <div className={`flex min-h-[8rem] flex-col gap-2 rounded-[14px] border px-4 py-3 ${fase === "escribe" ? "border-tinta" : "border-borde"} bg-pizarra`}>
           <span className="text-[13px] text-tenue">{rellenar(t.escribiendo, { k: escritos, n })}</span>
           <span className="text-[15.5px] leading-relaxed whitespace-pre-line">
             {/* El modelo escribe en Markdown: aquí se muestran las palabras, sin los ** ni los ###. */}
@@ -198,7 +189,7 @@ export function Prefill({ lang }: { lang: Idioma }) {
         ].map(([nombre, valor]) => (
           <div key={nombre} className="flex flex-col gap-0.5">
             <dt className="text-[13px] text-tenue">{nombre}</dt>
-            <dd className="font-serif text-[22px] tabular-nums">{valor}</dd>
+            <dd className="text-[24px] font-light tracking-[-0.01em] tabular-nums">{valor}</dd>
           </div>
         ))}
       </dl>

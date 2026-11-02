@@ -10,8 +10,8 @@ import { Respaldos } from "./Fuentes";
  */
 export function IdeaLeccion({ idea, numero, id, fuentes, lang }: { idea: Idea; numero: number; id: string; fuentes: Fuente[]; lang: Idioma }) {
   return (
-    <section id={id} aria-labelledby={`${id}-titulo`} className="flex scroll-mt-20 flex-col gap-6 border-t border-borde pt-12 first-of-type:border-t-0 first-of-type:pt-0">
-      <h2 id={`${id}-titulo`} className="flex items-baseline gap-3 font-serif text-[clamp(28px,3.2vw,38px)] leading-tight font-normal text-balance">
+    <section id={id} aria-labelledby={`${id}-titulo`} className="flex flex-col gap-6 border-t border-borde pt-12 first-of-type:border-t-0 first-of-type:pt-0">
+      <h2 id={`${id}-titulo`} className="flex items-baseline gap-3 text-[clamp(26px,3vw,36px)] leading-tight font-semibold tracking-[-0.022em] text-balance">
         <span className="text-acento-texto tabular-nums">{numero}</span>
         {idea.titulo}
       </h2>

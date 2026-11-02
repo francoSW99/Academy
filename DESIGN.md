@@ -1,341 +1,245 @@
 ---
-name: Academy · Pizarra en metro
-description: La ruta de estudio dibujada como una línea de metro; cada estación se aprende en una pizarra que se arma sola y después se toca.
+name: Academy · Glassboards
+description: Pizarras de vidrio oscuro que flotan sobre un solo lienzo de luz difusa: cada lección se estudia en una pizarra, sin fondos propios ni cajas opacas.
 colors:
-  # Pizarra blanca: tema principal
-  fondo: "#ffffff"
-  pizarra: "#ffffff"
-  pizarra-rejilla: "#eef1f6"
-  tinta: "#15171c"
-  tinta-2: "#3d424b"
-  tenue: "#626875"
-  borde: "#e3e7ee"
-  borde-fuerte: "#c7cdd7"
-  linea: "#2b2f37"
-  acento: "#2457d6"
-  acento-texto: "#1f4fc4"
-  acento-tinta: "#ffffff"
-  suave: "rgba(36,87,214,.07)"
-  pulso: "rgba(36,87,214,.3)"
-  elegida: "#2457d6"
-  dato: "#86a9e6"
-  vacio: "#eef1f6"
-  verdadero: "#1e7b45"
-  falso: "#c62828"
-  l2: "#c2410c"
-  primario: "#15171c"
-  primario-tinta: "#ffffff"
-  codigo-fondo: "#15171c"
-  codigo-tinta: "#f1f3f7"
-  # Pizarra negra: tema opcional (mismas claves con prefijo negra-)
-  negra-fondo: "#0a0d13"
-  negra-rejilla: "rgba(255,255,255,.028)"
-  negra-pizarra: "#0e121a"
-  negra-pizarra-rejilla: "rgba(255,255,255,.045)"
-  negra-tinta: "#eceff4"
-  negra-tinta-2: "#b9c0cc"
-  negra-tenue: "#8b93a1"
-  negra-borde: "rgba(255,255,255,.08)"
-  negra-borde-fuerte: "rgba(255,255,255,.18)"
-  negra-linea: "#b9c0cc"
-  negra-acento: "#f5c451"
-  negra-acento-texto: "#f5c451"
-  negra-acento-tinta: "#1a1405"
-  negra-suave: "rgba(245,196,81,.09)"
-  negra-pulso: "rgba(245,196,81,.4)"
-  negra-elegida: "#f5c451"
-  negra-dato: "#5b9be6"
-  negra-vacio: "rgba(255,255,255,.06)"
-  negra-verdadero: "#83c167"
-  negra-falso: "#fc6255"
-  negra-l2: "#7fb2f0"
-  negra-primario: "#eceff4"
-  negra-primario-tinta: "#0a0d13"
-  negra-codigo-fondo: "rgba(255,255,255,.06)"
-  negra-codigo-tinta: "#eceff4"
+  bg-canvas: "#06080d"
+  aura-azul: "#3b82f6"
+  aura-indigo: "#6366f1"
+  aura-ambar: "#f59e0b"
+  glass-board-bg: "rgba(15, 19, 28, 0.68)"
+  glass-reader-bg: "rgba(12, 15, 23, 0.82)"
+  glass-card-bg: "rgba(255, 255, 255, 0.04)"
+  glass-card-hover: "rgba(255, 255, 255, 0.08)"
+  glass-pill-bg: "rgba(255, 255, 255, 0.06)"
+  glass-code-bg: "rgba(5, 7, 12, 0.6)"
+  glass-border-subtle: "rgba(255, 255, 255, 0.07)"
+  glass-border-highlight: "rgba(255, 255, 255, 0.18)"
+  text-primary: "#f8fafc"
+  text-reading: "#e2e8f0"
+  text-secondary: "#94a3b8"
+  text-muted: "#64748b"
+  accent-primary: "#3b82f6"
+  accent-text: "#60a5fa"
+  accent-warm: "#f59e0b"
+  accent-emerald: "#10b981"
+  falso: "#f87171"
+  primario: "#f8fafc"
+  primario-tinta: "#06080d"
+  esp-ai: "#7fa6ff"
+  esp-ml: "#b79cff"
+  esp-ds: "#4fd1c5"
 typography:
-  titulo-linea:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "clamp(44px, 6vw, 76px)"
-    fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "-0.02em"
-  titulo-estacion:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "clamp(34px, 4.4vw, 56px)"
-    fontWeight: 400
-    lineHeight: 1.04
-    letterSpacing: "-0.015em"
-  pregunta-pizarra:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "clamp(26px, 2.8vw, 36px)"
-    fontWeight: 400
-    lineHeight: 1.15
-    letterSpacing: "-0.01em"
-  zona:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "clamp(22px, 2.2vw, 28px)"
-    fontWeight: 400
-    lineHeight: 1.2
-  formula:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "26px"
-    fontWeight: 400
-    lineHeight: 1
-  anotacion:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "17px"
-    fontStyle: italic
+  titulo-leccion:
+    fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
+    fontSize: "clamp(36px, 5vw, 64px)"
+    fontWeight: 600
+    lineHeight: 1.03
+    letterSpacing: "-0.03em"
+  titulo-seccion:
+    fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
+    fontSize: "clamp(26px, 3vw, 36px)"
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: "-0.022em"
+  titulo-escena:
+    fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
+    fontSize: "20px"
+    fontWeight: 500
+    lineHeight: 1.375
+    letterSpacing: "-0.012em"
   lectura:
     fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
-    fontSize: "18px"
+    fontSize: "17.5px"
     fontWeight: 400
-    lineHeight: 1.6
-  interfaz:
+    lineHeight: 1.625
+  dato:
     fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
-    fontSize: "15px"
-    fontWeight: 500
-    lineHeight: 1.3
+    fontSize: "24px"
+    fontWeight: 300
+    letterSpacing: "-0.01em"
   etiqueta:
     fontFamily: "Google Sans Flex, Google Sans, Arial, sans-serif"
-    fontSize: "13px"
-    fontWeight: 400
-    lineHeight: 1.4
-  codigo:
-    fontFamily: "ui-monospace, SF Mono, Menlo, monospace"
-    fontSize: "15px"
-    lineHeight: 1.7
+    fontSize: "12.5px"
+    fontWeight: 500
+  prompt:
+    fontFamily: "Google Sans Code, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "14.5px"
+    lineHeight: 1.625
 rounded:
-  cuadro: "3px"
-  ficha-token: "8px"
-  zona: "8px"
-  burbuja: "14px"
-  tarjeta: "18px"
-  pizarra: "20px"
-  pastilla: "999px"
+  pozo: "14px"
+  opcion: "16px"
+  tarjeta: "20px"
+  board: "24px"
+  lector: "28px"
+  pildora: "9999px"
 spacing:
-  borde: "clamp(16px, 4vw, 40px)"
-  ancho-portada: "1120px"
-  ancho-leccion: "1200px"
-  pizarra-interior: "clamp(20px, 3vw, 44px)"
-  hueco-escena: "26px"
+  marco-celular: "8px"
+  marco-computador: "16px"
+  marco-ancho: "24px"
+  separacion-boards: "16px"
+  ancho-marco: "1360px"
+  ancho-temario: "300px"
   objetivo-tactil: "44px"
 components:
   boton-primario:
     backgroundColor: "{colors.primario}"
     textColor: "{colors.primario-tinta}"
-    rounded: "{rounded.pastilla}"
+    rounded: "{rounded.pildora}"
     height: "44px"
     padding: "0 20px"
-  boton-secundario:
-    textColor: "{colors.tinta}"
-    border: "1px solid {colors.borde-fuerte}"
-    rounded: "{rounded.pastilla}"
-    height: "44px"
-    padding: "0 18px"
-  selector-tema:
-    backgroundColor: "{colors.pizarra}"
-    border: "1px solid {colors.borde}"
-    rounded: "{rounded.pastilla}"
-    padding: "3px"
-  nodo-zona:
-    border: "3px solid {colors.linea}"
-    rounded: "{rounded.zona}"
-    size: "30px"
-  estacion-abierta:
-    backgroundColor: "{colors.acento}"
-    size: "22px"
-  estacion-proxima:
-    border: "3px solid {colors.linea}"
-    size: "16px"
-  parada:
-    border: "3px"
-    size: "29px"
-  pizarra:
-    backgroundColor: "{colors.pizarra}"
-    border: "1px solid {colors.borde}"
-    rounded: "{rounded.pizarra}"
-    grid: "24px {colors.pizarra-rejilla}"
-  cuadro-probabilidad:
-    rounded: "{rounded.cuadro}"
-    perFila: 25
-    valor: "4 %"
+  pildora:
+    backgroundColor: "{colors.glass-pill-bg}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.pildora}"
+    padding: "0 14px"
+  board:
+    backgroundColor: "{colors.glass-board-bg}"
+    rounded: "{rounded.board}"
+  lector:
+    backgroundColor: "{colors.glass-reader-bg}"
+    textColor: "{colors.text-reading}"
+    rounded: "{rounded.lector}"
+  tarjeta:
+    backgroundColor: "{colors.glass-card-bg}"
+    rounded: "{rounded.tarjeta}"
+  pozo:
+    backgroundColor: "{colors.glass-code-bg}"
+    rounded: "{rounded.pozo}"
 ---
 
-# Design System: Academy · Pizarra en metro
+# Design System: Academy · Glassboards
+
+*Propuesta de la Fase 5b, en el borrador: todavía no tiene el OK de Fran. `main` conserva el sistema anterior hasta entonces.*
 
 ## Overview
 
-**Creative North Star: "La pizarra en el metro"**
+**Creative North Star: "Pizarras de vidrio sobre un solo lienzo"**
 
-Academy es una línea de metro. Cada bloque de la ruta es una **estación**, cada etapa es una **zona** y cada estación se recorre en **7 paradas** que siempre son las mismas: el problema, el mecanismo, el criterio, cómo falla, sin la etiqueta, dirígelo y práctica. El orden se ve en todo momento: el mapa dice dónde estás y qué sigue, y la línea de paradas dice en qué paso vas. Nadie se pierde.
+Academy es un espacio oscuro con luz difusa, y encima flotan pizarras de vidrio ahumado: la barra de arriba, el temario y el lector. El vidrio es un material, no un fondo: la página tiene **un solo fondo**, y cada pizarra se apoya directo sobre él. Por eso se siente natural y no recargado. Al hacer scroll, el texto pasa por debajo de la barra y se deshace en el desenfoque.
 
-Cada parada es una **pizarra**: una superficie blanca con cuadrícula fina donde la escena se arma por momentos, con la calidad de 3Blue1Brown pero sin video: la avanzas tú y la tocas (perillas, botones, tiradas), como un gráfico o un dashboard que responde al instante. Poco texto, mucho mecanismo.
-
-La interfaz es minimal y elegante, en la línea de deepmind.google y woorky.app: fondo blanco liso, mucho aire, la letra de Woorky (Google Sans Flex) para usar la app y una serif (Newsreader) para lo que se piensa: títulos, preguntas, fórmulas y anotaciones.
+El marco se lleva el carácter (lienzo, barra flotante, temario, tarjeta de portada) y la columna de lectura se mantiene tranquila: texto claro, medida real y nada que compita detrás.
 
 **Key Characteristics:**
-- Portada con un metro vertical que se lee de arriba hacia abajo: las zonas son cuadrados numerados y las estaciones, círculos.
-- Cada lección tiene un cartel de estación y una línea de 7 paradas que se pueden tocar.
-- La pizarra es un canvas: se arma en momentos que avanzas tú y responde al instante a lo que tocas. No hay videos para mirar.
-- Las probabilidades se dibujan con cuadros: 25 por fila y cada uno vale 4 %.
-- Dos temas: pizarra blanca (principal) y pizarra negra (opcional). Sigue el modo del sistema y tiene un interruptor «Blanca | Negra».
-- Un solo acento por tema: plumón azul en la blanca y tiza dorada en la negra.
+- Un solo lienzo con 3 auras fijas: azul y añil en frío, ámbar en cálido.
+- Tres capas de vidrio: pizarra, tarjeta y píldora.
+- Bordes de 1 px con brillo arriba, como un bisel iluminado desde arriba a la izquierda.
+- Lo que mide (avance, barras, lección completada) brilla apenas con su color.
+- Siempre oscuro.
 
 ## Colors
 
-Blanco liso, tinta casi negra y pocos colores de plumón, cada uno con un significado fijo.
+Lienzo casi negro, vidrio neutro y color solo donde hay información.
 
 ### Primary
-- **Plumón azul** (`acento`): lo que te toca ahora. La estación abierta, la parada actual, el token elegido, la variable *T* de la fórmula y la marca de Academy. En la pizarra negra lo reemplaza la **tiza dorada** (`negra-acento`).
+- **Azul cielo eléctrico** (`accent-primary`): las barras de datos, la perilla, el punto de luz del avance y la lección en la que estás. Como texto usa su versión clara (`accent-text`), que pasa AA sobre vidrio.
 
 ### Secondary
-- **Azul dato** (`dato`): los cuadros de probabilidad. La fila elegida pasa a `elegida`, que es el mismo acento.
-- **Verde verdadero** (`verdadero`) y **rojo falso** (`falso`): solo para marcar si algo es verdad en la pizarra, siempre con la palabra escrita en cursiva.
-- **Naranja Línea 2** (`l2`): la Línea 2 (Pilar 2) y las combinaciones con ella.
+- **Esmeralda** (`accent-emerald`): lo correcto, lo completado y los consejos de experto.
+- **Ámbar** (`accent-warm`): lo que avisa, como un temario en preparación, y el resumen en la escena de contexto.
+- **Rojo suave** (`falso`): lo incorrecto en las escenas, siempre con la palabra escrita.
+
+### Tertiary
+- **Color de especialidad** (`esp-ai`, `esp-ml`, `esp-ds`): un punto delante del nombre de cada especialidad, en todo el sitio.
 
 ### Neutral
-- **Fondo** (`fondo`): blanco liso, sin textura.
-- **Pizarra** (`pizarra`) con **cuadrícula** (`pizarra-rejilla`) de 24 px: la única superficie con textura.
-- **Tinta** (`tinta`) para títulos y botones; **tinta 2** (`tinta-2`) para leer; **tenue** (`tenue`) para datos secundarios, con contraste de 5,6:1 sobre blanco.
-- **Línea** (`linea`): el trazo del metro (3 px), los nodos de zona y las estaciones completadas.
-- **Borde** y **borde fuerte**: líneas finas de 1 px.
-- **Primario** (`primario`): los botones principales son negros con texto blanco.
+- **Lienzo espacio profundo** (`bg-canvas`): el único fondo de la página.
+- **Tinta primaria** (`text-primary`): títulos y lo activo. **Tinta de lectura** (`text-reading`): todos los párrafos. **Tinta secundaria** (`text-secondary`): resúmenes, rótulos y lecciones inactivas.
+- **Tinta tenue** (`text-muted`): solo adornos, como la barra de las migas. Nunca texto que haya que leer.
 
 ### Named Rules
-**La regla del «estás aquí».** El acento marca solo lo que te toca ahora. Nunca decora.
+**La regla del fondo único.** La página tiene un fondo. Ninguna pizarra, escena o tarjeta lleva un fondo, una foto o una luz propia. Si una pizarra se ve apagada, se mueven las auras del lienzo; no se le pone una base. (Fran, pedidos 56 y 57.)
 
-**La regla de la verdad escrita.** El verde y el rojo siempre van con la palabra «verdadero» o «falso». El color nunca es la única pista.
+**La regla del color que informa.** La interfaz es neutra. El color aparece en los datos y en los estados, nunca como decoración.
 
-**La regla de un plumón por pizarra.** La blanca usa azul y la negra, dorado. No se mezclan acentos.
+**La regla de la verdad escrita.** El verde y el rojo siempre van con la palabra o el ícono de correcto e incorrecto. El color nunca es la única pista.
 
 ## Typography
 
-- **Interfaz y lectura:** Google Sans Flex, la letra de woorky.app.
-- **Títulos, preguntas, fórmulas y anotaciones:** Newsreader, una serif de pizarra de clase.
-- **Indicaciones al agente y código:** la monoespaciada del sistema.
+**Display y lectura:** Google Sans Flex (con Google Sans y Arial de respaldo), la letra de woorky.app.
+**Prompts y código:** Google Sans Code (con la monoespaciada del sistema de respaldo).
+
+**Character:** una sans geométrica y una sola familia. La jerarquía sale del tamaño, el peso y el tracking apretado de los títulos, sin serif.
 
 ### Hierarchy
-- **Título de línea** (`titulo-linea`): el nombre del pilar en la portada.
-- **Título de estación** (`titulo-estacion`): el nombre del bloque en el cartel de la lección.
-- **Pregunta de pizarra** (`pregunta-pizarra`): la pregunta que abre cada parada.
-- **Zona** (`zona`): «Zona 1 · Fundamentos» en el mapa.
-- **Fórmula** (`formula`): variables en cursiva y la variable que se toca en el color del acento.
-- **Anotación** (`anotacion`): rótulos en cursiva con línea punteada, como «siguiente token».
-- **Lectura** (`lectura`), **interfaz** (`interfaz`) y **etiqueta** (`etiqueta`) para todo lo demás.
-
-### Named Rules
-**La regla de la serif para pensar.** La serif va en lo que se piensa (títulos, preguntas, fórmulas, anotaciones). La sans va en lo que se usa (botones, etiquetas, navegación).
+- **Título de lección** (`titulo-leccion`): el `h1` de la tarjeta de portada.
+- **Título de sección** (`titulo-seccion`): cada idea, los consejos y las secciones del Inicio.
+- **Título de escena** (`titulo-escena`): el nombre de cada pizarra interactiva.
+- **Lectura** (`lectura`): párrafos, con una medida de 68ch como máximo.
+- **Dato** (`dato`): las cifras grandes, en peso liviano y con números tabulares.
+- **Etiqueta** (`etiqueta`): las píldoras; el módulo y la lección van en mayúsculas con 0,05em de tracking.
+- **Prompt** (`prompt`): el texto para copiar.
 
 ## Layout
 
-- **Portada** (1120 px de ancho): cabecera del pilar con barra de avance de 16 rayitas, cartel «Tu próxima estación», y abajo el mapa (columna flexible) con un lateral: cómo se recorre una estación, leyenda y Línea 2. En el celular el lateral baja debajo del mapa.
-- **Lección** (1200 px de ancho): cartel de estación, línea de 7 paradas (con desplazamiento horizontal en el celular), la pizarra a todo el ancho, la narración debajo, los botones de parada anterior y siguiente, y la próxima estación al final.
-- Margen lateral de `clamp(16px, 4vw, 40px)`. Todo funciona a 390 px de ancho.
+- **El marco:** ancho máximo de 1360 px, con 24 px a los lados desde 1280 px, 16 px desde 1024 px y 8 px en el celular. Nada toca el borde de la pantalla.
+- **Lección en computador:** la barra arriba, el temario de 300 px a la izquierda y el lector en el resto, separados por 16 px. La barra y el temario quedan fijos al hacer scroll; el temario tiene su propio scroll, sin barra a la vista.
+- **Lección en celular y tablet (menos de 1024 px):** la barra muestra la idea que estás leyendo y abre el Glass Drawer con el avance, el temario y el índice. Las secciones siguen en la manija del borde izquierdo.
+- **Escenas:** a dos columnas desde 1280 px; antes, a una. El diagrama del bucle se reacomoda según su propio ancho.
+- **Inicio y especialidades:** pizarras en bento sobre el mismo lienzo, con los títulos de sección directo sobre el lienzo.
 
 ## Elevation & Depth
 
-Sin sombras. La profundidad sale de las líneas finas, la cuadrícula de la pizarra y el pulso del «estás aquí».
+La profundidad sale del vidrio apilado: desenfoque, un filo de luz arriba y una sombra suave solo en las pizarras principales. Adentro de una pizarra no se vuelve a desenfocar: un desenfoque anidado no ve lo que hay detrás y solo gasta GPU, así que las capas internas son color translúcido con su filo de luz.
+
+### Shadow Vocabulary
+- **Pizarra** (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,.16), 0 20px 45px -15px rgba(0,0,0,.65)`): la barra, el temario, el lector y los boards.
+- **Destacada** (`box-shadow: inset 1px 1px 0 0 rgba(255,255,255,.22), 0 12px 30px -10px rgba(0,0,0,.5)`): la tarjeta de portada y la lección activa, con el bisel hacia arriba a la izquierda.
+- **Data Glow** (`box-shadow: 0 0 12px -1px <color>`): barras y puntos que miden algo.
+
+### Named Rules
+**La regla de la opacidad de lectura.** El lector nunca baja de 0,75 de opacidad, y si el sistema pide menos transparencia, las superficies suben a 0,95 sin desenfoque.
+
+**La regla del celular liviano.** En pantallas de menos de 1024 px, solo la barra de arriba y el Glass Drawer desenfocan de verdad. Las otras pizarras tienen detrás solo luz ya difusa, y ahí el desenfoque no cambia lo que se ve.
 
 ## Shapes
 
-Botones y selectores en pastilla (999 px). La pizarra tiene esquinas de 20 px y las tarjetas, de 18 px. Las estaciones y paradas son círculos, las zonas son cuadrados de esquinas redondeadas (8 px) y los cuadros de probabilidad, de 3 px.
+Esquinas generosas y concéntricas: lector de 28 px, pizarras de 24 px, tarjetas de 20 px, opciones de 16 px y pozos de 14 px. Lo que se toca es una píldora completa. Los bordes son siempre de 1 px; nada de bordes gruesos de color.
 
 ## Components
 
-### Mapa de la línea (portada)
-Una línea vertical de 3 px que baja por todo el mapa. Cada **zona** es un nodo cuadrado con su número en serif, seguido de «Zona N · Nombre» y su conteo. Cada **estación** es un círculo sobre la línea:
-- **Abierta:** círculo de 22 px relleno con el acento y pulso, título en negrita y la pastilla «Abierta · entrar →». Toda la fila es un enlace.
-- **Próxima:** anillo de 16 px con el color de la línea; el título en `tinta-2`.
-- **Completada:** círculo relleno con el color de la línea.
-- **Combinación con la Línea 2:** rótulo «L2 · 21, 24–26» con trazo punteado en `l2`.
-- **Destino:** un cuadrado relleno al final con «CEO/CTO de tus agentes».
+### Barra superior (HUD)
+Una cápsula de vidrio que flota arriba. A la izquierda, el logo y las migas, con la lección en una píldora; al centro, el Segmented Control de las 4 secciones; a la derecha, el avance real y el enlace al grafo. No lleva perfil ni XP porque el sitio no tiene cuentas.
 
-### Cartel «Tu próxima estación» (portada)
-Una sola tarjeta con el número de la estación en un círculo con pulso, el nombre en serif, «Zona · paradas» y el botón «Entrar a la estación». Al lado lleva una mini pizarra con cuadros que se llenan al cargar.
+### Segmented Control
+Cápsula oscura; la opción activa, en blanco translúcido con un filo de luz, y una burbuja que se desliza hasta la nueva sección.
 
-### Cartel de estación (lección)
-El número de la estación en un círculo con borde del acento, «Estación N de 16 · Zona», el título en serif y un botón para volver al mapa.
+### Temario (sidebar)
+Arriba, una tarjeta con el porcentaje en cifra liviana y una línea de luz con un punto brillante donde vas. Abajo, los módulos: las lecciones inactivas, limpias y en tinta secundaria; la activa, en tarjeta destacada con un punto de luz, texto blanco y el índice de la lección adentro.
 
-### Línea de paradas (lección)
-Siete círculos de 29 px unidos por un riel de 3 px. La parada **actual** va rellena con el acento y pulso. Las **hechas** van rellenas con el color de la línea y un ✓. Las **pendientes** son anillos. Cada parada es un botón con su nombre y una descripción corta. El riel queda trazado hasta donde llegaste.
+### Lector y tarjeta de portada
+La portada lleva píldoras con el módulo, la lección y los minutos de lectura (calculados del texto), el título y el resumen. Debajo, las ideas se leen de corrido, separadas por líneas finas.
 
-### Pizarra
-Superficie con cuadrícula, borde fino y 20 px de esquina. Arriba dice «Parada N de 7 · Nombre» y lo que es (escena, simulación, ejercicio), y debajo va la pregunta en serif. Tiene una sola idea y un texto de una o dos líneas como máximo.
+### Escenas y diagramas
+Cada una es una tarjeta de Capa 2 con su título y la píldora «Pruébalo». Sus opciones son píldoras que se iluminan al elegirlas; sus respuestas, tarjetas que se iluminan al pasar; lo que se escribe o se lee adentro va en un pozo oscuro; las perillas son una línea luminosa con un botón blanco. La acción principal de cada escena es la única píldora blanca sólida.
 
-### Momentos de la escena (reproductor)
-La barra inferior de la pizarra tiene los capítulos (por ejemplo: 1 La frase · 2 Probabilidades · 3 Elegir · 4 Temperatura), cada uno con su rayita de avance, y los botones anterior, Reproducir o Pausa, y siguiente. La narración va debajo de la pizarra y se lee en voz alta (`aria-live`).
+### Prompts
+Pozo oscuro con una cabecera que dice «Prompt» y una píldora para copiar.
 
-### Barras de probabilidad y ruleta (escena interactiva)
-Cada palabra que podría seguir es una fila: la palabra en serif, una barra continua, el porcentaje exacto y ✓ o ✗ si la frase tiene respuesta. El color de la barra dice qué es: verde si es verdadera, rojo si es falsa, el acento si la frase sigue y gris para «otras N palabras». Las filas guardan el orden de temperatura 1, así no saltan al mover las perillas. Debajo va la ruleta: la misma distribución en una franja, donde el dado cae en un punto al azar (un pin que rueda desde la izquierda y se frena en 0,7 s). Después de varias tiradas, cada una es una rayita en la ruleta y el conteo (×12) va al costado de cada fila. Con movimiento reducido, el pin aparece directo en su lugar. (Reemplaza a los 25 cuadros del mockup F: con barras se ven también los valores chicos.)
+### Callouts
+Cristal tintado al 8 % con un borde luminoso del mismo tono: azul para información (Tu práctica), esmeralda para consejos y ámbar para avisos. Van al final de la lección o en las portadas, nunca en medio de una idea.
 
-### Fichas de tokens (escena interactiva)
-El texto cortado en tokens se ve como fichas pegadas, sin espacio entre ellas, que alternan 5 tintes suaves (`ficha-1` a `ficha-5`): así se ve dónde corta cada una sin tapar el texto. El espacio de adelante es parte de la ficha, como en el tokenizador. Con «Números», cada ficha muestra su número en monoespaciada.
+### Navegación del final
+Tarjetas grandes hacia la lección anterior y la siguiente, con una flecha que avanza al pasar. «Marcar como completada» es una píldora grande que se enciende en esmeralda.
 
-### Ventana de contexto (escena interactiva)
-La conversación va como tarjetas, una por mensaje, con quién habla y cuántos tokens usa. Lo que queda fuera de la ventana se ve tenue, con borde punteado y tachado; el resumen tiene borde naranja (`l2`), y la última respuesta del modelo, borde grueso. Al costado va la ventana: una franja con un tramo por mensaje (gris las instrucciones, el acento para ti, tinta para el modelo, naranja el resumen) y, debajo, una barra por turno con los tokens que leyó el modelo.
+### Glass Drawer
+En el celular, el panel que se desliza desde la izquierda con desenfoque intenso. Se cierra al tocar fuera, con Escape o al elegir un enlace.
 
-### Línea de tiempo de prefill y decode (escena interactiva)
-Una franja de tiempo con dos tramos: el acento para leer (prefill) y tinta para escribir (decode). Todas las opciones usan la misma escala, la del caso más largo, para que se pueda comparar cuánto tarda cada una en empezar. Al enviar, la franja se llena a una velocidad fija (acelerada, con el factor a la vista). Mientras lee, la tarjeta del prompt se marca entera, porque lee todo a la vez; mientras escribe, la respuesta real aparece token a token con un cursor. Con movimiento reducido, salta directo al final.
-
-### Canvas interactivo (ManimGX + Motion)
-Lo que se explica con movimiento es un **canvas**: una pizarra que avanzas por momentos y que responde al instante a lo que tocas, como un gráfico o un dashboard. **Nunca es un video para mirar.**
-- **Las piezas se dibujan antes, con ManimGX** (`lab/manim/`), al estilo de 3Blue1Brown: fórmulas, diagramas y el dibujo de cada momento. Usan los colores del tema (azul de plumón sobre blanco o dorado sobre negro, verde y rojo para verdadero y falso, gris tenue para las leyendas) y se dibujan una vez por tema.
-- **La página solo junta esas piezas** y mueve con Motion lo que tocas: perillas, barras y contadores. Los datos del modelo también van calculados antes (`lab/`). Nada pesado se genera al abrir la página, y ManimGX no corre en el navegador.
-- **Carga:** cada canvas se descarga cuando llegas a él y pesa menos de 300 KB.
-
-### Video de la biblioteca (YouTube)
-Los videos que van en la app salen, cuando se puede, de la biblioteca de BrainFran (`04-Biblioteca/Videos/`). Van solo donde suman y nunca son hechos por nosotros.
-- Es una tarjeta con la miniatura, el título, el canal y qué mirar. Al tocar la miniatura, el video se ve ahí mismo: el reproductor de YouTube carga recién en ese momento.
-- Al lado va el enlace directo a YouTube. Si el canal no deja ver el video fuera de YouTube, la miniatura abre YouTube.
-
-### Fórmula
-HTML con serif: variables en cursiva, subíndices y superíndices, y la variable que se manipula en el color del acento. Lleva `role="img"` con una descripción en palabras.
-
-### Navegación y próxima estación
-Debajo de la pizarra van los botones «← N · parada anterior» (secundario) y «Siguiente parada: N · nombre →» (primario). Al final de la lección hay una tarjeta con borde punteado para la próxima estación.
-
-### Selector de tema e idioma
-Dos selectores en pastilla en la cabecera: «Blanca | Negra» y «ES | EN». EN queda desactivado hasta que exista la versión en inglés.
-
-### Motion grammar
-- **Entrada de elementos:** opacidad y desplazamiento de 8 px hacia arriba, 500 ms con `cubic-bezier(.2,.7,.2,1)`, escalonado de 110 a 250 ms.
-- **Fichas de la frase:** opacidad en 420 ms y desplazamiento en 520 ms, cada ficha 110 ms después de la anterior.
-- **Cuadros:** cambian de color en 260 ms. Al aparecer llegan en ola, con un retraso de 90 ms por fila más 22 ms por cuadro.
-- **Tirar los dados:** el resaltado recorre las filas cada 55 ms más 10 ms por paso, se va frenando y cae en el token sorteado.
-- **Pulso del «estás aquí»:** sombra que se expande 12 px en 2,4 s, sin parar.
-- **Reproducir:** entre momentos espera 450, 1500, 1900 y 2700 ms.
-- **Movimiento reducido** (`prefers-reduced-motion`): sin animaciones ni transiciones; todo aparece directo en su estado final.
+### Motion
+Solo se mueve lo que responde: píldoras y tarjetas en 250 ms con `cubic-bezier(.16,1,.3,1)`, la burbuja de sección en 460 ms y el panel en 360 ms. Las auras no se mueven, para no distraer de la lectura. Con movimiento reducido, todo cambia sin transición.
 
 ## Do's and Don'ts
 
 ### Do:
-- Mostrar siempre dónde estás (estación y parada) y qué sigue.
-- Una idea por pizarra, con texto de una o dos líneas.
-- Rotular los datos de ejemplo como «de ejemplo».
-- Objetivos táctiles de 44 px como mínimo y contraste de texto de 4,5:1 como mínimo.
-- Botones y enlaces reales (`<button>`, `<a>`), con `aria-label` en los que solo tienen ícono.
-- Videos de la biblioteca de BrainFran: miniatura que se ve en la app y enlace directo a YouTube.
+- **Do** poner cada pizarra directo sobre el lienzo de la página.
+- **Do** usar `#e2e8f0` o `#f8fafc` en los párrafos, con contraste AA como mínimo.
+- **Do** mostrar solo datos reales: el avance sale del navegador y los minutos, del texto de la lección.
+- **Do** escribir `-webkit-backdrop-filter` antes de `backdrop-filter`: el compilador de CSS se queda con el último y Chrome necesita el estándar.
+- **Do** dar objetivos táctiles de 44 px en el celular.
 
 ### Don't:
-- Degradados de fondo, vidrio esmerilado ni emoji.
-- Tarjetas con borde de color a la izquierda.
-- Más de un acento por tema.
-- Párrafos largos dentro de la pizarra.
-- Inventar cifras: lo que no viene de una fuente se marca como ejemplo.
-- Videos para mirar hechos por nosotros (MP4, GIF o parecidos): lo animado es un canvas.
-
-## Vocabulario
-
-| En la interfaz | En la nota de BrainFran |
-|---|---|
-| Línea | Pilar |
-| Zona | Etapa |
-| Estación | Bloque |
-| Parada | Paso del método (problema, mecanismo, criterio, cómo falla, sin la etiqueta, dirigirlo, práctica) |
-| Momento | Cada parte de una escena animada |
-
-## Maquetas
-
-- Lienzo con todas las opciones; la elegida está en la página «F · Pizarra en metro»: https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW (privado).
-- Fuente de las maquetas aprobadas, como referencia para la Fase 2: `docs/diseno/maqueta-portada.dc.html` y `docs/diseno/maqueta-leccion.dc.html`. Usan el formato del lienzo; en la app se rehacen como componentes de Next.js.
+- **Don't** ponerle a una pizarra un fondo, una foto o una luz propia.
+- **Don't** usar texto gris oscuro sobre vidrio oscuro.
+- **Don't** anidar `backdrop-filter` dentro de otra pizarra.
+- **Don't** poner recuadros en medio de una idea: cortan el hilo de la lectura.
+- **Don't** inventar perfil, XP o rachas mientras el sitio no tenga cuentas.
+- **Don't** hacer videos para mirar: lo animado es un canvas interactivo.

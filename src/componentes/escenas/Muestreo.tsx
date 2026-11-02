@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { IconoCerrar, IconoCheck } from "@/componentes/Iconos";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
+import { CabeceraEscena } from "./CabeceraEscena";
 import datos from "./datos/muestreo-es.json";
 import { distribucion, elegir, type Candidata, type Frase, type Veredicto } from "./muestreo";
 
@@ -121,18 +123,13 @@ export function Muestreo({ lang }: { lang: Idioma }) {
   const tramoElegido = elegida && (visibles.includes(elegida) ? elegida.palabra : "resto");
   const columnas =
     varias.length > 0
-      ? "grid-cols-[minmax(0,6rem)_minmax(0,1fr)_3.4rem_1rem_2rem] sm:grid-cols-[minmax(0,8.5rem)_minmax(0,1fr)_4rem_1.2rem_2.4rem]"
-      : "grid-cols-[minmax(0,6rem)_minmax(0,1fr)_3.4rem_1rem] sm:grid-cols-[minmax(0,8.5rem)_minmax(0,1fr)_4rem_1.2rem]";
+      ? "grid-cols-[minmax(0,6.75rem)_minmax(0,1fr)_3.4rem_1rem_2rem] sm:grid-cols-[minmax(0,8.5rem)_minmax(0,1fr)_4rem_1.2rem_2.4rem]"
+      : "grid-cols-[minmax(0,6.75rem)_minmax(0,1fr)_3.4rem_1rem] sm:grid-cols-[minmax(0,8.5rem)_minmax(0,1fr)_4rem_1.2rem]";
 
   return (
-    <section aria-labelledby="escena-muestreo" className="flex flex-col gap-6 rounded-[18px] sm:border sm:border-borde sm:bg-fondo sm:p-[clamp(16px,2.4vw,28px)]">
+    <section aria-labelledby="escena-muestreo" className="escena glass-card flex flex-col gap-6">
       <div className="flex flex-col gap-3">
-        <div className="flex flex-col gap-1">
-          <span className="text-sm text-tenue">{textos(lang).escenas.ahoraTu}</span>
-          <h3 id="escena-muestreo" className="text-[19px] font-medium">
-            {t.titulo}
-          </h3>
-        </div>
+        <CabeceraEscena id="escena-muestreo" titulo={t.titulo} lang={lang} />
         <div role="group" aria-label={t.elige} className="flex flex-wrap gap-2">
           {frases.map((f) => (
             <button
@@ -140,9 +137,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
               type="button"
               aria-pressed={f.id === fraseId}
               onClick={() => cambiar(setFraseId, f.id)}
-              className={`min-h-10 rounded-full border px-4 text-left text-[15px] ${
-                f.id === fraseId ? "border-primario bg-primario text-primario-tinta" : "border-borde-fuerte hover:bg-suave"
-              }`}
+              className="glass-pill min-h-10 px-4 text-left text-[15px]"
             >
               {f.muestra ? `«${f.muestra.length > 34 ? `${f.muestra.slice(0, 32)}…` : f.muestra}»` : `${f.texto}…`}
             </button>
@@ -150,7 +145,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
         </div>
       </div>
 
-      <p className="font-serif text-[clamp(24px,2.6vw,34px)] leading-snug text-pretty">
+      <p className="text-[clamp(21px,2.4vw,30px)] leading-snug font-medium tracking-[-0.015em] text-pretty">
         {frase.muestra ? (
           <>
             «{frase.muestra}» <span className="text-tenue">→ {t.categoria}:</span>
@@ -168,7 +163,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
         {elegida && !elegida.veredicto && <span className="text-tenue">…</span>}
       </p>
 
-      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
+      <div className="grid gap-x-10 gap-y-8 xl:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <span className="text-sm text-tenue">{t.candidatas}</span>
@@ -183,19 +178,27 @@ export function Muestreo({ lang }: { lang: Idioma }) {
                     key={palabra}
                     className={`-mx-2 grid ${columnas} items-center gap-2 rounded-[8px] px-2 py-0.5 sm:gap-3 ${pc === 0 ? "opacity-40" : ""} ${marcada ? "bg-suave" : ""}`}
                   >
-                    <span className={`truncate ${c ? "font-serif text-[19px]" : "text-[14px] text-tenue"} ${pc === 0 ? "line-through" : ""}`}>
+                    <span className={`truncate ${c ? "text-[16.5px]" : "text-[14px] text-tenue"} ${pc === 0 ? "line-through" : ""}`}>
                       {c ? c.palabra : rellenar(t.otras, { n: resto.length })}
                     </span>
-                    <span className="h-3 overflow-hidden rounded-full bg-[var(--pizarra-rejilla)]">
+                    <span className="h-2.5 rounded-full bg-[var(--pizarra-rejilla)]">
                       <span
-                        className={`block h-full rounded-full transition-[width] duration-300 ease-out motion-reduce:transition-none ${c ? relleno[tono(c)] : "bg-borde-fuerte"}`}
+                        className={`block h-full rounded-full transition-[width] duration-300 ease-out motion-reduce:transition-none ${c ? `brillo ${relleno[tono(c)]}` : "bg-borde-fuerte"}`}
                         style={{ width: `${pc * 100}%` }}
                       />
                     </span>
                     <span className="text-right text-[15px] tabular-nums">{formato(pc)}</span>
                     <span className="text-center">
-                      {c?.veredicto === "verdadero" && <span className="text-verdadero" aria-label={t.verdadero}>✓</span>}
-                      {c?.veredicto === "falso" && <span className="text-falso" aria-label={t.falso}>✗</span>}
+                      {c?.veredicto === "verdadero" && (
+                        <span role="img" aria-label={t.verdadero} className="inline-flex text-verdadero">
+                          <IconoCheck className="size-4" />
+                        </span>
+                      )}
+                      {c?.veredicto === "falso" && (
+                        <span role="img" aria-label={t.falso} className="inline-flex text-falso">
+                          <IconoCerrar className="size-4" />
+                        </span>
+                      )}
                     </span>
                     {varias.length > 0 && <span className="text-right text-[13px] text-tenue tabular-nums">×{veces ?? 0}</span>}
                   </li>
@@ -244,7 +247,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
           <div className="flex flex-col gap-2">
             <label htmlFor="temperatura" className="flex items-baseline justify-between gap-3">
               <span className="font-medium">{t.temperatura}</span>
-              <span className="font-serif text-[22px] tabular-nums">T = {decimal(temperatura)}</span>
+              <span className="text-[22px] font-light tabular-nums">T = {decimal(temperatura)}</span>
             </label>
             <input
               id="temperatura"
@@ -255,7 +258,8 @@ export function Muestreo({ lang }: { lang: Idioma }) {
               value={temperatura}
               onChange={(e) => cambiar(setTemperatura, Number(e.target.value))}
               aria-valuetext={`${decimal(temperatura)}: ${t.pistas[pista(temperatura)]}`}
-              className="w-full accent-[var(--acento)]"
+              className="glass-rango"
+              style={{ "--p": `${(temperatura / 2) * 100}%` } as React.CSSProperties}
             />
             <p className="text-[15px] text-tinta-2">{t.pistas[pista(temperatura)]}</p>
             <p className={`text-[15px] ${tieneRespuesta && pFalso > 0 ? "text-falso" : "text-tenue"}`}>
@@ -269,7 +273,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
             </p>
           </div>
 
-          <details className="rounded-[12px] border border-borde px-4 py-3">
+          <details className="glass-card rounded-[14px] px-4 py-3">
             <summary className="cursor-pointer text-[15px] select-none">{t.masPerillas}</summary>
             <div className="mt-3 flex flex-col gap-4">
               <div className="flex flex-col gap-1">
@@ -277,24 +281,24 @@ export function Muestreo({ lang }: { lang: Idioma }) {
                   <span>{t.topK}</span>
                   <span className="text-tenue">{k === K_MAX ? t.sinLimite : rellenar(t.topKValor, { k })}</span>
                 </label>
-                <input id="top-k" type="range" min={1} max={K_MAX} step={1} value={k} onChange={(e) => cambiar(setK, Number(e.target.value))} className="w-full accent-[var(--acento)]" />
+                <input id="top-k" type="range" min={1} max={K_MAX} step={1} value={k} onChange={(e) => cambiar(setK, Number(e.target.value))} className="glass-rango" style={{ "--p": `${((k - 1) / (K_MAX - 1)) * 100}%` } as React.CSSProperties} />
               </div>
               <div className="flex flex-col gap-1">
                 <label htmlFor="top-p" className="flex justify-between gap-3 text-[15px]">
                   <span>{t.topP}</span>
                   <span className="text-tenue">{topP === 1 ? t.sinLimite : rellenar(t.topPValor, { p: formato(topP) })}</span>
                 </label>
-                <input id="top-p" type="range" min={0.05} max={1} step={0.05} value={topP} onChange={(e) => cambiar(setTopP, Number(e.target.value))} className="w-full accent-[var(--acento)]" />
+                <input id="top-p" type="range" min={0.05} max={1} step={0.05} value={topP} onChange={(e) => cambiar(setTopP, Number(e.target.value))} className="glass-rango" style={{ "--p": `${((topP - 0.05) / 0.95) * 100}%` } as React.CSSProperties} />
               </div>
               <p className="text-[13px] text-tenue">{t.perillasNota}</p>
             </div>
           </details>
 
           <div className="flex flex-wrap gap-2">
-            <button type="button" onClick={tirar} className="inline-flex min-h-11 items-center rounded-full bg-primario px-5 text-[15px] font-medium text-primario-tinta">
+            <button type="button" onClick={tirar} className="boton-luz">
               {t.tirar}
             </button>
-            <button type="button" onClick={tirarVarias} className="inline-flex min-h-11 items-center rounded-full border border-borde-fuerte px-5 text-[15px] hover:bg-suave">
+            <button type="button" onClick={tirarVarias} className="glass-pill inline-flex min-h-11 items-center px-5 text-[15px]">
               {rellenar(t.tirarVarias, { n: VARIAS })}
             </button>
           </div>

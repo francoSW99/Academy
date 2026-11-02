@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { IconoCheck, IconoFlecha } from "@/componentes/Iconos";
 import { useAvance } from "@/lib/avance";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import type { Especialidad, Leccion } from "@/ruta/tipos";
@@ -36,30 +37,40 @@ export function Temario({
       <nav aria-label={t.temario} className="flex flex-col gap-5">
         {especialidad.modulos.map((m) => (
           <section key={m.n} className="flex flex-col gap-1">
-            <h2 className="px-2 text-[13px] font-medium text-tenue">{rellenar(t.modulo, { n: m.n, nombre: m.nombre })}</h2>
-            <ol className="flex flex-col">
+            <h2 className="px-2.5 text-[12.5px] font-medium text-tenue">{rellenar(t.modulo, { n: m.n, nombre: m.nombre })}</h2>
+            <ol className="flex flex-col gap-0.5">
               {m.lecciones.map((l) => {
                 const e = estado(l);
-                const esActual = l.n === actual;
+                const clases = "grid min-h-11 grid-cols-[22px_minmax(0,1fr)] items-center gap-2.5 rounded-[14px] px-2.5 py-1.5";
+                // La lección que estás leyendo: una tarjeta con un punto de luz y su índice adentro.
+                if (l.n === actual) {
+                  return (
+                    <li key={l.n} className="glass-card-directional my-1 rounded-[16px]">
+                      <Link href={ruta(l)} aria-current="page" className={clases}>
+                        <span aria-hidden className="flex justify-center">
+                          <span className="punto-luz" />
+                        </span>
+                        <span className="min-w-0 text-[14.5px] leading-snug font-medium text-white">{l.titulo}</span>
+                      </Link>
+                      {indice}
+                    </li>
+                  );
+                }
                 const contenido = (
                   <>
                     <Marca estado={e} n={l.n} chica />
-                    <span className={`min-w-0 text-[14.5px] leading-snug ${esActual ? "font-semibold text-tinta" : e === "pronto" ? "text-tenue" : "text-tinta-2"}`}>
-                      {l.titulo}
-                    </span>
+                    <span className="min-w-0 text-[14px] leading-snug">{l.titulo}</span>
                   </>
                 );
-                const clases = `grid min-h-11 grid-cols-[24px_minmax(0,1fr)] items-center gap-2.5 rounded-xl px-2 py-1.5 ${esActual ? "bg-suave" : ""}`;
                 return (
                   <li key={l.n}>
                     {e === "pronto" ? (
-                      <div className={clases}>{contenido}</div>
+                      <div className={`${clases} text-tenue`}>{contenido}</div>
                     ) : (
-                      <Link href={ruta(l)} aria-current={esActual ? "page" : undefined} className={`${clases} hover:bg-suave`}>
+                      <Link href={ruta(l)} className={`${clases} text-tenue transition-colors duration-200 hover:bg-suave hover:text-white`}>
                         {contenido}
                       </Link>
                     )}
-                    {esActual && indice}
                   </li>
                 );
               })}
@@ -75,9 +86,9 @@ export function Temario({
       {especialidad.modulos.map((m) => {
         const disponibles = m.lecciones.filter((l) => l.disponible).length;
         return (
-          <section key={m.n} aria-labelledby={`modulo-${m.n}`} className="flex flex-col gap-2 rounded-[18px] border border-borde p-[clamp(16px,2.4vw,24px)]">
+          <section key={m.n} aria-labelledby={`modulo-${m.n}`} className="glass-board flex flex-col gap-2 p-[clamp(14px,2.4vw,24px)]">
             <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2">
-              <h3 id={`modulo-${m.n}`} className="font-serif text-[clamp(21px,2.2vw,25px)] leading-tight font-normal">
+              <h3 id={`modulo-${m.n}`} className="text-[clamp(19px,2vw,22px)] leading-tight font-medium tracking-[-0.012em]">
                 {rellenar(t.modulo, { n: m.n, nombre: m.nombre })}
               </h3>
               <span className="text-sm text-tenue">{rellenar(t.leccionesDe, { disponibles, total: m.lecciones.length })}</span>
@@ -88,19 +99,22 @@ export function Temario({
                 const contenido = (
                   <>
                     <Marca estado={e} n={l.n} />
-                    <span className={`min-w-0 text-[16.5px] leading-snug ${e === "pronto" ? "text-tenue" : "font-medium text-tinta"}`}>{l.titulo}</span>
-                    <span className={`text-[13.5px] whitespace-nowrap ${e === "pronto" ? "text-tenue" : "font-medium text-acento-texto"}`}>
-                      {e === "completada" ? t.completada : e === "disponible" ? `${t.disponible} →` : t.pronto}
+                    <span className={`min-w-0 text-[16px] leading-snug ${e === "pronto" ? "text-tenue" : "font-medium text-white"}`}>{l.titulo}</span>
+                    <span
+                      className={`inline-flex items-center gap-1 text-[13.5px] whitespace-nowrap ${e === "pronto" ? "text-tenue" : e === "completada" ? "font-medium text-[#34d399]" : "font-medium text-acento-texto"}`}
+                    >
+                      {e === "completada" ? t.completada : e === "pronto" ? t.pronto : t.disponible}
+                      {e === "disponible" && <IconoFlecha className="glass-flecha size-[15px]" />}
                     </span>
                   </>
                 );
-                const clases = "grid min-h-14 grid-cols-[32px_minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-2 py-2";
+                const clases = "grid min-h-14 grid-cols-[32px_minmax(0,1fr)_auto] items-center gap-3 rounded-[14px] px-2 py-2";
                 return (
                   <li key={l.n}>
                     {e === "pronto" ? (
                       <div className={clases}>{contenido}</div>
                     ) : (
-                      <Link href={ruta(l)} className={`${clases} hover:bg-suave`}>
+                      <Link href={ruta(l)} className={`${clases} transition-colors duration-200 hover:bg-suave`}>
                         {contenido}
                       </Link>
                     )}
@@ -115,18 +129,13 @@ export function Temario({
   );
 }
 
-/** El círculo de cada lección: ✓ si está completada, el número en azul si está disponible, gris si viene pronto. */
+/** La marca de cada lección: ✓ con luz si está completada, el número si está disponible, tenue si viene pronto. */
 function Marca({ estado, n, chica = false }: { estado: Estado; n: string; chica?: boolean }) {
-  const tamano = chica ? "size-6 text-[11px]" : "size-8 text-[13px]";
-  const color =
-    estado === "completada"
-      ? "border-linea bg-linea text-fondo"
-      : estado === "disponible"
-        ? "border-acento text-acento-texto"
-        : "border-borde-fuerte text-tenue";
+  const tamano = chica ? "size-[22px] text-[11.5px]" : "size-8 text-[13px]";
+  const color = estado === "completada" ? "marca-hecha" : estado === "disponible" ? "border border-white/30 text-white" : "border border-white/10 text-tenue";
   return (
-    <span aria-hidden className={`flex items-center justify-center rounded-full border-2 font-semibold tabular-nums ${tamano} ${color}`}>
-      {estado === "completada" ? "✓" : Number(n)}
+    <span aria-hidden className={`flex items-center justify-center rounded-full font-medium tabular-nums ${tamano} ${color}`}>
+      {estado === "completada" ? <IconoCheck className={chica ? "size-3" : "size-4"} /> : Number(n)}
     </span>
   );
 }

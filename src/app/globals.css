@@ -1,93 +1,100 @@
 @import "tailwindcss";
 
 /*
- * Colores de DESIGN.md (UI provisional: para rediseñar, se cambia este bloque).
- * Pizarra blanca por defecto; pizarra negra si el sistema está en modo oscuro.
+ * Dark Spatial Glassmorphism (DESIGN.md). La página tiene un solo fondo: el lienzo oscuro con sus 3 auras fijas
+ * (Lienzo.tsx). Las pizarras de vidrio van directo sobre ese fondo, y ninguna tiene uno propio.
  */
 :root {
-  --fondo: #ffffff;
-  --pizarra: #ffffff;
-  --pizarra-rejilla: #eef1f6;
-  --tinta: #15171c;
-  --tinta-2: #3d424b;
-  --tenue: #626875;
-  --borde: #e3e7ee;
-  --borde-fuerte: #c7cdd7;
-  --linea: #2b2f37;
-  --acento: #2457d6;
-  --acento-texto: #1f4fc4;
-  --acento-tinta: #ffffff;
-  --suave: rgba(36, 87, 214, 0.07);
-  --pulso: rgba(36, 87, 214, 0.3);
-  --verdadero: #1e7b45;
-  --falso: #c62828;
-  --l2: #c2410c;
-  --primario: #15171c;
-  --primario-tinta: #ffffff;
-  --codigo-fondo: #15171c;
-  --codigo-tinta: #f1f3f7;
+  /* Canvas & Fondos */
+  --bg-canvas: #06080d;
+
+  /* Superficies Glass */
+  --glass-board-bg: rgba(15, 19, 28, 0.68);
+  --glass-reader-bg: rgba(12, 15, 23, 0.82); /* Mayor opacidad para lectura cómoda */
+  --glass-card-bg: rgba(255, 255, 255, 0.04);
+  --glass-card-hover: rgba(255, 255, 255, 0.08);
+  --glass-pill-bg: rgba(255, 255, 255, 0.06);
+  --glass-code-bg: rgba(5, 7, 12, 0.6);
+
+  /* Bordes y Reflejos */
+  --glass-border-subtle: rgba(255, 255, 255, 0.07);
+  --glass-border-highlight: rgba(255, 255, 255, 0.18);
+  --glass-specular-inset: inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+  --glass-shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+
+  /* Tipografía y Acentos */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #3b82f6;
+  --accent-warm: #f59e0b;
+  --accent-emerald: #10b981;
+
+  /* Los nombres que usa la app, sobre esos valores. */
+  --fondo: var(--bg-canvas);
+  --pizarra: var(--glass-card-bg);
+  --pizarra-rejilla: rgba(255, 255, 255, 0.08);
+  --tinta: var(--text-primary);
+  --tinta-2: #e2e8f0;
+  --tenue: var(--text-secondary);
+  --borde: var(--glass-border-subtle);
+  --borde-fuerte: var(--glass-border-highlight);
+  --linea: #cbd5e1;
+  --acento: var(--accent-primary);
+  --acento-texto: #60a5fa;
+  --acento-tinta: #06080d;
+  --suave: rgba(255, 255, 255, 0.07);
+  --verdadero: var(--accent-emerald);
+  --falso: #f87171;
+  --l2: var(--accent-warm);
+  --primario: #f8fafc;
+  --primario-tinta: #06080d;
+  --codigo-fondo: var(--glass-code-bg);
+  --codigo-tinta: #e2e8f0;
   /* Fichas de tokens: se alternan para que se vea dónde corta cada una. */
-  --ficha-1: #dce6ff;
-  --ficha-2: #d6f0df;
-  --ficha-3: #ffe6c7;
-  --ficha-4: #ebdcff;
-  --ficha-5: #ffd8e1;
+  --ficha-1: rgba(110, 155, 255, 0.24);
+  --ficha-2: rgba(90, 200, 130, 0.22);
+  --ficha-3: rgba(245, 170, 80, 0.24);
+  --ficha-4: rgba(175, 135, 255, 0.26);
+  --ficha-5: rgba(255, 120, 160, 0.24);
   /* Un color por especialidad: dice a cuál pertenece cada cosa (barra de arriba, tarjetas, puentes). */
-  --esp-ai: #2457d6;
-  --esp-ml: #7044d4;
-  --esp-ds: #0b7f78;
-  /* El vidrio del selector de secciones: pista gris translúcida y burbuja blanca para la elegida. */
-  --vidrio-pista: rgba(236, 239, 244, 0.58);
-  --vidrio-pista-opaca: rgba(236, 239, 244, 0.97);
-  --vidrio-borde: rgba(255, 255, 255, 0.75);
-  --vidrio-filo: rgba(15, 23, 42, 0.07);
-  --vidrio-sombra: 0 16px 36px -16px rgba(15, 23, 42, 0.34), 0 2px 8px -3px rgba(15, 23, 42, 0.1);
-  --vidrio-brillo: rgba(255, 255, 255, 0.9);
-  --vidrio-burbuja: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.84) 100%);
-  --vidrio-burbuja-sombra: 0 0 0 1px rgba(15, 23, 42, 0.05), 0 6px 16px -6px rgba(15, 23, 42, 0.3), inset 0 1px 0 #ffffff;
-  color-scheme: light;
+  --esp-ai: #7fa6ff;
+  --esp-ml: #b79cff;
+  --esp-ds: #4fd1c5;
+
+  /* El marco que respira alrededor de las pizarras y la altura de la barra flotante. */
+  --marco-x: 8px;
+  --marco-y: 8px;
+  --hud-alto: 52px;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (min-width: 1024px) {
   :root {
-    --fondo: #0a0d13;
-    --pizarra: #0e121a;
-    --pizarra-rejilla: rgba(255, 255, 255, 0.045);
-    --tinta: #eceff4;
-    --tinta-2: #b9c0cc;
-    --tenue: #8b93a1;
-    --borde: rgba(255, 255, 255, 0.08);
-    --borde-fuerte: rgba(255, 255, 255, 0.18);
-    --linea: #b9c0cc;
-    --acento: #f5c451;
-    --acento-texto: #f5c451;
-    --acento-tinta: #1a1405;
-    --suave: rgba(245, 196, 81, 0.09);
-    --pulso: rgba(245, 196, 81, 0.4);
-    --verdadero: #83c167;
-    --falso: #fc6255;
-    --l2: #7fb2f0;
-    --primario: #eceff4;
-    --primario-tinta: #0a0d13;
-    --codigo-fondo: rgba(255, 255, 255, 0.06);
-    --codigo-tinta: #eceff4;
-    --ficha-1: rgba(110, 155, 255, 0.24);
-    --ficha-2: rgba(90, 200, 130, 0.22);
-    --ficha-3: rgba(245, 170, 80, 0.24);
-    --ficha-4: rgba(175, 135, 255, 0.26);
-    --ficha-5: rgba(255, 120, 160, 0.24);
-    --esp-ai: #7fa6ff;
-    --esp-ml: #b79cff;
-    --esp-ds: #4fd1c5;
-    --vidrio-pista: rgba(30, 34, 44, 0.62);
-    --vidrio-pista-opaca: rgba(30, 34, 44, 0.97);
-    --vidrio-borde: rgba(255, 255, 255, 0.1);
-    --vidrio-filo: rgba(0, 0, 0, 0.45);
-    --vidrio-sombra: 0 16px 36px -14px rgba(0, 0, 0, 0.75), 0 2px 8px -3px rgba(0, 0, 0, 0.4);
-    --vidrio-brillo: rgba(255, 255, 255, 0.09);
-    --vidrio-burbuja: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.11) 100%);
-    --vidrio-burbuja-sombra: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 6px 16px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.22);
-    color-scheme: dark;
+    --marco-x: 16px;
+    --marco-y: 16px;
+    --hud-alto: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --marco-x: 24px;
+  }
+}
+
+/* Sin vidrio posible, o si el sistema lo pide: las superficies se vuelven casi opacas. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass-board-bg: rgba(15, 19, 28, 0.95);
+    --glass-reader-bg: rgba(12, 15, 23, 0.95);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-board-bg: rgba(15, 19, 28, 0.95);
+    --glass-reader-bg: rgba(12, 15, 23, 0.95);
   }
 }
 
@@ -120,33 +127,40 @@
   --color-esp-ml: var(--esp-ml);
   --color-esp-ds: var(--esp-ds);
   --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
-  --font-serif: "Newsreader", Georgia, serif;
+  --font-mono: "Google Sans Code", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* El fondo va en <html> y <body> queda transparente: así las auras (z-index: -1) se ven detrás de todo. */
+html {
+  background: var(--bg-canvas);
+  scroll-padding-top: calc(var(--marco-y) + var(--hud-alto) + 24px);
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-width: thin;
 }
 
 body {
-  background: var(--fondo);
-  color: var(--tinta);
+  color: var(--text-primary);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.42);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--acento);
+  outline: 2px solid #93c5fd;
   outline-offset: 3px;
-  border-radius: 10px;
 }
 
-.pizarra {
-  background-color: var(--pizarra);
-  background-image:
-    linear-gradient(var(--pizarra-rejilla) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pizarra-rejilla) 1px, transparent 1px);
-  background-size: 24px 24px;
+summary {
+  cursor: pointer;
 }
 
-@keyframes pulso {
-  0% { box-shadow: 0 0 0 0 var(--pulso); }
-  70% { box-shadow: 0 0 0 12px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
+summary::marker {
+  color: var(--text-secondary);
 }
 
 @keyframes aparecer {
@@ -154,7 +168,6 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .aqui { animation: pulso 2.4s ease-out infinite; }
   /* Aparece con un retraso propio (--retraso): las tiradas caen una tras otra. */
   .aparece { animation: aparecer 260ms ease-out both; animation-delay: var(--retraso, 0ms); }
 }
@@ -190,25 +203,739 @@ body {
   }
 }
 
-/*
- * El selector de las 4 secciones (Secciones.tsx), en vidrio. El vidrio tiene un trabajo: flota sobre
- * la página y, al hacer scroll, el contenido pasa por debajo sin que la barra deje de leerse.
- * - Desde 1024 px: una píldora arriba al centro.
- * - En el celular y la tablet: una manija chica en el borde izquierdo que abre un dock vertical,
- *   para no tapar el estudio ni lo que va abajo (pedidos 53 y 54).
- */
 @layer components {
+  /* El lienzo: un solo fondo para toda la página, con 3 orbes de luz difusa fijos. */
+  .aura {
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    background: var(--aura);
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  .aura-azul {
+    --aura: #3b82f6;
+    top: -24vmax;
+    left: -12vmax;
+    width: 62vmax;
+    height: 62vmax;
+    opacity: 0.22;
+  }
+
+  .aura-indigo {
+    --aura: #6366f1;
+    top: 16vh;
+    right: -22vmax;
+    width: 58vmax;
+    height: 58vmax;
+    opacity: 0.2;
+  }
+
+  .aura-ambar {
+    --aura: #f59e0b;
+    bottom: -22vmax;
+    left: 18vw;
+    width: 48vmax;
+    height: 48vmax;
+    opacity: 0.18;
+  }
+
+  /* Contenedor Principal de un Glassboard */
+  .glass-board {
+    background: var(--glass-board-bg);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid var(--glass-border-subtle);
+    box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
+    border-radius: 24px;
+  }
+
+  /* El lienzo de lectura: más opaco, para las sesiones largas de estudio. */
+  .glass-reader {
+    background: var(--glass-reader-bg);
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    border: 1px solid var(--glass-border-subtle);
+    box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
+    border-radius: 28px;
+  }
+
+  /* Capa 2: cristal elevado que flota sobre la pizarra. */
+  .glass-card {
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 20px;
+    box-shadow: var(--glass-specular-inset);
+  }
+
+  /* Tarjeta con Borde Direccional Brillante (Hero / Destacados) */
+  .glass-card-directional {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border-subtle);
+    box-shadow:
+      inset 1px 1px 0 0 rgba(255, 255, 255, 0.22),
+      0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Píldoras Interactivas (Botones, Tags, Filtros) */
+  .glass-pill {
+    background: var(--glass-pill-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9999px;
+    color: var(--text-primary);
+    transition:
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(a, button).glass-pill:not(:disabled, [aria-pressed="true"]):hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+      transform: translateY(-1px);
+    }
+  }
+
+  :is(a, button).glass-pill:active {
+    transform: scale(0.97);
+  }
+
+  .glass-pill:disabled {
+    opacity: 0.4;
+  }
+
+  /* La elegida, iluminada en blanco translúcido. */
+  .glass-pill[aria-pressed="true"] {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+
+  /* El rendimiento: un desenfoque dentro de otro no ve lo que hay detrás de la pizarra y solo gasta GPU. */
+  :is(.glass-board, .glass-reader, .glass-drawer) :is(.glass-pill, .glass-card-directional) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  /* Una etiqueta chica en píldora: el módulo, los minutos, «Pruébalo». */
+  .insignia {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    gap: 7px;
+    padding-inline: 11px;
+    color: var(--tinta-2);
+    font-size: 12.5px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* «Marcar como completada»: una píldora grande que se enciende en esmeralda. */
+  .completar[aria-pressed="true"] {
+    background: rgba(16, 185, 129, 0.16);
+    border-color: rgba(52, 211, 153, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(52, 211, 153, 0.35),
+      0 0 26px -6px rgba(16, 185, 129, 0.6);
+    color: #d1fae5;
+  }
+
+  /* Las pizarras que son un enlace se iluminan al pasar. */
+  @media (hover: hover) and (pointer: fine) {
+    a.glass-board:hover {
+      border-color: var(--glass-border-highlight);
+      background: rgba(23, 28, 40, 0.72);
+    }
+  }
+
+  a.glass-board {
+    transition:
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* El botón principal de cada escena: la única luz blanca sólida. */
+  .boton-luz {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding-inline: 20px;
+    border-radius: 9999px;
+    background: var(--primario);
+    color: var(--primario-tinta);
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 8px 24px -12px rgba(255, 255, 255, 0.5);
+    transition:
+      box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .boton-luz:hover {
+      box-shadow: 0 0 26px rgba(255, 255, 255, 0.28);
+      transform: translateY(-1px);
+    }
+  }
+
+  .boton-luz:active {
+    transform: scale(0.97);
+  }
+
+  /* Segmented Control tipo visionOS: cápsula oscura y la opción activa en blanco translúcido. */
+  .glass-segmentado {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  .glass-segmentado > button {
+    min-height: 36px;
+    padding-inline: 14px;
+    border-radius: 9999px;
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    transition:
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-segmentado > button[aria-pressed="true"] {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+  }
+
+  /* El pozo: lo que se escribe o se lee adentro de una escena va en cristal oscuro. */
+  .glass-pozo {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    background: var(--glass-code-bg);
+  }
+
+  textarea.glass-pozo {
+    caret-color: var(--accent-primary);
+    transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  textarea.glass-pozo:focus {
+    border-color: rgba(147, 197, 253, 0.6);
+    outline: none;
+  }
+
+  /* Bloques de código y prompts: cabecera con el lenguaje y el botón de copiar. */
+  .glass-code {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    background: var(--glass-code-bg);
+  }
+
+  .glass-code-cabecera {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 8px 6px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+
+  /* Callouts: cristal tintado según su tipo, con un borde luminoso del mismo tono. */
+  .glass-callout {
+    --tono: 59, 130, 246;
+    border: 1px solid rgba(var(--tono), 0.3);
+    border-radius: 20px;
+    background: rgba(var(--tono), 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(var(--tono), 0.3),
+      0 0 32px -14px rgba(var(--tono), 0.5);
+  }
+
+  .glass-callout[data-tono="aviso"] {
+    --tono: 245, 158, 11;
+  }
+
+  .glass-callout[data-tono="tip"] {
+    --tono: 16, 185, 129;
+  }
+
+  .glass-callout-linea {
+    border-color: rgba(var(--tono), 0.2);
+  }
+
+  .glass-callout-numero {
+    color: rgb(var(--tono));
+    text-shadow: 0 0 14px rgba(var(--tono), 0.7);
+  }
+
+  /* Tarjetas que se tocan: una opción de respuesta, un puente, la siguiente lección. Se iluminan al pasar. */
+  .glass-opcion {
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 16px;
+    box-shadow: var(--glass-specular-inset);
+    transition:
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(a, button).glass-opcion:hover {
+      background: var(--glass-card-hover);
+      border-color: var(--glass-border-highlight);
+      box-shadow:
+        var(--glass-specular-inset),
+        0 0 26px -6px rgba(59, 130, 246, 0.35);
+    }
+  }
+
+  :is(a, button).glass-opcion:active {
+    transform: scale(0.985);
+  }
+
+  .glass-flecha {
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    a:hover .glass-flecha {
+      transform: translateX(4px);
+    }
+
+    a:hover .glass-flecha-atras {
+      transform: translateX(-4px);
+    }
+  }
+
+  /* Cada escena es una pizarra de la Capa 2. En el celular gana ancho a costa del margen de la lectura. */
+  .escena {
+    margin-inline: -4px;
+    padding: 14px;
+  }
+
+  @media (min-width: 640px) {
+    .escena {
+      margin-inline: 0;
+      padding: clamp(18px, 2.4vw, 28px);
+    }
+  }
+
+  /* Data Glow: lo que mide brilla apenas con su propio color. */
+  .brillo {
+    box-shadow: 0 0 12px -1px var(--brillo, var(--accent-primary));
+  }
+
+  .brillo.bg-verdadero {
+    --brillo: var(--verdadero);
+  }
+
+  .brillo.bg-falso {
+    --brillo: var(--falso);
+  }
+
+  .punto-luz {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--luz, #3b82f6);
+    box-shadow: 0 0 10px var(--luz, #3b82f6);
+  }
+
+  .barra-luz {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .barra-luz-relleno {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--luz, #3b82f6);
+    box-shadow: 0 0 10px var(--luz, #3b82f6);
+  }
+
+  .barra-luz-punto {
+    position: absolute;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 10px var(--luz, #3b82f6);
+    transform: translate(-50%, -50%);
+  }
+
+  .marca-hecha {
+    background: rgba(16, 185, 129, 0.16);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+    color: #34d399;
+  }
+
+  /* Las perillas: una línea luminosa hasta el valor y un botón blanco que brilla. */
+  .glass-rango {
+    width: 100%;
+    height: 28px;
+    background: transparent;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: pan-y;
+  }
+
+  .glass-rango::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, var(--accent-primary) var(--p, 50%), rgba(255, 255, 255, 0.12) var(--p, 50%));
+  }
+
+  .glass-rango::-moz-range-track {
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .glass-rango::-moz-range-progress {
+    height: 4px;
+    border-radius: 9999px;
+    background: var(--accent-primary);
+  }
+
+  .glass-rango::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+    margin-top: -7px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.85);
+    -webkit-appearance: none;
+  }
+
+  .glass-rango::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.85);
+  }
+
+  /* El marco: las pizarras respiran y nada toca el borde de la pantalla. */
+  .marco {
+    width: 100%;
+    max-width: 1360px;
+    margin-inline: auto;
+    padding: var(--marco-y) var(--marco-x);
+  }
+
+  /* La barra superior flotante. */
+  .hud {
+    position: sticky;
+    z-index: 30;
+    top: var(--marco-y);
+    display: flex;
+    min-height: var(--hud-alto);
+    align-items: center;
+    gap: 10px;
+    padding-inline: 14px 7px;
+    border-radius: 9999px;
+  }
+
+  .hud-lado {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hud-derecha {
+    flex-shrink: 0;
+    margin-left: auto;
+    gap: 6px;
+  }
+
+  .hud-marca {
+    display: inline-flex;
+    min-height: 44px;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    border-radius: 9999px;
+  }
+
+  .hud-nombre {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .hud-migas {
+    display: none;
+  }
+
+  .hud-miga-separador {
+    color: var(--text-muted);
+  }
+
+  .hud-pill {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    gap: 8px;
+    padding-inline: 14px;
+    color: var(--tinta-2);
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .hud-grafo {
+    display: none;
+  }
+
+  .hud-movil {
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* En una lección del celular, lo que no sea el índice se va al panel. */
+  .hud:has(.hud-movil) .hud-nombre,
+  .hud:has(.hud-movil) .hud-derecha {
+    display: none;
+  }
+
+  .hud-indice {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 9999px;
+    padding-left: 2px;
+    color: var(--tinta-2);
+    font-size: 14.5px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .hud-indice-icono {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    place-items: center;
+  }
+
+  /* El sidebar: progreso arriba y el temario con su scroll interno, sin barra a la vista. */
+  .panel-temario {
+    position: sticky;
+    top: calc(var(--marco-y) + var(--hud-alto) + 16px);
+    display: flex;
+    max-height: calc(100dvh - var(--marco-y) * 2 - var(--hud-alto) - 16px);
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .panel-temario-lista {
+    min-height: 0;
+    flex: 1;
+    padding: 12px 2px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12px, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 12px, #000 calc(100% - 28px), transparent 100%);
+  }
+
+  .panel-temario-lista::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .panel-temario-lista {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* La entrada del índice que estás leyendo: una marca de luz sobre el riel. */
+  .indice-entrada[aria-current] {
+    position: relative;
+    color: #ffffff;
+  }
+
+  .indice-entrada[aria-current]::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    bottom: 7px;
+    left: -9px;
+    width: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+
+  /* En el celular, la ventana de la escena de contexto queda fija debajo de la barra de arriba. */
+  .ventana-fija {
+    position: sticky;
+    z-index: 10;
+    top: calc(var(--marco-y) + var(--hud-alto) + 6px);
+    padding: 10px 12px;
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 14px;
+    background: rgba(16, 20, 29, 0.96);
+  }
+
+  /* Glass Drawer: el temario del celular, un menú que se desliza con desenfoque intenso. */
+  html:has(.glass-drawer[open]) {
+    overflow: hidden;
+  }
+
+  .glass-drawer {
+    position: fixed;
+    inset: 8px auto 8px 8px;
+    width: min(340px, calc(100vw - 40px));
+    max-width: none;
+    height: auto;
+    max-height: none;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: rgba(15, 19, 28, 0.72);
+    box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
+    color: var(--text-primary);
+    -webkit-backdrop-filter: blur(40px) saturate(160%);
+    backdrop-filter: blur(40px) saturate(160%);
+    transform: translateX(calc(-100% - 16px));
+    transition:
+      transform 360ms cubic-bezier(0.32, 0.72, 0, 1),
+      overlay 360ms allow-discrete,
+      display 360ms allow-discrete;
+  }
+
+  .glass-drawer[open] {
+    transform: none;
+  }
+
+  @starting-style {
+    .glass-drawer[open] {
+      transform: translateX(calc(-100% - 16px));
+    }
+  }
+
+  .glass-drawer::backdrop {
+    background: rgba(3, 5, 10, 0);
+    transition:
+      background-color 360ms ease,
+      overlay 360ms allow-discrete,
+      display 360ms allow-discrete;
+  }
+
+  .glass-drawer[open]::backdrop {
+    background: rgba(3, 5, 10, 0.5);
+  }
+
+  @starting-style {
+    .glass-drawer[open]::backdrop {
+      background: rgba(3, 5, 10, 0);
+    }
+  }
+
+  .glass-drawer-interior {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hud {
+      gap: 12px;
+      padding-inline: 20px 10px;
+    }
+
+    .hud-nombre,
+    .hud-miga-especialidad,
+    .hud-grafo-texto,
+    .hud-movil {
+      display: none;
+    }
+
+    /* Al pasar a computador, el nombre y la derecha vuelven, aunque la lección traiga el índice del celular. */
+    .hud:has(.hud-movil) .hud-derecha {
+      display: flex;
+    }
+
+    .hud-migas {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .hud-grafo {
+      display: inline-flex;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hud-nombre,
+    .hud:has(.hud-movil) .hud-nombre,
+    .hud-grafo-texto {
+      display: inline;
+    }
+
+    .hud-miga-especialidad {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  /*
+   * El selector de las 4 secciones (Secciones.tsx). Vive en el layout para que su burbuja se deslice al cambiar.
+   * - Desde 1024 px: el Segmented Control al centro de la barra de arriba.
+   * - En el celular y la tablet: una manija chica en el borde izquierdo que abre un dock vertical,
+   *   para no tapar el estudio ni lo que va abajo (pedidos 53 y 54).
+   */
   .secciones-pista {
     position: relative;
     display: flex;
     padding: 4px;
     border-radius: 999px;
-    border: 1px solid var(--vidrio-borde);
-    background: var(--vidrio-pista-opaca);
-    box-shadow:
-      0 0 0 1px var(--vidrio-filo),
-      var(--vidrio-sombra),
-      inset 0 1px 0 var(--vidrio-brillo);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 19, 28, 0.96);
+    box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
   }
 
   .secciones-item {
@@ -219,7 +946,7 @@ body {
     flex: 0 0 auto;
     align-items: center;
     border-radius: 999px;
-    color: var(--tinta-2);
+    color: var(--text-secondary);
     font-weight: 500;
     line-height: 1.15;
     white-space: nowrap;
@@ -237,7 +964,7 @@ body {
   }
 
   .secciones-item[data-elegida="true"] {
-    color: var(--tinta);
+    color: #ffffff;
   }
 
   .secciones-item:focus-visible {
@@ -252,8 +979,8 @@ body {
 
   /* Sin JavaScript, o antes de medir, la burbuja la dibuja el propio botón. */
   .secciones-pista:not([data-lista]) .secciones-item[data-elegida="true"] {
-    background: var(--vidrio-burbuja);
-    box-shadow: var(--vidrio-burbuja-sombra);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
   }
 
   .secciones-burbuja {
@@ -261,8 +988,10 @@ body {
     top: 0;
     left: 0;
     border-radius: 999px;
-    background: var(--vidrio-burbuja);
-    box-shadow: var(--vidrio-burbuja-sombra);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 1px 3px rgba(0, 0, 0, 0.4);
     pointer-events: none;
   }
 
@@ -272,7 +1001,7 @@ body {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(70% 100% at 50% 0%, color-mix(in srgb, var(--tinte, transparent) 11%, transparent), transparent 75%);
+    background: radial-gradient(70% 100% at 50% 0%, color-mix(in srgb, var(--tinte, transparent) 18%, transparent), transparent 75%);
   }
 
   .secciones-pista[data-animar] .secciones-burbuja {
@@ -284,11 +1013,11 @@ body {
 
   @media (hover: hover) and (pointer: fine) {
     .secciones-item:not([data-elegida="true"]):hover {
-      color: var(--tinta);
+      color: #ffffff;
     }
   }
 
-  /* El computador: la píldora arriba al centro. */
+  /* El computador: al centro de la barra de arriba. */
   .secciones-arriba {
     display: none;
   }
@@ -300,19 +1029,16 @@ body {
     top: 50%;
     left: 0;
     display: flex;
-    width: 30px;
+    width: 28px;
     height: 54px;
     align-items: center;
     justify-content: center;
     padding-right: 3px;
-    border: 1px solid var(--vidrio-borde);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-left: 0;
     border-radius: 0 27px 27px 0;
-    background: var(--vidrio-pista-opaca);
-    box-shadow:
-      0 0 0 1px var(--vidrio-filo),
-      var(--vidrio-sombra),
-      inset 0 1px 0 var(--vidrio-brillo);
+    background: rgba(15, 19, 28, 0.96);
+    box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
     transform: translateY(-50%);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -325,7 +1051,7 @@ body {
   .secciones-manija::before {
     content: "";
     position: absolute;
-    inset: -10px -14px -10px 0;
+    inset: -10px -16px -10px 0;
   }
 
   .secciones-manija:active {
@@ -352,7 +1078,7 @@ body {
     position: fixed;
     z-index: 40;
     inset: 0;
-    background: rgba(15, 23, 42, 0.08);
+    background: rgba(3, 5, 10, 0.4);
     opacity: 0;
     pointer-events: none;
     -webkit-tap-highlight-color: transparent;
@@ -413,9 +1139,9 @@ body {
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .secciones-pista,
     .secciones-manija {
-      background: var(--vidrio-pista);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      backdrop-filter: blur(16px) saturate(180%);
+      background: rgba(15, 19, 28, 0.68);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      backdrop-filter: blur(24px) saturate(160%);
     }
   }
 
@@ -424,21 +1150,30 @@ body {
       display: block;
       position: fixed;
       z-index: 40;
-      top: 6px;
+      top: calc(var(--marco-y) + (var(--hud-alto) - 50px) / 2);
       left: 50%;
       transform: translateX(-50%);
     }
 
+    /* Va sobre la barra de arriba, que ya es de vidrio: una cápsula oscura, sin otro desenfoque. */
+    .secciones-arriba .secciones-pista {
+      background: rgba(0, 0, 0, 0.3);
+      border-color: var(--glass-border-subtle);
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
     .secciones-arriba .secciones-item {
-      min-height: 44px;
+      min-height: 40px;
       gap: 8px;
-      padding: 0 18px;
-      font-size: 14.5px;
+      padding: 0 15px;
+      font-size: 14px;
     }
 
     .secciones-arriba .secciones-icono {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
     }
 
     .secciones-lado {
@@ -451,7 +1186,13 @@ body {
     .secciones-item,
     .secciones-icono,
     .secciones-manija,
-    .secciones-fondo {
+    .secciones-fondo,
+    .glass-pill,
+    .glass-opcion,
+    .glass-flecha,
+    .boton-luz,
+    .glass-drawer,
+    .glass-drawer::backdrop {
       transition: none;
     }
 
@@ -465,6 +1206,49 @@ body {
 
     .secciones-lado[data-abierto] .secciones-dock {
       transition: opacity 120ms ease;
+    }
+  }
+
+  /*
+   * Rendimiento en el celular: detrás de estas pizarras solo hay luz ya difusa, así que el desenfoque no cambia lo
+   * que se ve y sí gasta GPU. Solo lo conservan la barra de arriba y el panel, que tienen texto pasando por detrás.
+   */
+  @media (max-width: 1023.98px) {
+    .aura {
+      background: radial-gradient(circle closest-side, var(--aura), transparent);
+      filter: none;
+    }
+
+    .glass-reader,
+    .glass-board:not(.hud) {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  /* Sin vidrio posible, o si el sistema lo pide: las superficies se vuelven casi opacas. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass-drawer {
+      background: rgba(15, 19, 28, 0.95);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-board,
+    .glass-reader,
+    .glass-drawer,
+    .glass-pill,
+    .glass-card-directional,
+    .secciones-pista,
+    .secciones-manija {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    .glass-drawer,
+    .secciones-pista,
+    .secciones-manija {
+      background: rgba(15, 19, 28, 0.95);
     }
   }
 }

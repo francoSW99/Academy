@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { IconoCheck } from "@/componentes/Iconos";
 import { textos, type Idioma } from "@/lib/idiomas";
 
 export function BotonCopiar({ texto, lang }: { texto: string; lang: Idioma }) {
@@ -18,12 +19,11 @@ export function BotonCopiar({ texto, lang }: { texto: string; lang: Idioma }) {
   }
 
   return (
-    <button
-      type="button"
-      onClick={copiar}
-      className="inline-flex min-h-11 items-center rounded-full border border-borde-fuerte px-4 text-[14px] font-medium text-tinta hover:bg-suave"
-    >
-      <span aria-live="polite">{copiado ? `✓ ${t.copiado}` : t.copiar}</span>
+    <button type="button" onClick={copiar} className="glass-pill inline-flex min-h-9 items-center px-3.5 text-[13px] font-medium text-tinta">
+      <span aria-live="polite" className="inline-flex items-center gap-1.5">
+        {copiado && <IconoCheck className="size-3.5" />}
+        {copiado ? t.copiado : t.copiar}
+      </span>
     </button>
   );
 }

@@ -1,29 +1,73 @@
 import Link from "next/link";
+import { AvanceBarraSuperior } from "@/componentes/Continuar";
 import { Punto } from "@/componentes/Especialidad";
+import { IconoGrafo } from "@/componentes/Iconos";
 import type { Idioma } from "@/lib/idiomas";
-import { textos } from "@/lib/idiomas";
+import { rellenar, textos } from "@/lib/idiomas";
 import { especialidades } from "@/ruta/especialidades";
+import type { Especialidad } from "@/ruta/tipos";
 
 /**
- * La franja de arriba: el logo, que lleva al Inicio, y el grafo de BrainFran.
- * Las 4 secciones van aparte, en la barra de vidrio que flota sobre la página (Secciones.tsx).
+ * La barra superior flotante: a la izquierda, el logo y dónde estás; a la derecha, tu avance y el grafo de BrainFran.
+ * Al centro va el Segmented Control de las 4 secciones, que vive en el layout (Secciones.tsx).
+ * `movil` es lo que ocupa el centro en el celular: en una lección, el índice que abre el temario.
  */
-export function Cabecera({ lang }: { lang: Idioma }) {
+export function Cabecera({
+  lang,
+  especialidad,
+  leccion,
+  movil,
+}: {
+  lang: Idioma;
+  especialidad?: Especialidad;
+  /** El número de la lección que estás leyendo: "03". */
+  leccion?: string;
+  movil?: React.ReactNode;
+}) {
   const t = textos(lang);
   return (
-    <header className="border-b border-borde">
-      <div className="mx-auto flex min-h-14 max-w-[1200px] items-center justify-between gap-x-8 px-[clamp(16px,4vw,40px)] lg:min-h-16">
-        <Link href={`/${lang}/`} className="inline-flex min-h-11 items-center gap-2.5">
+    <header className="hud glass-board">
+      <div className="hud-lado">
+        <Link href={`/${lang}/`} aria-label={t.sitio.nombre} className="hud-marca">
           <span aria-hidden className="grid grid-cols-2 gap-0.5">
             {especialidades.map((e) => (
               <Punto key={e.id} id={e.id} />
             ))}
             <span className="size-2 rounded-full bg-linea" />
           </span>
-          <span className="text-[19px] font-medium tracking-tight">{t.sitio.nombre}</span>
+          <span className="hud-nombre">{t.sitio.nombre}</span>
         </Link>
-        <a href="/obsidian/" className="hidden min-h-11 shrink-0 items-center text-[15px] text-tinta-2 hover:text-tinta lg:inline-flex">
-          {t.cabecera.grafo}
+        {especialidad && (
+          <nav aria-label={t.cabecera.migas}>
+            <ol className="hud-migas">
+              <li className="hud-miga-especialidad">
+                <span aria-hidden className="hud-miga-separador">
+                  /
+                </span>
+                <Link href={`/${lang}/${especialidad.slug}/`} className="text-tinta-2 hover:text-white">
+                  {especialidad.nombre}
+                </Link>
+              </li>
+              {leccion && (
+                <li className="flex items-center gap-2.5">
+                  <span aria-hidden className="hud-miga-separador">
+                    /
+                  </span>
+                  <span aria-current="page" className="glass-pill insignia">
+                    {rellenar(t.leccion.miga, { n: leccion })}
+                  </span>
+                </li>
+              )}
+            </ol>
+          </nav>
+        )}
+      </div>
+      {movil && <div className="hud-movil">{movil}</div>}
+      <div className="hud-lado hud-derecha">
+        {especialidad && !especialidad.enPreparacion && <AvanceBarraSuperior lang={lang} especialidad={especialidad} />}
+        <a href="/obsidian/" aria-label={t.cabecera.grafo} className="glass-pill hud-pill hud-grafo">
+          <IconoGrafo className="size-[17px] shrink-0" />
+          <span className="hud-grafo-texto">{t.cabecera.grafo}</span>
         </a>
       </div>
     </header>

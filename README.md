@@ -10,7 +10,7 @@ Vive en https://academy.woorky.app/ (el grafo de BrainFran sigue en `/obsidian/`
 - `content/`: las lecciones, por idioma (`content/es/…`).
 - `messages/`: los textos de la interfaz, por idioma.
 - `lab/`: experimentos y scripts que generan los datos de los interactivos.
-- `DESIGN.md`: el sistema de diseño «Pizarra en metro». Las maquetas aprobadas están en `docs/diseno/`.
+- `DESIGN.md`: el sistema de diseño «Glassboards». Las maquetas antiguas están en `docs/diseno/`.
 - `docs/`: documentación y specs ([plan del MVP](docs/plan-mvp.md)).
 - `scripts/`: automatizaciones.
 

@@ -29,14 +29,14 @@ export function Respaldos({ respaldos, fuentes, lang }: { respaldos?: Respaldo[]
 export function ListaFuentes({ fuentes, lang }: { fuentes: Fuente[]; lang: Idioma }) {
   const t = textos(lang).leccion;
   return (
-    <section id="fuentes" aria-labelledby="fuentes-titulo" className="flex scroll-mt-20 flex-col gap-3">
-      <h2 id="fuentes-titulo" className="text-[21px] font-medium">
+    <section id="fuentes" aria-labelledby="fuentes-titulo" className="flex flex-col gap-3">
+      <h2 id="fuentes-titulo" className="text-[21px] font-medium tracking-[-0.012em]">
         {t.fuentes}
       </h2>
       <p className="text-[15px] text-tenue">{t.fuentesTexto}</p>
       <ol className="flex flex-col gap-2.5">
         {fuentes.map((f) => (
-          <li key={f.id} id={`fuente-${f.id}`} className="grid scroll-mt-24 gap-x-3 gap-y-0.5 sm:grid-cols-[110px_minmax(0,1fr)]">
+          <li key={f.id} id={`fuente-${f.id}`} className="grid gap-x-3 gap-y-0.5 sm:grid-cols-[110px_minmax(0,1fr)]">
             <span className="text-[13px] font-medium text-tenue">{t.tiposFuente[f.tipo]}</span>
             <span className="text-[15px] leading-relaxed text-pretty text-tinta-2">
               {f.cita}

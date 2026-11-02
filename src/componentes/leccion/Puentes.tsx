@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { COLOR, Punto } from "@/componentes/Especialidad";
+import { IconoFlecha } from "@/componentes/Iconos";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import { puentesDe, type Relacion } from "@/ruta/conexiones";
 import { rutaLeccion } from "@/ruta/especialidades";
@@ -17,9 +18,9 @@ export function Puentes({ lang, refLeccion }: { lang: Idioma; refLeccion: RefLec
   if (puentes.length === 0) return null;
 
   return (
-    <section id="conexiones" aria-labelledby="conexiones-titulo" className="flex scroll-mt-20 flex-col gap-6 border-t border-borde pt-12">
+    <section id="conexiones" aria-labelledby="conexiones-titulo" className="flex flex-col gap-6 border-t border-borde pt-12">
       <div className="flex flex-col gap-2">
-        <h2 id="conexiones-titulo" className="font-serif text-[clamp(28px,3.2vw,38px)] leading-tight font-normal">
+        <h2 id="conexiones-titulo" className="text-[clamp(26px,3vw,36px)] leading-tight font-semibold tracking-[-0.022em] text-balance">
           {t.titulo}
         </h2>
         <p className="max-w-[68ch] text-[17.5px] leading-relaxed text-tinta-2">{t.texto}</p>
@@ -42,20 +43,21 @@ export function Puentes({ lang, refLeccion }: { lang: Idioma; refLeccion: RefLec
                       <Punto id={e.id} />
                       {e.nombre}
                     </span>
-                    <span className="font-serif text-[20px] leading-snug">
+                    <span className="text-[18px] leading-snug font-medium tracking-[-0.012em]">
                       {rellenar(t.leccion, { n: Number(l.n), titulo: l.titulo })}
                     </span>
                     <span className="text-[15px] leading-relaxed text-pretty text-tinta-2">{tema}</span>
-                    <span className={`mt-auto pt-1 text-[13.5px] ${l.disponible ? "font-medium text-acento-texto" : "text-tenue"}`}>
-                      {l.disponible ? `${t.ir} →` : t.pronto}
+                    <span className={`mt-auto inline-flex items-center gap-1 pt-1 text-[13.5px] ${l.disponible ? "font-medium text-acento-texto" : "text-tenue"}`}>
+                      {l.disponible ? t.ir : t.pronto}
+                      {l.disponible && <IconoFlecha className="glass-flecha size-[15px]" />}
                     </span>
                   </>
                 );
-                const clases = "flex h-full flex-col gap-1.5 rounded-[16px] border border-borde p-5";
+                const clases = "glass-opcion flex h-full flex-col gap-1.5 rounded-[20px] p-5";
                 return (
                   <li key={l.ref}>
                     {l.disponible ? (
-                      <Link href={rutaLeccion(lang, l)} className={`${clases} hover:bg-suave`}>
+                      <Link href={rutaLeccion(lang, l)} className={clases}>
                         {contenido}
                       </Link>
                     ) : (

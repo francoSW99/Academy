@@ -33,51 +33,51 @@ export default async function PaginaEspecialidad({ params }: Props) {
   const otras = especialidades.filter((o) => o.id !== e.id);
 
   return (
-    <>
-      <Cabecera lang={lang} />
-      <main className="mx-auto max-w-[1120px] px-[clamp(16px,4vw,40px)]">
-        <section className="flex max-w-[760px] flex-col gap-5 pt-[clamp(40px,6vw,80px)] pb-14">
-          <p className={`flex items-center gap-2 text-sm font-medium ${COLOR[e.id].texto}`}>
+    <div className="marco">
+      <Cabecera lang={lang} especialidad={e} />
+      <main className="mt-2 flex flex-col gap-4 lg:mt-4">
+        <section className="glass-board flex flex-col gap-5 rounded-[28px] p-[clamp(22px,5vw,64px)]">
+          <p className={`glass-pill insignia self-start ${COLOR[e.id].texto}`}>
             <Punto id={e.id} />
             {rellenar(te.etiqueta, { rol: e.rol })}
           </p>
-          <h1 className="font-serif text-[clamp(44px,6vw,72px)] leading-[1.02] font-normal tracking-[-0.02em] text-balance">{e.nombre}</h1>
-          <p className="text-[19px] leading-relaxed text-pretty text-tinta-2">{e.queHaces}</p>
+          <h1 className="text-[clamp(40px,6vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance text-white">{e.nombre}</h1>
+          <p className="max-w-[62ch] text-[clamp(17px,1.6vw,19px)] leading-relaxed text-pretty text-tenue">{e.queHaces}</p>
           {e.enPreparacion ? (
-            <div className="flex max-w-[620px] flex-col gap-1.5 rounded-[18px] border-[1.5px] border-dashed border-borde-fuerte p-5">
+            <div className="glass-callout flex max-w-[620px] flex-col gap-1.5 p-5" data-tono="aviso">
               <span className="text-[15.5px] font-medium">{te.preparacion}</span>
-              <span className="text-[15px] leading-relaxed text-tenue">{te.preparacionTexto}</span>
+              <span className="text-[15px] leading-relaxed text-tinta-2">{te.preparacionTexto}</span>
             </div>
           ) : (
             <Continuar lang={lang} especialidad={e} />
           )}
         </section>
 
-        <div className="grid items-start gap-x-12 gap-y-10 pb-24 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <section id="temario" aria-labelledby="titulo-temario" className="flex scroll-mt-20 flex-col gap-5">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h2 id="titulo-temario" className="font-serif text-[clamp(28px,3vw,38px)] leading-tight font-normal">
-                {t.curso.temario}
-              </h2>
-              <span className="text-sm text-tenue">{rellenar(te.cifras, { modulos: e.modulos.length, lecciones: leccionesDe(e).length })}</span>
-            </div>
+        <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div id="temario" className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2 pt-6 lg:col-span-2">
+            <h2 id="titulo-temario" className="text-[clamp(26px,3vw,36px)] leading-tight font-semibold tracking-[-0.022em]">
+              {t.curso.temario}
+            </h2>
+            <span className="text-sm text-tenue">{rellenar(te.cifras, { modulos: e.modulos.length, lecciones: leccionesDe(e).length })}</span>
+          </div>
+          <section aria-labelledby="titulo-temario">
             <Temario lang={lang} especialidad={e} variante="portada" />
           </section>
 
-          <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:mt-[72px]">
-            <section className="flex flex-col gap-1.5 rounded-[18px] border border-borde p-6">
+          <aside className="flex flex-col gap-4 lg:sticky lg:top-[calc(var(--marco-y)+var(--hud-alto)+16px)]">
+            <section className="glass-board flex flex-col gap-1.5 p-6">
               <span className="text-[13px] text-tenue">{te.meta}</span>
-              <p className="font-serif text-[20px] leading-snug">{e.meta}</p>
+              <p className="text-[18px] leading-snug font-medium tracking-[-0.01em]">{e.meta}</p>
             </section>
-            <section className="flex flex-col gap-3 rounded-[18px] border border-borde p-6">
+            <section className="glass-board flex flex-col gap-3 p-6">
               <div className="flex flex-col gap-1">
-                <h2 className="font-serif text-[22px] font-normal">{te.conectada}</h2>
+                <h2 className="text-[19px] font-medium tracking-[-0.012em]">{te.conectada}</h2>
                 <p className="text-[14px] leading-relaxed text-tenue">{te.conectadaTexto}</p>
               </div>
               <ul className="flex flex-col gap-1">
                 {otras.map((o) => (
                   <li key={o.id}>
-                    <Link href={`/${lang}/${o.slug}/`} className="-mx-2 flex min-h-12 flex-col justify-center rounded-xl px-2 py-1.5 hover:bg-suave">
+                    <Link href={`/${lang}/${o.slug}/`} className="-mx-2 flex min-h-12 flex-col justify-center rounded-[14px] px-2 py-1.5 transition-colors duration-200 hover:bg-suave">
                       <span className="flex items-center gap-2 text-[15.5px] font-medium">
                         <Punto id={o.id} />
                         {o.nombre}
@@ -91,6 +91,6 @@ export default async function PaginaEspecialidad({ params }: Props) {
           </aside>
         </div>
       </main>
-    </>
+    </div>
   );
 }

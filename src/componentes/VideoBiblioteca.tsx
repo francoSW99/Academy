@@ -26,10 +26,10 @@ export function VideoBiblioteca({ video, lang }: { video: Video; lang: Idioma })
 
   return (
     <figure
-      className={`flex gap-4 rounded-[18px] border border-borde bg-pizarra p-4 ${abierto ? "flex-col" : "flex-col sm:flex-row sm:items-center sm:gap-6"}`}
+      className={`glass-card flex gap-4 p-3.5 sm:p-4 ${abierto ? "flex-col" : "flex-col sm:flex-row sm:items-center sm:gap-6"}`}
     >
       <div
-        className={`relative aspect-video shrink-0 overflow-hidden rounded-[12px] bg-codigo-fondo ${abierto ? "w-full max-w-[960px]" : "w-full sm:w-[300px]"}`}
+        className={`relative aspect-video shrink-0 overflow-hidden rounded-[14px] bg-codigo-fondo ${abierto ? "w-full max-w-[960px]" : "w-full sm:w-[300px]"}`}
       >
         {abierto ? (
           <iframe
@@ -66,7 +66,7 @@ export function VideoBiblioteca({ video, lang }: { video: Video; lang: Idioma })
       </div>
       <figcaption className="flex min-w-0 flex-col gap-1.5">
         <span className="text-[13px] text-tenue">{rellenar(t.explicado, { canal: video.canal })}</span>
-        <span className="font-serif text-[21px] leading-snug text-pretty">{video.titulo}</span>
+        <span className="text-[19px] leading-snug font-medium tracking-[-0.012em] text-pretty">{video.titulo}</span>
         <span className="text-[15px] text-pretty text-tinta-2">{video.queMirar}</span>
         {video.desde !== undefined && (
           <span className="text-[14px] font-medium text-tinta">

@@ -6,6 +6,7 @@
   "cabecera": {
     "inicio": "Inicio",
     "secciones": "Secciones",
+    "migas": "Dónde estás",
     "cambiar": "Cambiar de sección · ahora en {seccion}",
     "grafo": "Grafo de BrainFran"
   },
@@ -41,6 +42,8 @@
   },
   "curso": {
     "avance": "{hechas} de {total} lecciones completadas",
+    "avanceCorto": "{hechas} de {total}",
+    "tuAvance": "Tu avance",
     "empezar": "Empezar: lección {n} · {titulo}",
     "continuar": "Continuar: lección {n} · {titulo}",
     "repasar": "Repasar: lección {n} · {titulo}",
@@ -68,16 +71,21 @@
     "meta": "Al terminar"
   },
   "leccion": {
-    "leccionDe": "Módulo {modulo} · {nombreModulo} · Lección {n} de {total}",
-    "enEstaLeccion": "En esta lección",
+    "insignia": "Módulo {modulo} • Lección {n}",
+    "minutos": "{n} min de lectura",
+    "miga": "Lección {n}",
+    "abrirTemario": "En esta lección: {titulo}. Abrir el temario",
+    "cerrar": "Cerrar",
     "temarioDe": "Temario de {especialidad}",
+    "prompt": "Prompt",
     "copiar": "Copiar",
     "copiado": "Copiado",
     "marcarHecha": "Marcar la lección como completada",
     "hecha": "Lección completada",
     "profundizar": "Para profundizar",
-    "anterior": "← Lección {n} · {titulo}",
-    "siguiente": "Siguiente: lección {n} · {titulo} →",
+    "anterior": "Lección anterior",
+    "siguiente": "Siguiente lección",
+    "leccionTitulo": "Lección {n} · {titulo}",
     "siguientePronto": "Siguiente: lección {n} · {titulo} (pronto)",
     "volverTemario": "Volver al temario",
     "practica": "Tu práctica",

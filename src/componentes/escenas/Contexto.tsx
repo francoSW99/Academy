@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
+import { CabeceraEscena } from "./CabeceraEscena";
 import datos from "./datos/contexto-es.json";
 
 /**
@@ -38,8 +39,7 @@ const relleno: Record<Rol | "resumen", string> = {
 };
 
 export function Contexto({ lang }: { lang: Idioma }) {
-  const textosEscenas = textos(lang).escenas;
-  const t = textosEscenas.contexto;
+  const t = textos(lang).escenas.contexto;
   const [turno, setTurno] = useState(0);
   const [modo, setModo] = useState<Modo>("recorta");
 
@@ -69,7 +69,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
   const porque = !final ? "" : modo === "grande" ? t.porque.vista : modo === "recorta" ? t.porque.recortada : final.resumenGuarda ? t.porque.resumenGuarda : t.porque.resumenPierde;
 
   const tarjeta = (m: Mensaje, i: number) => (
-    <li key={i} className={`flex flex-col gap-1 rounded-[12px] border px-4 py-3 ${fuera.has(i) ? "border-dashed border-borde opacity-45" : "border-borde"} ${m.rol === "user" ? "bg-suave" : "bg-pizarra"}`}>
+    <li key={i} className={`flex flex-col gap-1 rounded-[14px] border px-4 py-3 ${fuera.has(i) ? "border-dashed border-borde opacity-45" : "border-borde"} ${m.rol === "user" ? "bg-suave" : "bg-pizarra"}`}>
       <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
         <span className="font-medium text-tinta-2">{t.roles[m.rol]}</span>
         <span>{rellenar(t.tokens, { n: m.tokens })}</span>
@@ -83,7 +83,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-medium">{t.ventana}</span>
-        <span className="font-serif text-[19px] tabular-nums">{rellenar(t.ocupa, { usados: numero(usados), v: numero(ventana) })}</span>
+        <span className="text-[19px] font-light tabular-nums">{rellenar(t.ocupa, { usados: numero(usados), v: numero(ventana) })}</span>
       </div>
       <div aria-hidden className="flex h-9 overflow-hidden rounded-[10px] border border-borde-fuerte bg-[var(--pizarra-rejilla)]">
         {tramos.map((x, i) => (
@@ -110,11 +110,11 @@ export function Contexto({ lang }: { lang: Idioma }) {
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap items-center gap-2">
         {turno < TURNOS ? (
-          <button type="button" onClick={() => setTurno(turno + 1)} className="inline-flex min-h-11 items-center rounded-full bg-primario px-5 text-[15px] font-medium text-primario-tinta">
+          <button type="button" onClick={() => setTurno(turno + 1)} className="boton-luz">
             {t.siguiente}
           </button>
         ) : (
-          <button type="button" onClick={() => setTurno(0)} className="inline-flex min-h-11 items-center rounded-full border border-borde-fuerte px-5 text-[15px] hover:bg-suave">
+          <button type="button" onClick={() => setTurno(0)} className="glass-pill inline-flex min-h-11 items-center px-5 text-[15px]">
             {t.reiniciar}
           </button>
         )}
@@ -125,14 +125,8 @@ export function Contexto({ lang }: { lang: Idioma }) {
   );
 
   return (
-    <section aria-labelledby="escena-contexto" className="flex flex-col gap-6 rounded-[18px] sm:border sm:border-borde sm:bg-fondo sm:p-[clamp(16px,2.4vw,28px)]">
-      <div className="flex flex-col gap-1">
-        <span className="text-sm text-tenue">{textosEscenas.ahoraTu}</span>
-        <h3 id="escena-contexto" className="text-[19px] font-medium">
-          {t.titulo}
-        </h3>
-        <p className="max-w-[44em] text-[15px] text-tinta-2 text-pretty">{t.lead}</p>
-      </div>
+    <section aria-labelledby="escena-contexto" className="escena glass-card flex flex-col gap-6">
+      <CabeceraEscena id="escena-contexto" titulo={t.titulo} lead={t.lead} lang={lang} />
 
       <div role="group" aria-label={t.modo} className="flex flex-col gap-2">
         <span className="text-sm text-tenue">{t.modo}</span>
@@ -143,7 +137,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
               type="button"
               aria-pressed={modo === m}
               onClick={() => setModo(m)}
-              className={`min-h-10 rounded-full border px-3.5 text-[14.5px] ${modo === m ? "border-primario bg-primario text-primario-tinta" : "border-borde-fuerte hover:bg-suave"}`}
+              className="glass-pill min-h-10 px-3.5 text-[14.5px]"
             >
               {t.modos[m]}
             </button>
@@ -152,14 +146,14 @@ export function Contexto({ lang }: { lang: Idioma }) {
         <p className="text-[14px] text-tinta-2 text-pretty">{rellenar(t.modosTexto[modo], { v: numero(ventana) })}</p>
       </div>
 
-      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)]">
+      <div className="grid gap-x-10 gap-y-8 xl:grid-cols-[minmax(0,1fr)_minmax(280px,360px)]">
         <div className="flex flex-col gap-3">
           {/* En el celular, la ventana queda fija arriba mientras se lee la conversación. */}
-          <div className="sticky top-0 z-10 -mx-1 bg-pizarra px-1 py-2 lg:hidden">{ventanaUI}</div>
+          <div className="ventana-fija xl:hidden">{ventanaUI}</div>
           <ol aria-live="polite" className="flex flex-col gap-3">
             {mensajes.slice(0, Math.min(visibles, ULTIMA)).map(tarjeta)}
             {final?.resumen && (
-              <li className="flex flex-col gap-1 rounded-[12px] border border-l2 px-4 py-3">
+              <li className="flex flex-col gap-1 rounded-[14px] border border-l2 px-4 py-3">
                 <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
                   <span className="font-medium text-l2">{t.roles.resumen}</span>
                   <span>{rellenar(t.tokens, { n: final.resumenTokens! })}</span>
@@ -169,7 +163,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
             )}
             {visibles > ULTIMA && tarjeta(mensajes[ULTIMA], ULTIMA)}
             {final && (
-              <li className="aparece flex flex-col gap-1 rounded-[12px] border-2 border-tinta px-4 py-3">
+              <li className="aparece flex flex-col gap-1 rounded-[14px] border border-white/35 bg-white/[0.06] px-4 py-3">
                 <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
                   <span className="font-medium text-tinta-2">{t.roles.assistant}</span>
                   <span className={final.trato === "cobra" ? "text-falso" : final.trato === "cumple" ? "text-verdadero" : ""}>· {t.veredictos[final.trato]}</span>
@@ -180,11 +174,11 @@ export function Contexto({ lang }: { lang: Idioma }) {
             )}
             {turno === 0 && <li className="text-[15px] text-tenue">{t.empieza}</li>}
           </ol>
-          <div className="mt-2 lg:hidden">{avanzarUI}</div>
+          <div className="mt-2 xl:hidden">{avanzarUI}</div>
         </div>
 
-        <div className="flex flex-col gap-6 lg:sticky lg:top-6 lg:self-start">
-          <div className="hidden lg:block">{ventanaUI}</div>
+        <div className="flex flex-col gap-6 xl:sticky xl:top-[calc(var(--marco-y)+var(--hud-alto)+16px)] xl:self-start">
+          <div className="hidden xl:block">{ventanaUI}</div>
           {turno > 0 && (
             <div className="flex flex-col gap-2">
               <span className="text-sm text-tenue">{t.porTurno}</span>
@@ -192,14 +186,14 @@ export function Contexto({ lang }: { lang: Idioma }) {
                 {porTurno.map((n, i) => (
                   <span key={i} className="flex flex-1 flex-col items-center justify-end gap-1">
                     <span className="text-[11px] text-tenue tabular-nums">{n}</span>
-                    <span className="w-full rounded-t-[4px] bg-acento transition-[height] duration-300" style={{ height: `${(n / maximo) * 40}px` }} />
+                    <span className="brillo w-full rounded-t-[4px] bg-acento transition-[height] duration-300" style={{ height: `${(n / maximo) * 40}px` }} />
                   </span>
                 ))}
               </div>
               <p className="text-[14px] text-tinta-2">{rellenar(t.leyoTotal, { t: turno, n: numero(total) })}</p>
             </div>
           )}
-          <div className="hidden lg:block">{avanzarUI}</div>
+          <div className="hidden xl:block">{avanzarUI}</div>
         </div>
       </div>
 

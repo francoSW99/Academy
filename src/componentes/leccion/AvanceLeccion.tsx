@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { IconoCheck } from "@/componentes/Iconos";
 import { useAvance } from "@/lib/avance";
 import { textos, type Idioma } from "@/lib/idiomas";
 
@@ -20,11 +21,10 @@ export function CompletarLeccion({ lang, refLeccion }: { lang: Idioma; refLeccio
       type="button"
       aria-pressed={hecha}
       onClick={() => alternarHecha(refLeccion)}
-      className={`inline-flex min-h-12 items-center self-start rounded-full border px-6 text-[15px] font-medium ${
-        hecha ? "border-primario bg-primario text-primario-tinta" : "border-borde-fuerte text-tinta hover:bg-suave"
-      }`}
+      className="glass-pill completar inline-flex min-h-14 w-full items-center justify-center gap-2.5 px-4 py-3 text-[15.5px] leading-snug font-medium sm:w-auto sm:self-start sm:px-8"
     >
-      {hecha ? `✓ ${t.hecha}` : t.marcarHecha}
+      {hecha && <IconoCheck className="size-[18px]" />}
+      {hecha ? t.hecha : t.marcarHecha}
     </button>
   );
 }
