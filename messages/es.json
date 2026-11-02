@@ -6,6 +6,7 @@
   "cabecera": {
     "inicio": "Inicio",
     "secciones": "Secciones",
+    "cambiar": "Cambiar de sección · ahora en {seccion}",
     "grafo": "Grafo de BrainFran"
   },
   "inicio": {

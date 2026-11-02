@@ -14,7 +14,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ## Dónde estamos
 
 - **Avance:** `▓▓▓▓▓▓░░░░` 40 de 65 tareas del plan (62 %). El MVP está al 100 %. La Fase 5, «Inicio + 3 especialidades», va en 5 de 7.
-- **Hecho:** Fases 0 a 4 y casi toda la 4b. El curso es público en https://academy.woorky.app/es/. **Desde el 2026-11-02, el borrador tiene la plataforma en 4 secciones**: Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. **Las 4 secciones se eligen en una barra de vidrio** (pedido 52): abajo en el celular y arriba al centro en el computador. Míralo en https://academy.woorky.app/borrador/es/
+- **Hecho:** Fases 0 a 4 y casi toda la 4b. El curso es público en https://academy.woorky.app/es/. **Desde el 2026-11-02, el borrador tiene la plataforma en 4 secciones**: Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. **Las 4 secciones se eligen en vidrio** (pedidos 52 y 53): una píldora arriba al centro en el computador y, en el celular, una manija chica en el borde derecho que abre un dock, para no tapar el estudio. Míralo en https://academy.woorky.app/borrador/es/
 - **Falta:** tu OK al reparto de temas entre ML y Deep Learning y Data Science, y a publicar las 4 secciones. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el pulido (5b) y las fases 6 a 10.
 - **Lo próximo:** revisa el borrador. Si te gusta, «dale publica»; si no, dime qué sección cambio.
 
@@ -175,7 +175,7 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 - [x] El Inicio: qué es Academy, una tarjeta por especialidad («Elígela si…») y cómo se conectan · 2026-11-02
 - [x] La sección de cada especialidad, con su temario y su avance, y la barra de arriba con las 4 secciones (cabe en el celular) · 2026-11-02
 - [x] La lección 03 dentro de AI Engineering (`/es/ai-engineering/leccion/03/`), con «Conecta con otras especialidades» al final. Los links viejos redirigen y el avance que ya tenías se conserva · 2026-11-02
-- [x] El selector de las 4 secciones en vidrio (pedido 52). En el celular y la tablet es una barra flotante abajo, como la de Woorky; en el computador, una píldora arriba al centro. La sección elegida va en una burbuja blanca que se desliza al cambiar, con el ícono del color de su especialidad. Al hacer scroll, la página se ve borrosa por debajo. Usa los colores de Academy, no los de Woorky · 2026-11-02
+- [x] El selector de las 4 secciones en vidrio (pedidos 52 y 53). En el computador es una píldora arriba al centro. En el celular y la tablet es una manija chica en el borde derecho, con el ícono de la sección en la que estás: al tocarla se abre un dock vertical con las 4 secciones, y se cierra al elegir, al tocar fuera o al seguir leyendo. Así no tapa el estudio ni lo que va abajo. La sección elegida va en una burbuja blanca que se desliza al cambiar, con el ícono del color de su especialidad. Al hacer scroll, la página se ve borrosa por debajo. Usa los colores de Academy, no los de Woorky · 2026-11-02
 - [ ] Tu OK al reparto del Pilar 2 entre ML y Deep Learning y Data Science (ver «Decisiones que te tocan»)
 - [ ] Publicar en `/es/`
 
@@ -287,6 +287,7 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 | 50 | 2026-11-02 | «Mezcla el PR 10»; la Fase 5, en otra conversación | PR #10 mezclado: `main` es igual al sitio. La Fase 5 sigue en una conversación nueva |
 | 51 | 2026-11-02 | Reestructurar la página entera: una sección para cada especialidad (AI Engineering, ML/Deep Learning y Data Science) más un Inicio que presente la plataforma. Separadas en la interfaz y conectadas por dentro, para no confundir qué tema es de cuál | Las 4 secciones en el borrador (https://academy.woorky.app/borrador/es/), con los puentes entre lecciones. El Pilar 2 quedó repartido entre ML y DL y Data Science, a la espera de tu OK. El pulido pasa a la Fase 5b |
 | 52 | 2026-11-02 | Antes de publicar, el selector de las 4 secciones en estilo glassy, como la barra de Woorky, el dock vertical y el dashboard de vidrio de sus referencias. Solo el vidrio de los botones, no los colores de Woorky | Barra de vidrio con las 4 secciones y un ícono por sección: abajo en el celular y arriba al centro en el computador. La elegida va en una burbuja blanca que se desliza. En el borrador |
+| 53 | 2026-11-02 | En el celular, que el selector vaya escondido en un costado para no tapar el estudio ni lo que va abajo. En el computador, la píldora de arriba al centro le gustó | En el celular, una manija de vidrio en el borde derecho que abre un dock vertical con las 4 secciones (como su imagen del dock). El computador no cambia. En el borrador |
 
 ---
 

@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent } from "react";
-import { textos, type Idioma } from "@/lib/idiomas";
+import { rellenar, textos, type Idioma } from "@/lib/idiomas";
 import { especialidades } from "@/ruta/especialidades";
 import type { IdEspecialidad } from "@/ruta/tipos";
 
 type IdSeccion = "inicio" | IdEspecialidad;
+type Item = { id: IdSeccion; nombre: string; corto: string; href: string };
 
 // Las clases van escritas enteras para que Tailwind las encuentre.
 const COLOR_ICONO: Record<IdSeccion, string> = {
@@ -25,13 +26,13 @@ function seccionDe(ruta: string, lang: string): IdSeccion | null {
   return especialidades.find((e) => e.slug === partes[1])?.id ?? null;
 }
 
-type Caja = { x: number; y: number; w: number; h: number };
-
 /**
- * El selector de las 4 secciones: una barra de vidrio que flota sobre la página.
- * En el celular y la tablet va abajo, como una barra de pestañas; en el computador, arriba al centro.
- * Vive en el layout, así no se vuelve a montar al cambiar de sección y la burbuja de la elegida
- * se desliza hasta la nueva.
+ * El selector de las 4 secciones, en vidrio. Vive en el layout: no se vuelve a montar al cambiar
+ * de sección, así la burbuja de la elegida se desliza hasta la nueva.
+ * - En el computador: una píldora arriba al centro.
+ * - En el celular y la tablet: una manija chica en el borde derecho, para no tapar el estudio.
+ *   Al tocarla se abre un dock vertical con las 4 secciones; se cierra al elegir, al tocar fuera,
+ *   con Escape o al seguir leyendo (scroll).
  */
 export function Secciones({ lang }: { lang: Idioma }) {
   const t = textos(lang).cabecera;
@@ -40,20 +41,101 @@ export function Secciones({ lang }: { lang: Idioma }) {
   // Al tocar una sección, la burbuja se mueve de inmediato, sin esperar a que cargue la página.
   const [pendiente, setPendiente] = useState<IdSeccion | null>(null);
   const elegida = pendiente ?? actual;
+  const [abierto, setAbierto] = useState(false);
+  const manija = useRef<HTMLButtonElement>(null);
+  const dock = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    setPendiente(null);
+    setAbierto(false);
+  }, [ruta]);
+
+  useEffect(() => {
+    if (!abierto) return;
+    dock.current?.querySelector<HTMLElement>('[data-elegida="true"]')?.focus({ preventScroll: true });
+    const desde = window.scrollY;
+    const alTeclear = (ev: KeyboardEvent) => {
+      if (ev.key !== "Escape") return;
+      setAbierto(false);
+      manija.current?.focus({ preventScroll: true });
+    };
+    // Si sigues leyendo, el dock se esconde solo.
+    const alScroll = () => {
+      if (Math.abs(window.scrollY - desde) > 24) setAbierto(false);
+    };
+    window.addEventListener("keydown", alTeclear);
+    window.addEventListener("scroll", alScroll, { passive: true });
+    return () => {
+      window.removeEventListener("keydown", alTeclear);
+      window.removeEventListener("scroll", alScroll);
+    };
+  }, [abierto]);
+
+  const elegir = (id: IdSeccion) => (ev: MouseEvent) => {
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+    setPendiente(id);
+  };
+
+  const items: Item[] = [
+    { id: "inicio", nombre: t.inicio, corto: t.inicio, href: `/${lang}/` },
+    ...especialidades.map((e) => ({ id: e.id, nombre: e.nombre, corto: e.corto, href: `/${lang}/${e.slug}/` })),
+  ];
+  const enUso = items.find((i) => i.id === (actual ?? "inicio"))!;
+
+  return (
+    <>
+      <nav aria-label={t.secciones} className="secciones-arriba">
+        <Pista items={items} elegida={elegida} actual={actual} onElegir={elegir} conNombre="corto" />
+      </nav>
+
+      <div className="secciones-lado" data-abierto={abierto ? "" : undefined}>
+        <button type="button" tabIndex={-1} aria-hidden className="secciones-fondo" onClick={() => setAbierto(false)} />
+        <button
+          ref={manija}
+          type="button"
+          aria-expanded={abierto}
+          aria-controls="secciones-dock"
+          aria-label={rellenar(t.cambiar, { seccion: enUso.nombre })}
+          className="secciones-manija"
+          onClick={() => setAbierto((a) => !a)}
+        >
+          <Icono id={enUso.id} className={COLOR_ICONO[enUso.id]} />
+        </button>
+        <nav ref={dock} id="secciones-dock" aria-label={t.secciones} className="secciones-dock" inert={!abierto}>
+          <Pista items={items} elegida={elegida} actual={actual} onElegir={elegir} conNombre="nombre" />
+        </nav>
+      </div>
+    </>
+  );
+}
+
+type Caja = { x: number; y: number; w: number; h: number };
+
+/** La pista de vidrio con sus 4 secciones y la burbuja blanca que marca la elegida. */
+function Pista({
+  items,
+  elegida,
+  actual,
+  onElegir,
+  conNombre,
+}: {
+  items: Item[];
+  elegida: IdSeccion | null;
+  actual: IdSeccion | null;
+  onElegir: (id: IdSeccion) => (ev: MouseEvent) => void;
+  conNombre: "nombre" | "corto";
+}) {
   const pista = useRef<HTMLDivElement>(null);
   const [burbuja, setBurbuja] = useState<Caja | null>(null);
   const [animar, setAnimar] = useState(false);
 
-  useEffect(() => setPendiente(null), [ruta]);
-
-  // La burbuja se mide sobre el botón elegido, y otra vez si la barra cambia de forma (celular ↔ computador).
+  // La burbuja se mide sobre el botón elegido, y otra vez si la pista cambia de tamaño.
   useLayoutEffect(() => {
     const barra = pista.current;
     if (!barra) return;
     const medir = () => {
       const boton = barra.querySelector<HTMLElement>('[data-elegida="true"]');
-      setBurbuja(boton ? { x: boton.offsetLeft, y: boton.offsetTop, w: boton.offsetWidth, h: boton.offsetHeight } : null);
+      setBurbuja(boton && boton.offsetWidth > 0 ? { x: boton.offsetLeft, y: boton.offsetTop, w: boton.offsetWidth, h: boton.offsetHeight } : null);
     };
     medir();
     const observador = new ResizeObserver(medir);
@@ -67,49 +149,37 @@ export function Secciones({ lang }: { lang: Idioma }) {
     return () => cancelAnimationFrame(cuadro);
   }, []);
 
-  const elegir = (id: IdSeccion) => (ev: MouseEvent) => {
-    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
-    setPendiente(id);
-  };
-
-  const items: { id: IdSeccion; nombre: string; href: string }[] = [
-    { id: "inicio", nombre: t.inicio, href: `/${lang}/` },
-    ...especialidades.map((e) => ({ id: e.id, nombre: e.corto, href: `/${lang}/${e.slug}/` })),
-  ];
-
   return (
-    <nav aria-label={t.secciones} className="secciones" data-lista={burbuja ? "" : undefined} data-animar={animar ? "" : undefined}>
-      <div ref={pista} className="secciones-pista">
-        {burbuja && elegida && (
-          <span
-            aria-hidden
-            className="secciones-burbuja"
-            style={{
-              transform: `translate(${burbuja.x}px, ${burbuja.y}px)`,
-              width: burbuja.w,
-              height: burbuja.h,
-              ["--tinte" as string]: elegida === "inicio" ? "transparent" : `var(--esp-${elegida})`,
-            }}
-          />
-        )}
-        {items.map(({ id, nombre, href }) => {
-          const esElegida = id === elegida;
-          return (
-            <Link
-              key={id}
-              href={href}
-              onClick={elegir(id)}
-              aria-current={id === actual ? "page" : undefined}
-              data-elegida={esElegida}
-              className="secciones-item"
-            >
-              <Icono id={id} className={esElegida ? COLOR_ICONO[id] : undefined} />
-              <span className="max-w-full truncate">{nombre}</span>
-            </Link>
-          );
-        })}
-      </div>
-    </nav>
+    <div ref={pista} className="secciones-pista" data-lista={burbuja ? "" : undefined} data-animar={animar ? "" : undefined}>
+      {burbuja && elegida && (
+        <span
+          aria-hidden
+          className="secciones-burbuja"
+          style={{
+            transform: `translate(${burbuja.x}px, ${burbuja.y}px)`,
+            width: burbuja.w,
+            height: burbuja.h,
+            ["--tinte" as string]: elegida === "inicio" ? "transparent" : `var(--esp-${elegida})`,
+          }}
+        />
+      )}
+      {items.map((item) => {
+        const esElegida = item.id === elegida;
+        return (
+          <Link
+            key={item.id}
+            href={item.href}
+            onClick={onElegir(item.id)}
+            aria-current={item.id === actual ? "page" : undefined}
+            data-elegida={esElegida}
+            className="secciones-item"
+          >
+            <Icono id={item.id} className={esElegida ? COLOR_ICONO[item.id] : undefined} />
+            <span className="max-w-full truncate">{item[conNombre]}</span>
+          </Link>
+        );
+      })}
+    </div>
   );
 }
 
