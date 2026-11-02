@@ -7,7 +7,7 @@ El tablero del proyecto. Claude lo actualiza en cada entrega:
 
 Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
-*Última actualización: 2026-11-01*
+*Última actualización: 2026-11-02*
 
 ---
 
@@ -15,8 +15,8 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 - **Avance:** `▓▓▓▓▓▓░░░░` 35 de 58 tareas del plan (60 %). El MVP está al 100 %. La Fase 4b va en 12 de 13.
 - **Hecho:** Fases 0 a 4 y casi toda la 4b. **El curso nuevo es público** en https://academy.woorky.app/es/: temario por módulos y la lección 03 de corrido, con casos reales de un ingeniero de IA, videos solo del tema y fuentes. **Desde el 2026-11-01 la idea 1 trae el canvas «Escribe como el bot»**: escribes la respuesta a Carla palabra por palabra y ves cómo cae la probabilidad de la frase.
-- **Falta:** sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Mezclar el PR #10 para que `main` quede igual que el sitio. Después, las fases 5 a 10.
-- **Lo próximo:** la Fase 5, pulido del sitio (1 sesión): ícono, página «no encontrada» en español y vista previa al compartir el link.
+- **Falta:** sumar 2 videos a tu biblioteca, que necesita tu sesión de NotebookLM. Después, las fases 5 a 10.
+- **Lo próximo:** la Fase 5, pulido del sitio (1 sesión), en una conversación nueva: ícono, página «no encontrada» en español y vista previa al compartir el link. `main` ya es igual al sitio (PR #10 mezclado).
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -26,7 +26,7 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
-F5    Pulido del sitio                          ░░
+F5    Pulido del sitio                          ▓▓
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -132,7 +132,7 @@ El detalle de cada fase está en [docs/plan-mvp.md](docs/plan-mvp.md).
 
 ## Fases después del MVP
 
-### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 12 de 13 · PR #7 a #10
+### ▶ Fase 4b · Curso en módulos y lecciones, con canvas y videos de tu biblioteca · urgente · 12 de 13 · PR #7 a #10 mezclados
 Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mirarlos, y eso no va. Las reglas:
 1. **Nada de videos para mirar.** Lo que mostraban va como **canvas interactivo** y entretenido, como un gráfico o un dashboard que responde en tiempo real.
 2. **ManimGX se queda, y se usa para los canvas**, al estilo de 3Blue1Brown.
@@ -263,6 +263,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 | 47 | 2026-11-01 | La escena de tokens ya le gustaba como está en el sitio: no todo tiene que ser flowchart, solo lo necesario | Quitado el diagrama de tokens: la idea 2 queda igual que en el sitio. Regla anotada: un visual solo donde la idea no tiene uno |
 | 48 | 2026-11-01 | «Sí, sácalos»: la lección como está publicada | Quitados los diagramas de ventana y de leer/escribir. El código de la lección es igual al del sitio |
 | 49 | 2026-11-01 | «Mezcla el PR 9, redibuja lo que falta de los 3 canvas con los casos nuevos y sube todo a prod» | PR #9 mezclado. Canvas «Escribe como el bot» en la idea 1; los otros 2 ya estaban en la escena de los dados. Publicado (PR #10) |
+| 50 | 2026-11-02 | «Mezcla el PR 10»; la Fase 5, en otra conversación | PR #10 mezclado: `main` es igual al sitio. La Fase 5 sigue en una conversación nueva |
 
 ---
 
@@ -271,7 +272,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
   - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #8 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero y también está mezclado. El #10 trae el canvas «Escribe como el bot».
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #10 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero y también está mezclado. El #10 trae el canvas «Escribe como el bot».
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.
