@@ -14,9 +14,9 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 ## Dónde estamos
 
 - **Avance:** `▓▓▓▓▓▓░░░░` 43 de 69 tareas del plan (62 %). El MVP está al 100 %. La Fase 5 está publicada. La Fase 5b, «Pizarras de vidrio», va en 1 de 4.
-- **Hecho:** Fases 0 a 5 y casi toda la 4b. El sitio público tiene 4 secciones (https://academy.woorky.app/es/). **Desde el 2026-11-02, el borrador tiene la propuesta de pizarras de vidrio**: las 5 escenas y el diagrama de la lección 03 en vidrio esmerilado, con un selector para comparar A, B y como están hoy. Míralo en https://academy.woorky.app/borrador/es/ai-engineering/leccion/03/
-- **Falta:** que elijas A o B. Después, pulir las pizarras una por una y publicar. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
-- **Lo próximo:** abre la lección 03 del borrador en el celular, compara A, B y Hoy con el selector de abajo a la derecha y dime cuál va.
+- **Hecho:** Fases 0 a 5 y casi toda la 4b. El sitio público tiene 4 secciones (https://academy.woorky.app/es/). **Desde el 2026-11-02, el borrador tiene la propuesta de pizarras de vidrio**: las 5 escenas y el diagrama de la lección 03 son pizarras de vidrio directo sobre el fondo de la app, con el mismo vidrio del selector de secciones. Un selector compara «Vidrio» con «Hoy». Míralo en https://academy.woorky.app/borrador/es/ai-engineering/leccion/03/
+- **Falta:** tu OK a la propuesta. Después, pulir las pizarras una por una y publicar. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
+- **Lo próximo:** abre la lección 03 del borrador en el celular, compara «Vidrio» y «Hoy» con el selector de abajo a la derecha y dime si va.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -53,9 +53,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Pizarra de vidrio A o B?** (Fase 5b) Están en la lección 03 del borrador, con un selector abajo a la derecha.
-   - **A · Vidrio nocturno** (la recomiendo): el fondo es oscuro, con la luz azul de AI Engineering arriba y una luz cálida abajo. Se parece a tus referencias oscuras y es la que mejor se lee.
-   - **B · Vidrio de color**: el fondo es un degradado vivo de azul, violeta y naranja. Llama más la atención, pero las barras y las fichas de tokens se distinguen menos.
+1. **¿Va la pizarra de vidrio?** (Fase 5b) Está en la lección 03 del borrador, con un selector «Vidrio | Hoy» abajo a la derecha. La pizarra va sobre el fondo de la app (blanco, o negro en modo oscuro), con el mismo vidrio del selector de secciones.
 2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
@@ -179,14 +177,14 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 - [x] Publicado en https://academy.woorky.app/es/ (PR #11 mezclado) · 2026-11-02
 
 ### ▶ Fase 5b · Pizarras de vidrio · 1 de 4 · semana 2 · propuesta en el borrador
-Pedido 55. Las pizarras de las lecciones (escenas, canvas, tokenizador y diagramas) pasan a ser pizarras digitales de vidrio, con glassmorphism, como sus 9 referencias. El texto de la lección sigue en blanco, para leer tranquilo.
-- Cada pizarra tiene un escenario con luces detrás y, encima, el vidrio esmerilado: borde de luz fina, texto blanco, botones en píldora y «Pruébalo» con un punto en vivo.
-- Un arco de luz se ve nítido fuera del vidrio y borroso detrás de él: eso es lo que hace que se lea como vidrio.
-- La luz toma el color de la especialidad: azul en AI Engineering, violeta en ML y verde en Data Science.
-- Las luces son CSS, sin imágenes: la página no pesa más.
+Pedidos 55 y 56. Las pizarras de las lecciones (escenas, canvas, tokenizador y diagramas) pasan a ser pizarras digitales de vidrio, con glassmorphism, como sus referencias.
+- **Van directo sobre el fondo de la app** (pedido 56): blanco, o la pizarra negra en modo oscuro. No llevan un fondo propio: Fran descartó las variantes A (luces oscuras) y B (degradado de color).
+- Usan el mismo vidrio del selector de secciones: borde blanco, filo fino por fuera, brillo arriba, sombra suave y grosor por dentro.
+- Lo de adentro (el texto que escribes, los mensajes, los pasos del bucle) son burbujas de vidrio más claras. «Pruébalo» es una píldora con un punto en vivo.
+- Es solo CSS, sin imágenes: la página no pesa más.
 
-- [x] Propuesta en el borrador: las 5 escenas y el diagrama del bucle de la lección 03 en vidrio, con un selector A | B | Hoy para comparar · 2026-11-02
-- [ ] Tu elección: A (vidrio nocturno) o B (vidrio de color)
+- [x] Propuesta en el borrador: las 5 escenas y el diagrama del bucle de la lección 03 en vidrio, directo sobre el fondo de la app, con un selector «Vidrio | Hoy» para comparar · 2026-11-02
+- [ ] Tu OK a la propuesta
 - [ ] Pulir pizarra por pizarra en el celular y el computador: perillas, botones, la ventana fija de «Llena la ventana», las tarjetas de video y la luz de cada especialidad. Sacar el selector de la propuesta
 - [ ] Publicar en `/es/`
 
@@ -301,6 +299,7 @@ Pedido 55. Las pizarras de las lecciones (escenas, canvas, tokenizador y diagram
 | 53 | 2026-11-02 | En el celular, que el selector vaya escondido en un costado para no tapar el estudio ni lo que va abajo. En el computador, la píldora de arriba al centro le gustó | En el celular, una manija de vidrio en el borde derecho que abre un dock vertical con las 4 secciones (como su imagen del dock). El computador no cambia. En el borrador |
 | 54 | 2026-11-02 | La manija del celular a la izquierda; después, mezclar y subir a producción | Manija y dock en el borde izquierdo. PR #11 mezclado y publicado en https://academy.woorky.app/es/: las 4 secciones, los puentes y el selector de vidrio |
 | 55 | 2026-11-02 | La 5b distinta: cambiar el diseño de los canvas, dashboards y pizarras de las lecciones (como el tokenizador) a pizarras digitales de vidrio, con glassmorphism. Mandó 9 referencias y pidió una propuesta primero | Propuesta en el borrador: las pizarras de la lección 03 en vidrio, con dos variantes (A nocturna y B de color) y un selector para compararlas con las de hoy. El pulido del sitio pasa a la Fase 5c |
+| 56 | 2026-11-02 | Ni A ni B ni Hoy: la pizarra de vidrio va encima del fondo original de la app, sin un fondo distinto | Propuesta rehecha en el borrador: las pizarras son el mismo vidrio del selector de secciones, sobre el fondo blanco (o negro en modo oscuro), y lo de adentro va en burbujas de vidrio. Selector «Vidrio | Hoy» |
 
 ---
 

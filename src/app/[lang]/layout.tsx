@@ -24,8 +24,8 @@ export default async function LayoutIdioma({ children, params }: Props) {
   const { lang } = await params;
   if (!esIdioma(lang)) notFound();
   return (
-    // En el borrador de la propuesta 5b, las pizarras arrancan en la variante A (vidrio nocturno).
-    <html lang={lang} data-vidrio={process.env.NEXT_PUBLIC_PROPUESTA_VIDRIO === "1" ? "a" : undefined}>
+    // En el borrador de la propuesta 5b, las pizarras arrancan en vidrio.
+    <html lang={lang} data-vidrio={process.env.NEXT_PUBLIC_PROPUESTA_VIDRIO === "1" ? "" : undefined}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
