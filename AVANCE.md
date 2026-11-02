@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓░░░░` 40 de 65 tareas del plan (62 %). El MVP está al 100 %. La Fase 5, «Inicio + 3 especialidades», va en 5 de 7.
-- **Hecho:** Fases 0 a 4 y casi toda la 4b. El curso es público en https://academy.woorky.app/es/. **Desde el 2026-11-02, el borrador tiene la plataforma en 4 secciones**: Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. **Las 4 secciones se eligen en vidrio** (pedidos 52 y 53): una píldora arriba al centro en el computador y, en el celular, una manija chica en el borde derecho que abre un dock, para no tapar el estudio. Míralo en https://academy.woorky.app/borrador/es/
-- **Falta:** tu OK al reparto de temas entre ML y Deep Learning y Data Science, y a publicar las 4 secciones. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el pulido (5b) y las fases 6 a 10.
-- **Lo próximo:** revisa el borrador. Si te gusta, «dale publica»; si no, dime qué sección cambio.
+- **Avance:** `▓▓▓▓▓▓░░░░` 42 de 65 tareas del plan (65 %). El MVP está al 100 %. **La Fase 5 está completa y publicada.**
+- **Hecho:** Fases 0 a 5 y casi toda la 4b. **Desde el 2026-11-02, el sitio público tiene 4 secciones** (https://academy.woorky.app/es/): Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. Las secciones se eligen en vidrio: una píldora arriba al centro en el computador y, en el celular, una manija en el borde izquierdo que abre un dock.
+- **Falta:** sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el pulido (5b) y las fases 6 a 10.
+- **Lo próximo:** la Fase 5b, pulido del sitio (1 sesión): el ícono, la página «no encontrada» en español y la vista previa al compartir el link.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -26,8 +26,8 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
                                       oct S1  S2  S3  S4  S5  S6  S7
 F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
-F5    Inicio + 3 especialidades           ██▓
-F5b   Pulido del sitio                        ░░
+F5    Inicio + 3 especialidades           ███
+F5b   Pulido del sitio                        ▓▓
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -52,13 +52,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Publicas las 4 secciones?** Están en el borrador. Con «dale publica» pasan a `/es/`, y los links viejos siguen funcionando.
-2. **¿Apruebas el reparto del Pilar 2?** Tu nota tenía ML, Deep Learning y Data Science juntos y en revisión. Los separé así:
-   - **ML y Deep Learning** (18 lecciones): cómo aprende un modelo, los modelos típicos, deep learning, visión y lenguaje, LLMs por dentro, MLOps e investigación.
-   - **Data Science** (13 lecciones): el mapa, los datos, estadística, series de tiempo y grupos, energía solar y neurociencia.
-   - El bloque 26, «Mejorar sin re-entrenar», no se repite: ya está en AI Engineering (RAG, prompting y evals) y se conecta con un puente.
-   - Si un tema te calza mejor en la otra especialidad, dime cuál y lo muevo.
-3. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -71,8 +65,8 @@ gantt
     Fases 0 a 4 · estación 03 pública :done, mvp, 2026-10-29, 2026-11-01
     section Después del MVP
     F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
-    F5 Inicio y 3 especialidades :active, f5, 2026-11-02, 3d
-    F5b Pulido del sitio :f5b, after f5, 2d
+    F5 Inicio y 3 especialidades · publicada :done, f5, 2026-11-02, 1d
+    F5b Pulido del sitio :active, f5b, after f5, 2d
     F6 Estación 04 · App de IA :f6, after f5b, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
@@ -165,7 +159,7 @@ Pedidos 28 a 33. Los 3 videos de la estación 03 los hice yo con ManimGX para mi
 - [x] Publicar el curso en módulos y la lección 03 nueva, revisados en computador y celular (pedido 43) · 2026-11-01
 - [x] Publicado en https://academy.woorky.app/es/leccion/03/ y revisado en computador y celular (pedido 49) · 2026-11-01
 
-### ▶ Fase 5 · Inicio y 3 especialidades · 5 de 7 · semana 1 · en el borrador
+### ✅ Fase 5 · Inicio y 3 especialidades · 7 de 7 · 2026-11-02 · PR #11
 Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni marear al estudiante:
 1. **Inicio:** qué es Academy, cuál especialidad elegir y cómo se conectan.
 2. **AI Engineering**, **ML y Deep Learning** y **Data Science:** cada una con su sección, su temario y su avance. Cambias de una a otra cuando quieras, desde la barra de arriba.
@@ -175,9 +169,9 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 - [x] El Inicio: qué es Academy, una tarjeta por especialidad («Elígela si…») y cómo se conectan · 2026-11-02
 - [x] La sección de cada especialidad, con su temario y su avance, y la barra de arriba con las 4 secciones (cabe en el celular) · 2026-11-02
 - [x] La lección 03 dentro de AI Engineering (`/es/ai-engineering/leccion/03/`), con «Conecta con otras especialidades» al final. Los links viejos redirigen y el avance que ya tenías se conserva · 2026-11-02
-- [x] El selector de las 4 secciones en vidrio (pedidos 52 y 53). En el computador es una píldora arriba al centro. En el celular y la tablet es una manija chica en el borde derecho, con el ícono de la sección en la que estás: al tocarla se abre un dock vertical con las 4 secciones, y se cierra al elegir, al tocar fuera o al seguir leyendo. Así no tapa el estudio ni lo que va abajo. La sección elegida va en una burbuja blanca que se desliza al cambiar, con el ícono del color de su especialidad. Al hacer scroll, la página se ve borrosa por debajo. Usa los colores de Academy, no los de Woorky · 2026-11-02
-- [ ] Tu OK al reparto del Pilar 2 entre ML y Deep Learning y Data Science (ver «Decisiones que te tocan»)
-- [ ] Publicar en `/es/`
+- [x] El selector de las 4 secciones en vidrio (pedidos 52 a 54). En el computador es una píldora arriba al centro. En el celular y la tablet es una manija chica en el borde izquierdo, con el ícono de la sección en la que estás: al tocarla se abre un dock vertical con las 4 secciones, y se cierra al elegir, al tocar fuera o al seguir leyendo. Así no tapa el estudio ni lo que va abajo. La sección elegida va en una burbuja blanca que se desliza al cambiar, con el ícono del color de su especialidad. Al hacer scroll, la página se ve borrosa por debajo. Usa los colores de Academy, no los de Woorky · 2026-11-02
+- [x] El reparto del Pilar 2 entre ML y Deep Learning (18 lecciones) y Data Science (13), aprobado al publicar (pedido 54). En el sitio sigue marcado «Temario en preparación» hasta que se junten las fuentes · 2026-11-02
+- [x] Publicado en https://academy.woorky.app/es/ (PR #11 mezclado) · 2026-11-02
 
 ### Fase 5b · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
@@ -288,6 +282,7 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 | 51 | 2026-11-02 | Reestructurar la página entera: una sección para cada especialidad (AI Engineering, ML/Deep Learning y Data Science) más un Inicio que presente la plataforma. Separadas en la interfaz y conectadas por dentro, para no confundir qué tema es de cuál | Las 4 secciones en el borrador (https://academy.woorky.app/borrador/es/), con los puentes entre lecciones. El Pilar 2 quedó repartido entre ML y DL y Data Science, a la espera de tu OK. El pulido pasa a la Fase 5b |
 | 52 | 2026-11-02 | Antes de publicar, el selector de las 4 secciones en estilo glassy, como la barra de Woorky, el dock vertical y el dashboard de vidrio de sus referencias. Solo el vidrio de los botones, no los colores de Woorky | Barra de vidrio con las 4 secciones y un ícono por sección: abajo en el celular y arriba al centro en el computador. La elegida va en una burbuja blanca que se desliza. En el borrador |
 | 53 | 2026-11-02 | En el celular, que el selector vaya escondido en un costado para no tapar el estudio ni lo que va abajo. En el computador, la píldora de arriba al centro le gustó | En el celular, una manija de vidrio en el borde derecho que abre un dock vertical con las 4 secciones (como su imagen del dock). El computador no cambia. En el borrador |
+| 54 | 2026-11-02 | La manija del celular a la izquierda; después, mezclar y subir a producción | Manija y dock en el borde izquierdo. PR #11 mezclado y publicado en https://academy.woorky.app/es/: las 4 secciones, los puentes y el selector de vidrio |
 
 ---
 
@@ -297,7 +292,7 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
   - Las especialidades y sus temarios están en `src/ruta/especialidades.ts`, y los puentes entre ellas, en `src/ruta/conexiones.ts`.
   - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #10 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero y también está mezclado. El #10 trae el canvas «Escribe como el bot».
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #11 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero. El #10 trae el canvas «Escribe como el bot», y el #11, las 4 secciones con el selector de vidrio.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.

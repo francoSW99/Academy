@@ -30,7 +30,7 @@ function seccionDe(ruta: string, lang: string): IdSeccion | null {
  * El selector de las 4 secciones, en vidrio. Vive en el layout: no se vuelve a montar al cambiar
  * de sección, así la burbuja de la elegida se desliza hasta la nueva.
  * - En el computador: una píldora arriba al centro.
- * - En el celular y la tablet: una manija chica en el borde derecho, para no tapar el estudio.
+ * - En el celular y la tablet: una manija chica en el borde izquierdo, para no tapar el estudio.
  *   Al tocarla se abre un dock vertical con las 4 secciones; se cierra al elegir, al tocar fuera,
  *   con Escape o al seguir leyendo (scroll).
  */
