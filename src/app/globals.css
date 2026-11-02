@@ -468,3 +468,210 @@ body {
     }
   }
 }
+
+/*
+ * Propuesta de la Fase 5b: la pizarra de vidrio (pedido 55). Solo existe en el borrador:
+ * el build con NEXT_PUBLIC_PROPUESTA_VIDRIO=1 pone data-vidrio en <html> y un selector A | B | Hoy.
+ * Sin data-vidrio, nada de esto aplica y las pizarras se ven como siempre.
+ *
+ * Cada escena y cada diagrama van en un «tablero»: un escenario oscuro con luces detrás, y encima
+ * la pizarra de vidrio esmerilado. Va sin capa a propósito: así le gana a los utilitarios de Tailwind
+ * que cada escena trae para su caja (borde, fondo y relleno).
+ */
+html[data-vidrio] .tablero {
+  /* Adentro del vidrio rigen los colores de la pizarra negra: texto blanco sobre vidrio oscuro. */
+  --fondo: transparent;
+  --pizarra: rgba(255, 255, 255, 0.05);
+  --pizarra-rejilla: rgba(255, 255, 255, 0.08);
+  --tinta: #f5f7fb;
+  --tinta-2: rgba(240, 244, 250, 0.82);
+  --tenue: rgba(232, 237, 245, 0.64);
+  --borde: rgba(255, 255, 255, 0.13);
+  --borde-fuerte: rgba(255, 255, 255, 0.26);
+  --linea: rgba(240, 244, 250, 0.88);
+  --acento: #93b4ff;
+  --acento-texto: #aac4ff;
+  --acento-tinta: #0a1020;
+  --suave: rgba(255, 255, 255, 0.08);
+  --pulso: rgba(147, 180, 255, 0.4);
+  --verdadero: #86d9a0;
+  --falso: #ff8f80;
+  --l2: #9cc2ff;
+  --primario: #f5f7fb;
+  --primario-tinta: #0a0d14;
+  --codigo-fondo: rgba(0, 0, 0, 0.35);
+  --codigo-tinta: #eef2f8;
+  --ficha-1: rgba(120, 160, 255, 0.3);
+  --ficha-2: rgba(100, 210, 150, 0.28);
+  --ficha-3: rgba(255, 180, 90, 0.3);
+  --ficha-4: rgba(180, 140, 255, 0.32);
+  --ficha-5: rgba(255, 120, 165, 0.3);
+  /* La luz de la especialidad (AI Engineering) y una luz cálida, como en las referencias. */
+  --luz: 59, 109, 255;
+  --luz-calida: 255, 150, 70;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-inline: -10px;
+  padding: 7px;
+  border-radius: 30px;
+  color: var(--tinta);
+  color-scheme: dark;
+}
+
+/* Variante A · Vidrio nocturno: oscuro, con la luz de la especialidad arriba y una luz cálida abajo. */
+html[data-vidrio="a"] .tablero {
+  background:
+    radial-gradient(65% 45% at 88% 4%, rgba(var(--luz), 0.62) 0%, transparent 72%),
+    radial-gradient(60% 42% at 6% 96%, rgba(var(--luz-calida), 0.42) 0%, transparent 72%),
+    radial-gradient(120% 90% at 50% 40%, #0e1524 0%, #05070c 100%);
+}
+
+/* Variante B · Vidrio de color: un degradado vivo de azul, violeta y naranja detrás del vidrio. */
+html[data-vidrio="b"] .tablero {
+  background:
+    radial-gradient(60% 50% at 92% 8%, rgba(255, 122, 61, 0.9) 0%, transparent 70%),
+    radial-gradient(60% 55% at 6% 88%, rgba(40, 110, 255, 0.95) 0%, transparent 72%),
+    radial-gradient(55% 45% at 55% 48%, rgba(140, 70, 220, 0.8) 0%, transparent 75%),
+    linear-gradient(160deg, #0b1d5c 0%, #1e1048 55%, #3a1430 100%);
+}
+
+/* Un arco de luz nítido: se ve tal cual fuera del vidrio y borroso detrás de él. Es lo que delata el vidrio. */
+html[data-vidrio] .tablero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40% -30% auto auto;
+  width: 120%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    transparent 86%,
+    rgba(160, 190, 255, 0.55) 90%,
+    rgba(255, 175, 95, 0.5) 93%,
+    transparent 97%
+  );
+  pointer-events: none;
+}
+
+/* La pizarra de vidrio: la caja de cada escena y de cada diagrama. */
+html[data-vidrio] .tablero > :is(section, figure) {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: clamp(16px, 2.6vw, 30px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.045) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 30px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  html[data-vidrio] .tablero > :is(section, figure) {
+    -webkit-backdrop-filter: blur(26px) saturate(150%);
+    backdrop-filter: blur(26px) saturate(150%);
+  }
+}
+
+/* El título a la izquierda y «Pruébalo» como píldora a la derecha, con un punto «en vivo». */
+html[data-vidrio] .tablero div:has(> .ahora-tu) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+}
+
+html[data-vidrio] .tablero div:has(> .ahora-tu) > h3 {
+  grid-row: 1;
+  grid-column: 1;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 450;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+
+html[data-vidrio] .tablero div:has(> .ahora-tu) > p {
+  grid-column: 1 / -1;
+}
+
+html[data-vidrio] .tablero .ahora-tu {
+  grid-row: 1;
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--tinta-2);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+html[data-vidrio] .tablero .ahora-tu::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7dffb2;
+  box-shadow: 0 0 0 3px rgba(125, 255, 178, 0.18);
+}
+
+/* Los textos que se eligen dentro del vidrio, en su color. */
+html[data-vidrio] .tablero ::selection {
+  background: rgba(147, 180, 255, 0.35);
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  html[data-vidrio] .tablero {
+    margin-inline: 0;
+    padding: 14px;
+    border-radius: 34px;
+  }
+}
+
+/* El selector de la propuesta (solo en el borrador). */
+.propuesta-vidrio {
+  position: fixed;
+  z-index: 45;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--vidrio-borde);
+  border-radius: 999px;
+  background: var(--vidrio-pista-opaca);
+  box-shadow:
+    0 0 0 1px var(--vidrio-filo),
+    var(--vidrio-sombra),
+    inset 0 1px 0 var(--vidrio-brillo);
+  font-size: 13px;
+}
+
+.propuesta-vidrio span {
+  padding: 0 6px 0 8px;
+  color: var(--tenue);
+}
+
+.propuesta-vidrio button {
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--tinta-2);
+  font-weight: 500;
+}
+
+.propuesta-vidrio button[aria-pressed="true"] {
+  background: var(--vidrio-burbuja);
+  box-shadow: var(--vidrio-burbuja-sombra);
+  color: var(--tinta);
+}

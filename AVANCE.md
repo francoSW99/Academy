@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓░░░░` 42 de 65 tareas del plan (65 %). El MVP está al 100 %. **La Fase 5 está completa y publicada.**
-- **Hecho:** Fases 0 a 5 y casi toda la 4b. **Desde el 2026-11-02, el sitio público tiene 4 secciones** (https://academy.woorky.app/es/): Inicio, AI Engineering, ML y Deep Learning, y Data Science. Cada especialidad tiene su temario y su avance, y la lección 03 te lleva a los temas que siguen en las otras. Las secciones se eligen en vidrio: una píldora arriba al centro en el computador y, en el celular, una manija en el borde izquierdo que abre un dock.
-- **Falta:** sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el pulido (5b) y las fases 6 a 10.
-- **Lo próximo:** la Fase 5b, pulido del sitio (1 sesión): el ícono, la página «no encontrada» en español y la vista previa al compartir el link.
+- **Avance:** `▓▓▓▓▓▓░░░░` 43 de 69 tareas del plan (62 %). El MVP está al 100 %. La Fase 5 está publicada. La Fase 5b, «Pizarras de vidrio», va en 1 de 4.
+- **Hecho:** Fases 0 a 5 y casi toda la 4b. El sitio público tiene 4 secciones (https://academy.woorky.app/es/). **Desde el 2026-11-02, el borrador tiene la propuesta de pizarras de vidrio**: las 5 escenas y el diagrama de la lección 03 en vidrio esmerilado, con un selector para comparar A, B y como están hoy. Míralo en https://academy.woorky.app/borrador/es/ai-engineering/leccion/03/
+- **Falta:** que elijas A o B. Después, pulir las pizarras una por una y publicar. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
+- **Lo próximo:** abre la lección 03 del borrador en el celular, compara A, B y Hoy con el selector de abajo a la derecha y dime cuál va.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -27,7 +27,8 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
 F5    Inicio + 3 especialidades           ███
-F5b   Pulido del sitio                        ▓▓
+F5b   Pizarras de vidrio                      ▓▓
+F5c   Pulido del sitio                          ░░
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -52,7 +53,10 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+1. **¿Pizarra de vidrio A o B?** (Fase 5b) Están en la lección 03 del borrador, con un selector abajo a la derecha.
+   - **A · Vidrio nocturno** (la recomiendo): el fondo es oscuro, con la luz azul de AI Engineering arriba y una luz cálida abajo. Se parece a tus referencias oscuras y es la que mejor se lee.
+   - **B · Vidrio de color**: el fondo es un degradado vivo de azul, violeta y naranja. Llama más la atención, pero las barras y las fichas de tokens se distinguen menos.
+2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -66,8 +70,9 @@ gantt
     section Después del MVP
     F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
     F5 Inicio y 3 especialidades · publicada :done, f5, 2026-11-02, 1d
-    F5b Pulido del sitio :active, f5b, after f5, 2d
-    F6 Estación 04 · App de IA :f6, after f5b, 7d
+    F5b Pizarras de vidrio :active, f5b, after f5, 3d
+    F5c Pulido del sitio :f5c, after f5b, 2d
+    F6 Estación 04 · App de IA :f6, after f5c, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
     F9 Estación 01 · Base de software :f9, after f8, 7d
@@ -173,7 +178,19 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 - [x] El reparto del Pilar 2 entre ML y Deep Learning (18 lecciones) y Data Science (13), aprobado al publicar (pedido 54). En el sitio sigue marcado «Temario en preparación» hasta que se junten las fuentes · 2026-11-02
 - [x] Publicado en https://academy.woorky.app/es/ (PR #11 mezclado) · 2026-11-02
 
-### Fase 5b · Pulido del sitio · 0 de 3 · semana 2
+### ▶ Fase 5b · Pizarras de vidrio · 1 de 4 · semana 2 · propuesta en el borrador
+Pedido 55. Las pizarras de las lecciones (escenas, canvas, tokenizador y diagramas) pasan a ser pizarras digitales de vidrio, con glassmorphism, como sus 9 referencias. El texto de la lección sigue en blanco, para leer tranquilo.
+- Cada pizarra tiene un escenario con luces detrás y, encima, el vidrio esmerilado: borde de luz fina, texto blanco, botones en píldora y «Pruébalo» con un punto en vivo.
+- Un arco de luz se ve nítido fuera del vidrio y borroso detrás de él: eso es lo que hace que se lea como vidrio.
+- La luz toma el color de la especialidad: azul en AI Engineering, violeta en ML y verde en Data Science.
+- Las luces son CSS, sin imágenes: la página no pesa más.
+
+- [x] Propuesta en el borrador: las 5 escenas y el diagrama del bucle de la lección 03 en vidrio, con un selector A | B | Hoy para comparar · 2026-11-02
+- [ ] Tu elección: A (vidrio nocturno) o B (vidrio de color)
+- [ ] Pulir pizarra por pizarra en el celular y el computador: perillas, botones, la ventana fija de «Llena la ventana», las tarjetas de video y la luz de cada especialidad. Sacar el selector de la propuesta
+- [ ] Publicar en `/es/`
+
+### Fase 5c · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
@@ -283,6 +300,7 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 | 52 | 2026-11-02 | Antes de publicar, el selector de las 4 secciones en estilo glassy, como la barra de Woorky, el dock vertical y el dashboard de vidrio de sus referencias. Solo el vidrio de los botones, no los colores de Woorky | Barra de vidrio con las 4 secciones y un ícono por sección: abajo en el celular y arriba al centro en el computador. La elegida va en una burbuja blanca que se desliza. En el borrador |
 | 53 | 2026-11-02 | En el celular, que el selector vaya escondido en un costado para no tapar el estudio ni lo que va abajo. En el computador, la píldora de arriba al centro le gustó | En el celular, una manija de vidrio en el borde derecho que abre un dock vertical con las 4 secciones (como su imagen del dock). El computador no cambia. En el borrador |
 | 54 | 2026-11-02 | La manija del celular a la izquierda; después, mezclar y subir a producción | Manija y dock en el borde izquierdo. PR #11 mezclado y publicado en https://academy.woorky.app/es/: las 4 secciones, los puentes y el selector de vidrio |
+| 55 | 2026-11-02 | La 5b distinta: cambiar el diseño de los canvas, dashboards y pizarras de las lecciones (como el tokenizador) a pizarras digitales de vidrio, con glassmorphism. Mandó 9 referencias y pidió una propuesta primero | Propuesta en el borrador: las pizarras de la lección 03 en vidrio, con dos variantes (A nocturna y B de color) y un selector para compararlas con las de hoy. El pulido del sitio pasa a la Fase 5c |
 
 ---
 
