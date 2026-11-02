@@ -84,8 +84,11 @@ export const leccion03: ContenidoLeccion = {
       texto: [
         "Un modelo de lenguaje (LLM) no busca la respuesta en una base de datos. Lee tu texto, calcula qué tan probable es cada palabra que podría venir después, elige una, la agrega y repite. Así escribe todo, palabra por palabra.",
         { figura: "bucle" },
-        "Un caso de todos los días: un bot de soporte redacta la respuesta a Carla, a quien le cobraron dos veces. Le dimos el comienzo, «Hola Carla, lamentamos el cobro duplicado de tu suscripción. Ya», a un modelo real (deepseek-r1:8b) y elegimos siempre su palabra más probable: «hemos» (47 %), «cancelado» (17 %), «la» (39 %) y «recurrencia» (25 %).",
-        "**El bot escribió «Ya hemos cancelado la recurrencia», y nadie canceló nada.** Casi con la misma probabilidad podría haber escrito «reembolsado» (16 %) o «verificado» (14 %). El modelo no sabe qué pasó en tu sistema: sabe qué suele venir después de «lamentamos el cobro duplicado».",
+        "Un caso de todos los días: un bot de soporte redacta la respuesta a Carla, a quien le cobraron dos veces. Le dimos el comienzo, «Hola Carla, lamentamos el cobro duplicado de tu suscripción. Ya», a un modelo real (deepseek-r1:8b). Escríbela tú, palabra por palabra:",
+      ],
+      escenas: ["autocompletado"],
+      despues: [
+        "Eligiendo siempre su palabra más probable, «hemos» (47 %), «cancelado» (17 %), «la» (39 %) y «recurrencia» (25 %), **el bot escribió «Ya hemos cancelado la recurrencia», y nadie canceló nada.** Casi con la misma probabilidad podría haber escrito «reembolsado» (16 %) o «verificado» (14 %). El modelo no sabe qué pasó en tu sistema: sabe qué suele venir después de «lamentamos el cobro duplicado».",
       ],
       fuentes: [{ fuente: "phoenix", donde: "p. 53" }, { fuente: "karpathy" }, { fuente: "tresblue" }, { fuente: "medicion" }],
     },

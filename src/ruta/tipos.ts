@@ -25,7 +25,7 @@ export type Curso = {
 };
 
 /** Escenas interactivas que existen (src/componentes/escenas/). */
-export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill";
+export type NombreEscena = "tokens" | "muestreo" | "contexto" | "prefill" | "autocompletado";
 
 /** Diagramas que existen (src/componentes/figuras/): van entre los párrafos, para imaginar lo que dice el texto. */
 export type NombreFigura = "bucle";
