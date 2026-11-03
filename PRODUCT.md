@@ -36,7 +36,7 @@ Sitio público y sin login en academy.woorky.app. El avance se guarda en el nave
 - Es de la familia de woorky.app y usa Google Sans Flex. Es minimal y elegante; sus referencias son 3Blue1Brown, Khan Academy y DeepLearning.AI.
 - Cada especialidad tiene su color: azul (AI), violeta (ML) y verde (DS).
 - Los videos salen solo de la biblioteca de BrainFran y van solo donde suman.
-- El vidrio («glassy») es la dirección elegida por Fran: el selector de secciones (pedidos 52 a 54) y, en propuesta, toda la app como pizarras de vidrio oscuro sobre un solo fondo de página, sin bases individuales (pedido 57).
+- El vidrio («glassy») es la dirección elegida por Fran: el selector de secciones (pedidos 52 a 54) y, desde el 2026-11-03, toda la app como pizarras de vidrio oscuro sobre un solo fondo de página, sin bases individuales (pedidos 57 y 58).
 
 ## Evidence on Hand
 

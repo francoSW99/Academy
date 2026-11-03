@@ -7,16 +7,16 @@ El tablero del proyecto. Claude lo actualiza en cada entrega:
 
 Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
-*Última actualización: 2026-11-02*
+*Última actualización: 2026-11-03*
 
 ---
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓░░░░` 43 de 69 tareas del plan (62 %). El MVP está al 100 %. La Fase 5 está publicada. La Fase 5b, «Pizarras de vidrio», va en 1 de 4.
-- **Hecho:** Fases 0 a 5 y casi toda la 4b. El sitio público tiene 4 secciones (https://academy.woorky.app/es/). **Desde el 2026-11-02, el borrador tiene la propuesta Glassboards**: toda la app en vidrio oscuro sobre un solo fondo de página, sin bases individuales, según tu `ai_studio_code.txt` y tus 6 referencias. Míralo en https://academy.woorky.app/borrador/es/ai-engineering/leccion/03/
-- **Falta:** tu feedback o tu OK a la propuesta. Después, los ajustes y publicar. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
-- **Lo próximo:** abre la lección 03 del borrador en el celular y en el computador, y dime qué cambiar o si apruebas.
+- **Avance:** `▓▓▓▓▓▓▓░░░` 46 de 69 tareas del plan (67 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas.
+- **Hecho:** Fases 0 a 5b y casi toda la 4b. **Desde el 2026-11-03, el sitio público es Glassboards** (https://academy.woorky.app/es/): toda la app en vidrio oscuro sobre un solo fondo de página. El diseño anterior quedó guardado en el worktree `UIv1` (`~/projects/UIv1`), idéntico a lo que estaba publicado.
+- **Falta:** mezclar el PR #13, para que `main` quede igual que el sitio. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
+- **Lo próximo:** dime «mezcla el PR 13». Después sigue el pulido del sitio (5c).
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -27,8 +27,8 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
 F5    Inicio + 3 especialidades           ███
-F5b   Pizarras de vidrio                      ▓▓
-F5c   Pulido del sitio                          ░░
+F5b   Pizarras de vidrio                      ██
+F5c   Pulido del sitio                          ▓▓
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -53,8 +53,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Decisiones que te tocan
 
-1. **¿Va Glassboards?** (Fase 5b) Está en el borrador. Toda la app va en vidrio oscuro, y el fondo principal de la página es uno solo: el lienzo oscuro del txt con 3 luces difusas fijas. Si por «fondo original» querías el blanco, dímelo y lo rehago sobre ese fondo.
-2. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -68,8 +67,8 @@ gantt
     section Después del MVP
     F4b Curso en módulos y canvas · urgente :active, f4b, 2026-11-02, 10d
     F5 Inicio y 3 especialidades · publicada :done, f5, 2026-11-02, 1d
-    F5b Pizarras de vidrio :active, f5b, after f5, 3d
-    F5c Pulido del sitio :f5c, after f5b, 2d
+    F5b Pizarras de vidrio · publicada :done, f5b, after f5, 2d
+    F5c Pulido del sitio :active, f5c, after f5b, 2d
     F6 Estación 04 · App de IA :f6, after f5c, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
@@ -176,18 +175,19 @@ Pedido 51. La plataforma se separa en 4 secciones, para no mezclar temas ni mare
 - [x] El reparto del Pilar 2 entre ML y Deep Learning (18 lecciones) y Data Science (13), aprobado al publicar (pedido 54). En el sitio sigue marcado «Temario en preparación» hasta que se junten las fuentes · 2026-11-02
 - [x] Publicado en https://academy.woorky.app/es/ (PR #11 mezclado) · 2026-11-02
 
-### ▶ Fase 5b · Pizarras de vidrio · 1 de 4 · semana 2 · propuesta en el borrador
-Pedidos 55 a 57. Fran descartó las propuestas anteriores (PR #12, sin mezclar) y pidió aplicar línea por línea `ai_studio_code.txt` (Dark Spatial Glassmorphism), con 6 referencias de glass boards.
+### ✅ Fase 5b · Pizarras de vidrio · 4 de 4 · 2026-11-03 · PR #13
+Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar), pidió aplicar línea por línea `ai_studio_code.txt` (Dark Spatial Glassmorphism) con 6 referencias de glass boards, y aprobó el resultado («Dale, me gustó»).
 - **Un solo fondo** (pedido 57): las pizarras van directo sobre el fondo principal de la página, sin bases individuales. Ese fondo es el lienzo `#06080D` con 3 auras fijas (azul, añil y ámbar).
 - **Toda la app, no solo las escenas:** barra flotante, temario con tu avance, lector, tarjeta de portada, prompts, callouts y navegación del final. El Inicio y las especialidades también pasan a vidrio, para que el sitio se vea parejo.
 - **Siempre oscuro** y con títulos sin serif, como pide el txt. En el celular, el temario es un Glass Drawer y las secciones siguen en la manija del borde izquierdo.
 - **Sin perfil ni XP:** el sitio no tiene cuentas, así que la barra muestra tu avance real. Los minutos de lectura se calculan del texto.
 - Es solo CSS, sin imágenes: la página no pesa más. El sistema está en `DESIGN.md`.
+- **El diseño anterior sigue a mano** (pedido 58): está en el worktree `~/projects/UIv1`, rama `UIv1`, por si quieres volver o tomar elementos de él.
 
 - [x] Propuesta en el borrador: el txt aplicado a la lección 03 y a los componentes globales, probado de 320 a 1920 px con todas las interacciones · 2026-11-02
-- [ ] Tu OK a la propuesta
-- [ ] Ajustar con tu feedback, en el celular y en el computador
-- [ ] Publicar en `/es/`
+- [x] Tu OK a la propuesta («Dale, me gustó») · 2026-11-03
+- [x] Ajustes con tu feedback: no pediste ninguno · 2026-11-03
+- [x] Publicado en https://academy.woorky.app/es/ · 2026-11-03
 
 ### Fase 5c · Pulido del sitio · 0 de 3 · semana 2
 - [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
@@ -302,6 +302,7 @@ Pedidos 55 a 57. Fran descartó las propuestas anteriores (PR #12, sin mezclar) 
 | 55 | 2026-11-02 | La 5b distinta: cambiar el diseño de los canvas, dashboards y pizarras de las lecciones (como el tokenizador) a pizarras digitales de vidrio, con glassmorphism. Mandó 9 referencias y pidió una propuesta primero | Propuesta en el borrador: las pizarras de la lección 03 en vidrio, con dos variantes (A nocturna y B de color) y un selector para compararlas con las de hoy. El pulido del sitio pasa a la Fase 5c |
 | 56 | 2026-11-02 | Ni A ni B ni Hoy: la pizarra de vidrio va encima del fondo original de la app, sin un fondo distinto | Propuesta rehecha en el borrador: las pizarras son el mismo vidrio del selector de secciones, sobre el fondo blanco (o negro en modo oscuro), y lo de adentro va en burbujas de vidrio. Selector «Vidrio | Hoy» |
 | 57 | 2026-11-02 | Trabajar la UI/UX: aplicar línea por línea `ai_studio_code.txt`, ignorando el PR antiguo, con 6 referencias. Los glass boards van sobre el fondo principal de la página, sin bases individuales; lo más natural, minimalista y moderno posible | Propuesta Glassboards en el borrador (PR #13): toda la app en vidrio oscuro sobre un solo lienzo, con barra flotante, temario con avance, lector, prompts, callouts y navegación del final. Probadas todas las interacciones |
+| 58 | 2026-11-03 | «Dale, me gustó»: guardar el diseño que está en prod en un worktree nuevo llamado UIv1, por si se arrepiente o quiere tomar elementos de él, y actualizar el sitio a la versión del borrador | Worktree `~/projects/UIv1` con el diseño anterior, comprobado idéntico a lo publicado. Glassboards publicado en https://academy.woorky.app/es/ y probado en vivo |
 
 ---
 
@@ -310,8 +311,9 @@ Pedidos 55 a 57. Fran descartó las propuestas anteriores (PR #12, sin mezclar) 
 - **El curso:** https://academy.woorky.app/es/ (el grafo de BrainFran sigue en https://academy.woorky.app/obsidian/).
   - Las especialidades y sus temarios están en `src/ruta/especialidades.ts`, y los puentes entre ellas, en `src/ruta/conexiones.ts`.
   - Para publicar una versión nueva: `npm run publicar` en la VM. Las últimas 3 versiones quedan en `versiones/` para volver atrás.
+- **El diseño anterior («Pizarra en metro»):** worktree `~/projects/UIv1`, rama local `UIv1`, commit `5e78eaa`. Se ve con `npm run dev -- -p 3001` en esa carpeta.
 - **El código:** https://github.com/francoSW99/Academy
-- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #11 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero. El #10 trae el canvas «Escribe como el bot», y el #11, las 4 secciones con el selector de vidrio. El #12 es la propuesta de vidrio anterior, sin mezclar, y el #13, la propuesta Glassboards.
+- **Las entregas:** cada una es un PR, en la pestaña *Pull requests* del repo. Del #1 al #11 ya están mezclados: el #7 es la publicación del MVP y el #8, el curso en módulos. El #9 solo actualiza este tablero. El #10 trae el canvas «Escribe como el bot», y el #11, las 4 secciones con el selector de vidrio. El #12 es la propuesta de vidrio anterior, sin mezclar, y el #13, Glassboards: publicado y por mezclar.
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.

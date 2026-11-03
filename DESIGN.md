@@ -109,7 +109,7 @@ components:
 
 # Design System: Academy · Glassboards
 
-*Propuesta de la Fase 5b, en el borrador: todavía no tiene el OK de Fran. `main` conserva el sistema anterior hasta entonces.*
+*Publicado el 2026-11-03, con el OK de Fran. El sistema anterior, «Pizarra en metro», sigue en la rama local `UIv1` (commit `5e78eaa`).*
 
 ## Overview
 
