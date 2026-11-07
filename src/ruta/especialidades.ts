@@ -1,4 +1,4 @@
-import { temarioAi, temarioMl } from "./temario";
+import { temarioAi, temarioDs, temarioMl } from "./temario";
 import type { Especialidad, IdEspecialidad, Leccion, Modulo, RefLeccion } from "./tipos";
 
 /** Numera módulos y lecciones en orden: el número es solo para mostrar. Los desvíos no llevan número propio. */
@@ -18,8 +18,8 @@ export const propias = (m: Modulo) => m.lecciones.filter((l) => !l.desvio);
 export const idDe = (l: Leccion) => l.id ?? l.n;
 
 // Fuente de verdad de los temarios: BrainFran/vault/03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md
-// AI Engineering es el Pilar 1. ML y Deep Learning y Data Science salen del Pilar 2 (todavía en revisión),
-// repartido entre las dos: cada bloque vive en una sola especialidad y los temas compartidos van en conexiones.ts.
+// AI Engineering es el Pilar 1. ML y Deep Learning y Data Science salen del Pilar 2 y de la propuesta ML v2
+// (docs/roadmap/ml-dl/): cada tema se profundiza en una sola especialidad, y la otra lleva un repaso o un requisito.
 // Publicar una lección = poner disponible: true y crear su contenido en contenido/.
 
 const ai: Especialidad = {
@@ -35,25 +35,15 @@ const ai: Especialidad = {
   modulos: numerar(temarioAi),
 };
 
-/** Arma los módulos de un temario propuesto: todas las lecciones «pronto», numeradas en orden. */
-function propuesta(modulos: [nombre: string, lecciones: string[]][]): Modulo[] {
-  let k = 0;
-  return modulos.map(([nombre, titulos], i) => ({
-    n: i + 1,
-    nombre,
-    lecciones: titulos.map((titulo): Leccion => ({ n: String(++k).padStart(2, "0"), titulo, disponible: false })),
-  }));
-}
-
 const ml: Especialidad = {
   id: "ml",
   slug: "ml-deep-learning",
   nombre: "ML y Deep Learning",
   corto: "ML y DL",
   rol: "ML Engineer",
-  queHaces: "Entiendes cómo aprende un modelo y lo entrenas: estadística, ML clásico, deep learning, pre-entrenamiento y escala, del árbol de decisión al Transformer.",
-  eligela: "si quieres entrenar y ajustar modelos propios, pre-entrenar desde cero o trabajar como ML Engineer o research engineer.",
-  meta: "Elegir, entrenar y poner en producción el modelo correcto, y revisar con criterio lo que entrega el agente.",
+  queHaces: "Construyes modelos que predicen, de la regresión lineal al Transformer, y eliges salida: Industria, para llevarlos a producción, o Research, para investigar con ML.",
+  eligela: "si quieres trabajar como ML Engineer en una empresa, o investigar con ML: deporte, neurociencia, biomecánica o cómo se construyen los modelos.",
+  meta: "Elegir, entrenar y llevar a producción el modelo correcto, o investigar con método, y revisar con criterio lo que entrega el agente.",
   enPreparacion: true,
   modulos: numerar(temarioMl),
 };
@@ -65,16 +55,10 @@ const ds: Especialidad = {
   corto: "Data Science",
   rol: "Data Scientist",
   queHaces: "Sacas respuestas de los datos: los limpias, los exploras, mides con estadística y cuentas lo que encontraste.",
-  eligela: "si quieres responder preguntas de negocio o de investigación con datos, pronosticar o medir el efecto de una decisión.",
+  eligela: "si quieres responder preguntas de negocio o de investigación con datos, diseñar experimentos o medir el efecto de una decisión.",
   meta: "Convertir una pregunta en un análisis confiable: datos limpios, la estadística correcta y una conclusión que se entiende.",
   enPreparacion: true,
-  modulos: propuesta([
-    ["El mapa", ["Qué es la ciencia de datos y sus roles", "El proceso de un proyecto de datos"]],
-    ["Los datos", ["Datos y SQL como operaciones", "Pandas como operaciones", "Limpieza y calidad de datos", "Análisis exploratorio y visualización", "Feature engineering"]],
-    ["Estadística", ["Probabilidad y estadística", "Inferencia causal y econometría"]],
-    ["Patrones y pronóstico", ["Series de tiempo y pronóstico", "Grupos y anomalías"]],
-    ["Especialización e investigación", ["Energía solar y renovables", "Neurociencia con datos"]],
-  ]),
+  modulos: numerar(temarioDs),
 };
 
 /** En este orden se muestran en la barra de arriba y en el Inicio. */

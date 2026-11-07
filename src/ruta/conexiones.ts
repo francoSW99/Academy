@@ -1,10 +1,12 @@
 import { buscarLeccion, type LeccionEnRuta } from "./especialidades";
+import { puentesDeRepaso } from "./temario";
 import type { Conexion, IdEspecialidad, RefLeccion } from "./tipos";
 
 // Los puentes entre especialidades. En la interfaz cada especialidad va en su sección;
 // aquí se dice qué lecciones comparten un tema, para conectar lo que aprendes en una con otra.
 // Cada puente se escribe una vez y aparece al final de las dos lecciones.
 // Salen de «Fusiones con el Pilar 1» de la nota del temario, más los cruces entre ML y Data Science.
+// Los puentes de los repasos se generan desde la propuesta ML v2 (puentesDeRepaso, en temario.ts).
 
 export const conexiones: Conexion[] = [
   // AI Engineering ↔ ML y Deep Learning
@@ -25,17 +27,13 @@ export const conexiones: Conexion[] = [
   { desde: "ml/del-notebook-a-produccion", hacia: "ai/git-y-github", tipo: "requiere", tema: "Versionar el código, y con él los datos y los modelos." },
 
   // AI Engineering ↔ Data Science
-  { desde: "ai/03", hacia: "ds/08", tipo: "profundiza", tema: "Distribuciones de probabilidad: lo que el modelo calcula antes de cada palabra." },
-  { desde: "ai/primeros-evals", hacia: "ds/08", tipo: "profundiza", tema: "Comparar dos versiones con datos y saber si la diferencia es real o es azar." },
+  { desde: "ai/03", hacia: "ds/probabilidad-y-distribuciones", tipo: "profundiza", tema: "Distribuciones de probabilidad: lo que el modelo calcula antes de cada palabra." },
+  { desde: "ai/primeros-evals", hacia: "ds/intervalos-y-tests", tipo: "profundiza", tema: "Comparar dos versiones con datos y saber si la diferencia es real o es azar." },
 
-  // ML y Deep Learning ↔ Data Science
-  { desde: "ml/probabilidad-para-ml", hacia: "ds/08", tipo: "requiere", tema: "Probabilidad y distribuciones: el idioma en que un modelo dice lo que predice." },
-  { desde: "ml/entrenar-validar-probar", hacia: "ds/05", tipo: "requiere", tema: "La fuga de datos: el error que arruina cualquier entrenamiento." },
-  { desde: "ml/entrenar-validar-probar", hacia: "ds/07", tipo: "requiere", tema: "Los features: de qué aprende un modelo y por qué importan más que el modelo." },
-  { desde: "ds/10", hacia: "ml/ensambles", tipo: "profundiza", tema: "Pronosticar con XGBoost y rezagos: el modelo que más gana con datos en tablas." },
-  { desde: "ds/10", hacia: "ml/rnn-y-lstm", tipo: "profundiza", tema: "Pronosticar con deep learning: LSTM y Transformers para series de tiempo." },
-  { desde: "ds/12", hacia: "ml/computer-vision", tipo: "profundiza", tema: "Detectar suciedad en paneles solares con visión: el caso FONDEF con YOLO." },
-  { desde: "ds/13", hacia: "ml/clasificacion", tipo: "profundiza", tema: "Clasificar señales de EEG: los mismos clasificadores, con datos del cerebro." },
+  // ML y Deep Learning ↔ Data Science (propuesta ML v2). Los repasos suman sus propios puentes abajo.
+  { desde: "ml/lanzar-con-cuidado", hacia: "ds/experimentos-ab", tipo: "requiere", tema: "La estadística de un experimento A/B, para lanzar un modelo nuevo sin miedo." },
+  { desde: "ml/experimentos-y-significancia", hacia: "ds/intervalos-y-tests", tipo: "requiere", tema: "Tests de hipótesis y p-valor: saber si una mejora es real o es azar." },
+  ...puentesDeRepaso,
 ];
 
 /**

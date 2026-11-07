@@ -1,6 +1,6 @@
-// Generado desde research_notes/propuesta_v3/estructura.py (propuesta v3 del roadmap, pedido 82).
-// Solo para el borrador: el temario definitivo espera el OK de Fran.
-import type { Modulo } from "./tipos";
+// Generado desde research_notes/propuesta_v3/estructura.py (AI Engineering) y research_notes/propuesta_ml/estructura.py
+// (ML y DL, y Data Science; propuesta ML v2, aprobada en el pedido 98). No se edita a mano: se corre gen_temario.py.
+import type { Conexion, Modulo } from "./tipos";
 
 type ModuloSinNumero = Omit<Modulo, "n" | "lecciones"> & { lecciones: Omit<Modulo["lecciones"][number], "n">[] };
 
@@ -622,7 +622,7 @@ export const temarioAi: ModuloSinNumero[] = [
         "disponible": false
       },
       {
-        "titulo": "Aprendizaje por refuerzo desde la base",
+        "titulo": "Aprendizaje por refuerzo desde la base: valor, política y Q-learning",
         "disponible": false,
         "desvio": "ml/refuerzo-desde-la-base"
       }
@@ -723,7 +723,7 @@ export const temarioAi: ModuloSinNumero[] = [
         "disponible": false
       },
       {
-        "titulo": "Experimentos con estadística: ablaciones y significancia",
+        "titulo": "Comparar modelos con estadística: semillas, ablaciones y significancia",
         "disponible": false,
         "desvio": "ml/experimentos-y-significancia"
       },
@@ -842,23 +842,43 @@ export const temarioAi: ModuloSinNumero[] = [
 
 export const temarioMl: ModuloSinNumero[] = [
   {
-    "bloque": "Fundamentos: matemática y estadística",
-    "nombre": "El mapa del ML",
+    "bloque": "Empezar · para las dos salidas",
+    "nombre": "El oficio y el mapa",
     "lecciones": [
       {
         "id": "mapa-del-ml",
-        "titulo": "El mapa del ML: problemas, tipos de aprendizaje y roles",
+        "titulo": "El mapa del ML: problemas, tipos de aprendizaje y datos",
+        "disponible": false
+      },
+      {
+        "id": "ml-engineer-o-data-scientist",
+        "titulo": "ML engineer, data scientist y los demás: quién hace qué",
+        "disponible": false
+      },
+      {
+        "id": "proyecto-de-punta-a-punta",
+        "titulo": "Un proyecto de ML de punta a punta: del problema al modelo vivo",
+        "disponible": false
+      },
+      {
+        "id": "herramientas-del-ml",
+        "titulo": "Las herramientas: Python, notebooks, scikit-learn, PyTorch, SQL y R",
+        "disponible": false
+      },
+      {
+        "id": "repaso-datos",
+        "titulo": "Repaso: datos, limpieza y exploración",
         "disponible": false
       }
     ]
   },
   {
-    "bloque": "Fundamentos: matemática y estadística",
+    "bloque": "Matemática y probabilidad para modelar",
     "nombre": "Matemática para ML",
     "lecciones": [
       {
         "id": "algebra-lineal",
-        "titulo": "Álgebra lineal: los datos como matriz",
+        "titulo": "Álgebra lineal: los datos como matriz, y la SVD",
         "disponible": false
       },
       {
@@ -870,16 +890,21 @@ export const temarioMl: ModuloSinNumero[] = [
         "id": "descenso-de-gradiente",
         "titulo": "Descenso de gradiente: cómo aprende casi todo modelo",
         "disponible": false
+      },
+      {
+        "id": "entropia-y-perdidas",
+        "titulo": "Entropía, entropía cruzada y KL: de dónde salen las funciones de pérdida",
+        "disponible": false
       }
     ]
   },
   {
-    "bloque": "Fundamentos: matemática y estadística",
-    "nombre": "Estadística para ML",
+    "bloque": "Matemática y probabilidad para modelar",
+    "nombre": "Probabilidad para modelar",
     "lecciones": [
       {
         "id": "probabilidad-para-ml",
-        "titulo": "Probabilidad y distribuciones para modelar",
+        "titulo": "Repaso: probabilidad y distribuciones",
         "disponible": false
       },
       {
@@ -894,12 +919,59 @@ export const temarioMl: ModuloSinNumero[] = [
       },
       {
         "id": "sesgo-varianza",
-        "titulo": "Sesgo, varianza y generalización",
+        "titulo": "Sesgo, varianza y curvas de aprendizaje",
         "disponible": false
       },
       {
-        "id": "experimentos-y-significancia",
-        "titulo": "Experimentos con estadística: ablaciones y significancia",
+        "id": "repaso-inferencia",
+        "titulo": "Repaso: muestreo, intervalos, tests y bootstrap",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "El modelo lineal a fondo",
+    "nombre": "Regresión lineal: el modelo base",
+    "aviso": "El modelo más importante del ML, a fondo. Las ofertas de ML engineer lo piden como «OLS y sus extensiones», y es la base de casi todo lo que sigue.",
+    "lecciones": [
+      {
+        "id": "regresion",
+        "titulo": "Regresión lineal: predecir y explicar un número",
+        "disponible": false
+      },
+      {
+        "id": "mco-por-dentro",
+        "titulo": "MCO por dentro: coeficientes, tests t y F, y tipos de predicción",
+        "disponible": false
+      },
+      {
+        "id": "categoricas-y-anova",
+        "titulo": "Variables categóricas y ANOVA de una y dos vías",
+        "disponible": false
+      },
+      {
+        "id": "diagnostico-de-residuos",
+        "titulo": "Diagnosticar el modelo: normalidad, heteroscedasticidad y autocorrelación",
+        "disponible": false
+      },
+      {
+        "id": "outliers-e-influencia",
+        "titulo": "Outliers e influencia: leverage, distancia de Cook y regresión robusta",
+        "disponible": false
+      },
+      {
+        "id": "colinealidad-y-seleccion",
+        "titulo": "Colinealidad y elegir variables: AIC, BIC, forward, backward y stepwise",
+        "disponible": false
+      },
+      {
+        "id": "ridge-lasso-pcr-pls",
+        "titulo": "Ridge, LASSO, PCR y PLS: muchas variables sin perder el control",
+        "disponible": false
+      },
+      {
+        "id": "regresion-polinomial-y-glm",
+        "titulo": "Más allá de la recta: regresión polinomial y modelos lineales generalizados",
         "disponible": false
       }
     ]
@@ -927,21 +999,37 @@ export const temarioMl: ModuloSinNumero[] = [
   },
   {
     "bloque": "Machine Learning clásico",
-    "nombre": "Modelos supervisados",
+    "nombre": "Features para el modelo",
     "lecciones": [
       {
-        "id": "regresion",
-        "titulo": "Regresión: predecir un número",
+        "id": "features-para-modelar",
+        "titulo": "Features: crear, codificar y escalar para el modelo",
         "disponible": false
       },
       {
+        "id": "pipelines-sin-fuga",
+        "titulo": "Preprocesar sin fugas: el mismo pipeline para entrenar y para servir",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Machine Learning clásico",
+    "nombre": "Clasificación",
+    "lecciones": [
+      {
         "id": "clasificacion",
-        "titulo": "Clasificación: predecir una categoría",
+        "titulo": "Regresión logística: predecir una categoría con probabilidad",
+        "disponible": false
+      },
+      {
+        "id": "knn-y-naive-bayes",
+        "titulo": "kNN y Naive Bayes",
         "disponible": false
       },
       {
         "id": "svm-y-kernels",
-        "titulo": "SVM y kernels",
+        "titulo": "SVM: margen máximo, kernels y regresión con SVM",
         "disponible": false
       },
       {
@@ -951,7 +1039,7 @@ export const temarioMl: ModuloSinNumero[] = [
       },
       {
         "id": "ensambles",
-        "titulo": "Ensambles: random forest y boosting",
+        "titulo": "Ensambles: random forest, boosting y XGBoost",
         "disponible": false
       }
     ]
@@ -962,7 +1050,7 @@ export const temarioMl: ModuloSinNumero[] = [
     "lecciones": [
       {
         "id": "clustering",
-        "titulo": "Clustering: encontrar grupos",
+        "titulo": "Clustering: k-medias, jerárquico, DBSCAN y mezclas gaussianas",
         "disponible": false
       },
       {
@@ -972,7 +1060,7 @@ export const temarioMl: ModuloSinNumero[] = [
       },
       {
         "id": "anomalias",
-        "titulo": "Detección de anomalías",
+        "titulo": "Detección de anomalías: encontrar lo raro antes de que falle",
         "disponible": false
       },
       {
@@ -997,39 +1085,60 @@ export const temarioMl: ModuloSinNumero[] = [
         "disponible": false
       },
       {
+        "id": "analisis-de-errores",
+        "titulo": "Análisis de errores: dónde y por qué falla el modelo",
+        "disponible": false
+      },
+      {
+        "id": "calibracion",
+        "titulo": "Probabilidades en las que se puede confiar: calibración",
+        "disponible": false
+      },
+      {
         "id": "interpretar-un-modelo",
-        "titulo": "Interpretar un modelo: importancia de features y SHAP",
+        "titulo": "Explicar un modelo: importancia de features y SHAP",
+        "disponible": false
+      },
+      {
+        "id": "experimentos-y-significancia",
+        "titulo": "Comparar modelos con estadística: semillas, ablaciones y significancia",
         "disponible": false
       }
     ]
   },
   {
-    "bloque": "Entrenar y ajustar modelos",
-    "nombre": "Training and tuning",
+    "bloque": "Series de tiempo y pronóstico",
+    "nombre": "Series de tiempo",
+    "aviso": "Pronosticar es de lo más pedido en la industria: generación solar y eólica, demanda o fallas antes de que ocurran. Data Science lleva un repaso.",
     "lecciones": [
       {
-        "id": "ciclo-de-entrenamiento",
-        "titulo": "El ciclo de entrenamiento: épocas, lotes e iteraciones",
+        "id": "series-por-dentro",
+        "titulo": "Una serie por dentro: tendencia, estacionalidad, autocorrelación y estacionariedad",
         "disponible": false
       },
       {
-        "id": "hiperparametros",
-        "titulo": "Buscar hiperparámetros con método",
+        "id": "arima-y-sarima",
+        "titulo": "ARIMA y SARIMA: identificar, ajustar, diagnosticar y predecir",
         "disponible": false
       },
       {
-        "id": "learning-rate",
-        "titulo": "El learning rate y su calendario",
+        "id": "raiz-unitaria",
+        "titulo": "Raíz unitaria y regresión espuria: cuando dos series engañan juntas",
         "disponible": false
       },
       {
-        "id": "diagnosticar-entrenamiento",
-        "titulo": "Diagnosticar un entrenamiento por sus curvas",
+        "id": "validar-un-pronostico",
+        "titulo": "Validar un pronóstico: walk-forward, persistencia e intervalos",
         "disponible": false
       },
       {
-        "id": "rendimiento-de-entrenamiento",
-        "titulo": "Entrenar más rápido y más barato",
+        "id": "pronostico-con-ml",
+        "titulo": "Pronosticar con ML: rezagos, ventanas y XGBoost",
+        "disponible": false
+      },
+      {
+        "id": "pronostico-probabilistico",
+        "titulo": "Pronóstico probabilístico: un rango, no un número",
         "disponible": false
       }
     ]
@@ -1072,23 +1181,101 @@ export const temarioMl: ModuloSinNumero[] = [
   },
   {
     "bloque": "Deep Learning",
-    "nombre": "Arquitecturas",
+    "nombre": "Entrenar y ajustar",
     "lecciones": [
       {
-        "id": "cnn",
-        "titulo": "Redes convolucionales (CNN)",
+        "id": "ciclo-de-entrenamiento",
+        "titulo": "El ciclo de entrenamiento: épocas, lotes e iteraciones",
         "disponible": false
       },
+      {
+        "id": "hiperparametros",
+        "titulo": "Buscar hiperparámetros con método",
+        "disponible": false
+      },
+      {
+        "id": "learning-rate",
+        "titulo": "El learning rate y su calendario",
+        "disponible": false
+      },
+      {
+        "id": "diagnosticar-entrenamiento",
+        "titulo": "Diagnosticar un entrenamiento por sus curvas",
+        "disponible": false
+      },
+      {
+        "id": "rendimiento-de-entrenamiento",
+        "titulo": "Entrenar más rápido y más barato: precisión mixta y más",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Deep Learning",
+    "nombre": "Visión",
+    "lecciones": [
+      {
+        "id": "imagenes-y-opencv",
+        "titulo": "Imágenes como datos: píxeles, OpenCV y preprocesamiento",
+        "disponible": false
+      },
+      {
+        "id": "cnn",
+        "titulo": "Redes convolucionales: de AlexNet a ResNet",
+        "disponible": false
+      },
+      {
+        "id": "transfer-learning",
+        "titulo": "Transfer learning y fine-tuning",
+        "disponible": false
+      },
+      {
+        "id": "computer-vision",
+        "titulo": "Computer vision: detección (YOLO, Detectron2), segmentación y pose",
+        "disponible": false
+      },
+      {
+        "id": "seguimiento-de-objetos",
+        "titulo": "Seguir objetos en video: tracking",
+        "disponible": false
+      },
+      {
+        "id": "vit-y-multimodales",
+        "titulo": "Transformers de visión y modelos multimodales",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Deep Learning",
+    "nombre": "Secuencias y lenguaje",
+    "lecciones": [
       {
         "id": "rnn-y-lstm",
         "titulo": "Secuencias: RNN, LSTM y GRU",
         "disponible": false
       },
       {
+        "id": "pronostico-con-redes",
+        "titulo": "Pronosticar con redes: RNN, CNN y Transformers para series",
+        "disponible": false
+      },
+      {
+        "id": "nlp",
+        "titulo": "Lenguaje: del texto a los embeddings, y textos parecidos",
+        "disponible": false
+      },
+      {
         "id": "atencion-y-transformers",
         "titulo": "Atención y el Transformer, a fondo",
         "disponible": false
-      },
+      }
+    ]
+  },
+  {
+    "bloque": "Deep Learning",
+    "nombre": "Modelos generativos",
+    "lecciones": [
       {
         "id": "autoencoders-y-vae",
         "titulo": "Autoencoders y VAE",
@@ -1098,34 +1285,179 @@ export const temarioMl: ModuloSinNumero[] = [
         "id": "gans-y-difusion",
         "titulo": "GANs y modelos de difusión",
         "disponible": false
-      },
-      {
-        "id": "transfer-learning",
-        "titulo": "Transfer learning y fine-tuning",
-        "disponible": false
       }
     ]
   },
   {
     "bloque": "Deep Learning",
-    "nombre": "Visión y lenguaje",
+    "nombre": "Aprender con recompensas: la base",
+    "aviso": "Para las dos salidas. El refuerzo se presenta en la lección 1, y aquí se aprende su base, como en MIT 6.390 y Stanford CS229. Lo avanzado sigue en Research.",
     "lecciones": [
       {
-        "id": "computer-vision",
-        "titulo": "Computer vision: detección, segmentación y pose",
+        "id": "procesos-de-decision-de-markov",
+        "titulo": "Decidir paso a paso: procesos de decisión de Markov",
         "disponible": false
       },
       {
-        "id": "nlp",
-        "titulo": "Lenguaje: del texto a los embeddings",
+        "id": "refuerzo-desde-la-base",
+        "titulo": "Aprendizaje por refuerzo desde la base: valor, política y Q-learning",
         "disponible": false
       }
     ]
   },
   {
-    "bloque": "Pre-entrenamiento y escala",
-    "nombre": "Pre-entrenar",
+    "bloque": "Salida 1 · Industria: ML engineer en una empresa",
+    "nombre": "Del notebook a producción",
+    "aviso": "Salida 1 · Industria. Llevas modelos a producción, como un ML engineer en una empresa. Cada práctica termina en un pipeline o un servicio que funciona. Los ejemplos son en Google Cloud; AWS llega después.",
     "lecciones": [
+      {
+        "id": "del-notebook-a-produccion",
+        "titulo": "El ciclo de vida de un modelo en una empresa",
+        "disponible": false
+      },
+      {
+        "id": "empaquetar-y-servir",
+        "titulo": "Empaquetar y servir: serializar, contenedores y API, por lotes o en línea",
+        "disponible": false
+      },
+      {
+        "id": "repaso-docker-y-ci",
+        "titulo": "Repaso: Docker y CI/CD",
+        "disponible": false
+      },
+      {
+        "id": "experimentos-y-versiones",
+        "titulo": "Seguir experimentos y versionar datos y modelos",
+        "disponible": false
+      },
+      {
+        "id": "pipelines-de-ml",
+        "titulo": "Pipelines de ML: orquestar datos, entrenamiento y despliegue",
+        "disponible": false
+      },
+      {
+        "id": "ci-cd-ct",
+        "titulo": "CI/CD/CT: probar, desplegar y reentrenar de forma automática",
+        "disponible": false
+      },
+      {
+        "id": "feature-store-y-skew",
+        "titulo": "Feature store, y el desfase entre entrenar y servir",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Salida 1 · Industria: ML engineer en una empresa",
+    "nombre": "Operar modelos",
+    "lecciones": [
+      {
+        "id": "operar-modelos",
+        "titulo": "Monitorear un modelo vivo: deriva de datos y de concepto",
+        "disponible": false
+      },
+      {
+        "id": "reentrenar-con-la-realidad",
+        "titulo": "Cerrar el ciclo: recoger lo que pasa y reentrenar",
+        "disponible": false
+      },
+      {
+        "id": "lanzar-con-cuidado",
+        "titulo": "Lanzar sin miedo: A/B, canary y volver atrás",
+        "disponible": false
+      },
+      {
+        "id": "ia-responsable",
+        "titulo": "IA responsable en producción: sesgo, privacidad y seguridad",
+        "disponible": false
+      },
+      {
+        "id": "operar-ia-generativa",
+        "titulo": "Operar IA generativa en producción, lo justo",
+        "disponible": false
+      },
+      {
+        "id": "devsecops-y-sre",
+        "titulo": "DevSecOps y SRE para ML, lo justo",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Salida 1 · Industria: ML engineer en una empresa",
+    "nombre": "Datos a escala",
+    "aviso": "Gestionar datos a escala (SQL avanzado, data warehouse, ETL, Spark y datos en la nube) se estudia en Data Science, como requisito. Aquí va lo propio de servir modelos: datos en tiempo real e infraestructura.",
+    "lecciones": [
+      {
+        "titulo": "Requisito: gestionar datos a escala (SQL avanzado, warehouse, ETL, Spark y la nube)",
+        "disponible": false,
+        "desvio": "ds/sql-avanzado"
+      },
+      {
+        "id": "pipelines-de-datos-y-colas",
+        "titulo": "Streaming y colas de mensajes: datos que llegan en tiempo real",
+        "disponible": false
+      },
+      {
+        "id": "infraestructura-como-codigo",
+        "titulo": "Infraestructura como código, lo justo",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Salida 1 · Industria: ML engineer en una empresa",
+    "nombre": "ML en GCP",
+    "aviso": "Google Cloud es el ejemplo principal. La tabla con su equivalente en AWS llega más adelante.",
+    "lecciones": [
+      {
+        "id": "mapa-de-gcp",
+        "titulo": "El mapa de GCP para ML: la plataforma de ML y cómo se conecta con los datos",
+        "disponible": false
+      },
+      {
+        "id": "bigquery-ml-y-automl",
+        "titulo": "Modelos con SQL y con pocos clics: BigQuery ML y AutoML",
+        "disponible": false
+      },
+      {
+        "id": "entrenar-y-servir-en-gcp",
+        "titulo": "Entrenar, registrar, servir y monitorear en GCP",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Salida 1 · Industria: ML engineer en una empresa",
+    "nombre": "Diseñar sistemas de ML",
+    "lecciones": [
+      {
+        "id": "disenar-un-sistema-de-ml",
+        "titulo": "Diseñar un sistema de ML: requisitos, costo, latencia y escala",
+        "disponible": false
+      },
+      {
+        "id": "casos-de-industria",
+        "titulo": "Casos de industria: fallas, precios, personalización y combustible",
+        "disponible": false
+      },
+      {
+        "id": "repaso-causal",
+        "titulo": "Repaso: econometría e inferencia causal",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Salida 2 · Research: investigar con ML",
+    "nombre": "Modelos por dentro: pre-entrenar y escalar",
+    "aviso": "Salida 2 · Research. Investigas de dos formas: cómo funcionan los modelos por dentro, y usar ML para descubrir cosas en otros campos. Se recorren las dos ramas aplicadas, deporte y neurociencia. Cada práctica termina en un resultado medido y explicado.",
+    "lecciones": [
+      {
+        "id": "repaso-oficio-investigador",
+        "titulo": "Repaso: leer, reproducir y publicar papers",
+        "disponible": false
+      },
       {
         "id": "tokenizador",
         "titulo": "Construir un tokenizador: BPE",
@@ -1150,13 +1482,7 @@ export const temarioMl: ModuloSinNumero[] = [
         "id": "leyes-de-escala",
         "titulo": "Leyes de escala: datos, parámetros y cómputo",
         "disponible": false
-      }
-    ]
-  },
-  {
-    "bloque": "Pre-entrenamiento y escala",
-    "nombre": "Entrenar a escala",
-    "lecciones": [
+      },
       {
         "id": "gpu-y-memoria",
         "titulo": "GPU y memoria: dónde se va el tiempo",
@@ -1170,12 +1496,13 @@ export const temarioMl: ModuloSinNumero[] = [
     ]
   },
   {
-    "bloque": "Post-entrenamiento y refuerzo",
-    "nombre": "Aprender con recompensas",
+    "bloque": "Salida 2 · Research: investigar con ML",
+    "nombre": "Refuerzo avanzado",
+    "aviso": "La base del refuerzo se vio en el tronco común; aquí va lo avanzado.",
     "lecciones": [
       {
-        "id": "refuerzo-desde-la-base",
-        "titulo": "Aprendizaje por refuerzo desde la base",
+        "id": "refuerzo-profundo",
+        "titulo": "Refuerzo profundo: policy gradients, métodos de valor y actor-critic",
         "disponible": false
       },
       {
@@ -1187,39 +1514,677 @@ export const temarioMl: ModuloSinNumero[] = [
         "id": "destilacion",
         "titulo": "Destilación: un modelo grande le enseña a uno chico",
         "disponible": false
+      },
+      {
+        "id": "repaso-post-entrenamiento",
+        "titulo": "Repaso: SFT, DPO y LoRA",
+        "disponible": false
       }
     ]
   },
   {
-    "bloque": "MLOps y producción",
-    "nombre": "Del notebook a producción",
+    "bloque": "Salida 2 · Research: investigar con ML",
+    "nombre": "Rama: deporte · predecir y seguir el juego",
+    "aviso": "Rama aplicada, obligatoria en esta salida: predecir partidos, seguir jugadores y analizar fútbol y tenis con visión. Termina en el proyecto grande de deporte.",
     "lecciones": [
       {
-        "id": "del-notebook-a-produccion",
-        "titulo": "Del notebook a producción",
+        "id": "predecir-partidos",
+        "titulo": "Predecir partidos: goles con Poisson, ratings y probabilidades",
         "disponible": false
       },
       {
-        "id": "experimentos-y-versiones",
-        "titulo": "Seguir experimentos y versionar datos y modelos",
+        "id": "seguir-jugadores",
+        "titulo": "Seguir jugadores y pelota en video",
         "disponible": false
       },
       {
-        "id": "operar-modelos",
-        "titulo": "Operar modelos en producción",
+        "id": "metricas-de-juego",
+        "titulo": "Del tracking a métricas de juego: velocidad, posesión y mapas de calor",
         "disponible": false
       }
     ]
   },
   {
-    "bloque": "Especialización (optativo)",
-    "nombre": "Biomecánica con visión",
+    "bloque": "Salida 2 · Research: investigar con ML",
+    "nombre": "Rama: deporte · biomecánica y movimiento",
+    "aviso": "Parte de la rama de deporte. Termina en el proyecto grande de biomecánica: corregir la técnica de un ejercicio con la cámara del celular.",
     "lecciones": [
       {
         "id": "biomecanica-con-vision",
-        "titulo": "Biomecánica con visión",
+        "titulo": "Biomecánica con visión: medir un movimiento y juzgar la técnica",
+        "disponible": false
+      },
+      {
+        "id": "pose-y-angulos",
+        "titulo": "Pose en 2D y 3D: de puntos clave a ángulos articulares",
+        "disponible": false
+      },
+      {
+        "id": "repeticiones-y-feedback",
+        "titulo": "Contar repeticiones y corregir en vivo",
         "disponible": false
       }
     ]
+  },
+  {
+    "bloque": "Salida 2 · Research: investigar con ML",
+    "nombre": "Rama: neurociencia con ML",
+    "aviso": "Rama aplicada, obligatoria en esta salida: entender el cerebro con ML, deep learning o visión. Termina en el proyecto grande de neurociencia.",
+    "lecciones": [
+      {
+        "id": "datos-del-cerebro",
+        "titulo": "Los datos del cerebro: EEG, fMRI y actividad de neuronas",
+        "disponible": false
+      },
+      {
+        "id": "senales-y-frecuencias",
+        "titulo": "Señales: filtrar y ver frecuencias con Fourier y wavelets",
+        "disponible": false
+      },
+      {
+        "id": "decodificar-el-cerebro",
+        "titulo": "Decodificar el cerebro: de la señal a lo que la persona hace o percibe",
+        "disponible": false
+      },
+      {
+        "id": "interfaces-cerebro-computador",
+        "titulo": "Interfaces cerebro-computador",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Cierre · tu carrera de ML",
+    "nombre": "Tu carrera",
+    "lecciones": [
+      {
+        "id": "cv-y-portafolio-ml",
+        "titulo": "Tu CV y tu portafolio de ML",
+        "disponible": false
+      },
+      {
+        "id": "entrevista-de-ml",
+        "titulo": "La entrevista técnica: algoritmos, entrenamiento y despliegue",
+        "disponible": false
+      },
+      {
+        "id": "entrevista-de-codigo",
+        "titulo": "La entrevista de código: estructuras de datos, algoritmos y SQL en pseudocódigo",
+        "disponible": false
+      },
+      {
+        "id": "entrevista-conductual",
+        "titulo": "Comunicar a no técnicos y la entrevista conductual",
+        "disponible": false
+      },
+      {
+        "id": "repaso-entrar-a-investigacion",
+        "titulo": "Repaso: entrar a investigación",
+        "disponible": false
+      }
+    ]
+  }
+];
+
+export const temarioDs: ModuloSinNumero[] = [
+  {
+    "bloque": "Empezar · para los dos caminos",
+    "nombre": "El oficio",
+    "aviso": "Cada práctica de Data Science termina en un análisis y una recomendación.",
+    "lecciones": [
+      {
+        "id": "ds-que-es",
+        "titulo": "Qué es la ciencia de datos: entender y decidir con datos",
+        "disponible": false
+      },
+      {
+        "id": "repaso-roles",
+        "titulo": "Repaso: ML engineer, data scientist y los demás",
+        "disponible": false
+      },
+      {
+        "id": "equipo-de-datos",
+        "titulo": "Trabajar en un equipo de datos: ML engineers, data engineers, translators y negocio",
+        "disponible": false
+      },
+      {
+        "id": "de-la-pregunta-a-la-decision",
+        "titulo": "De la pregunta a la decisión: el proceso de un análisis",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Empezar · para los dos caminos",
+    "nombre": "Plantear el problema",
+    "lecciones": [
+      {
+        "id": "elegir-el-problema",
+        "titulo": "Elegir el problema que más impacta: valor esperado y prioridades",
+        "disponible": false
+      },
+      {
+        "id": "entender-con-expertos",
+        "titulo": "Entender el problema con los expertos: preguntas, facts y opiniones",
+        "disponible": false
+      },
+      {
+        "id": "repaso-leer-papers",
+        "titulo": "Repaso: investigar lo que ya se sabe en papers, documentación y casos",
+        "disponible": false
+      },
+      {
+        "id": "hipotesis-y-plan",
+        "titulo": "Hipótesis y plan de análisis: datos, variables y período",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Los datos",
+    "nombre": "Conseguir datos",
+    "lecciones": [
+      {
+        "id": "repaso-python",
+        "titulo": "Repaso: Python como lenguaje técnico",
+        "disponible": false
+      },
+      {
+        "id": "obtener-datos",
+        "titulo": "Conseguir datos de muchas fuentes: archivos, bases, APIs y web scraping",
+        "disponible": false
+      },
+      {
+        "id": "datos-no-estructurados",
+        "titulo": "Datos no estructurados: texto, imágenes y logs, convertidos en tablas",
+        "disponible": false
+      },
+      {
+        "id": "pandas-como-operaciones",
+        "titulo": "Pandas como operaciones",
+        "disponible": false
+      },
+      {
+        "id": "r-para-datos",
+        "titulo": "R: qué es, para qué sirve y cuándo usarlo",
+        "disponible": false
+      },
+      {
+        "id": "expresiones-regulares",
+        "titulo": "Expresiones regulares: buscar patrones en texto",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Los datos",
+    "nombre": "Gestionar datos",
+    "aviso": "Gestionar datos es parte del oficio: Harvard la pone entre las 5 caras de una investigación con datos. ML y DL pide este módulo como requisito.",
+    "lecciones": [
+      {
+        "id": "sql-como-operaciones",
+        "titulo": "SQL como operaciones: filtrar, unir y agrupar",
+        "disponible": false
+      },
+      {
+        "id": "sql-avanzado",
+        "titulo": "SQL avanzado: funciones de ventana, CTE y optimizar consultas",
+        "disponible": false
+      },
+      {
+        "id": "modelar-datos",
+        "titulo": "Modelar datos: tablas, relaciones y esquema estrella",
+        "disponible": false
+      },
+      {
+        "id": "warehouse-y-lake",
+        "titulo": "Data warehouse, data lake y lakehouse: dónde viven los datos de una empresa",
+        "disponible": false
+      },
+      {
+        "id": "etl-y-elt",
+        "titulo": "ETL y ELT: mover y transformar datos con pipelines programados",
+        "disponible": false
+      },
+      {
+        "id": "spark-y-pyspark",
+        "titulo": "Spark y PySpark: datos que no caben en un computador",
+        "disponible": false
+      },
+      {
+        "id": "datos-en-la-nube",
+        "titulo": "Datos en la nube: almacenamiento, BigQuery y procesamiento en GCP",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Los datos",
+    "nombre": "Calidad de datos",
+    "lecciones": [
+      {
+        "id": "limpieza-y-calidad",
+        "titulo": "Limpieza y calidad: faltantes, duplicados, outliers y unidades",
+        "disponible": false
+      },
+      {
+        "id": "validar-datos",
+        "titulo": "Validar datos: tests de calidad y contratos que avisan antes de que algo se rompa",
+        "disponible": false
+      },
+      {
+        "id": "repaso-features",
+        "titulo": "Repaso: features y fuga de datos",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Explorar y comunicar",
+    "nombre": "Explorar",
+    "lecciones": [
+      {
+        "id": "estadistica-descriptiva",
+        "titulo": "Estadística descriptiva y tipos de variables",
+        "disponible": false
+      },
+      {
+        "id": "eda-y-correlaciones",
+        "titulo": "Análisis exploratorio y correlación: Pearson, Spearman o Kendall",
+        "disponible": false
+      },
+      {
+        "id": "patrones-y-tendencias",
+        "titulo": "Encontrar patrones y tendencias: comparar grupos, cohortes y el tiempo",
+        "disponible": false
+      },
+      {
+        "id": "repaso-series",
+        "titulo": "Repaso: explorar series de tiempo",
+        "disponible": false
+      },
+      {
+        "id": "analizar-con-un-llm",
+        "titulo": "Analizar datos dirigiendo a un LLM, y verificar lo que entrega",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Explorar y comunicar",
+    "nombre": "Comunicar",
+    "lecciones": [
+      {
+        "id": "visualizacion",
+        "titulo": "Visualizar: qué gráfico responde qué pregunta",
+        "disponible": false
+      },
+      {
+        "id": "storytelling",
+        "titulo": "Contar hallazgos y discutirlos con quienes deciden",
+        "disponible": false
+      },
+      {
+        "id": "bi-lo-justo",
+        "titulo": "Dashboards y BI, lo justo: Power BI, Tableau o Looker",
+        "disponible": false
+      },
+      {
+        "id": "reportes-reproducibles",
+        "titulo": "Reportes reproducibles: notebooks, git y análisis que se vuelven a correr solos",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Estadística para decidir",
+    "nombre": "Probabilidad e inferencia",
+    "lecciones": [
+      {
+        "id": "probabilidad-y-distribuciones",
+        "titulo": "Probabilidad, variables aleatorias y distribuciones",
+        "disponible": false
+      },
+      {
+        "id": "simulacion-monte-carlo",
+        "titulo": "Simular para decidir: Monte Carlo",
+        "disponible": false
+      },
+      {
+        "id": "muestreo-y-estimacion",
+        "titulo": "Muestreo, estimadores, sesgo y varianza",
+        "disponible": false
+      },
+      {
+        "id": "intervalos-y-tests",
+        "titulo": "Intervalos de confianza, tests de hipótesis y p-valor",
+        "disponible": false
+      },
+      {
+        "id": "bootstrap",
+        "titulo": "Bootstrap: medir la incertidumbre remuestreando",
+        "disponible": false
+      },
+      {
+        "id": "muchas-pruebas",
+        "titulo": "Muchas pruebas a la vez: tasa de falsos descubrimientos y tests de permutación",
+        "disponible": false
+      },
+      {
+        "id": "inferencia-bayesiana",
+        "titulo": "Inferencia bayesiana: actualizar lo que crees con evidencia",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Estadística para decidir",
+    "nombre": "Experimentos y causalidad",
+    "lecciones": [
+      {
+        "id": "experimentos-ab",
+        "titulo": "Diseño de experimentos y pruebas A/B: decidir con un experimento",
+        "disponible": false
+      },
+      {
+        "id": "correlacion-y-causalidad",
+        "titulo": "Correlación no es causalidad: confusores y experimentos",
+        "disponible": false
+      },
+      {
+        "id": "diferencias-en-diferencias",
+        "titulo": "Diferencias en diferencias: medir un efecto cuando no se puede hacer un A/B",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Los modelos y el ciclo de vida",
+    "nombre": "Modelos de ML para el data scientist",
+    "aviso": "Los modelos viven en ML y DL. Un data scientist los necesita completos, así que aquí se piden como requisito.",
+    "lecciones": [
+      {
+        "titulo": "Requisito: el modelo lineal a fondo (8 lecciones)",
+        "disponible": false,
+        "desvio": "ml/regresion"
+      },
+      {
+        "titulo": "Requisito: ML clásico (clasificación, sin etiquetas y evaluar)",
+        "disponible": false,
+        "desvio": "ml/clasificacion"
+      },
+      {
+        "titulo": "Requisito: visión por computador (OpenCV, CNN, YOLO y Detectron2)",
+        "disponible": false,
+        "desvio": "ml/imagenes-y-opencv"
+      },
+      {
+        "id": "repaso-explicar",
+        "titulo": "Repaso: explicar un modelo para contarlo",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Los modelos y el ciclo de vida",
+    "nombre": "Del análisis al producto de datos",
+    "lecciones": [
+      {
+        "id": "repaso-ciclo-de-vida",
+        "titulo": "Repaso: el ciclo de vida de un modelo en producción",
+        "disponible": false
+      },
+      {
+        "id": "productos-de-datos",
+        "titulo": "Productos de datos: del análisis a algo que el negocio usa, junto a los ML engineers",
+        "disponible": false
+      },
+      {
+        "id": "repaso-docker-y-ci",
+        "titulo": "Repaso: Docker y CI/CD",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Camino 1 · Negocio y producto",
+    "nombre": "Métricas y producto",
+    "aviso": "Camino 1 · Negocio y producto. Datos al servicio de las decisiones de una empresa, integrado con el negocio. Termina en tu experimento A/B de producto.",
+    "lecciones": [
+      {
+        "id": "metricas-de-negocio",
+        "titulo": "KPIs y métricas: medir lo que de verdad le importa al negocio",
+        "disponible": false
+      },
+      {
+        "id": "embudos-y-cohortes",
+        "titulo": "Embudos, cohortes y retención",
+        "disponible": false
+      },
+      {
+        "id": "experimentar-en-serio",
+        "titulo": "Experimentar en serio: potencia, tamaño de muestra y métricas guardianas",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Camino 1 · Negocio y producto",
+    "nombre": "Decidir y optimizar",
+    "aviso": "Los problemas que nombra la oferta de NeuralWorks: precios, personalización, combustible y fallas.",
+    "lecciones": [
+      {
+        "id": "decidir-con-predicciones",
+        "titulo": "Decidir con un modelo: costos, umbrales y valor esperado",
+        "disponible": false
+      },
+      {
+        "id": "optimizacion",
+        "titulo": "Optimizar una decisión: objetivo, restricciones y programación lineal",
+        "disponible": false
+      },
+      {
+        "id": "pricing",
+        "titulo": "Precios: elasticidad, experimentos y optimizar",
+        "disponible": false
+      },
+      {
+        "id": "personalizacion",
+        "titulo": "Personalizar: segmentar clientes y medir el efecto real (uplift)",
+        "disponible": false
+      },
+      {
+        "id": "bandits",
+        "titulo": "Explorar o explotar: bandits y Thompson sampling",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Camino 2 · Investigación con datos",
+    "nombre": "Causalidad y econometría",
+    "aviso": "Camino 2 · Investigación con datos. Responder preguntas de causa y efecto con datos observacionales, con el rigor de un paper. Diferencias en diferencias se vio en el tronco común; aquí van los métodos que siguen. Termina en tu estudio causal.",
+    "lecciones": [
+      {
+        "id": "variables-instrumentales-y-rd",
+        "titulo": "Variables instrumentales y regresión discontinua",
+        "disponible": false
+      },
+      {
+        "id": "efectos-fijos-y-paneles",
+        "titulo": "Datos de panel y efectos fijos (statsmodels y pyfixest)",
+        "disponible": false
+      },
+      {
+        "id": "causalidad-con-ml",
+        "titulo": "Inferencia causal con ML: double machine learning",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Camino 2 · Investigación con datos",
+    "nombre": "Ciencia con datos",
+    "lecciones": [
+      {
+        "id": "modelos-jerarquicos",
+        "titulo": "Modelos jerárquicos bayesianos: grupos que se ayudan entre sí",
+        "disponible": false
+      },
+      {
+        "id": "estudio-reproducible",
+        "titulo": "Un estudio que otro puede repetir: pre-registro, datos y código abiertos",
+        "disponible": false
+      },
+      {
+        "id": "repaso-publicar",
+        "titulo": "Repaso: escribir y publicar un estudio",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Cierre · ética y carrera",
+    "nombre": "Ética y privacidad",
+    "lecciones": [
+      {
+        "id": "etica-de-datos",
+        "titulo": "Ética de datos y privacidad",
+        "disponible": false
+      },
+      {
+        "id": "privacidad-diferencial",
+        "titulo": "Privacidad diferencial: publicar datos sin exponer a nadie",
+        "disponible": false
+      }
+    ]
+  },
+  {
+    "bloque": "Cierre · ética y carrera",
+    "nombre": "Tu carrera",
+    "lecciones": [
+      {
+        "id": "entrevista-de-data-scientist",
+        "titulo": "La entrevista de data scientist: SQL, estadística, experimentos y producto",
+        "disponible": false
+      },
+      {
+        "id": "repaso-carrera",
+        "titulo": "Repaso: CV, portafolio y la entrevista conductual",
+        "disponible": false
+      }
+    ]
+  }
+];
+
+/** Los puentes de cada repaso: la lección corta enlaza con la lección donde el tema se ve a fondo. */
+export const puentesDeRepaso: Conexion[] = [
+  {
+    "desde": "ml/repaso-datos",
+    "hacia": "ds/limpieza-y-calidad",
+    "tipo": "profundiza",
+    "tema": "Datos, limpieza y exploración."
+  },
+  {
+    "desde": "ml/probabilidad-para-ml",
+    "hacia": "ds/probabilidad-y-distribuciones",
+    "tipo": "profundiza",
+    "tema": "Probabilidad y distribuciones."
+  },
+  {
+    "desde": "ml/repaso-inferencia",
+    "hacia": "ds/intervalos-y-tests",
+    "tipo": "profundiza",
+    "tema": "Muestreo, intervalos, tests y bootstrap."
+  },
+  {
+    "desde": "ml/repaso-docker-y-ci",
+    "hacia": "ai/desplegar",
+    "tipo": "profundiza",
+    "tema": "Docker y CI/CD."
+  },
+  {
+    "desde": "ml/repaso-causal",
+    "hacia": "ds/correlacion-y-causalidad",
+    "tipo": "profundiza",
+    "tema": "Econometría e inferencia causal."
+  },
+  {
+    "desde": "ml/repaso-oficio-investigador",
+    "hacia": "ai/m-leer-papers",
+    "tipo": "profundiza",
+    "tema": "Leer, reproducir y publicar papers."
+  },
+  {
+    "desde": "ml/repaso-post-entrenamiento",
+    "hacia": "ai/m-sft",
+    "tipo": "profundiza",
+    "tema": "SFT, DPO y LoRA."
+  },
+  {
+    "desde": "ml/repaso-entrar-a-investigacion",
+    "hacia": "ai/m-entrar",
+    "tipo": "profundiza",
+    "tema": "Entrar a investigación."
+  },
+  {
+    "desde": "ds/repaso-roles",
+    "hacia": "ml/ml-engineer-o-data-scientist",
+    "tipo": "profundiza",
+    "tema": "ML engineer, data scientist y los demás."
+  },
+  {
+    "desde": "ds/repaso-leer-papers",
+    "hacia": "ai/m-leer-papers",
+    "tipo": "profundiza",
+    "tema": "Investigar lo que ya se sabe en papers, documentación y casos."
+  },
+  {
+    "desde": "ds/repaso-python",
+    "hacia": "ai/python-lenguaje-tecnico",
+    "tipo": "profundiza",
+    "tema": "Python como lenguaje técnico."
+  },
+  {
+    "desde": "ds/repaso-features",
+    "hacia": "ml/features-para-modelar",
+    "tipo": "profundiza",
+    "tema": "Features y fuga de datos."
+  },
+  {
+    "desde": "ds/repaso-series",
+    "hacia": "ml/series-por-dentro",
+    "tipo": "profundiza",
+    "tema": "Explorar series de tiempo."
+  },
+  {
+    "desde": "ds/repaso-explicar",
+    "hacia": "ml/interpretar-un-modelo",
+    "tipo": "profundiza",
+    "tema": "Explicar un modelo para contarlo."
+  },
+  {
+    "desde": "ds/repaso-ciclo-de-vida",
+    "hacia": "ml/del-notebook-a-produccion",
+    "tipo": "profundiza",
+    "tema": "El ciclo de vida de un modelo en producción."
+  },
+  {
+    "desde": "ds/repaso-docker-y-ci",
+    "hacia": "ai/desplegar",
+    "tipo": "profundiza",
+    "tema": "Docker y CI/CD."
+  },
+  {
+    "desde": "ds/repaso-publicar",
+    "hacia": "ai/m-publicar",
+    "tipo": "profundiza",
+    "tema": "Escribir y publicar un estudio."
+  },
+  {
+    "desde": "ds/repaso-carrera",
+    "hacia": "ml/cv-y-portafolio-ml",
+    "tipo": "profundiza",
+    "tema": "CV, portafolio y la entrevista conductual."
   }
 ];
