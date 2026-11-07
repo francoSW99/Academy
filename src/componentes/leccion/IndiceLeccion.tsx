@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { BotonTema } from "@/componentes/BotonTema";
 import { Punto } from "@/componentes/Especialidad";
 import { IconoCerrar, IconoTemario } from "@/componentes/Iconos";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
@@ -40,7 +41,7 @@ function Nombre({ e }: { e: EntradaIndice }) {
 export function IndiceLateral({ entradas }: { entradas: EntradaIndice[] }) {
   const activa = useEntradaActiva(entradas);
   return (
-    <ol className="mx-2.5 mb-2.5 ml-[20px] flex flex-col border-l border-white/10 pl-2">
+    <ol className="mx-2.5 mb-2.5 ml-[20px] flex flex-col border-l border-tinta/10 pl-2">
       {entradas.map((e) => {
         const esActiva = e.id === activa;
         return (
@@ -49,7 +50,7 @@ export function IndiceLateral({ entradas }: { entradas: EntradaIndice[] }) {
               href={`#${e.id}`}
               aria-current={esActiva ? "location" : undefined}
               className={`indice-entrada grid min-h-9 grid-cols-[16px_minmax(0,1fr)] items-baseline gap-1.5 rounded-lg px-1.5 py-1.5 text-[13px] leading-snug transition-colors duration-200 ${
-                esActiva ? "font-medium" : "text-tenue hover:text-white"
+                esActiva ? "font-medium" : "text-tenue hover:text-tinta"
               }`}
             >
               <Nombre e={e} />
@@ -108,9 +109,12 @@ export function TemarioMovil({ entradas, lang, especialidad, children }: { entra
               <Punto id={especialidad.id} />
               {rellenar(t.temarioDe, { especialidad: especialidad.nombre })}
             </span>
-            <button type="button" aria-label={t.cerrar} onClick={() => panel.current?.close()} className="glass-pill grid size-11 shrink-0 place-items-center">
-              <IconoCerrar className="size-[18px]" />
-            </button>
+            <span className="flex shrink-0 items-center gap-2">
+              <BotonTema lang={lang} />
+              <button type="button" aria-label={t.cerrar} onClick={() => panel.current?.close()} className="glass-pill grid size-11 shrink-0 place-items-center">
+                <IconoCerrar className="size-[18px]" />
+              </button>
+            </span>
           </div>
           {children}
         </div>

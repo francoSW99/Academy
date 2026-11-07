@@ -8,11 +8,13 @@
     "secciones": "Secciones",
     "migas": "Dónde estás",
     "cambiar": "Cambiar de sección · ahora en {seccion}",
-    "grafo": "Grafo de BrainFran"
+    "grafo": "Grafo de BrainFran",
+    "tema": "Cambiar entre tema claro y oscuro"
   },
   "inicio": {
     "etiqueta": "Academy · {n} especialidades de IA",
-    "titulo": "Aprende IA de forma visual, una especialidad a la vez.",
+    "titulo": "Aprende IA de forma {clave}, una especialidad a la vez.",
+    "tituloClave": "visual",
     "lede": "Academy separa el mundo de la IA en tres especialidades: AI Engineering, ML y Deep Learning, y Data Science. Cada una tiene su sección, su temario y su avance. Estudias una a la vez y cambias cuando quieras.",
     "seguir": "Sigue donde quedaste: {especialidad} · lección {n} · {titulo}",
     "elige": "Elige tu especialidad",
@@ -53,6 +55,7 @@
     "disponible": "Disponible",
     "pronto": "Pronto",
     "completada": "Completada",
+    "desvio": "Sigue en {especialidad}",
     "comoEs": "Cómo es cada lección",
     "partes": [
       {

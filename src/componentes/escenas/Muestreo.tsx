@@ -26,8 +26,8 @@ const relleno: Record<Veredicto | "neutra", string> = {
   neutra: "bg-acento",
 };
 const tinta: Record<Veredicto | "neutra", string> = {
-  verdadero: "text-verdadero",
-  falso: "text-falso",
+  verdadero: "text-verdadero-texto",
+  falso: "text-falso-texto",
   neutra: "text-acento-texto",
 };
 
@@ -190,12 +190,12 @@ export function Muestreo({ lang }: { lang: Idioma }) {
                     <span className="text-right text-[15px] tabular-nums">{formato(pc)}</span>
                     <span className="text-center">
                       {c?.veredicto === "verdadero" && (
-                        <span role="img" aria-label={t.verdadero} className="inline-flex text-verdadero">
+                        <span role="img" aria-label={t.verdadero} className="inline-flex text-verdadero-texto">
                           <IconoCheck className="size-4" />
                         </span>
                       )}
                       {c?.veredicto === "falso" && (
-                        <span role="img" aria-label={t.falso} className="inline-flex text-falso">
+                        <span role="img" aria-label={t.falso} className="inline-flex text-falso-texto">
                           <IconoCerrar className="size-4" />
                         </span>
                       )}
@@ -262,7 +262,7 @@ export function Muestreo({ lang }: { lang: Idioma }) {
               style={{ "--p": `${(temperatura / 2) * 100}%` } as React.CSSProperties}
             />
             <p className="text-[15px] text-tinta-2">{t.pistas[pista(temperatura)]}</p>
-            <p className={`text-[15px] ${tieneRespuesta && pFalso > 0 ? "text-falso" : "text-tenue"}`}>
+            <p className={`text-[15px] ${tieneRespuesta && pFalso > 0 ? "text-falso-texto" : "text-tenue"}`}>
               {!tieneRespuesta
                 ? t.sinRespuesta
                 : pFalso === 0

@@ -4,13 +4,14 @@ import Link from "next/link";
 import { IconoFlecha } from "@/componentes/Iconos";
 import { useAvance } from "@/lib/avance";
 import { rellenar, textos, type Idioma } from "@/lib/idiomas";
+import { idDe, propias } from "@/ruta/especialidades";
 import type { Especialidad, Leccion } from "@/ruta/tipos";
 
 /** Las lecciones de una especialidad y cuántas completaste. */
 export function useAvanceDe(especialidad: Especialidad) {
   const { avance } = useAvance();
-  const lecciones = especialidad.modulos.flatMap((m) => m.lecciones);
-  const estado = (l: Leccion) => avance[`${especialidad.id}/${l.n}`];
+  const lecciones = especialidad.modulos.flatMap(propias);
+  const estado = (l: Leccion) => avance[`${especialidad.id}/${idDe(l)}`];
   const hechas = lecciones.filter((l) => estado(l)?.hecha).length;
   return { lecciones, estado, hechas };
 }
@@ -94,7 +95,7 @@ export function Continuar({ lang, especialidad }: { lang: Idioma; especialidad: 
     <div className="flex flex-col gap-5">
       <BarraAvance lang={lang} especialidad={especialidad} />
       {siguiente && texto && (
-        <Link href={`/${lang}/${especialidad.slug}/leccion/${siguiente.n}/`} className="boton-luz min-h-12 gap-2.5 self-start rounded-[22px] py-2.5 pr-5 pl-6 text-[15.5px] leading-snug sm:rounded-full">
+        <Link href={`/${lang}/${especialidad.slug}/leccion/${idDe(siguiente)}/`} className="boton-luz min-h-12 gap-2.5 self-start rounded-[22px] py-2.5 pr-5 pl-6 text-[15.5px] leading-snug sm:rounded-full">
           {rellenar(texto, { n: Number(siguiente.n), titulo: siguiente.titulo })}
           <IconoFlecha className="glass-flecha size-[18px]" />
         </Link>

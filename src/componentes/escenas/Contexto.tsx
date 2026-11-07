@@ -73,7 +73,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
       <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
         <span className="font-medium text-tinta-2">{t.roles[m.rol]}</span>
         <span>{rellenar(t.tokens, { n: m.tokens })}</span>
-        {fuera.has(i) && <span className={modo === "compacta" ? "text-l2" : "text-falso"}>· {modo === "compacta" ? t.resumido : t.fuera}</span>}
+        {fuera.has(i) && <span className={modo === "compacta" ? "text-l2-texto" : "text-falso-texto"}>· {modo === "compacta" ? t.resumido : t.fuera}</span>}
       </span>
       <span className={`text-[15.5px] leading-relaxed ${fuera.has(i) ? "line-through decoration-1" : ""}`}>{m.texto}</span>
     </li>
@@ -102,7 +102,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
           </li>
         ))}
       </ul>
-      {fuera.size > 0 && modo === "recorta" && <p className="text-[14px] text-falso">{rellenar(t.quedaronFuera, { m: fuera.size, n: tokensFuera })}</p>}
+      {fuera.size > 0 && modo === "recorta" && <p className="text-[14px] text-falso-texto">{rellenar(t.quedaronFuera, { m: fuera.size, n: tokensFuera })}</p>}
     </div>
   );
 
@@ -155,7 +155,7 @@ export function Contexto({ lang }: { lang: Idioma }) {
             {final?.resumen && (
               <li className="flex flex-col gap-1 rounded-[14px] border border-l2 px-4 py-3">
                 <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
-                  <span className="font-medium text-l2">{t.roles.resumen}</span>
+                  <span className="font-medium text-l2-texto">{t.roles.resumen}</span>
                   <span>{rellenar(t.tokens, { n: final.resumenTokens! })}</span>
                 </span>
                 <span className="text-[15.5px] leading-relaxed">{final.resumen}</span>
@@ -163,10 +163,10 @@ export function Contexto({ lang }: { lang: Idioma }) {
             )}
             {visibles > ULTIMA && tarjeta(mensajes[ULTIMA], ULTIMA)}
             {final && (
-              <li className="aparece flex flex-col gap-1 rounded-[14px] border border-white/35 bg-white/[0.06] px-4 py-3">
+              <li className="aparece flex flex-col gap-1 rounded-[14px] border border-tinta/35 bg-tinta/[0.06] px-4 py-3">
                 <span className="flex flex-wrap items-baseline gap-x-2 text-[13px] text-tenue">
                   <span className="font-medium text-tinta-2">{t.roles.assistant}</span>
-                  <span className={final.trato === "cobra" ? "text-falso" : final.trato === "cumple" ? "text-verdadero" : ""}>· {t.veredictos[final.trato]}</span>
+                  <span className={final.trato === "cobra" ? "text-falso-texto" : final.trato === "cumple" ? "text-verdadero-texto" : ""}>· {t.veredictos[final.trato]}</span>
                 </span>
                 <span className="text-[15.5px] leading-relaxed whitespace-pre-line">{final.respuesta}</span>
                 <span className="mt-1 text-[14px] text-tinta-2">{porque}</span>

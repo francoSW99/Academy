@@ -1,33 +1,67 @@
 @import "tailwindcss";
 
 /*
- * Dark Spatial Glassmorphism (DESIGN.md). La página tiene un solo fondo: el lienzo oscuro con sus 3 auras fijas
- * (Lienzo.tsx). Las pizarras de vidrio van directo sobre ese fondo, y ninguna tiene uno propio.
+ * Vidrio esmerilado sobre un solo fondo (DESIGN.md): blanco o negro como color principal, con las auroras en los
+ * colores del logo (Lienzo.tsx). Las pizarras van directo sobre ese fondo, y ninguna tiene uno propio.
+ * El tema vive en <html data-tema>, y lo pone el script del layout antes de pintar: sin nada, oscuro.
  */
 :root {
   /* Canvas & Fondos */
-  --bg-canvas: #06080d;
+  --bg-canvas: #000a0c;
 
   /* Superficies Glass */
-  --glass-board-bg: rgba(15, 19, 28, 0.68);
-  --glass-reader-bg: rgba(12, 15, 23, 0.82); /* Mayor opacidad para lectura cómoda */
+  --glass-board-bg: rgba(14, 15, 18, 0.76);
+  --glass-reader-bg: rgba(14, 15, 18, 0.82); /* Mayor opacidad para lectura cómoda */
+  --glass-solido: rgba(14, 15, 18, 0.96);
+  --glass-board-hover: rgba(23, 25, 30, 0.82);
   --glass-card-bg: rgba(255, 255, 255, 0.04);
   --glass-card-hover: rgba(255, 255, 255, 0.08);
   --glass-pill-bg: rgba(255, 255, 255, 0.06);
   --glass-code-bg: rgba(5, 7, 12, 0.6);
+  --glass-code-cabecera: rgba(255, 255, 255, 0.03);
+  --glass-destacada: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
 
   /* Bordes y Reflejos */
   --glass-border-subtle: rgba(255, 255, 255, 0.07);
+  --glass-border-board: rgba(255, 255, 255, 0.12);
+  --glass-border-pozo: rgba(255, 255, 255, 0.09);
   --glass-border-highlight: rgba(255, 255, 255, 0.18);
   --glass-specular-inset: inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
   --glass-shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+  --glass-destacada-sombra: inset 1px 1px 0 0 rgba(255, 255, 255, 0.22), 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+
+  /* Lo que se toca */
+  --pill-borde: rgba(255, 255, 255, 0.14);
+  --pill-hover: rgba(255, 255, 255, 0.12);
+  --pill-hover-borde: rgba(255, 255, 255, 0.28);
+  --pill-activa: rgba(255, 255, 255, 0.2);
+  --pill-activa-borde: rgba(255, 255, 255, 0.34);
+  --pill-activa-filo: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  --brillo-acento: rgba(30, 139, 255, 0.28);
+  --burbuja: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
+  --burbuja-filo: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  --burbuja-sombra: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --capsula: rgba(0, 0, 0, 0.3);
+  --tinta-activa: #ffffff;
+  --velo: rgba(0, 4, 6, 0.5);
+  --velo-suave: rgba(0, 4, 6, 0.4);
+  --riel: rgba(255, 255, 255, 0.1);
+  --riel-perilla: rgba(255, 255, 255, 0.12);
+  --perilla-sombra: 0 0 12px rgba(30, 139, 255, 0.85);
+  --barra-scroll: rgba(255, 255, 255, 0.2);
+  --foco: #93c5fd;
+  --seleccion: rgba(30, 139, 255, 0.42);
+  --seleccion-tinta: #ffffff;
+  --boton-sombra: 0 8px 24px -12px rgba(255, 255, 255, 0.5);
+  --boton-sombra-hover: 0 0 26px rgba(255, 255, 255, 0.28);
+  --marca-brillo: 0 0 8px rgba(255, 255, 255, 0.7);
 
   /* Tipografía y Acentos */
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-secondary: #a3b1c4;
   --text-muted: #64748b;
-  --accent-primary: #3b82f6;
-  --accent-warm: #f59e0b;
+  --accent-primary: #1e8bff;
+  --accent-warm: #ff9a2e;
   --accent-emerald: #10b981;
 
   /* Los nombres que usa la app, sobre esos valores. */
@@ -41,32 +75,124 @@
   --borde-fuerte: var(--glass-border-highlight);
   --linea: #cbd5e1;
   --acento: var(--accent-primary);
-  --acento-texto: #60a5fa;
+  --acento-texto: #6eb0ff;
   --acento-tinta: #06080d;
   --suave: rgba(255, 255, 255, 0.07);
   --verdadero: var(--accent-emerald);
+  --verdadero-texto: #34d399;
+  --verdadero-tinta: #d1fae5;
   --falso: #f87171;
+  --falso-texto: var(--falso);
   --l2: var(--accent-warm);
+  --l2-texto: var(--l2);
+  --callout-alfa: 0.08;
   --primario: #f8fafc;
   --primario-tinta: #06080d;
   --codigo-fondo: var(--glass-code-bg);
   --codigo-tinta: #e2e8f0;
-  /* Fichas de tokens: se alternan para que se vea dónde corta cada una. */
-  --ficha-1: rgba(110, 155, 255, 0.24);
-  --ficha-2: rgba(90, 200, 130, 0.22);
-  --ficha-3: rgba(245, 170, 80, 0.24);
-  --ficha-4: rgba(175, 135, 255, 0.26);
-  --ficha-5: rgba(255, 120, 160, 0.24);
-  /* Un color por especialidad: dice a cuál pertenece cada cosa (barra de arriba, tarjetas, puentes). */
-  --esp-ai: #7fa6ff;
-  --esp-ml: #b79cff;
-  --esp-ds: #4fd1c5;
+  /* El coral del logo en las letras: una palabra, los números y «Pruébalo». El azul sigue siendo lo que se toca y lo que mide. */
+  --marca-texto: #ff8a5c;
+  --marca-grande: #ff6a3d;
+  /* Fichas de tokens, en los colores del logo: se alternan para que se vea dónde corta cada una. */
+  --ficha-1: rgba(30, 139, 255, 0.26);
+  --ficha-2: rgba(255, 154, 46, 0.24);
+  --ficha-3: rgba(53, 208, 255, 0.22);
+  --ficha-4: rgba(255, 217, 90, 0.22);
+  --ficha-5: rgba(255, 92, 46, 0.26);
+  /* Un color del logo por especialidad: dice a cuál pertenece cada cosa. El punto y la barra usan el color; las letras, su versión legible. */
+  --esp-ai: #2f97ff;
+  --esp-ml: #ff5c2e;
+  --esp-ds: #ffd21f;
+  --esp-ai-texto: #6eb0ff;
+  --esp-ml-texto: #ff8a5c;
+  --esp-ds-texto: #ffd95a;
 
   /* El marco que respira alrededor de las pizarras y la altura de la barra flotante. */
   --marco-x: 8px;
   --marco-y: 8px;
   --hud-alto: 52px;
   color-scheme: dark;
+}
+
+/* El tema claro: vidrio blanco esmerilado, tinta oscura y los colores que pasan AA sobre blanco. */
+:root[data-tema="claro"] {
+  --bg-canvas: #ffffff;
+
+  --glass-board-bg: rgba(255, 255, 255, 0.68);
+  --glass-reader-bg: rgba(255, 255, 255, 0.76);
+  --glass-solido: rgba(255, 255, 255, 0.96);
+  --glass-board-hover: rgba(255, 255, 255, 0.84);
+  --glass-card-bg: rgba(255, 255, 255, 0.44);
+  --glass-card-hover: rgba(255, 255, 255, 0.72);
+  --glass-pill-bg: rgba(255, 255, 255, 0.55);
+  --glass-code-bg: rgba(11, 18, 32, 0.045);
+  --glass-code-cabecera: rgba(11, 18, 32, 0.035);
+  --glass-destacada: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.4) 100%);
+
+  --glass-border-subtle: rgba(11, 18, 32, 0.09);
+  --glass-border-board: rgba(255, 255, 255, 0.7);
+  --glass-border-pozo: rgba(11, 18, 32, 0.1);
+  --glass-border-highlight: rgba(11, 18, 32, 0.18);
+  --glass-specular-inset: inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  --glass-shadow-lg: 0 16px 40px -18px rgba(8, 30, 60, 0.24);
+  --glass-destacada-sombra: inset 1px 1px 0 0 rgba(255, 255, 255, 0.9), 0 12px 30px -16px rgba(8, 30, 60, 0.22);
+
+  --pill-borde: rgba(11, 18, 32, 0.12);
+  --pill-hover: rgba(255, 255, 255, 0.85);
+  --pill-hover-borde: rgba(11, 18, 32, 0.24);
+  --pill-activa: rgba(11, 18, 32, 0.1);
+  --pill-activa-borde: rgba(11, 18, 32, 0.4);
+  --pill-activa-filo: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --brillo-acento: rgba(30, 139, 255, 0.2);
+  --burbuja: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.86) 100%);
+  --burbuja-filo: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --burbuja-sombra: 0 1px 4px rgba(8, 30, 60, 0.22);
+  --capsula: rgba(11, 18, 32, 0.06);
+  --tinta-activa: #0b1220;
+  --velo: rgba(11, 18, 32, 0.28);
+  --velo-suave: rgba(11, 18, 32, 0.2);
+  --riel: rgba(11, 18, 32, 0.12);
+  --riel-perilla: rgba(11, 18, 32, 0.14);
+  --perilla-sombra: 0 0 0 1px rgba(11, 18, 32, 0.18), 0 2px 8px rgba(11, 18, 32, 0.28);
+  --barra-scroll: rgba(11, 18, 32, 0.24);
+  --foco: #1458d6;
+  --seleccion: rgba(30, 139, 255, 0.26);
+  --seleccion-tinta: #0b1220;
+  --boton-sombra: 0 10px 22px -12px rgba(11, 18, 32, 0.55);
+  --boton-sombra-hover: 0 14px 28px -12px rgba(11, 18, 32, 0.6);
+  --marca-brillo: none;
+
+  --text-primary: #0b1220;
+  --text-secondary: #46536a;
+  --text-muted: #94a3b8;
+
+  --pizarra-rejilla: rgba(11, 18, 32, 0.08);
+  --tinta-2: #1e293b;
+  --linea: #475569;
+  --acento-texto: #1150c8;
+  --suave: rgba(11, 18, 32, 0.06);
+  --verdadero-texto: #03694c;
+  --verdadero-tinta: #065f46;
+  --falso: #ef4444;
+  --falso-texto: #b91c1c;
+  --l2-texto: #9a4507;
+  --callout-alfa: 0.05;
+  --primario: #0b1220;
+  --primario-tinta: #ffffff;
+  --codigo-tinta: #1e293b;
+  --marca-texto: #ab3210;
+  --marca-grande: #e0431a;
+  --ficha-1: rgba(30, 139, 255, 0.2);
+  --ficha-2: rgba(255, 154, 46, 0.26);
+  --ficha-3: rgba(53, 208, 255, 0.26);
+  --ficha-4: rgba(255, 210, 31, 0.34);
+  --ficha-5: rgba(255, 92, 46, 0.2);
+  --esp-ai: #1e8bff;
+  --esp-ds: #f5b800;
+  --esp-ai-texto: #1150c8;
+  --esp-ml-texto: #ab3210;
+  --esp-ds-texto: #7f5400;
+  color-scheme: light;
 }
 
 @media (min-width: 1024px) {
@@ -85,16 +211,18 @@
 
 /* Sin vidrio posible, o si el sistema lo pide: las superficies se vuelven casi opacas. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  :root {
-    --glass-board-bg: rgba(15, 19, 28, 0.95);
-    --glass-reader-bg: rgba(12, 15, 23, 0.95);
+  :root,
+  :root[data-tema="claro"] {
+    --glass-board-bg: var(--glass-solido);
+    --glass-reader-bg: var(--glass-solido);
   }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  :root {
-    --glass-board-bg: rgba(15, 19, 28, 0.95);
-    --glass-reader-bg: rgba(12, 15, 23, 0.95);
+  :root,
+  :root[data-tema="claro"] {
+    --glass-board-bg: var(--glass-solido);
+    --glass-reader-bg: var(--glass-solido);
   }
 }
 
@@ -112,8 +240,11 @@
   --color-acento-tinta: var(--acento-tinta);
   --color-suave: var(--suave);
   --color-verdadero: var(--verdadero);
+  --color-verdadero-texto: var(--verdadero-texto);
   --color-falso: var(--falso);
+  --color-falso-texto: var(--falso-texto);
   --color-l2: var(--l2);
+  --color-l2-texto: var(--l2-texto);
   --color-primario: var(--primario);
   --color-primario-tinta: var(--primario-tinta);
   --color-codigo-fondo: var(--codigo-fondo);
@@ -126,15 +257,20 @@
   --color-esp-ai: var(--esp-ai);
   --color-esp-ml: var(--esp-ml);
   --color-esp-ds: var(--esp-ds);
+  --color-esp-ai-texto: var(--esp-ai-texto);
+  --color-esp-ml-texto: var(--esp-ml-texto);
+  --color-esp-ds-texto: var(--esp-ds-texto);
+  --color-marca-texto: var(--marca-texto);
+  --color-marca-grande: var(--marca-grande);
   --font-sans: "Google Sans Flex", "Google Sans", Arial, sans-serif;
   --font-mono: "Google Sans Code", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-/* El fondo va en <html> y <body> queda transparente: así las auras (z-index: -1) se ven detrás de todo. */
+/* El fondo va en <html> y <body> queda transparente: así la aurora (z-index: -1) se ve detrás de todo. */
 html {
   background: var(--bg-canvas);
   scroll-padding-top: calc(var(--marco-y) + var(--hud-alto) + 24px);
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-color: var(--barra-scroll) transparent;
   scrollbar-width: thin;
 }
 
@@ -146,12 +282,12 @@ body {
 }
 
 ::selection {
-  background: rgba(59, 130, 246, 0.42);
-  color: #ffffff;
+  background: var(--seleccion);
+  color: var(--seleccion-tinta);
 }
 
 :focus-visible {
-  outline: 2px solid #93c5fd;
+  outline: 2px solid var(--foco);
   outline-offset: 3px;
 }
 
@@ -204,49 +340,31 @@ summary::marker {
 }
 
 @layer components {
-  /* El lienzo: un solo fondo para toda la página, con 3 orbes de luz difusa fijos. */
-  .aura {
+  /*
+   * El lienzo: un solo fondo para toda la página. Blanco o negro, con las auroras en los colores del logo.
+   * Es una imagen que se estira a la pantalla: 100lvh para que no cambie de tamaño cuando se esconde la barra del celular.
+   */
+  .aurora {
     position: fixed;
     z-index: -1;
-    border-radius: 50%;
-    background: var(--aura);
-    filter: blur(120px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100lvh;
+    background: url("./aurora-oscuro.webp") center / 100% 100% no-repeat;
     pointer-events: none;
   }
 
-  .aura-azul {
-    --aura: #3b82f6;
-    top: -24vmax;
-    left: -12vmax;
-    width: 62vmax;
-    height: 62vmax;
-    opacity: 0.22;
-  }
-
-  .aura-indigo {
-    --aura: #6366f1;
-    top: 16vh;
-    right: -22vmax;
-    width: 58vmax;
-    height: 58vmax;
-    opacity: 0.2;
-  }
-
-  .aura-ambar {
-    --aura: #f59e0b;
-    bottom: -22vmax;
-    left: 18vw;
-    width: 48vmax;
-    height: 48vmax;
-    opacity: 0.18;
+  :root[data-tema="claro"] .aurora {
+    background-image: url("./aurora-claro.webp");
   }
 
   /* Contenedor Principal de un Glassboard */
   .glass-board {
     background: var(--glass-board-bg);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid var(--glass-border-subtle);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border-board);
     box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
     border-radius: 24px;
   }
@@ -256,7 +374,7 @@ summary::marker {
     background: var(--glass-reader-bg);
     -webkit-backdrop-filter: blur(32px);
     backdrop-filter: blur(32px);
-    border: 1px solid var(--glass-border-subtle);
+    border: 1px solid var(--glass-border-board);
     box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
     border-radius: 28px;
   }
@@ -271,14 +389,12 @@ summary::marker {
 
   /* Tarjeta con Borde Direccional Brillante (Hero / Destacados) */
   .glass-card-directional {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+    background: var(--glass-destacada);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     border: 1px solid var(--glass-border-subtle);
-    box-shadow:
-      inset 1px 1px 0 0 rgba(255, 255, 255, 0.22),
-      0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--glass-destacada-sombra);
   }
 
   /* Píldoras Interactivas (Botones, Tags, Filtros) */
@@ -286,7 +402,7 @@ summary::marker {
     background: var(--glass-pill-bg);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid var(--pill-borde);
     border-radius: 9999px;
     color: var(--text-primary);
     transition:
@@ -298,9 +414,9 @@ summary::marker {
 
   @media (hover: hover) and (pointer: fine) {
     :is(a, button).glass-pill:not(:disabled, [aria-pressed="true"]):hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+      background: var(--pill-hover);
+      border-color: var(--pill-hover-borde);
+      box-shadow: 0 0 20px var(--brillo-acento);
       transform: translateY(-1px);
     }
   }
@@ -315,9 +431,9 @@ summary::marker {
 
   /* La elegida, iluminada en blanco translúcido. */
   .glass-pill[aria-pressed="true"] {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.34);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    background: var(--pill-activa);
+    border-color: var(--pill-activa-borde);
+    box-shadow: var(--pill-activa-filo);
   }
 
   /* El rendimiento: un desenfoque dentro de otro no ve lo que hay detrás de la pizarra y solo gasta GPU. */
@@ -346,14 +462,14 @@ summary::marker {
     box-shadow:
       inset 0 1px 0 rgba(52, 211, 153, 0.35),
       0 0 26px -6px rgba(16, 185, 129, 0.6);
-    color: #d1fae5;
+    color: var(--verdadero-tinta);
   }
 
   /* Las pizarras que son un enlace se iluminan al pasar. */
   @media (hover: hover) and (pointer: fine) {
     a.glass-board:hover {
       border-color: var(--glass-border-highlight);
-      background: rgba(23, 28, 40, 0.72);
+      background: var(--glass-board-hover);
     }
   }
 
@@ -374,7 +490,7 @@ summary::marker {
     color: var(--primario-tinta);
     font-size: 15px;
     font-weight: 500;
-    box-shadow: 0 8px 24px -12px rgba(255, 255, 255, 0.5);
+    box-shadow: var(--boton-sombra);
     transition:
       box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -382,7 +498,7 @@ summary::marker {
 
   @media (hover: hover) and (pointer: fine) {
     .boton-luz:hover {
-      box-shadow: 0 0 26px rgba(255, 255, 255, 0.28);
+      box-shadow: var(--boton-sombra-hover);
       transform: translateY(-1px);
     }
   }
@@ -397,7 +513,7 @@ summary::marker {
     padding: 3px;
     border: 1px solid var(--glass-border-subtle);
     border-radius: 9999px;
-    background: rgba(0, 0, 0, 0.28);
+    background: var(--capsula);
   }
 
   .glass-segmentado > button {
@@ -412,14 +528,14 @@ summary::marker {
   }
 
   .glass-segmentado > button[aria-pressed="true"] {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
-    color: #ffffff;
+    background: var(--burbuja);
+    box-shadow: var(--burbuja-filo), var(--burbuja-sombra);
+    color: var(--tinta-activa);
   }
 
   /* El pozo: lo que se escribe o se lee adentro de una escena va en cristal oscuro. */
   .glass-pozo {
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border: 1px solid var(--glass-border-pozo);
     border-radius: 14px;
     background: var(--glass-code-bg);
   }
@@ -430,14 +546,14 @@ summary::marker {
   }
 
   textarea.glass-pozo:focus {
-    border-color: rgba(147, 197, 253, 0.6);
+    border-color: var(--foco);
     outline: none;
   }
 
   /* Bloques de código y prompts: cabecera con el lenguaje y el botón de copiar. */
   .glass-code {
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border: 1px solid var(--glass-border-pozo);
     border-radius: 16px;
     background: var(--glass-code-bg);
   }
@@ -449,8 +565,8 @@ summary::marker {
     justify-content: space-between;
     gap: 12px;
     padding: 6px 8px 6px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border-subtle);
+    background: var(--glass-code-cabecera);
     color: var(--text-secondary);
     font-size: 12.5px;
     font-weight: 500;
@@ -458,21 +574,37 @@ summary::marker {
 
   /* Callouts: cristal tintado según su tipo, con un borde luminoso del mismo tono. */
   .glass-callout {
-    --tono: 59, 130, 246;
+    --tono: 30, 139, 255;
     border: 1px solid rgba(var(--tono), 0.3);
     border-radius: 20px;
-    background: rgba(var(--tono), 0.08);
+    background: rgba(var(--tono), var(--callout-alfa));
     box-shadow:
       inset 0 1px 0 rgba(var(--tono), 0.3),
       0 0 32px -14px rgba(var(--tono), 0.5);
   }
 
   .glass-callout[data-tono="aviso"] {
-    --tono: 245, 158, 11;
+    --tono: 255, 154, 46;
   }
 
   .glass-callout[data-tono="tip"] {
-    --tono: 16, 185, 129;
+    --tono: 255, 138, 92;
+  }
+
+  :root[data-tema="claro"] .glass-callout {
+    --tono: 20, 88, 214;
+  }
+
+  :root[data-tema="claro"] .glass-callout[data-tono="aviso"] {
+    --tono: 180, 83, 9;
+  }
+
+  :root[data-tema="claro"] .glass-callout[data-tono="tip"] {
+    --tono: 171, 50, 16;
+  }
+
+  :root[data-tema="claro"] .glass-callout-numero {
+    text-shadow: none;
   }
 
   .glass-callout-linea {
@@ -503,7 +635,7 @@ summary::marker {
       border-color: var(--glass-border-highlight);
       box-shadow:
         var(--glass-specular-inset),
-        0 0 26px -6px rgba(59, 130, 246, 0.35);
+        0 0 26px -6px var(--brillo-acento);
     }
   }
 
@@ -558,8 +690,8 @@ summary::marker {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--luz, #3b82f6);
-    box-shadow: 0 0 10px var(--luz, #3b82f6);
+    background: var(--luz, var(--accent-primary));
+    box-shadow: 0 0 10px var(--luz, var(--accent-primary));
   }
 
   .barra-luz {
@@ -567,15 +699,15 @@ summary::marker {
     width: 100%;
     height: 4px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--riel);
   }
 
   .barra-luz-relleno {
     display: block;
     height: 100%;
     border-radius: inherit;
-    background: var(--luz, #3b82f6);
-    box-shadow: 0 0 10px var(--luz, #3b82f6);
+    background: var(--luz, var(--accent-primary));
+    box-shadow: 0 0 10px var(--luz, var(--accent-primary));
   }
 
   .barra-luz-punto {
@@ -585,14 +717,14 @@ summary::marker {
     height: 9px;
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 0 10px var(--luz, #3b82f6);
+    box-shadow: 0 0 10px var(--luz, var(--accent-primary));
     transform: translate(-50%, -50%);
   }
 
   .marca-hecha {
     background: rgba(16, 185, 129, 0.16);
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
-    color: #34d399;
+    color: var(--verdadero-texto);
   }
 
   /* Las perillas: una línea luminosa hasta el valor y un botón blanco que brilla. */
@@ -609,13 +741,13 @@ summary::marker {
   .glass-rango::-webkit-slider-runnable-track {
     height: 4px;
     border-radius: 9999px;
-    background: linear-gradient(to right, var(--accent-primary) var(--p, 50%), rgba(255, 255, 255, 0.12) var(--p, 50%));
+    background: linear-gradient(to right, var(--accent-primary) var(--p, 50%), var(--riel-perilla) var(--p, 50%));
   }
 
   .glass-rango::-moz-range-track {
     height: 4px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--riel-perilla);
   }
 
   .glass-rango::-moz-range-progress {
@@ -630,7 +762,7 @@ summary::marker {
     margin-top: -7px;
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.85);
+    box-shadow: var(--perilla-sombra);
     -webkit-appearance: none;
   }
 
@@ -640,7 +772,7 @@ summary::marker {
     border: 0;
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.85);
+    box-shadow: var(--perilla-sombra);
   }
 
   /* El marco: las pizarras respiran y nada toca el borde de la pantalla. */
@@ -716,6 +848,24 @@ summary::marker {
     display: none;
   }
 
+  /* El botón del tema: muestra el sol en oscuro y la luna en claro, según <html data-tema>. */
+  .boton-tema {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    place-items: center;
+  }
+
+  .boton-tema .tema-luna,
+  :root[data-tema="claro"] .boton-tema .tema-sol {
+    display: none;
+  }
+
+  :root[data-tema="claro"] .boton-tema .tema-luna {
+    display: block;
+  }
+
   .hud-movil {
     min-width: 0;
     flex: 1;
@@ -785,7 +935,7 @@ summary::marker {
   /* La entrada del índice que estás leyendo: una marca de luz sobre el riel. */
   .indice-entrada[aria-current] {
     position: relative;
-    color: #ffffff;
+    color: var(--tinta-activa);
   }
 
   .indice-entrada[aria-current]::before {
@@ -796,8 +946,8 @@ summary::marker {
     left: -9px;
     width: 2px;
     border-radius: 2px;
-    background: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    background: var(--tinta-activa);
+    box-shadow: var(--marca-brillo);
   }
 
   /* En el celular, la ventana de la escena de contexto queda fija debajo de la barra de arriba. */
@@ -808,7 +958,7 @@ summary::marker {
     padding: 10px 12px;
     border: 1px solid var(--glass-border-subtle);
     border-radius: 14px;
-    background: rgba(16, 20, 29, 0.96);
+    background: var(--glass-solido);
   }
 
   /* Glass Drawer: el temario del celular, un menú que se desliza con desenfoque intenso. */
@@ -824,13 +974,13 @@ summary::marker {
     height: auto;
     max-height: none;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border-board);
     border-radius: 24px;
-    background: rgba(15, 19, 28, 0.72);
+    background: var(--glass-board-bg);
     box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
     color: var(--text-primary);
-    -webkit-backdrop-filter: blur(40px) saturate(160%);
-    backdrop-filter: blur(40px) saturate(160%);
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
     transform: translateX(calc(-100% - 16px));
     transition:
       transform 360ms cubic-bezier(0.32, 0.72, 0, 1),
@@ -849,7 +999,7 @@ summary::marker {
   }
 
   .glass-drawer::backdrop {
-    background: rgba(3, 5, 10, 0);
+    background: transparent;
     transition:
       background-color 360ms ease,
       overlay 360ms allow-discrete,
@@ -857,12 +1007,12 @@ summary::marker {
   }
 
   .glass-drawer[open]::backdrop {
-    background: rgba(3, 5, 10, 0.5);
+    background: var(--velo);
   }
 
   @starting-style {
     .glass-drawer[open]::backdrop {
-      background: rgba(3, 5, 10, 0);
+      background: transparent;
     }
   }
 
@@ -906,6 +1056,11 @@ summary::marker {
     .hud-grafo {
       display: inline-flex;
     }
+
+    .hud .boton-tema {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   @media (min-width: 1280px) {
@@ -933,8 +1088,8 @@ summary::marker {
     display: flex;
     padding: 4px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(15, 19, 28, 0.96);
+    border: 1px solid var(--glass-border-board);
+    background: var(--glass-solido);
     box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
   }
 
@@ -964,7 +1119,7 @@ summary::marker {
   }
 
   .secciones-item[data-elegida="true"] {
-    color: #ffffff;
+    color: var(--tinta-activa);
   }
 
   .secciones-item:focus-visible {
@@ -979,8 +1134,8 @@ summary::marker {
 
   /* Sin JavaScript, o antes de medir, la burbuja la dibuja el propio botón. */
   .secciones-pista:not([data-lista]) .secciones-item[data-elegida="true"] {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    background: var(--burbuja);
+    box-shadow: var(--burbuja-filo), var(--burbuja-sombra);
   }
 
   .secciones-burbuja {
@@ -988,10 +1143,8 @@ summary::marker {
     top: 0;
     left: 0;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.13) 100%);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      0 1px 3px rgba(0, 0, 0, 0.4);
+    background: var(--burbuja);
+    box-shadow: var(--burbuja-filo), var(--burbuja-sombra);
     pointer-events: none;
   }
 
@@ -1013,7 +1166,7 @@ summary::marker {
 
   @media (hover: hover) and (pointer: fine) {
     .secciones-item:not([data-elegida="true"]):hover {
-      color: #ffffff;
+      color: var(--tinta-activa);
     }
   }
 
@@ -1034,10 +1187,10 @@ summary::marker {
     align-items: center;
     justify-content: center;
     padding-right: 3px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--glass-border-board);
     border-left: 0;
     border-radius: 0 27px 27px 0;
-    background: rgba(15, 19, 28, 0.96);
+    background: var(--glass-solido);
     box-shadow: var(--glass-specular-inset), var(--glass-shadow-lg);
     transform: translateY(-50%);
     -webkit-tap-highlight-color: transparent;
@@ -1078,7 +1231,7 @@ summary::marker {
     position: fixed;
     z-index: 40;
     inset: 0;
-    background: rgba(3, 5, 10, 0.4);
+    background: var(--velo-suave);
     opacity: 0;
     pointer-events: none;
     -webkit-tap-highlight-color: transparent;
@@ -1139,9 +1292,9 @@ summary::marker {
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .secciones-pista,
     .secciones-manija {
-      background: rgba(15, 19, 28, 0.68);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-      backdrop-filter: blur(24px) saturate(160%);
+      background: var(--glass-board-bg);
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
     }
   }
 
@@ -1157,7 +1310,7 @@ summary::marker {
 
     /* Va sobre la barra de arriba, que ya es de vidrio: una cápsula oscura, sin otro desenfoque. */
     .secciones-arriba .secciones-pista {
-      background: rgba(0, 0, 0, 0.3);
+      background: var(--capsula);
       border-color: var(--glass-border-subtle);
       box-shadow: none;
       -webkit-backdrop-filter: none;
@@ -1214,11 +1367,6 @@ summary::marker {
    * que se ve y sí gasta GPU. Solo lo conservan la barra de arriba y el panel, que tienen texto pasando por detrás.
    */
   @media (max-width: 1023.98px) {
-    .aura {
-      background: radial-gradient(circle closest-side, var(--aura), transparent);
-      filter: none;
-    }
-
     .glass-reader,
     .glass-board:not(.hud) {
       -webkit-backdrop-filter: none;
@@ -1229,7 +1377,7 @@ summary::marker {
   /* Sin vidrio posible, o si el sistema lo pide: las superficies se vuelven casi opacas. */
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .glass-drawer {
-      background: rgba(15, 19, 28, 0.95);
+      background: var(--glass-solido);
     }
   }
 
@@ -1248,7 +1396,7 @@ summary::marker {
     .glass-drawer,
     .secciones-pista,
     .secciones-manija {
-      background: rgba(15, 19, 28, 0.95);
+      background: var(--glass-solido);
     }
   }
 }

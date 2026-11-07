@@ -7,16 +7,16 @@ El tablero del proyecto. Claude lo actualiza en cada entrega:
 
 Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
-*Última actualización: 2026-11-03*
+*Última actualización: 2026-11-04*
 
 ---
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓░░░` 46 de 69 tareas del plan (67 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas.
-- **Hecho:** Fases 0 a 5b y casi toda la 4b. **Desde el 2026-11-03, el sitio público es Glassboards** (https://academy.woorky.app/es/): toda la app en vidrio oscuro sobre un solo fondo de página. El diseño anterior quedó guardado en el worktree `UIv1` (`~/projects/UIv1`), idéntico a lo que estaba publicado.
-- **Falta:** mezclar el PR #13, para que `main` quede igual que el sitio. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Luego, el pulido (5c) y las fases 6 a 10.
-- **Lo próximo:** dime «mezcla el PR 13». Después sigue el pulido del sitio (5c).
+- **Avance:** `▓▓▓▓▓▓▓░░░` 59 de 82 tareas del plan (72 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas, de la 5c van 4 de 6 y de la 5d (roadmap final), 9 de 10.
+- **Hecho:** Fases 0 a 5b y casi toda la 4b. **Desde el 2026-11-04, el sitio público** (https://academy.woorky.app/es/) **tiene dos temas, claro y oscuro:** blanco o negro con auroras minimalistas en los colores del logo y pizarras de vidrio. También lleva el logo del sol en la barra de arriba, el ícono del sitio y esos colores en algunos textos, sin morado. El diseño de antes de Glassboards sigue en el worktree `UIv1` (`~/projects/UIv1`). **Para el roadmap final**, roadmapv2 a roadmapv6 ya están guardados en `docs/roadmap/`, y ya decidiste qué entra de roadmapv4: se construye dirigiendo al LLM, sin código a mano. **La versión 2 de la propuesta del roadmap final está lista** en `docs/roadmap/propuesta-roadmap-final.md`: tronco común, dos caminos (Productos o Modelos) y cierre de CEO y CTO, con 115 lecciones y tu sistema multi-agente como proyecto. **Desde el 2026-11-07, el sitio público muestra el temario v3:** AI Engineering con 126 lecciones, fundamentos y agentes para todos, y al final dos caminos (Productos e Investigación) con desvíos graduales a ML y DL; ML y Deep Learning es un curso propio de 57 lecciones.
+- **Falta:** pasar el temario v3 a la nota de BrainFran y al documento de la propuesta (último paso de la 5d). Guardar este trabajo en GitHub: lo publicado salió de la rama local `fase-5c-fondos`, sin commit, y luego mezclar para que `main` quede igual que el sitio. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el resto del pulido (5c) y escribir las lecciones desde fuentes originales.
+- **Lo próximo:** guardar en GitHub (commit y PR de `fase-5c-fondos`, sin las copias de fuentes de terceros), cuando des el OK.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -28,7 +28,8 @@ F0–4  MVP: estación 03 pública        ███
 F4b   Curso en módulos + canvas           █████▓
 F5    Inicio + 3 especialidades           ███
 F5b   Pizarras de vidrio                      ██
-F5c   Pulido del sitio                          ▓▓
+F5c   Pulido + logo + 2 fondos                  ▓▓
+F5d   Roadmap final de AI Engineering     ▓▓▓▓▓▓▓▓
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -50,10 +51,15 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
    - las salidas estructuradas, en la 04;
    - los embeddings, en la 05;
    - el tool use, en la 06.
+4. **La fase 5d va antes que las lecciones.** El roadmap final puede cambiar el orden y el contenido de las fases 6 a 10. Sus fechas dependen de cuándo lleguen tus fuentes.
 
 ### Decisiones que te tocan
 
 1. **¿Apruebas este plan?** Si quieres otro orden, dime cuál y lo cambio.
+2. ✅ **¿Cuánto código escribe quien sigue el roadmap?** Decidido el 2026-11-04 (pedido 75): nada a mano. Se aprende construyendo, pero dirigiendo al LLM con lenguaje técnico, y se enseña con pseudocódigo o flowcharts en vez de código exacto. El detalle está en `docs/roadmap/README.md`.
+3. **¿Las copias de las fuentes del roadmap van a GitHub?** Academy es público y son textos de terceros, así que las dejé fuera de git y solo existen en la VM. Recomiendo seguir así y, si quieres respaldo, copiarlas en BrainFran, que es privado.
+4. **¿Entra el sexto punto de roadmapv4?** Experiencia resolviendo el problema de un tercero y networking real. Está en el índice, pero no te lo mostré en el chat.
+5. **¿Apruebas la propuesta de roadmap final?** Son 54 lecciones en 11 módulos, y reemplaza las fases 6 a 10 por olas de publicación. Su sección 13 trae 8 decisiones, incluidas la 3 y la 4 de esta lista, cada una con mi recomendación.
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -69,7 +75,8 @@ gantt
     F5 Inicio y 3 especialidades · publicada :done, f5, 2026-11-02, 1d
     F5b Pizarras de vidrio · publicada :done, f5b, after f5, 2d
     F5c Pulido del sitio :active, f5c, after f5b, 2d
-    F6 Estación 04 · App de IA :f6, after f5c, 7d
+    F5d Roadmap final de AI Engineering :active, f5d, 2026-11-04, 12d
+    F6 Estación 04 · App de IA :f6, after f5d, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
     F9 Estación 01 · Base de software :f9, after f8, 7d
@@ -189,8 +196,11 @@ Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar),
 - [x] Ajustes con tu feedback: no pediste ninguno · 2026-11-03
 - [x] Publicado en https://academy.woorky.app/es/ · 2026-11-03
 
-### Fase 5c · Pulido del sitio · 0 de 3 · semana 2
-- [ ] Ícono del sitio (favicon): hoy no hay y el navegador da un error 404
+### Fase 5c · Pulido del sitio · 4 de 6 · semana 2
+- [x] Dos fondos, claro y oscuro: blanco o negro con auroras en los colores del logo, calcadas de las 2 imágenes de Fran, y vidrio en toda la app. Con botón de tema. Publicado el 2026-11-04 (pedidos 65, 66 y 69)
+- [x] Colores del logo en algunos textos: una palabra del Inicio, los números, «Pruébalo» y las 3 especialidades (azul, coral y oro), sin morado. Publicado el 2026-11-04 (pedidos 67 a 69)
+- [x] Logo nuevo: el sol minimalista en SVG (C con las diagonales al 75 %), en la cabecera. Publicado el 2026-11-04 (pedidos 59 a 64 y 67 a 69)
+- [x] Ícono del sitio (favicon), con el logo. Publicado el 2026-11-04 (pedidos 67 a 69)
 - [ ] Página «no encontrada» en español: hoy sale la de Next.js, en inglés
 - [ ] Vista previa al compartir el link: título, descripción e imagen en WhatsApp o LinkedIn
 
@@ -202,6 +212,19 @@ Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar),
 5. **El mapa tiene ruido para quien llega.** Las etiquetas «L2 · 27–28» salen en 8 estaciones sin explicación, y las 15 estaciones cerradas no dicen «pronto».
 - Con la estructura nueva (Fase 4b) se arreglan el 2, el 3 y el 5; el 4 ya se fue con los videos.
 - Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
+
+### ▶ Fase 5d · Roadmap final de AI Engineering · 9 de 10 · semanas 1 y 2
+Se juntan roadmaps de otros ingenieros y otras fuentes, y se combinan con el temario actual para llegar desde cero a ingeniero de IA experto. Ninguna fuente externa es la fuente de verdad. Todo está en `docs/roadmap/`.
+- [x] Guardar roadmapv2 · 2026-11-04 (pedido 71)
+- [x] Guardar roadmapv3, el PDF de BASWE · 2026-11-04 (pedido 72)
+- [x] Guardar roadmapv4, 3 videos de tu biblioteca · 2026-11-04 (pedidos 73 y 74)
+- [x] Guardar roadmapv5, 5 proyectos con repos, y comprobar repos y artículos · 2026-11-04 (pedido 76)
+- [x] Investigar temarios de instituciones confiables y guardarlos como roadmapv6 · 2026-11-04 (pedido 77)
+- [x] Juntar las fuentes: roadmapv2 a roadmapv6 · 2026-11-04 (pedido 78)
+- [x] Combinarlas con el temario actual en una propuesta de roadmap final: `docs/roadmap/propuesta-roadmap-final.md` · 2026-11-04 (pedido 78)
+- [x] Versión 2 de la propuesta, con tu feedback y una investigación en 7 frentes · 2026-11-05 (pedido 80)
+- [x] Tu OK al índice v3 (dos caminos dentro de AI Engineering) y publicado en el sitio · 2026-11-07 (pedido 88)
+- [ ] Aplicarla al temario de Academy: el sitio ya está (`src/ruta/temario.ts` y `src/ruta/conexiones.ts`); falta la nota de BrainFran y el documento de la propuesta
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
 - [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
@@ -303,6 +326,36 @@ Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar),
 | 56 | 2026-11-02 | Ni A ni B ni Hoy: la pizarra de vidrio va encima del fondo original de la app, sin un fondo distinto | Propuesta rehecha en el borrador: las pizarras son el mismo vidrio del selector de secciones, sobre el fondo blanco (o negro en modo oscuro), y lo de adentro va en burbujas de vidrio. Selector «Vidrio | Hoy» |
 | 57 | 2026-11-02 | Trabajar la UI/UX: aplicar línea por línea `ai_studio_code.txt`, ignorando el PR antiguo, con 6 referencias. Los glass boards van sobre el fondo principal de la página, sin bases individuales; lo más natural, minimalista y moderno posible | Propuesta Glassboards en el borrador (PR #13): toda la app en vidrio oscuro sobre un solo lienzo, con barra flotante, temario con avance, lector, prompts, callouts y navegación del final. Probadas todas las interacciones |
 | 58 | 2026-11-03 | «Dale, me gustó»: guardar el diseño que está en prod en un worktree nuevo llamado UIv1, por si se arrepiente o quiere tomar elementos de él, y actualizar el sitio a la versión del borrador | Worktree `~/projects/UIv1` con el diseño anterior, comprobado idéntico a lo publicado. Glassboards publicado en https://academy.woorky.app/es/ y probado en vivo |
+| 59 | 2026-11-03 | Mejorar el logo con el MCP de Kling: partir de su sol con degradado y llevarlo a un logo minimalista y moderno de startup de IA (tipo Grok, Gemini o Claude), manteniendo el sol, los colores y el degradado suave | 8 propuestas en 4 direcciones, comparadas en https://academy.woorky.app/borrador/logo/ y en `docs/diseno/logo/opciones-tanda-1.png`, con pruebas a 64, 32 y 16 px. Costó 148 créditos de Kling. Falta que elija una; después se redibuja en SVG |
+| 60 | 2026-11-03 | Le gustan A2 y D1. Probar otra pintura: que el rojizo y el azul no se separen en diagonal, sino azul en la base y rojizo en las puntas o al revés, sin morados | Las dos siluetas repintadas con un degradado radial, en las dos direcciones. El paso de un color a otro va por celeste, crema y dorado. Comprobado: 0 % de píxeles morados. No gastó créditos de Kling |
+| 61 | 2026-11-03 | «La primera versión está perfecta»: se queda con las de base rojiza, A2 y D1 | Guardadas tal cual en `docs/diseno/logo/elegidos/`, en PNG y SVG. El SVG difiere 0,17 % o menos del PNG. La prueba con la mezcla más suave quedó descartada |
+| 62 | 2026-11-04 | No subir nada sin que lo pida. Cambiar solo la geometría de los rayos de D1 para que parezcan rayos de sol, manteniendo el minimalismo y la separación | 3 formas de rayo (A Lanza, B Cuña, C Llama) mostradas en el chat y guardadas en `docs/diseno/logo/elegidos/`, sin subir nada. El hueco entre rayos se mantiene o crece. Falta que elija una |
+| 63 | 2026-11-04 | D1 y C son los grandes candidatos. Hacer las diagonales más chicas que las cardinales, para que se parezca más a un sol | Las 4 diagonales achicadas desde su base en D1 y C, probadas al 80, 70, 60 y 50 %. Mostradas en el chat al 70 y al 60 %, y guardadas en `docs/diseno/logo/elegidos/`, sin subir nada. Falta que elija una |
+| 64 | 2026-11-04 | El logo será C con las diagonales al 75 %. No implementarlo todavía: seguir con la UI, sobre todo cambiando el fondo, y esperar sus instrucciones | Logo final en `docs/diseno/logo/logo-academy.svg` y `logo-academy.png` (2048 px, fondo transparente). Comprobado: 8 rayos, cardinales iguales a C, diagonales al 75,0 % y 0 % de píxeles morados. No entró al sitio. A la espera de las instrucciones del fondo |
+| 65 | 2026-11-04 | Dos fondos, claro y oscuro, estilo Aurora, Glow y Mesh Gradient, con los colores del logo, manteniendo el vidrio. Mandó 4 imágenes de referencia | Primer intento con un shader y la rampa del logo: tapaba la pantalla de color. Fran lo descartó en el pedido 66 |
+| 66 | 2026-11-04 | «Los dos originales están mejor»: blanco y negro como color principal, auroras minimalistas con 3 o 4 colores del logo y sus 2 imágenes como referencia, para no hacer ruido con textos y canvas | Formas calcadas de sus imágenes, con su mismo tipo de vidrio. Tema claro para toda la app, botón de tema y todo el texto sobre vidrio. Contraste AA medido sobre el peor píxel. Los dos fondos pesan 15 KB cada uno. Le gustó el resultado |
+| 67 | 2026-11-04 | Integrar el logo y poner los colores del logo en algunos textos, sin morado y sin que la plataforma se vea colorida: elegante, moderna y minimalista | Logo en la barra de arriba y en el ícono del sitio. Coral en una palabra del Inicio, los números y «Pruébalo»; especialidades en azul, coral y oro; fichas y consejos con colores del logo. 0,00 % de morado visible en las pantallas medidas. En local, sin subir ni commit |
+| 68 | 2026-11-04 | Subirlo al borrador | En https://academy.woorky.app/borrador/es/. Comprobado en vivo en 5 páginas, en claro y en oscuro: logo, fondo, botón de tema y enlaces, sin archivos faltantes. La página vieja `/borrador/logo/` se conservó y el sitio público no cambió |
+| 69 | 2026-11-04 | «Me encanta. Publica» | Publicado en https://academy.woorky.app/es/ (versión `20261104-032158`). Comprobado en vivo en 5 páginas, en claro y en oscuro: logo, fondo, botón de tema, enlaces e ícono, sin archivos faltantes. La versión anterior sigue guardada para volver atrás. El borrador dejó de estar en línea, como en cada publicación. El código sigue sin commit |
+| 70 | 2026-11-04 | Mejorar el roadmap de AI Engineering, contenido y orden de estudio, para llegar desde cero a ingeniero de IA experto. Por ahora, solo contexto | Leí el temario del sitio y el Pilar 1 de la nota, sin cambios. Primeras observaciones: 3 temas que llegan tarde y 5 que faltan o quedan cortos, ahora en `docs/roadmap/README.md` |
+| 71 | 2026-11-04 | Guardar el roadmap de un AI engineer como roadmapv2, sin tratarlo como fuente de verdad. Después mandará más fuentes para combinarlas en el roadmap final | Guardado tal como llegó en `docs/roadmap/fuentes/roadmapv2.md`, con un índice de fuentes en `docs/roadmap/README.md`. Fase 5d sumada al plan. Sin commit |
+| 72 | 2026-11-04 | Guardar como roadmapv3 un PDF de roadmap en 45 días (BASWE) | PDF original y texto con sus enlaces en `docs/roadmap/fuentes/`. El índice ahora compara dónde pone cada fuente cada tema. Las copias quedaron fuera de git porque el repo es público. Sin commit |
+| 73 | 2026-11-04 | Considerar como roadmapv4 los 2 videos sobre roadmap de la biblioteca, diciendo cuáles son antes de escribir | Ubicados los 2 de Marina Wyss, sin escribir nada, y mostrados para confirmar |
+| 74 | 2026-11-04 | Hay un tercer video en español: agregarlo también | Agregado el de BettaTech, «Todo lo que Necesitas Saber sobre la Ingeniería de IA en 26 minutos». Leídas las 3 transcripciones y resumidas en `docs/roadmap/fuentes/roadmapv4.md`. La tabla de temas suma la columna y 7 temas. Sin commit |
+| 75 | 2026-11-04 | Son esas 3 fuentes. Agregar aprender construyendo, pero dirigiendo al LLM con lenguaje técnico: sin código a mano, con pseudocódigo o flowcharts, solo vibecoding. Acepta los 5 puntos de roadmapv4 con ese cambio. Solo actualizar las decisiones sobre roadmapv4: el roadmap final todavía no se decide | Decisiones anotadas en `docs/roadmap/README.md` y en la memoria, sin tocar el temario. Quedan abiertos LeetCode, leer diffs y un sexto punto de roadmapv4 que no se mostró en el chat. Sin commit |
+| 76 | 2026-11-04 | Considerar como v5 una guía de 5 proyectos con repos de GitHub (@aartii.py), aunque quizá no sea una ruta | Guardada tal como llegó en `docs/roadmap/fuentes/roadmapv5.md`. Comprobados los 5 repos y los artículos: 2 temas nuevos y una columna en la tabla, y 3 avisos importantes (MCP cambió el 2026-07-28, RAG_Techniques es no comercial y el artículo del proyecto 1 es de pago). Sin commit |
+| 77 | 2026-11-04 | Investigar temarios parecidos a roadmaps en cursos y papers confiables: Hugging Face, Google, Anthropic, LangChain, MIT, Coursera, DeepLearning.AI, Google DeepMind y otros | Guardados en `docs/roadmap/roadmapv6.md`, con el nivel de comprobación de cada uno. La tabla de temas suma la columna y 5 temas. Hallazgos: 3 escuelas, respaldo institucional para dirigir agentes y para harnesses, y una observación mía que pierde fuerza (inyección de prompts). Sin commit |
+| 78 | 2026-11-04 | Con todo lo aprendido de v2 a v6, hacer una propuesta milimétrica, ultra detallada y profesional para modificar y mejorar el roadmap actual | Propuesta en `docs/roadmap/propuesta-roadmap-final.md`: 54 lecciones en 11 módulos, con ficha de cada una, ciclo de dirección con un ejemplo completo, proyecto hilo, trazabilidad de cada fuente, cambios en la plataforma, plan por olas, riesgos y 8 decisiones. No cambié el temario ni el sitio. Sin commit |
+| 79 | 2026-11-04 | Feedback sobre la idea central: le gustó todo, pero el proyecto no puede ser un simple bot de soporte. Debe ser un sistema multi-agente ambicioso y orquestado, con un harness robusto, que se adapte a la query o al proyecto del estudiante y cree tools y subagentes de forma autónoma. Guardar el feedback y no construir nada todavía | Guardado tal como llegó en `docs/roadmap/feedback-propuesta.md`, con lo que se entendió. La propuesta no se tocó. Sin commit |
+| 80 | 2026-11-05 | Feedback completo: el proyecto debe ser un sistema multi-agente ambicioso; la misión es formar a alguien digno de ser CEO/CTO de una startup de IA; considerar el TXT (roadmapv7) y destacar 2 caminos, productos o modelos, con el de modelos enlazado a ML (Fran quiere ese). Entregar una propuesta mejorada y muy detallada, investigando con subagentes | Versión 2 en `docs/roadmap/propuesta-roadmap-final.md` (la 1 queda como `propuesta-roadmap-v1.md`): 115 lecciones en tronco, compartido, Productos, Modelos y cierre; misión con su comprobación; 969 avisos reales contados; fichas escritas con subagentes y validadas. Los subagentes se cortaron 2 veces por el límite de la sesión y se reanudaron. Sin commit |
+| 81 | 2026-11-05 | Le gusta el roadmap. Regla para el contenido: solo fuentes originales, sin inventar nada, con cita textual en cada parte. Todavía no escribir contenido: subir al borrador el índice del curso para aprobarlo | Regla guardada en la memoria y en `feedback-propuesta.md`. Índice de la versión 2 en el borrador: AI Engineering con 83 lecciones en 4 bloques, y ML y Deep Learning con el Camino Modelos (45). Cada lección tiene ahora un nombre fijo en su dirección: la publicada sigue en `/leccion/03/` y conserva el avance. Comprobado en vivo; el sitio público no cambió. Sin commit |
+| 82 | 2026-11-06 | Los dos caminos dentro de AI Engineering, con desvíos graduales a ML y DL, y ML y DL como curso propio | Hecho en el borrador; espera tu OK |
+| 83 | 2026-11-07 | El módulo de RAG se abre en 8 lecciones más 1 optativa (antes 3) | Hecho en el borrador |
+| 84 | 2026-11-07 | El harness se abre en su propio módulo, «El harness por dentro», de 10 lecciones; workflows y automatizaciones quedan en el módulo 6 | Hecho en el borrador |
+| 85 | 2026-11-07 | Módulos de modelos y proveedores (abiertos y cerrados, benchmarks, Arena y Artificial Analysis) y de frameworks de IA; Hugging Face práctico en el Camino 2 | Hecho en el borrador |
+| 86 | 2026-11-07 | Frameworks recortado a 3 lecciones (cultura de IA); módulo 4 suma tamaño de un modelo (4B, 70B) y modelos cuantizados | Hecho en el borrador |
+| 87 | 2026-11-07 | Tamaños (4B, 70B) y cuantización salen del módulo 4 y se profundizan solo en el Camino 2 (inferencia) | Hecho en el borrador |
+| 88 | 2026-11-07 | «dale publica a prod» | Publicado: el sitio muestra el temario v3 (AI Engineering con 126 lecciones y los dos caminos; ML y DL como curso propio, con 57). La lección 03 conserva su dirección y el avance guardado |
 
 ---
 
@@ -317,3 +370,4 @@ Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar),
 - **Los diseños A a F:** https://claude.ai/artifact/NcPw19s4bfwHF2K6gmyTvW
 - **Los datos reales de las escenas:** `lab/`, con un README por escena.
 - **El temario completo:** la nota de BrainFran `03-Proyectos/Ideas/Plataforma Interactiva de Aprendizaje Visual.md`.
+- **Las fuentes del roadmap final:** `docs/roadmap/`, con el índice en `README.md` y cada fuente en `fuentes/`.

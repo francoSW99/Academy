@@ -8,28 +8,34 @@ import type { Conexion, IdEspecialidad, RefLeccion } from "./tipos";
 
 export const conexiones: Conexion[] = [
   // AI Engineering ↔ ML y Deep Learning
-  { desde: "ai/03", hacia: "ml/10", tipo: "profundiza", tema: "La arquitectura dentro de un LLM: la atención y el Transformer." },
-  { desde: "ai/03", hacia: "ml/13", tipo: "profundiza", tema: "De dónde salen sus probabilidades: el pre-entrenamiento con texto de internet." },
-  { desde: "ai/03", hacia: "ml/14", tipo: "profundiza", tema: "Cómo un modelo base se vuelve asistente, y cómo se entrenan los modelos que razonan." },
-  { desde: "ai/05", hacia: "ml/12", tipo: "profundiza", tema: "Embeddings: cómo un texto se vuelve un vector que se puede buscar." },
-  { desde: "ai/09", hacia: "ml/14", tipo: "profundiza", tema: "Prompting, RAG o fine-tuning: cuándo conviene cada uno." },
-  { desde: "ai/13", hacia: "ml/03", tipo: "profundiza", tema: "Medir si un modelo funciona: métricas, set de prueba y umbral de decisión." },
-  { desde: "ai/14", hacia: "ml/16", tipo: "profundiza", tema: "Vigilar un modelo vivo: deriva, alarmas y cuándo reentrenar." },
-  { desde: "ml/15", hacia: "ai/01", tipo: "requiere", tema: "APIs, servidores y Docker: la base para servir un modelo." },
-  { desde: "ml/15", hacia: "ai/02", tipo: "requiere", tema: "Versionar el código, y con él los datos y los modelos." },
+  // La IA por dentro se ve en intuición en AI Engineering, y a fondo en ML y Deep Learning.
+  { desde: "ai/matematica-en-intuicion", hacia: "ml/descenso-de-gradiente", tipo: "profundiza", tema: "El descenso de gradiente: cómo baja el error, paso a paso." },
+  { desde: "ai/entrenar-validar-probar", hacia: "ml/entrenar-validar-probar", tipo: "profundiza", tema: "Separar los datos para saber si el modelo aprende o memoriza." },
+  { desde: "ai/redes-neuronales", hacia: "ml/backprop", tipo: "profundiza", tema: "Backpropagation: cómo una red sabe qué peso corregir." },
+  { desde: "ai/atencion-y-transformers", hacia: "ml/atencion-y-transformers", tipo: "profundiza", tema: "La atención y el Transformer, de la intuición al detalle." },
+  { desde: "ai/03", hacia: "ml/atencion-y-transformers", tipo: "profundiza", tema: "La arquitectura dentro de un LLM: la atención y el Transformer." },
+  { desde: "ai/03", hacia: "ml/pre-entrenar", tipo: "profundiza", tema: "De dónde salen sus probabilidades: el pre-entrenamiento con texto de internet." },
+  { desde: "ai/03", hacia: "ml/rl-para-llms", tipo: "profundiza", tema: "Cómo un modelo base se vuelve asistente, y cómo se entrenan los modelos que razonan." },
+  { desde: "ai/embeddings-y-bases-vectoriales", hacia: "ml/nlp", tipo: "profundiza", tema: "Embeddings: cómo un texto se vuelve un vector que se puede buscar." },
+  { desde: "ai/de-donde-sale-un-llm", hacia: "ml/transfer-learning", tipo: "profundiza", tema: "Ajustar un modelo que ya existe: cuándo conviene el fine-tuning." },
+  { desde: "ai/primeros-evals", hacia: "ml/evaluar-e-interpretar", tipo: "profundiza", tema: "Medir si un modelo funciona: métricas, set de prueba y umbral de decisión." },
+  { desde: "ai/observabilidad", hacia: "ml/operar-modelos", tipo: "profundiza", tema: "Vigilar un modelo vivo: deriva, alarmas y cuándo reentrenar." },
+  { desde: "ml/del-notebook-a-produccion", hacia: "ai/http-apis-json", tipo: "requiere", tema: "APIs y servidores: la base para servir un modelo." },
+  { desde: "ml/del-notebook-a-produccion", hacia: "ai/desplegar", tipo: "requiere", tema: "Docker, CI/CD y cloud para poner un modelo en producción." },
+  { desde: "ml/del-notebook-a-produccion", hacia: "ai/git-y-github", tipo: "requiere", tema: "Versionar el código, y con él los datos y los modelos." },
 
   // AI Engineering ↔ Data Science
   { desde: "ai/03", hacia: "ds/08", tipo: "profundiza", tema: "Distribuciones de probabilidad: lo que el modelo calcula antes de cada palabra." },
-  { desde: "ai/13", hacia: "ds/08", tipo: "profundiza", tema: "Comparar dos versiones con datos y saber si la diferencia es real o es azar." },
+  { desde: "ai/primeros-evals", hacia: "ds/08", tipo: "profundiza", tema: "Comparar dos versiones con datos y saber si la diferencia es real o es azar." },
 
   // ML y Deep Learning ↔ Data Science
-  { desde: "ml/01", hacia: "ds/08", tipo: "requiere", tema: "Probabilidad y distribuciones: el idioma en que un modelo dice lo que predice." },
-  { desde: "ml/02", hacia: "ds/05", tipo: "requiere", tema: "La fuga de datos: el error que arruina cualquier entrenamiento." },
-  { desde: "ml/02", hacia: "ds/07", tipo: "requiere", tema: "Los features: de qué aprende un modelo y por qué importan más que el modelo." },
-  { desde: "ds/10", hacia: "ml/06", tipo: "profundiza", tema: "Pronosticar con XGBoost y rezagos: el modelo que más gana con datos en tablas." },
-  { desde: "ds/10", hacia: "ml/10", tipo: "profundiza", tema: "Pronosticar con deep learning: LSTM y Transformers para series de tiempo." },
-  { desde: "ds/12", hacia: "ml/11", tipo: "profundiza", tema: "Detectar suciedad en paneles solares con visión: el caso FONDEF con YOLO." },
-  { desde: "ds/13", hacia: "ml/05", tipo: "profundiza", tema: "Clasificar señales de EEG: los mismos clasificadores, con datos del cerebro." },
+  { desde: "ml/probabilidad-para-ml", hacia: "ds/08", tipo: "requiere", tema: "Probabilidad y distribuciones: el idioma en que un modelo dice lo que predice." },
+  { desde: "ml/entrenar-validar-probar", hacia: "ds/05", tipo: "requiere", tema: "La fuga de datos: el error que arruina cualquier entrenamiento." },
+  { desde: "ml/entrenar-validar-probar", hacia: "ds/07", tipo: "requiere", tema: "Los features: de qué aprende un modelo y por qué importan más que el modelo." },
+  { desde: "ds/10", hacia: "ml/ensambles", tipo: "profundiza", tema: "Pronosticar con XGBoost y rezagos: el modelo que más gana con datos en tablas." },
+  { desde: "ds/10", hacia: "ml/rnn-y-lstm", tipo: "profundiza", tema: "Pronosticar con deep learning: LSTM y Transformers para series de tiempo." },
+  { desde: "ds/12", hacia: "ml/computer-vision", tipo: "profundiza", tema: "Detectar suciedad en paneles solares con visión: el caso FONDEF con YOLO." },
+  { desde: "ds/13", hacia: "ml/clasificacion", tipo: "profundiza", tema: "Clasificar señales de EEG: los mismos clasificadores, con datos del cerebro." },
 ];
 
 /**

@@ -13,9 +13,9 @@ type Item = { id: IdSeccion; nombre: string; corto: string; href: string };
 // Las clases van escritas enteras para que Tailwind las encuentre.
 const COLOR_ICONO: Record<IdSeccion, string> = {
   inicio: "text-tinta",
-  ai: "text-esp-ai",
-  ml: "text-esp-ml",
-  ds: "text-esp-ds",
+  ai: "text-esp-ai-texto",
+  ml: "text-esp-ml-texto",
+  ds: "text-esp-ds-texto",
 };
 
 /** La sección de una dirección: /es/ es el Inicio; /es/ai-engineering/… es AI Engineering. */

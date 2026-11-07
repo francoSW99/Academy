@@ -1,5 +1,5 @@
 import { idiomas } from "@/lib/idiomas";
-import { buscarLeccion } from "@/ruta/especialidades";
+import { buscarLeccion, idDe } from "@/ruta/especialidades";
 import { contenidos } from "@/ruta/contenido";
 
 export const dynamicParams = false;
@@ -9,7 +9,7 @@ export function generateStaticParams() {
   return idiomas.flatMap((lang) =>
     Object.keys(contenidos)
       .filter((ref) => ref.startsWith("ai/"))
-      .map((ref) => ({ lang, n: buscarLeccion(ref)!.n })),
+      .map((ref) => ({ lang, n: idDe(buscarLeccion(ref)!) })),
   );
 }
 

@@ -69,7 +69,7 @@ export function Bucle({ lang }: { lang: Idioma }) {
 
 function Paso({ i, titulo, children }: { i: number; titulo: string; children: React.ReactNode }) {
   return (
-    <div className="paso flex flex-col gap-2.5 rounded-[14px] border border-white/[0.06] bg-white/[0.04] px-4 py-3.5" style={{ "--i": i } as React.CSSProperties}>
+    <div className="paso flex flex-col gap-2.5 rounded-[14px] border border-tinta/[0.06] bg-tinta/[0.04] px-4 py-3.5" style={{ "--i": i } as React.CSSProperties}>
       <span className="text-[12.5px] font-medium text-tenue">{titulo}</span>
       <div className="flex flex-1 flex-col justify-center">{children}</div>
     </div>

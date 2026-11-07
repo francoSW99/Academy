@@ -15,6 +15,7 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
   if (!esIdioma(lang)) notFound();
   const t = textos(lang);
   const ti = t.inicio;
+  const [antes, despues] = ti.titulo.split("{clave}");
   const pares = [0, 1, 2].map((k) => [especialidades[k % 3], especialidades[(k + 1) % 3]] as const);
 
   return (
@@ -23,17 +24,22 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
       <main className="mt-2 flex flex-col gap-4 lg:mt-4">
         <section className="glass-board flex flex-col gap-5 rounded-[28px] p-[clamp(22px,5.4vw,72px)]">
           <p className="glass-pill insignia self-start">{rellenar(ti.etiqueta, { n: especialidades.length })}</p>
-          <h1 className="max-w-[16em] text-[clamp(40px,6vw,76px)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance text-white">{ti.titulo}</h1>
+          <h1 className="max-w-[16em] text-[clamp(40px,6vw,76px)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance text-tinta">
+            {antes}
+            <span className="text-marca-grande">{ti.tituloClave}</span>
+            {despues}
+          </h1>
           <p className="max-w-[62ch] text-[clamp(17px,1.6vw,19px)] leading-relaxed text-pretty text-tenue">{ti.lede}</p>
           <SeguirDondeQuedaste lang={lang} />
         </section>
 
         <section aria-labelledby="titulo-elige" className="flex flex-col gap-4">
-          <div className="flex max-w-[720px] flex-col gap-2 px-2 pt-8">
+          <div className="glass-board flex flex-col gap-2 p-[clamp(20px,2.4vw,28px)]">
             <h2 id="titulo-elige" className="text-[clamp(26px,3vw,36px)] leading-tight font-semibold tracking-[-0.022em]">
               {ti.elige}
             </h2>
-            <p className="text-[17px] leading-relaxed text-tinta-2">{ti.eligeTexto}</p>
+            <p className="max-w-[68ch] text-[17px] leading-relaxed text-tinta-2">{ti.eligeTexto}</p>
+            <p className="max-w-[68ch] text-[15px] leading-relaxed text-tenue">{ti.cambiar}</p>
           </div>
           <ul className="grid gap-4 lg:grid-cols-3">
             {especialidades.map((e) => {
@@ -45,7 +51,7 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
                       <Punto id={e.id} />
                       {rellenar(ti.paraSer, { rol: e.rol })}
                     </span>
-                    <span className="text-[clamp(26px,2.6vw,32px)] leading-tight font-semibold tracking-[-0.022em] text-white">{e.nombre}</span>
+                    <span className="text-[clamp(26px,2.6vw,32px)] leading-tight font-semibold tracking-[-0.022em] text-tinta">{e.nombre}</span>
                     <span className="text-[16px] leading-relaxed text-pretty text-tinta-2">{e.queHaces}</span>
                     <span className="text-[15px] leading-relaxed text-pretty text-tenue">{rellenar(ti.eligela, { eligela: e.eligela })}</span>
                     <span className="mt-auto flex flex-col gap-3 border-t border-borde pt-4">
@@ -64,7 +70,6 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
               );
             })}
           </ul>
-          <p className="px-2 text-[15px] text-tenue">{ti.cambiar}</p>
         </section>
 
         <section aria-labelledby="titulo-conectan" className="glass-board mt-6 grid gap-x-12 gap-y-6 p-[clamp(20px,3.4vw,44px)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
@@ -113,7 +118,7 @@ export default async function Inicio({ params }: { params: Promise<{ lang: strin
           <ol className="grid gap-6 md:grid-cols-3">
             {t.curso.partes.map((p, k) => (
               <li key={p.titulo} className="grid grid-cols-[26px_minmax(0,1fr)] items-baseline gap-2">
-                <span className="text-[20px] leading-none font-medium text-acento-texto tabular-nums">{k + 1}</span>
+                <span className="text-[20px] leading-none font-medium text-marca-texto tabular-nums">{k + 1}</span>
                 <span className="flex flex-col gap-1">
                   <span className="text-[17px] font-medium">{p.titulo}</span>
                   <span className="text-[15px] leading-relaxed text-tenue">{p.texto}</span>

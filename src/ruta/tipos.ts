@@ -10,14 +10,22 @@ export type RefLeccion = `${IdEspecialidad}/${string}`;
 export type Leccion = {
   /** Número con dos dígitos dentro de su especialidad: "03". Su dirección: /es/ai-engineering/leccion/03/. */
   n: string;
+  /** Nombre fijo de la lección: va en su dirección y en el avance guardado, y no cambia al reordenar. Si falta, se usa `n`. */
+  id?: string;
   titulo: string;
   /** Tiene contenido publicado. Las demás se ven como «pronto». */
   disponible: boolean;
+  /** Un desvío: la lección vive en otra especialidad y aquí solo se avisa, con la marca «Sigue en…». No lleva número propio. */
+  desvio?: RefLeccion;
 };
 
 export type Modulo = {
   n: number;
+  /** El bloque al que pertenece, por ejemplo «Tronco común»: se muestra como título sobre sus módulos. */
+  bloque?: string;
   nombre: string;
+  /** Un aviso arriba del módulo: dónde se abren los caminos o cuántas lecciones se desvían a otra especialidad. */
+  aviso?: string;
   lecciones: Leccion[];
 };
 

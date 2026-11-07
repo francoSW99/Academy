@@ -2,9 +2,9 @@ import type { IdEspecialidad } from "@/ruta/tipos";
 
 // Las clases van escritas enteras para que Tailwind las encuentre.
 export const COLOR: Record<IdEspecialidad, { texto: string; fondo: string; borde: string; suave: string }> = {
-  ai: { texto: "text-esp-ai", fondo: "bg-esp-ai", borde: "border-esp-ai", suave: "bg-esp-ai/8" },
-  ml: { texto: "text-esp-ml", fondo: "bg-esp-ml", borde: "border-esp-ml", suave: "bg-esp-ml/8" },
-  ds: { texto: "text-esp-ds", fondo: "bg-esp-ds", borde: "border-esp-ds", suave: "bg-esp-ds/8" },
+  ai: { texto: "text-esp-ai-texto", fondo: "bg-esp-ai", borde: "border-esp-ai", suave: "bg-esp-ai/8" },
+  ml: { texto: "text-esp-ml-texto", fondo: "bg-esp-ml", borde: "border-esp-ml", suave: "bg-esp-ml/8" },
+  ds: { texto: "text-esp-ds-texto", fondo: "bg-esp-ds", borde: "border-esp-ds", suave: "bg-esp-ds/8" },
 };
 
 /** El punto de color de una especialidad: va delante de su nombre en toda la plataforma. */

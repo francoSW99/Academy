@@ -8,7 +8,7 @@ export function CabeceraEscena({ id, titulo, lead, lang }: { id: string; titulo:
         <h3 id={id} className="text-[20px] leading-snug font-medium tracking-[-0.012em]">
           {titulo}
         </h3>
-        <span className="glass-pill insignia shrink-0">{textos(lang).escenas.ahoraTu}</span>
+        <span className="glass-pill insignia shrink-0 text-marca-texto">{textos(lang).escenas.ahoraTu}</span>
       </div>
       {lead && <p className="max-w-[46em] text-[15px] text-pretty text-tinta-2">{lead}</p>}
     </div>

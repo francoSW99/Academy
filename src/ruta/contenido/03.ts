@@ -152,13 +152,13 @@ export const leccion03: ContenidoLeccion = {
     {
       titulo: "La temperatura no da la verdad",
       texto:
-        "Baja para clasificar o extraer datos; más alta para redactar o generar ideas. Bajarla vuelve al modelo consistente, no correcto: contra los errores, dale ejemplos y las definiciones de tus categorías, y mide con evals cuántas veces se equivoca (lección 13). Lo que deba salir con una forma fija, pídelo con un esquema y valídalo en tu código.",
+        "Baja para clasificar o extraer datos; más alta para redactar o generar ideas. Bajarla vuelve al modelo consistente, no correcto: contra los errores, dale ejemplos y las definiciones de tus categorías, y mide con evals cuántas veces se equivoca (lo ves en «Primeros evals»). Lo que deba salir con una forma fija, pídelo con un esquema y valídalo en tu código.",
       fuentes: [{ fuente: "wyss", donde: "caps. 1 y 2" }],
     },
     {
       titulo: "Lo crítico no vive en el historial",
       texto:
-        "El plan del cliente, sus restricciones y sus datos van en las instrucciones del sistema, que viajan en cada llamada, o guardados por tu app. Si tu app resume conversaciones, prueba que el resumen conserve lo importante. Decidir qué entra en la ventana en cada llamada es context engineering: la lección 9.",
+        "El plan del cliente, sus restricciones y sus datos van en las instrucciones del sistema, que viajan en cada llamada, o guardados por tu app. Si tu app resume conversaciones, prueba que el resumen conserve lo importante. Decidir qué entra en la ventana en cada llamada es context engineering, y tiene su propia lección.",
       fuentes: [{ fuente: "phoenix", donde: "p. 74" }],
     },
     {

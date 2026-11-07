@@ -15,7 +15,7 @@ import { Puentes } from "@/componentes/leccion/Puentes";
 import { esIdioma, idiomas, rellenar, textos } from "@/lib/idiomas";
 import { contenidos } from "@/ruta/contenido";
 import { puentesDe } from "@/ruta/conexiones";
-import { buscarLeccion, especialidadPorSlug, leccionesDe, rutaLeccion } from "@/ruta/especialidades";
+import { buscarLeccion, especialidadPorSlug, idDe, leccionesDe, rutaLeccion } from "@/ruta/especialidades";
 import { minutosDeLectura } from "@/ruta/lectura";
 import type { RefLeccion } from "@/ruta/tipos";
 
@@ -26,7 +26,7 @@ export function generateStaticParams() {
   return idiomas.flatMap((lang) =>
     Object.keys(contenidos).map((ref) => {
       const l = buscarLeccion(ref)!;
-      return { lang, especialidad: l.especialidad.slug, n: l.n };
+      return { lang, especialidad: l.especialidad.slug, n: idDe(l) };
     }),
   );
 }
@@ -44,7 +44,7 @@ export default async function PaginaLeccion({ params }: Props) {
   const t = textos(lang).leccion;
   // Anterior y siguiente: solo dentro de la especialidad. Las otras se cruzan por los puentes.
   const lecciones = leccionesDe(e);
-  const i = lecciones.findIndex((l) => l.n === n);
+  const i = lecciones.findIndex((l) => idDe(l) === n);
   const previa = lecciones.slice(0, i).reverse().find((l) => l.disponible);
   const siguiente = lecciones[i + 1];
   const temario = `/${lang}/${e.slug}/#temario`;
@@ -62,7 +62,7 @@ export default async function PaginaLeccion({ params }: Props) {
       <Cabecera
         lang={lang}
         especialidad={e}
-        leccion={n}
+        leccion={leccion.n}
         movil={
           <TemarioMovil entradas={indice} lang={lang} especialidad={e}>
             <WidgetAvance lang={lang} especialidad={e} />
@@ -88,12 +88,12 @@ export default async function PaginaLeccion({ params }: Props) {
                 <Punto id={e.id} />
                 {e.nombre}
               </Link>
-              <span className="glass-pill insignia tracking-[0.05em] uppercase">{rellenar(t.insignia, { modulo: leccion.modulo.n, n })}</span>
+              <span className="glass-pill insignia tracking-[0.05em] uppercase">{rellenar(t.insignia, { modulo: leccion.modulo.n, n: leccion.n })}</span>
               <span className="glass-pill insignia">{rellenar(t.minutos, { n: minutosDeLectura(c) })}</span>
             </div>
-            <h1 className="text-[clamp(36px,5vw,64px)] leading-[1.03] font-semibold tracking-[-0.03em] text-balance text-white">{leccion.titulo}</h1>
+            <h1 className="text-[clamp(36px,5vw,64px)] leading-[1.03] font-semibold tracking-[-0.03em] text-balance text-tinta">{leccion.titulo}</h1>
             <p className="max-w-[62ch] text-[clamp(17px,1.5vw,19px)] leading-relaxed text-pretty text-tenue">{c.resumen}</p>
-            <a href="#fuentes" className="self-start text-[13.5px] text-tenue transition-colors duration-200 hover:text-white">
+            <a href="#fuentes" className="self-start text-[13.5px] text-tenue transition-colors duration-200 hover:text-tinta">
               {rellenar(t.revisada, { fecha: fechaLarga(c.revisada) })}
             </a>
           </header>
@@ -121,7 +121,7 @@ export default async function PaginaLeccion({ params }: Props) {
                       <p className="max-w-[68ch] text-[16.5px] leading-relaxed text-pretty text-tinta-2">{consejo.texto}</p>
                       <Respaldos respaldos={consejo.fuentes} fuentes={c.fuentes} lang={lang} />
                       {c.ideas[k] && (
-                        <a href={`#idea-${k + 1}`} className="inline-flex min-h-9 items-center gap-1.5 self-start text-[13.5px] text-tenue transition-colors duration-200 hover:text-white">
+                        <a href={`#idea-${k + 1}`} className="inline-flex min-h-9 items-center gap-1.5 self-start text-[13.5px] text-tenue transition-colors duration-200 hover:text-tinta">
                           <IconoFlecha className="size-3.5 -rotate-90" />
                           {rellenar(t.volverIdea, { n: k + 1, titulo: c.ideas[k].titulo })}
                         </a>

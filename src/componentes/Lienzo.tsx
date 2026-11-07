@@ -1,13 +1,7 @@
 /**
- * El fondo de toda la página: el lienzo oscuro con 3 orbes de luz difusa, fijos.
+ * El fondo de toda la página: blanco o negro según el tema, con las auroras en los colores del logo.
  * Es uno solo: las pizarras de vidrio van encima y ninguna tiene un fondo propio.
  */
 export function Lienzo() {
-  return (
-    <>
-      <div aria-hidden className="aura aura-azul" />
-      <div aria-hidden className="aura aura-indigo" />
-      <div aria-hidden className="aura aura-ambar" />
-    </>
-  );
+  return <div aria-hidden className="aurora" />;
 }

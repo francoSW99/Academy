@@ -10,3 +10,11 @@ next-env.d.ts
 
 # Python
 __pycache__/
+
+# Copias de fuentes de terceros para el roadmap final: el repo es público (docs/roadmap/README.md).
+docs/roadmap/fuentes/
+# Versión para leer de la propuesta: se genera desde el .md.
+docs/roadmap/*.html
+# Notas e informes de investigación: se trabajan en local.
+research_notes/
+reports/

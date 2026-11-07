@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { BotonTema } from "@/componentes/BotonTema";
 import { AvanceBarraSuperior } from "@/componentes/Continuar";
-import { Punto } from "@/componentes/Especialidad";
 import { IconoGrafo } from "@/componentes/Iconos";
+import logo from "@/componentes/logo-academy.svg";
 import type { Idioma } from "@/lib/idiomas";
 import { rellenar, textos } from "@/lib/idiomas";
-import { especialidades } from "@/ruta/especialidades";
 import type { Especialidad } from "@/ruta/tipos";
 
 /**
@@ -29,12 +29,7 @@ export function Cabecera({
     <header className="hud glass-board">
       <div className="hud-lado">
         <Link href={`/${lang}/`} aria-label={t.sitio.nombre} className="hud-marca">
-          <span aria-hidden className="grid grid-cols-2 gap-0.5">
-            {especialidades.map((e) => (
-              <Punto key={e.id} id={e.id} />
-            ))}
-            <span className="size-2 rounded-full bg-linea" />
-          </span>
+          <img src={logo.src} alt="" width={32} height={32} className="size-8 shrink-0" />
           <span className="hud-nombre">{t.sitio.nombre}</span>
         </Link>
         {especialidad && (
@@ -44,7 +39,7 @@ export function Cabecera({
                 <span aria-hidden className="hud-miga-separador">
                   /
                 </span>
-                <Link href={`/${lang}/${especialidad.slug}/`} className="text-tinta-2 hover:text-white">
+                <Link href={`/${lang}/${especialidad.slug}/`} className="text-tinta-2 hover:text-tinta">
                   {especialidad.nombre}
                 </Link>
               </li>
@@ -65,6 +60,7 @@ export function Cabecera({
       {movil && <div className="hud-movil">{movil}</div>}
       <div className="hud-lado hud-derecha">
         {especialidad && !especialidad.enPreparacion && <AvanceBarraSuperior lang={lang} especialidad={especialidad} />}
+        <BotonTema lang={lang} />
         <a href="/obsidian/" aria-label={t.cabecera.grafo} className="glass-pill hud-pill hud-grafo">
           <IconoGrafo className="size-[17px] shrink-0" />
           <span className="hud-grafo-texto">{t.cabecera.grafo}</span>

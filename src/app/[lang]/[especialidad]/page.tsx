@@ -41,7 +41,7 @@ export default async function PaginaEspecialidad({ params }: Props) {
             <Punto id={e.id} />
             {rellenar(te.etiqueta, { rol: e.rol })}
           </p>
-          <h1 className="text-[clamp(40px,6vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance text-white">{e.nombre}</h1>
+          <h1 className="text-[clamp(40px,6vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance text-tinta">{e.nombre}</h1>
           <p className="max-w-[62ch] text-[clamp(17px,1.6vw,19px)] leading-relaxed text-pretty text-tenue">{e.queHaces}</p>
           {e.enPreparacion ? (
             <div className="glass-callout flex max-w-[620px] flex-col gap-1.5 p-5" data-tono="aviso">
@@ -54,7 +54,7 @@ export default async function PaginaEspecialidad({ params }: Props) {
         </section>
 
         <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div id="temario" className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2 pt-6 lg:col-span-2">
+          <div id="temario" className="glass-board flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 p-[clamp(20px,2.4vw,28px)] lg:col-span-2">
             <h2 id="titulo-temario" className="text-[clamp(26px,3vw,36px)] leading-tight font-semibold tracking-[-0.022em]">
               {t.curso.temario}
             </h2>
