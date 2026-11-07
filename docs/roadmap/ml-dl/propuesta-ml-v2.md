@@ -4,7 +4,7 @@
 >
 > **Cómo se hizo:** sin subagentes. Aplica la investigación de [ml-vs-ds.md](ml-vs-ds.md), con 16 fuentes, y tus respuestas del pedido 96 ([feedback.md](feedback.md)). Todas las fuentes quedaron guardadas en BrainFran.
 >
-> **Se genera** desde `research_notes/propuesta_ml/estructura.py` con `gen_doc.py`, que también comprueba que no se pierda ninguna lección de la v3, ningún desvío de AI Engineering y ningún puente.
+> **Se genera** desde `temario/estructura.py` con `gen_doc.py`, que también comprueba que no se pierda ninguna lección de la v3, ningún desvío de AI Engineering y ningún puente.
 
 ## Cifras
 

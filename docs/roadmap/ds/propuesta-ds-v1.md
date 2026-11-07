@@ -4,7 +4,7 @@
 >
 > **Cómo se hizo:** sin subagentes. Sale de tus 5 decisiones ([feedback.md](feedback.md)), de cubrir cada punto de la oferta de data scientist de NeuralWorks ([mapa-neuralworks-ds.md](mapa-neuralworks-ds.md)), de los 9 temarios verificados en el [README](README.md) y de la regla de reparto con ML ([ml-vs-ds.md](../ml-dl/ml-vs-ds.md)).
 >
-> **Se genera** desde `research_notes/propuesta_ml/estructura.py` (bloque `DS`) con `gen_doc_ds.py`, que comprueba que cada repaso y cada requisito apunten a una lección que existe.
+> **Se genera** desde `temario/estructura.py` (bloque `DS`) con `gen_doc_ds.py`, que comprueba que cada repaso y cada requisito apunten a una lección que existe.
 
 ## Cifras
 

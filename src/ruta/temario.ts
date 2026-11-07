@@ -1,4 +1,4 @@
-// Generado desde research_notes/propuesta_v3/estructura.py (AI Engineering) y research_notes/propuesta_ml/estructura.py
+// Generado desde temario/estructura_ai.py (AI Engineering) y temario/estructura.py
 // (ML y DL, y Data Science; propuesta ML v2, aprobada en el pedido 98). No se edita a mano: se corre gen_temario.py.
 import type { Conexion, Modulo } from "./tipos";
 

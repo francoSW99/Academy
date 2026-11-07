@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓░░░` 75 de 97 tareas del plan (77 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas, de la 5c van 4 de 6, y las 5d (roadmap final), 5e (temario de ML y DL) y 5f (temario de Data Science) están terminadas.
+- **Avance:** `▓▓▓▓▓▓▓▓░░` 76 de 90 tareas del plan (84 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas, de la 5c van 4 de 6, y las 5d a 5g están terminadas. Las líneas de ML y de AI Engineering están listas para empezar.
 - **Hecho:** Fases 0 a 5b y casi toda la 4b. **Desde el 2026-11-04, el sitio público** (https://academy.woorky.app/es/) **tiene dos temas, claro y oscuro:** blanco o negro con auroras minimalistas en los colores del logo y pizarras de vidrio. También lleva el logo del sol en la barra de arriba, el ícono del sitio y esos colores en algunos textos, sin morado. El diseño de antes de Glassboards sigue en el worktree `UIv1` (`~/projects/UIv1`). **Para el roadmap final**, roadmapv2 a roadmapv6 ya están guardados en `docs/roadmap/`, y ya decidiste qué entra de roadmapv4: se construye dirigiendo al LLM, sin código a mano. **La versión 2 de la propuesta del roadmap final está lista** en `docs/roadmap/propuesta-roadmap-final.md`: tronco común, dos caminos (Productos o Modelos) y cierre de CEO y CTO, con 115 lecciones y tu sistema multi-agente como proyecto. **Desde el 2026-11-07, el sitio público muestra el temario v3:** AI Engineering con 126 lecciones, fundamentos y agentes para todos, y al final dos caminos (Productos e Investigación) con desvíos graduales a ML y DL; ML y Deep Learning es un curso propio de 57 lecciones. **El 2026-11-07, todo quedó en GitHub, en `main`**, igual que el sitio publicado, con los 3 temarios (AI Engineering, ML y DL, y Data Science) y sus documentos en `docs/roadmap/` (pedido 105); el PR #13 figura como mezclado.
-- **Falta:** reordenar las fases 6 a 10 según los 3 temarios publicados y escribir las lecciones desde fuentes originales. Sumar 2 videos a tu biblioteca. Terminar el pulido (5c).
-- **Lo próximo:** elegir la primera lección para escribir. Propuesta: «ML engineer, data scientist y los demás», que tiene su ficha lista con 16 fuentes.
+- **Falta:** escribir las lecciones: el módulo 1 de ML y DL (fase 6) y el módulo 1 de AI Engineering (fase 7), cada uno en su conversación. Sumar 2 videos a tu biblioteca. Terminar el pulido (5c).
+- **Lo próximo:** abrir una conversación nueva para cada curso y escribir «trabajemos en ML, módulo 1» o «trabajemos en AI Engineering, módulo 1».
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -32,12 +32,10 @@ F5c   Pulido + logo + 2 fondos                  ▓▓
 F5d   Roadmap final de AI Engineering     ████████
 F5e   Temario de ML y DL al 100 %            █████
 F5f   Temario de Data Science                █████
-F6    Lección 04 · App de IA                      ░░░░
-F7    Lección 05 · RAG                                ░░░░
-F8    Lección 02 · Git                                    ░░
-F9    Lección 01 · Base de software                         ░░░░
-F10   Lección 13 · Evals                                        ░░░░
-Después: 06–08 agentes · temas de ML y DS · inglés · UI             ···
+F5g   Dos líneas de trabajo                  █
+F6    Línea ML · M1 El oficio y el mapa       ▓▓▓▓
+F7    Línea AI · M1 Empezar a dirigir         ▓▓▓▓
+Después: módulo 2 de cada línea · Data Science · inglés · UI   ···
 
 █ hecho · ▓ lo próximo · ░ lo que viene
 S1 = 2–8 nov · S2 = 9–15 · S3 = 16–22 · S4 = 23–29 · S5 = 30 nov–6 dic · S6 = 7–13 dic · S7 = 14–20 dic
@@ -47,13 +45,12 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 
 ### Por qué este orden
 
-1. **Sigue los 5 niveles de la nota.** Las estaciones 03 y 04 cierran el nivel 1, «App con API». La 05 y la 13 cierran el nivel 2, «RAG con evals». La mayoría del trabajo útil en producción es de nivel 2 o 3.
-2. **La 02 (Git) va antes que la 01.** Su material ya está escrito en la guía de estudio, y es lo que usas a diario con los agentes.
-3. **Lo que faltaba del bloque 3 entra donde se usa:**
-   - las salidas estructuradas, en la 04;
-   - los embeddings, en la 05;
-   - el tool use, en la 06.
-4. **La fase 5d va antes que las lecciones.** El roadmap final puede cambiar el orden y el contenido de las fases 6 a 10. Sus fechas dependen de cuándo lleguen tus fuentes.
+1. **Una conversación por curso, módulo por módulo y en orden** (pedido 106). Cada lección se apoya en la anterior, comparte fuentes con sus vecinas y no adelanta temas. Mezclar dos cursos en una misma conversación llena antes el contexto y baja la calidad.
+2. **ML y DL es la línea principal de tu estudio:** es tu camino, por los puestos de NeuralWorks y por la investigación. Su lección 2 ya tiene su ficha con 16 fuentes.
+3. **AI Engineering avanza en paralelo, en otra conversación:** es la puerta de entrada del sitio.
+4. **Data Science espera:** sus lecciones piden como requisito el modelo lineal y el ML clásico, que se escriben en la línea de ML.
+5. **Se planifica de a un módulo:** son 294 lecciones, y a unas 3 por semana en cada línea, cada curso toma meses. Cuando una línea termina su módulo, se arma la fase siguiente.
+6. **Las fases 6 a 10 de antes se reemplazaron:** eran las estaciones 04, 05, 02, 01 y 13, con el formato de 7 paradas que ya no se usa. Sus temas viven ahora en los módulos 1, 2, 5 y 6 de AI Engineering.
 
 ### Decisiones que te tocan
 
@@ -61,7 +58,7 @@ Cada sesión es un día de trabajo con Claude. El plan supone unas 3 por semana 
 2. ✅ **¿Cuánto código escribe quien sigue el roadmap?** Decidido el 2026-11-04 (pedido 75): nada a mano. Se aprende construyendo, pero dirigiendo al LLM con lenguaje técnico, y se enseña con pseudocódigo o flowcharts en vez de código exacto. El detalle está en `docs/roadmap/README.md`.
 3. **¿Las copias de las fuentes del roadmap van a GitHub?** Academy es público y son textos de terceros, así que las dejé fuera de git y solo existen en la VM. Recomiendo seguir así y, si quieres respaldo, copiarlas en BrainFran, que es privado.
 4. **¿Entra el sexto punto de roadmapv4?** Experiencia resolviendo el problema de un tercero y networking real. Está en el índice, pero no te lo mostré en el chat.
-5. **¿Apruebas la propuesta de roadmap final?** Son 54 lecciones en 11 módulos, y reemplaza las fases 6 a 10 por olas de publicación. Su sección 13 trae 8 decisiones, incluidas la 3 y la 4 de esta lista, cada una con mi recomendación.
+5. ✅ **¿Apruebas la propuesta de roadmap final?** Aprobada y publicada la versión 3 (pedido 88), con ML y DL (pedidos 99 a 104) y Data Science (pedido 104).
 
 ### La carta Gantt con fechas (en GitHub se ve como gráfico)
 
@@ -80,11 +77,9 @@ gantt
     F5d Roadmap final de AI Engineering :done, f5d, 2026-11-04, 4d
     F5e Temario de ML y DL al 100 % :done, f5e, 2026-11-07, 1d
     F5f Temario de Data Science al 100 % :done, f5f, 2026-11-07, 1d
-    F6 Estación 04 · App de IA :f6, after f5d, 7d
-    F7 Estación 05 · RAG :f7, after f6, 7d
-    F8 Estación 02 · Git :f8, after f7, 4d
-    F9 Estación 01 · Base de software :f9, after f8, 7d
-    F10 Estación 13 · Evals :f10, after f9, 7d
+    F5g Dos líneas de trabajo :done, f5g, 2026-11-07, 1d
+    F6 Línea ML · módulo 1 :f6, 2026-11-09, 7d
+    F7 Línea AI · módulo 1 :f7, 2026-11-09, 7d
 ```
 
 ---
@@ -251,41 +246,32 @@ Mejorar el temario de Data Science con el mismo proceso que ML y DL. Todo está 
 - [x] Tu OK («publica»), sin pasar por el borrador · 2026-11-07 (pedido 104)
 - [x] Publicado en el sitio, con los 3 cambios de ML y DL, y en la nota de BrainFran · 2026-11-07 (pedido 104)
 
-### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
-- [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
-- [ ] 1 o 2 canvas interactivos con ManimGX, uno con salidas estructuradas
-- [ ] Videos de tu biblioteca, solo donde suman
-- [ ] Publicada en el sitio
+### Fase 5g · Dos líneas de trabajo · 1 de 1 ✅ · semana 1
+- [x] Los generadores del temario pasan a `temario/` (dentro de git); se crean los worktrees `~/projects/Academy-ml` (rama `curso-ml`) y `~/projects/Academy-ai` (rama `curso-ai`); las reglas quedan en `CLAUDE.md` y el plan se rehace · 2026-11-07 (pedido 106)
 
-### Fase 7 · Estación 05 «RAG y conocimiento» · 0 de 4 · semanas 2 y 3
-- [ ] Las 7 paradas (bloque 5)
-- [ ] 1 o 2 canvas interactivos con ManimGX: embeddings (texto → vector) y búsqueda
-- [ ] Videos de tu biblioteca, solo donde suman
-- [ ] Publicada en el sitio
+### Fase 6 · Línea ML · Módulo 1 «El oficio y el mapa» · 0 de 6 · semana 2
+En la conversación de ML, carpeta `~/projects/Academy-ml`. Las lecciones se escriben en orden, desde fuentes originales y con su cita.
+- [ ] El mapa del ML: problemas, tipos de aprendizaje y datos
+- [ ] ML engineer, data scientist y los demás: quién hace qué (su ficha con 16 fuentes está en `docs/roadmap/ml-dl/propuesta-ml-v2.md`)
+- [ ] Un proyecto de ML de punta a punta: del problema al modelo vivo
+- [ ] Las herramientas: Python, notebooks, scikit-learn, PyTorch, SQL y R
+- [ ] Repaso: datos, limpieza y exploración
+- [ ] Publicado: mezclado en `main` y en el sitio
 
-### Fase 8 · Estación 02 «Git y GitHub para dirigir al agente» · 0 de 3 · semana 3
-- [ ] Las 7 paradas, desde la guía de estudio de Git (ya escrita)
-- [ ] 1 canvas interactivo
-- [ ] Publicada en el sitio
-
-### Fase 9 · Estación 01 «Base de software habilitadora» · 0 de 4 · semana 4
-- [ ] Las 7 paradas (bloque 1)
-- [ ] 1 o 2 canvas interactivos con ManimGX
-- [ ] Videos de tu biblioteca, solo donde suman
-- [ ] Publicada en el sitio
-
-### Fase 10 · Estación 13 «Evals: saber si funciona» · 0 de 4 · semana 5
-- [ ] Las 7 paradas (bloque 13)
-- [ ] 1 o 2 canvas interactivos con ManimGX
-- [ ] Videos de tu biblioteca, solo donde suman
-- [ ] Publicada en el sitio
+### Fase 7 · Línea AI · Módulo 1 «Empezar a dirigir» · 0 de 5 · semana 2
+En la conversación de AI Engineering, carpeta `~/projects/Academy-ai`.
+- [ ] El oficio de AI engineer y sus dos caminos
+- [ ] Dirigir a una IA: delegar, describir, discernir y responder
+- [ ] Tu primer agente de código
+- [ ] Git y GitHub para dirigir al agente
+- [ ] Publicado: mezclado en `main` y en el sitio
 
 ### Más adelante (sin fecha)
-- [ ] Estaciones 06 a 08: agentes y harnesses (nivel 3), con tool use
+- [ ] Los módulos siguientes de ML y DL y de AI Engineering, una fase por módulo en cada línea
+- [ ] Las lecciones de Data Science, cuando la línea de ML tenga listos sus requisitos
 - [ ] Inglés (`/en/`), con «traducir al tocar»
 - [ ] Rediseño de la interfaz a tu gusto: la actual es provisional
 - [ ] Enlaces a las notas del grafo desde cada lección (necesita un cambio en BrainFran)
-- [ ] Lo que queda del bloque 3: modelos que razonan, cómo se entrena en 3 pasos y modelos abiertos vs. cerrados
 
 ---
 
@@ -398,6 +384,7 @@ Mejorar el temario de Data Science con el mismo proceso que ML y DL. Todo está 
 | 103 | 2026-11-07 | Las 5 decisiones de Data Science (gestionar datos sí y BI solo lo justo, dos caminos, curso general con proyecto de producto) y la oferta de data scientist de NeuralWorks, para cubrirla punto por punto, ajustando ML y DL si hace falta | `propuesta-ds-v1.md`: 55 lecciones (51 esenciales), 10 repasos y 3 requisitos en 2 caminos, con un proyecto por camino (A/B de producto y estudio causal). `mapa-neuralworks-ds.md`: cada punto de la oferta tiene su lección. ML y DL suma OpenCV, nombra YOLO y Detectron2, y pasa SQL avanzado y Spark a Data Science (113 lecciones). Validado sin publicar: typecheck y puentes sin errores. En BrainFran: la oferta, la Búsqueda 3 y 6 fuentes con su copia. Sin commit |
 | 104 | 2026-11-07 | «si me parece el tamaño», la causalidad «como sea lo más conveniente… que se pueda aprender de la mejor manera», «publica» | Diferencias en diferencias pasa al tronco común de Data Science, como en Berkeley Data 102. Publicado (`versiones/20261107-144806`): Data Science con 55 lecciones en dos caminos, y ML y DL con 113 (OpenCV; SQL avanzado y Spark como requisito). Las 5 páginas responden 200, y los 36 puentes están sin errores. La nota de BrainFran tiene los 3 temarios. Fase 5f terminada. Sin commit |
 | 105 | 2026-11-07 | «sube todo a github main y comitea» | Commit en `fase-5c-fondos` y en `main`, empujados a GitHub: los temarios de ML y DL y de Data Science, su generador de datos (`src/ruta/`), `docs/roadmap/ml-dl/` y `docs/roadmap/ds/`, y el tablero. Quedan fuera las copias de fuentes de terceros, las notas de investigación y `ai_studio_code.txt` |
+| 106 | 2026-11-07 | «dale armalo»: una conversación para ML y otra para AI Engineering, alternando por módulo, nunca mezclando cursos en una sesión | Generadores del temario en `temario/` (dentro de git, con `publicadas.py` por curso), worktrees `Academy-ml` (`curso-ml`) y `Academy-ai` (`curso-ai`), reglas en `CLAUDE.md` y fases 6 y 7 nuevas (módulo 1 de cada curso). Las fases 6 a 10 viejas se reemplazaron. Comprobado: el temario generado es idéntico al publicado. En `main`, empujado a GitHub |
 
 ---
 
