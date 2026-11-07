@@ -1,3 +1,5 @@
+> **Vigente:** `propuesta-roadmap-v3.md`, aprobada y publicada el 2026-11-07. La v2 (`propuesta-roadmap-final.md`) y la v1 quedan como historia.
+
 # Roadmap final de AI Engineering
 
 Fran está juntando roadmaps de otros ingenieros y otras fuentes. Cuando estén todas, se combinan con el temario actual para crear el roadmap final y mejorar el de Academy. La meta es llegar desde cero a ingeniero de IA experto (pedidos 70 a 80 de `AVANCE.md`).

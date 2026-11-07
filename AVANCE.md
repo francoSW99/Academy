@@ -13,10 +13,10 @@ Si te pierdes, abre este archivo o pregunta «¿cómo vamos?».
 
 ## Dónde estamos
 
-- **Avance:** `▓▓▓▓▓▓▓░░░` 59 de 82 tareas del plan (72 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas, de la 5c van 4 de 6 y de la 5d (roadmap final), 9 de 10.
+- **Avance:** `▓▓▓▓▓▓▓░░░` 60 de 82 tareas del plan (73 %). El MVP está al 100 %. Las fases 5 y 5b están publicadas, de la 5c van 4 de 6, y la 5d (roadmap final) está terminada.
 - **Hecho:** Fases 0 a 5b y casi toda la 4b. **Desde el 2026-11-04, el sitio público** (https://academy.woorky.app/es/) **tiene dos temas, claro y oscuro:** blanco o negro con auroras minimalistas en los colores del logo y pizarras de vidrio. También lleva el logo del sol en la barra de arriba, el ícono del sitio y esos colores en algunos textos, sin morado. El diseño de antes de Glassboards sigue en el worktree `UIv1` (`~/projects/UIv1`). **Para el roadmap final**, roadmapv2 a roadmapv6 ya están guardados en `docs/roadmap/`, y ya decidiste qué entra de roadmapv4: se construye dirigiendo al LLM, sin código a mano. **La versión 2 de la propuesta del roadmap final está lista** en `docs/roadmap/propuesta-roadmap-final.md`: tronco común, dos caminos (Productos o Modelos) y cierre de CEO y CTO, con 115 lecciones y tu sistema multi-agente como proyecto. **Desde el 2026-11-07, el sitio público muestra el temario v3:** AI Engineering con 126 lecciones, fundamentos y agentes para todos, y al final dos caminos (Productos e Investigación) con desvíos graduales a ML y DL; ML y Deep Learning es un curso propio de 57 lecciones. **El 2026-11-07, todo quedó en GitHub, en `main`** (commit 0079138), igual que el sitio publicado; el PR #13 figura como mezclado.
-- **Falta:** pasar el temario v3 a la nota de BrainFran y al documento de la propuesta (último paso de la 5d). Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Después, el resto del pulido (5c) y escribir las lecciones desde fuentes originales, reordenando las fases 6 a 10 según el temario nuevo.
-- **Lo próximo:** pasar el temario v3 a la nota de BrainFran y al documento de la propuesta, para cerrar la fase 5d.
+- **Falta:** reordenar las fases 6 a 10 según el temario v3 y escribir las lecciones desde fuentes originales. Sumar 2 videos a tu biblioteca (necesita tu sesión de NotebookLM). Terminar el pulido (5c).
+- **Lo próximo:** reordenar las fases 6 a 10 según el temario v3 y elegir la primera lección nueva para escribir.
 
 **Cómo ver el avance:** cada respuesta de Claude en el chat termina con este resumen y con la carta Gantt de abajo. El tablero completo siempre está en https://github.com/francoSW99/Academy/blob/main/AVANCE.md.
 
@@ -29,7 +29,7 @@ F4b   Curso en módulos + canvas           █████▓
 F5    Inicio + 3 especialidades           ███
 F5b   Pizarras de vidrio                      ██
 F5c   Pulido + logo + 2 fondos                  ▓▓
-F5d   Roadmap final de AI Engineering     ▓▓▓▓▓▓▓▓
+F5d   Roadmap final de AI Engineering     ████████
 F6    Lección 04 · App de IA                      ░░░░
 F7    Lección 05 · RAG                                ░░░░
 F8    Lección 02 · Git                                    ░░
@@ -75,7 +75,7 @@ gantt
     F5 Inicio y 3 especialidades · publicada :done, f5, 2026-11-02, 1d
     F5b Pizarras de vidrio · publicada :done, f5b, after f5, 2d
     F5c Pulido del sitio :active, f5c, after f5b, 2d
-    F5d Roadmap final de AI Engineering :active, f5d, 2026-11-04, 12d
+    F5d Roadmap final de AI Engineering :done, f5d, 2026-11-04, 4d
     F6 Estación 04 · App de IA :f6, after f5d, 7d
     F7 Estación 05 · RAG :f7, after f6, 7d
     F8 Estación 02 · Git :f8, after f7, 4d
@@ -213,7 +213,7 @@ Pedidos 55 a 58. Fran descartó las propuestas anteriores (PR #12, sin mezclar),
 - Con la estructura nueva (Fase 4b) se arreglan el 2, el 3 y el 5; el 4 ya se fue con los videos.
 - Detalles menores: la cabecera ocupa 2 filas en el celular, falta el selector «Blanca | Negra» que pide `DESIGN.md` y la portada dice «1 abierta(s)».
 
-### ▶ Fase 5d · Roadmap final de AI Engineering · 9 de 10 · semanas 1 y 2
+### Fase 5d · Roadmap final de AI Engineering · 10 de 10 ✅ · semanas 1 y 2
 Se juntan roadmaps de otros ingenieros y otras fuentes, y se combinan con el temario actual para llegar desde cero a ingeniero de IA experto. Ninguna fuente externa es la fuente de verdad. Todo está en `docs/roadmap/`.
 - [x] Guardar roadmapv2 · 2026-11-04 (pedido 71)
 - [x] Guardar roadmapv3, el PDF de BASWE · 2026-11-04 (pedido 72)
@@ -224,7 +224,7 @@ Se juntan roadmaps de otros ingenieros y otras fuentes, y se combinan con el tem
 - [x] Combinarlas con el temario actual en una propuesta de roadmap final: `docs/roadmap/propuesta-roadmap-final.md` · 2026-11-04 (pedido 78)
 - [x] Versión 2 de la propuesta, con tu feedback y una investigación en 7 frentes · 2026-11-05 (pedido 80)
 - [x] Tu OK al índice v3 (dos caminos dentro de AI Engineering) y publicado en el sitio · 2026-11-07 (pedido 88)
-- [ ] Aplicarla al temario de Academy: el sitio ya está (`src/ruta/temario.ts` y `src/ruta/conexiones.ts`); falta la nota de BrainFran y el documento de la propuesta
+- [x] Aplicarla al temario de Academy: el sitio (`src/ruta/temario.ts` y `src/ruta/conexiones.ts`), la nota de BrainFran y `docs/roadmap/propuesta-roadmap-v3.md` · 2026-11-07 (pedidos 88 y 90)
 
 ### Fase 6 · Estación 04 «Arquitectura de una app de IA» · 0 de 4 · semanas 1 y 2
 - [ ] Las 7 paradas, con el contenido de la nota (bloque 4)
@@ -357,6 +357,8 @@ Se juntan roadmaps de otros ingenieros y otras fuentes, y se combinan con el tem
 | 87 | 2026-11-07 | Tamaños (4B, 70B) y cuantización salen del módulo 4 y se profundizan solo en el Camino 2 (inferencia) | Hecho en el borrador |
 | 88 | 2026-11-07 | «dale publica a prod» | Publicado: el sitio muestra el temario v3 (AI Engineering con 126 lecciones y los dos caminos; ML y DL como curso propio, con 57). La lección 03 conserva su dirección y el avance guardado |
 | 89 | 2026-11-07 | «comiitea a main todo hasta ahora» | Commit 0079138 en `main` y en `fase-5c-fondos`, empujados a GitHub. Quedan fuera las copias de fuentes de terceros, las notas de investigación y `ai_studio_code.txt` |
+| 90 | 2026-11-07 | «si»: pasar el temario v3 a la nota y al documento de la propuesta | La nota de BrainFran tiene la sección «Temario aprobado: versión 3» con los dos índices; nuevo `docs/roadmap/propuesta-roadmap-v3.md` con el origen de cada lección; la v2 queda como historia. Fase 5d terminada |
+| 91 | 2026-11-07 | «commitea» | La propuesta v3, el cierre de la 5d y el tablero, en `main` |
 
 ---
 

@@ -1,3 +1,5 @@
+> **Reemplazada en la estructura por la versión 3** (`propuesta-roadmap-v3.md`), aprobada y publicada el 2026-11-07. Las fichas de este documento siguen valiendo para las lecciones que se mantienen.
+
 # Propuesta de roadmap final · AI Engineering · versión 2
 
 > **Estado: propuesta para decidir.** Nada de esto cambió el temario, el sitio ni el código.
