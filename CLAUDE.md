@@ -26,5 +26,5 @@ Las lecciones de ML y DL y de AI Engineering se escriben en conversaciones separ
 2. **Solo se tocan los archivos del curso:** sus lecciones (`src/ruta/contenido/`), su línea en `temario/publicadas.py`, sus fuentes y su memoria. Los archivos compartidos (`temario/estructura*.py`, `src/ruta/conexiones.ts`, los componentes) se cambian solo si la lección lo necesita, y se avisa.
 3. **Se publica solo desde `main`, en `~/projects/Academy`, una conversación a la vez.** Primero se mezcla la rama del curso en `main`, se corre `temario/gen_temario.py`, y después `npm run typecheck` y `npm run publicar`. Después de publicar, la otra rama trae `main` (`git merge main`).
 4. **El tablero (`AVANCE.md`) se ordena al mezclar.** Cada rama anota sus pedidos con su prefijo (ML-1, ML-2… y AI-1, AI-2…), y al pasar a `main` se juntan. Si `src/ruta/temario.ts` choca, se regenera.
-- Un worktree nuevo necesita sus dependencias: `ln -s ~/projects/Academy/node_modules node_modules`.
+- Un worktree nuevo necesita sus dependencias y los tipos de Next: `ln -s ~/projects/Academy/node_modules node_modules` y `cp ~/projects/Academy/next-env.d.ts .` (git ya ignora los dos).
 - El cómo de los temarios está en `temario/README.md`.
